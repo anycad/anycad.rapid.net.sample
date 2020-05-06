@@ -1,8 +1,15 @@
 # AnyCAD Rapid Graphics .NET Sample
-------------------------------------------------------------
 
-Mail: anycad at anycad.cn
 
+## Prerequisites
+
+- Microsoft Visual C++ Runtime Library:
+
+Download link:  https://aka.ms/vs/16/release/vc_redist.x64.exe
+
+- .Net Framework 4.0+
+
+## About
 http://www.anycad.cn
-QQ: 1686240227
+
 ![Weixin](weixin.jpg)

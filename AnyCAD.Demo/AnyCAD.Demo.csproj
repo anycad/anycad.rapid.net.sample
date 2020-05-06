@@ -1,17 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\AnyCAD.Rapid.Net.2020.0.1\build\net\AnyCAD.Rapid.Net.props" Condition="Exists('..\packages\AnyCAD.Rapid.Net.2020.0.1\build\net\AnyCAD.Rapid.Net.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{90889C39-C41D-4F59-9499-08AFCE551312}</ProjectGuid>
+    <ProjectGuid>{D4442964-8B30-4A77-AC8E-A46B1797E8DA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>foxfly.stp.reader</RootNamespace>
-    <AssemblyName>foxfly.stp.reader</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>AnyCAD.Demo</RootNamespace>
+    <AssemblyName>AnyCAD.Demo</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,9 +38,14 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FoxflyNet">
-      <HintPath>..\bin\$(Configuration)\FoxflyNet.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="AnyCAD.Foundation.Net, Version=20.2122.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AnyCAD.Rapid.Net.2020.0.1\lib\AnyCAD.Foundation.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="AnyCAD.WinForms.Net, Version=20.2122.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AnyCAD.Rapid.Net.2020.0.1\lib\AnyCAD.WinForms.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -52,16 +60,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Graphics\Graphics_Geometry_Dynamic.cs" />
+    <Compile Include="TestCase.cs" />
+    <Compile Include="Geometry\Analysis_Curve.cs" />
+    <Compile Include="Geometry\Geometry_Boolean.cs" />
+    <Compile Include="Geometry\Geometry_Transform.cs" />
+    <Compile Include="Graphics\Graphics_CAE.cs" />
+    <Compile Include="Graphics\Graphics_Shader_BlackHole.cs" />
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -71,7 +86,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -85,5 +102,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\weixin.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\AnyCAD.Rapid.Net.2020.0.1\build\net\AnyCAD.Rapid.Net.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AnyCAD.Rapid.Net.2020.0.1\build\net\AnyCAD.Rapid.Net.props'))" />
+  </Target>
 </Project>

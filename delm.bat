@@ -1,0 +1,1 @@
+del .\AnyCAD.Demo\obj  /s/q

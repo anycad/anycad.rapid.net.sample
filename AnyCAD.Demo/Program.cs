@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace foxfly.stp.reader
+namespace AnyCAD.Demo
 {
     static class Program
     {
@@ -14,10 +15,10 @@ namespace foxfly.stp.reader
         [STAThread]
         static void Main()
         {
+            AnyCAD.Foundation.GlobalInstance.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            foxfly.ModelingEngine.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }

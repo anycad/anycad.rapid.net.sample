@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace foxfly.stp.reader.Properties
+namespace AnyCAD.Demo.Properties
 {
 
 

@@ -101,7 +101,21 @@ namespace AnyCAD.Demo
 
             mRenderView.ZoomAll();
         }
+        private void igesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "IGES (*.igs;*.iges)|*.igs;*.iges";
+            if (dialog.ShowDialog() != DialogResult.OK)
+                return;
 
+            var shape = IgesIO.Open(dialog.FileName);
+            if (shape == null)
+                return;
+
+            mRenderView.ShowShape(shape, new Vector3(0.8f));
+
+            mRenderView.ZoomAll();
+        }
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             var node = this.treeView1.SelectedNode;
@@ -119,5 +133,7 @@ namespace AnyCAD.Demo
         {
             mRenderView.SwitchProjectionType();
         }
+
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\AnyCAD.Rapid.Net.2020.0.1\build\net\AnyCAD.Rapid.Net.props" Condition="Exists('..\packages\AnyCAD.Rapid.Net.2020.0.1\build\net\AnyCAD.Rapid.Net.props')" />
+  <Import Project="..\packages\AnyCAD.Rapid.Net.2020.0.2\build\net\AnyCAD.Rapid.Net.props" Condition="Exists('..\packages\AnyCAD.Rapid.Net.2020.0.2\build\net\AnyCAD.Rapid.Net.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -8,7 +8,7 @@
     <ProjectGuid>{D4442964-8B30-4A77-AC8E-A46B1797E8DA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>AnyCAD.Demo</RootNamespace>
-    <AssemblyName>AnyCAD.Demo</AssemblyName>
+    <AssemblyName>AnyCAD.WinForms.Demo</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -39,10 +39,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AnyCAD.Foundation.Net, Version=20.2122.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AnyCAD.Rapid.Net.2020.0.1\lib\AnyCAD.Foundation.Net.dll</HintPath>
+      <HintPath>..\packages\AnyCAD.Rapid.Net.2020.0.2\lib\AnyCAD.Foundation.Net.dll</HintPath>
     </Reference>
     <Reference Include="AnyCAD.WinForms.Net, Version=20.2122.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AnyCAD.Rapid.Net.2020.0.1\lib\AnyCAD.WinForms.Net.dll</HintPath>
+      <HintPath>..\packages\AnyCAD.Rapid.Net.2020.0.2\lib\AnyCAD.WinForms.Net.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -110,6 +110,6 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\AnyCAD.Rapid.Net.2020.0.1\build\net\AnyCAD.Rapid.Net.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AnyCAD.Rapid.Net.2020.0.1\build\net\AnyCAD.Rapid.Net.props'))" />
+    <Error Condition="!Exists('..\packages\AnyCAD.Rapid.Net.2020.0.2\build\net\AnyCAD.Rapid.Net.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AnyCAD.Rapid.Net.2020.0.2\build\net\AnyCAD.Rapid.Net.props'))" />
   </Target>
 </Project>

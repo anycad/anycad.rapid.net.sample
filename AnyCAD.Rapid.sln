@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29926.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyCAD.Demo", "AnyCAD.Demo\AnyCAD.Demo.csproj", "{D4442964-8B30-4A77-AC8E-A46B1797E8DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyCAD.WinForms", "AnyCAD.WinForms\AnyCAD.WinForms.csproj", "{D4442964-8B30-4A77-AC8E-A46B1797E8DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

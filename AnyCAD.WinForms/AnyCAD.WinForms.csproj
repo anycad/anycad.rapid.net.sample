@@ -79,6 +79,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Geometry\Geometry_OffsetWire.cs" />
+    <Compile Include="Geometry\Geometry_Sweep.cs" />
     <Compile Include="Graphics\Graphics_Geometry_Dynamic.cs" />
     <Compile Include="TestCase.cs" />
     <Compile Include="Geometry\Analysis_Curve.cs" />

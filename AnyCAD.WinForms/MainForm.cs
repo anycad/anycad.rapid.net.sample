@@ -47,9 +47,10 @@ namespace AnyCAD.Demo
                 return;
 
             StepReader doc = new StepReader();
-            doc.Open(dialog.FileName, (XdeNode xn, TopoShape shape, Vector3 color) =>
+            doc.Open(dialog.FileName, (XdeNode xn, TopoShape shape, GTrsf trf, Vector3 color) =>
             {
-                mRenderView.ShowShape(shape, color);
+                
+                mRenderView.ShowShape(shape.Transformed(trf), color);
             });
 
             mRenderView.ZoomAll();
@@ -63,9 +64,9 @@ namespace AnyCAD.Demo
                 return;
 
             StepReader doc = new StepReader();
-            doc.Open(dialog.FileName, (XdeNode xn, TopoShape shape, Vector3 color) =>
+            doc.Open(dialog.FileName, (XdeNode xn, TopoShape shape, GTrsf trf, Vector3 color) =>
             {
-                mRenderView.ShowShape(shape, color);
+                mRenderView.ShowShape(shape.Transformed(trf), color);
             });
 
             mRenderView.ZoomAll();

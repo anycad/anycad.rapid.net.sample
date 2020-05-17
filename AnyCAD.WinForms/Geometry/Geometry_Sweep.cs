@@ -12,12 +12,33 @@ namespace AnyCAD.Demo.Geometry
     {
         public override void Run(RenderControl render)
         {
-            var sektch = SketchBuilder.MakeEllipse(GP.Origin(), 10, 5, GP.DX(), GP.DZ());
+            var sketch = SketchBuilder.MakeEllipse(GP.Origin(), 5, 3, GP.DX(), GP.DZ());
 
-            var path = SketchBuilder.MakeArcOfCircle(GP.Origin(), new GPnt(50, 0, 50), new GPnt(20, 0, 40));
+            // 1. Sweep
+            {
+                GPntList points = new GPntList { GP.Origin(), new GPnt(20, 10, 30), new GPnt(50, 50, 50), };
+                var path = SketchBuilder.MakeBSpline(points);
+                render.ShowShape(path, Vector3.Green);
 
-            var feature = FeatureTool.Sweep(sektch, path, EnumGeomFillTrihedron.ConstantNormal);
-            render.ShowShape(feature, Vector3.Blue);
+                var feature = FeatureTool.Sweep(sketch, path, EnumGeomFillTrihedron.ConstantNormal);
+                render.ShowShape(feature, Vector3.Blue);
+            }
+
+            // 2. Revol
+            {
+                var feature = FeatureTool.Revol(sketch, new GAx1(new GPnt(-20, 0, 0), GP.DY()), 90);
+
+                render.ShowShape(feature, Vector3.Green);
+            }
+            // 3. Loft
+            {
+                var baseWire = SketchBuilder.MakeRectangle(new GAx2(new GPnt(50, -50, 0), GP.DZ()), 20, 20, 5, false);
+                var topWire = SketchBuilder.MakeCircle(new GPnt(60, -40, 40), 5, GP.DZ());
+
+                var loft = FeatureTool.Loft(baseWire, topWire, true);
+                render.ShowShape(loft, Vector3.Red);
+            }
+            
         }
     }
 }

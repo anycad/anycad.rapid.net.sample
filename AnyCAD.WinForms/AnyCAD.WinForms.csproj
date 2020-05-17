@@ -80,10 +80,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Geometry\Geometry_OffsetWire.cs" />
+    <Compile Include="Geometry\Geometry_Sketch.cs" />
     <Compile Include="Geometry\Geometry_Sweep.cs" />
     <Compile Include="Graphics\Graphics_Geometry_Dynamic.cs" />
     <Compile Include="TestCase.cs" />
-    <Compile Include="Geometry\Analysis_Curve.cs" />
+    <Compile Include="Analysis\Analysis_Curve.cs" />
     <Compile Include="Geometry\Geometry_Boolean.cs" />
     <Compile Include="Geometry\Geometry_Transform.cs" />
     <Compile Include="Graphics\Graphics_CAE.cs" />

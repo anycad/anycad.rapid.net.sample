@@ -25,19 +25,29 @@ namespace AnyCAD.Demo
         {
             mRenderView.SetSelectCallback((PickedItem item) =>
             {
-                if (item.IsNull())
+                this.listBox1.Items.Clear();
+
+                var ssn = ShapeSceneNode.Cast(item.GetNode());
+                if (ssn != null)
                 {
-                    this.toolStripStatusLabel1.Text = "www.anycad.cn";
+                    this.listBox1.Items.Add(ssn.GetType().Name);
                 }
                 else
                 {
-                    this.toolStripStatusLabel1.Text = String.Format("<{0}>: {1}", item.GetNodeId(), item.GetPosition().ToString());
+                    this.listBox1.Items.Add(item.GetNode().GetType().Name);
                 }
+                this.listBox1.Items.Add(String.Format("NodeId: {0}", item.GetNodeId()));
+                this.listBox1.Items.Add(item.GetPoint().GetPosition().ToString());
+                this.listBox1.Items.Add(item.GetShapeType().ToString());
+                this.listBox1.Items.Add(String.Format("SubIndex: {0}", item.GetShapeIndex()));
             });
 
             mRenderView.SetAnimationCallback((float timer)=>{
                 TestCase.RunAnimation(mRenderView, timer);
             });
+
+
+
         }
         private void sTEPToolStripMenuItem_Click(object sender, EventArgs e)
         {

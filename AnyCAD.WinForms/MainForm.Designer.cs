@@ -32,6 +32,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stepToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.igesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.openSTEPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sTEPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iGESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,12 +46,17 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.igesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -85,9 +91,16 @@
             // stepToolStripMenuItem1
             // 
             this.stepToolStripMenuItem1.Name = "stepToolStripMenuItem1";
-            this.stepToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.stepToolStripMenuItem1.Size = new System.Drawing.Size(102, 22);
             this.stepToolStripMenuItem1.Text = "Step";
             this.stepToolStripMenuItem1.Click += new System.EventHandler(this.stepToolStripMenuItem1_Click);
+            // 
+            // igesToolStripMenuItem1
+            // 
+            this.igesToolStripMenuItem1.Name = "igesToolStripMenuItem1";
+            this.igesToolStripMenuItem1.Size = new System.Drawing.Size(102, 22);
+            this.igesToolStripMenuItem1.Text = "Iges";
+            this.igesToolStripMenuItem1.Click += new System.EventHandler(this.igesToolStripMenuItem1_Click);
             // 
             // openSTEPToolStripMenuItem
             // 
@@ -127,33 +140,33 @@
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clearToolStripMenuItem.Text = "Clear";
             this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(131, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
             // 
             // captureToolStripMenuItem
             // 
             this.captureToolStripMenuItem.Name = "captureToolStripMenuItem";
-            this.captureToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.captureToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.captureToolStripMenuItem.Text = "Capture";
             this.captureToolStripMenuItem.Click += new System.EventHandler(this.captureToolStripMenuItem_Click);
             // 
             // zoomAllToolStripMenuItem
             // 
             this.zoomAllToolStripMenuItem.Name = "zoomAllToolStripMenuItem";
-            this.zoomAllToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.zoomAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.zoomAllToolStripMenuItem.Text = "Zoom All";
             this.zoomAllToolStripMenuItem.Click += new System.EventHandler(this.zoomAllToolStripMenuItem_Click);
             // 
             // projectionToolStripMenuItem
             // 
             this.projectionToolStripMenuItem.Name = "projectionToolStripMenuItem";
-            this.projectionToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.projectionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.projectionToolStripMenuItem.Text = "Projection";
             this.projectionToolStripMenuItem.Click += new System.EventHandler(this.projectionToolStripMenuItem_Click);
             // 
@@ -166,7 +179,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.statusStrip1);
-            this.splitContainer1.Panel1.Controls.Add(this.treeView1);
+            this.splitContainer1.Panel1.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(862, 480);
             this.splitContainer1.SplitterDistance = 250;
             this.splitContainer1.TabIndex = 1;
@@ -183,25 +196,47 @@
             // 
             // toolStripStatusLabel1
             // 
+            this.toolStripStatusLabel1.IsLink = true;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(95, 17);
-            this.toolStripStatusLabel1.Text = "www.anycad.cn";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(136, 17);
+            this.toolStripStatusLabel1.Text = "http://www.anycad.net";
             // 
             // treeView1
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(250, 480);
+            this.treeView1.Size = new System.Drawing.Size(250, 315);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
-            // igesToolStripMenuItem1
+            // splitContainer2
             // 
-            this.igesToolStripMenuItem1.Name = "igesToolStripMenuItem1";
-            this.igesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.igesToolStripMenuItem1.Text = "Iges";
-            this.igesToolStripMenuItem1.Click += new System.EventHandler(this.igesToolStripMenuItem1_Click);
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.treeView1);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.listBox1);
+            this.splitContainer2.Size = new System.Drawing.Size(250, 480);
+            this.splitContainer2.SplitterDistance = 315;
+            this.splitContainer2.TabIndex = 1;
+            // 
+            // listBox1
+            // 
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 12;
+            this.listBox1.Location = new System.Drawing.Point(0, 0);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(250, 161);
+            this.listBox1.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -222,6 +257,10 @@
             this.splitContainer1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,6 +286,8 @@
         private System.Windows.Forms.ToolStripMenuItem zoomAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem projectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem igesToolStripMenuItem1;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 

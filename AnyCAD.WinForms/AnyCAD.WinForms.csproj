@@ -80,7 +80,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Geometry\Geometry_OffsetWire.cs" />
+    <Compile Include="Geometry\Geometry_Pipe.cs" />
     <Compile Include="Geometry\Geometry_Sketch.cs" />
+    <Compile Include="Geometry\Geometry_Spring.cs" />
     <Compile Include="Geometry\Geometry_Sweep.cs" />
     <Compile Include="Graphics\Graphics_Geometry_Dynamic.cs" />
     <Compile Include="Graphics\Graphics_SIM_Motion.cs" />

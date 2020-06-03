@@ -1,1 +1,1 @@
-del .\AnyCAD.Demo\obj  /s/q
+del .\AnyCAD.WinForms\obj  /s/q

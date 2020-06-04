@@ -22,13 +22,17 @@ namespace AnyCAD.Demo.Geometry
             points.Add(new GPnt(startPt.Added(new GVec(-100, 300, 150)).XYZ()));
             points.Add(new GPnt(startPt.Added(new GVec(100, 300, 150)).XYZ()));
             TopoShape path = SketchBuilder.MakePolygon(points, false);
-            GAx2 coord = new GAx2(new GPnt(startPt.Added(new GVec(-25, -25, 0)).XYZ()), GP.DZ());
-            TopoShape section = SketchBuilder.MakeRectangle(coord, 50, 50, 10, false);
 
-            render.ShowShape(section, Vector3.Red);
+            var sectionList = new TopoShapeList();
+
+            GAx2 coord1 = new GAx2(new GPnt(startPt.Added(new GVec(- 25, - 25, 0)).XYZ()), GP.DY());
+            TopoShape section1 = SketchBuilder.MakeRectangle(coord1, 50, 50, 10, false);
+
+            render.ShowShape(section1, Vector3.Red);
             render.ShowShape(path, Vector3.Green);
-            
-            TopoShape pipe = FeatureTool.Evolved(section, path, EnumGeomJoinType.Arc, true);
+
+            TopoShape pipe = FeatureTool.SweepByFrenet(section1, path, EnumSweepTransitionMode.RoundCorner,
+                false);
 
             render.ShowShape(pipe, Vector3.Blue);
         }

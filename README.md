@@ -3,11 +3,13 @@
 
 ## Prerequisites
 
-- Microsoft Visual C++ Runtime Library:
+### Microsoft Visual C++ Runtime Library:
 
-Download link:  https://aka.ms/vs/16/release/vc_redist.x64.exe
+Download link: 
+- [vc_redist.x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
+- [vc_redist.x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)
 
-- .Net Framework 4.0+
+### .Net Framework 4.0+
 
 ## About
 http://www.anycad.cn

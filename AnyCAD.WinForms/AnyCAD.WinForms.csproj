@@ -56,12 +56,17 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AnyCAD.Foundation.Net, Version=20.2122.0.0, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
       <HintPath>..\packages\AnyCAD.Rapid.Net.2020.6.10\lib\net40\AnyCAD.Foundation.Net.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="AnyCAD.WinForms.Net, Version=20.2122.0.0, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
       <HintPath>..\packages\AnyCAD.Rapid.Net.2020.6.10\lib\net40\AnyCAD.WinForms.Net.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -79,6 +84,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analysis\Analysis_Shape.cs" />
     <Compile Include="Geometry\Geometry_OffsetWire.cs" />
     <Compile Include="Geometry\Geometry_Pipe.cs" />
     <Compile Include="Geometry\Geometry_Sketch.cs" />

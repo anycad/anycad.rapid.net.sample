@@ -56,6 +56,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AnyCAD.Foundation.Net, Version=20.2122.0.0, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
       <HintPath>..\packages\AnyCAD.Rapid.Net.2020.6.20\lib\net40\AnyCAD.Foundation.Net.dll</HintPath>
@@ -79,6 +82,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analysis\Analysis_Shape.cs" />
     <Compile Include="Geometry\Geometry_OffsetWire.cs" />
     <Compile Include="Geometry\Geometry_Pipe.cs" />
     <Compile Include="Geometry\Geometry_Sketch.cs" />

@@ -145,6 +145,18 @@ namespace AnyCAD.Demo
             mRenderView.SwitchProjectionType();
         }
 
+        private void importToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = SceneIO.FormatFilters();
+            if (dlg.ShowDialog() != DialogResult.OK)
+                return;
 
+             var node = SceneIO.Load(dlg.FileName, mRenderView.GetMaterialManager());
+            if (node == null)
+                return;
+            mRenderView.ShowSceneNode(node);
+            mRenderView.ZoomAll();
+        }
     }
 }

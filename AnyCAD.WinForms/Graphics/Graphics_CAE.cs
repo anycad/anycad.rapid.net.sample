@@ -78,8 +78,8 @@ namespace AnyCAD.Demo.Graphics
                 material = materialManager.Create("cae-material", mt);
             }
 
-            var position = BufferAttribute.Create(EnumAttributeLocation.Position, EnumAttributeComponents.Three, mPositions);
-            var color = BufferAttribute.Create(EnumAttributeLocation.Color, EnumAttributeComponents.Three, mColors);
+            var position = BufferAttribute.Create(EnumAttributeSemantic.Position, EnumAttributeComponents.Three, mPositions);
+            var color = BufferAttribute.Create(EnumAttributeSemantic.Color, EnumAttributeComponents.Three, mColors);
 
             BufferGeometry geometry = new BufferGeometry();
             geometry.AddAttribute(position);
@@ -87,7 +87,7 @@ namespace AnyCAD.Demo.Graphics
 
             NormalCalculator.ComputeVertexNormals(geometry);
 
-            var node = new PrimitiveSceneNode(geometry, EnumPrimitiveType.TRIANGLES);
+            var node = new GeometrySceneNode(geometry, EnumPrimitiveType.TRIANGLES);
             node.SetMaterial(material);
             node.SetPickable(false);
 
@@ -107,7 +107,7 @@ namespace AnyCAD.Demo.Graphics
 
             var plane = GeometryBuilder.CreatePlane(25, 200);
 
-            var rainbow = new PrimitiveSceneNode(plane, EnumPrimitiveType.TRIANGLES);
+            var rainbow = new GeometrySceneNode(plane, EnumPrimitiveType.TRIANGLES);
             rainbow.SetMaterial(rainbowMaterial);
 
             var overlay = new SceneNode2D();

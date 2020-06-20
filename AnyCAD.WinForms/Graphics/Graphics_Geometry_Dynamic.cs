@@ -43,7 +43,7 @@ namespace AnyCAD.Demo.Graphics
                 material.SetUniform("diffuse", Uniform.Create(color));
             }
 
-            var node = new PrimitiveSceneNode(mGeometry, EnumPrimitiveType.TRIANGLES);
+            var node = new GeometrySceneNode(mGeometry, EnumPrimitiveType.TRIANGLES);
             node.SetMaterial(material);
             node.SetPickable(false);
             node.SetCulling(false);

@@ -1,4 +1,5 @@
 ﻿using AnyCAD.Forms;
+using AnyCAD.Foundation;
 using System;
 using System.IO;
 using System.Reflection;
@@ -55,7 +56,9 @@ namespace AnyCAD.Demo
     {
         public override void Run(RenderControl render)
         {
-            
+           var geometry =  FontManager.Instance().CreateMesh("AnyCAD!");
+            var node = new GeometrySceneNode(geometry, EnumPrimitiveType.TRIANGLES);
+            render.ShowSceneNode(node);
         }
     }
 

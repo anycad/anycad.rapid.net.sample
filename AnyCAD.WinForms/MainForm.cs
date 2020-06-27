@@ -27,7 +27,7 @@ namespace AnyCAD.Demo
             {
                 this.listBox1.Items.Clear();
 
-                var ssn = ShapeSceneNode.Cast(item.GetNode());
+                var ssn = BrepSceneNode.Cast(item.GetNode());
                 if (ssn != null)
                 {
                     this.listBox1.Items.Add(ssn.GetType().Name);

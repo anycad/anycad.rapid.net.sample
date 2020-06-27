@@ -57,7 +57,7 @@ namespace AnyCAD.Demo
         public override void Run(RenderControl render)
         {
            var geometry =  FontManager.Instance().CreateMesh("AnyCAD!");
-            var node = new GeometrySceneNode(geometry, EnumPrimitiveType.TRIANGLES);
+            var node = new PrimitiveSceneNode(geometry, EnumPrimitiveType.TRIANGLES);
             render.ShowSceneNode(node);
         }
     }

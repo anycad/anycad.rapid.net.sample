@@ -77,7 +77,7 @@ namespace AnyCAD.Demo.Graphics
 			}
 
 			var plane = GeometryBuilder.CreatePlane(2, 2);
-			var node = new GeometrySceneNode(plane, EnumPrimitiveType.TRIANGLES);
+			var node = new PrimitiveSceneNode(plane, EnumPrimitiveType.TRIANGLES);
 			node.SetMaterial(mMaterial);
 			node.SetPickable(false);
 

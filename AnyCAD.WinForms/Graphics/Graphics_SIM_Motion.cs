@@ -28,25 +28,20 @@ namespace AnyCAD.Demo.Graphics
             GrayMaterial.SetUniform("diffuse", Uniform.Create(new Vector3(0.8f)));
 
             var tube = ShapeBuilder.MakeTube(new GPnt(0,0,5), GP.DZ(), 10, 2, 50);
-            TubeNode = BrepSceneNode.Create(tube);
-            TubeNode.SetMaterial(RedMaterial);
+            TubeNode = BrepSceneNode.Create(tube, RedMaterial, null);
 
             var cylinder = ShapeBuilder.MakeCylinder(GP.XOY(), 10, 60, 0);
-            CylinderNode = BrepSceneNode.Create(cylinder);
-            CylinderNode.SetMaterial(GrayMaterial);
+            CylinderNode = BrepSceneNode.Create(cylinder, GrayMaterial, null);
 
             render.ShowSceneNode(TubeNode);
             render.ShowSceneNode(CylinderNode);
 
 
             var cone = ShapeBuilder.MakeCone(GP.YOZ(), 5, 0, 10, 0);
-            var bs = new BufferShape(cone);
+            var bs = new BufferShape(cone, RedMaterial, null, 0.1);
             bs.Build();
             ConeNode1 = new BrepSceneNode(bs);
-            ConeNode1.SetMaterial(RedMaterial);
-            
             ConeNode2 = new BrepSceneNode(bs);
-            ConeNode2.SetMaterial(GrayMaterial);
 
             render.ShowSceneNode(ConeNode1);
             render.ShowSceneNode(ConeNode2);
@@ -56,15 +51,15 @@ namespace AnyCAD.Demo.Graphics
         {
             if (nCurrentHeight > 50)
             {
-                CylinderNode.SetMaterial(GrayMaterial);
-                TubeNode.SetMaterial(RedMaterial);
+                //CylinderNode.SetMaterial(GrayMaterial);
+                //TubeNode.SetMaterial(RedMaterial);
                 nDirection = -1;
             }
             else if (nCurrentHeight < 0)
             {
                 nDirection = 1;
-                CylinderNode.SetMaterial(RedMaterial);
-                TubeNode.SetMaterial(GrayMaterial);
+                //CylinderNode.SetMaterial(RedMaterial);
+                //TubeNode.SetMaterial(GrayMaterial);
             }
 
             {

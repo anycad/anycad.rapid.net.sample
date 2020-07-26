@@ -86,6 +86,7 @@
     <Compile Include="Geometry\Geometry_Extrema.cs" />
     <Compile Include="Geometry\Geometry_OffsetWire.cs" />
     <Compile Include="Geometry\Geometry_Pipe.cs" />
+    <Compile Include="Geometry\Geometry_RectPipeStep.cs" />
     <Compile Include="Geometry\Geometry_Sketch.cs" />
     <Compile Include="Geometry\Geometry_Spring.cs" />
     <Compile Include="Geometry\Geometry_Sweep.cs" />

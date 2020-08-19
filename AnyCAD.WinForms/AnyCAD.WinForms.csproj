@@ -93,6 +93,7 @@
     <Compile Include="Geometry\Geometry_Sweep.cs" />
     <Compile Include="Graphics\Graphics_Geometry_Dynamic.cs" />
     <Compile Include="Graphics\Graphics_Matlab.cs" />
+    <Compile Include="Graphics\Graphics_PointCloud.cs" />
     <Compile Include="Graphics\Graphics_SIM_Motion.cs" />
     <Compile Include="TestCase.cs" />
     <Compile Include="Analysis\Analysis_Curve.cs" />

@@ -61,10 +61,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AnyCAD.Foundation.Net, Version=20.2122.0.0, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
-      <HintPath>..\packages\AnyCAD.Rapid.Net.2020.7.26\lib\net40\AnyCAD.Foundation.Net.dll</HintPath>
+      <HintPath>..\packages\AnyCAD.Rapid.Net.2020.8.25\lib\net40\AnyCAD.Foundation.Net.dll</HintPath>
     </Reference>
     <Reference Include="AnyCAD.WinForms.Net, Version=20.2122.0.0, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
-      <HintPath>..\packages\AnyCAD.Rapid.Net.2020.7.26\lib\net40\AnyCAD.WinForms.Net.dll</HintPath>
+      <HintPath>..\packages\AnyCAD.Rapid.Net.2020.8.25\lib\net40\AnyCAD.WinForms.Net.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -84,6 +84,7 @@
   <ItemGroup>
     <Compile Include="Analysis\Analysis_Shape.cs" />
     <Compile Include="Geometry\Geometry_Extrema.cs" />
+    <Compile Include="Geometry\Geometry_Hole.cs" />
     <Compile Include="Geometry\Geometry_OffsetWire.cs" />
     <Compile Include="Geometry\Geometry_Pipe.cs" />
     <Compile Include="Geometry\Geometry_RectPipeStep.cs" />
@@ -138,11 +139,11 @@
     <None Include="Resources\weixin.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\AnyCAD.Rapid.Net.2020.7.26\build\net\AnyCAD.Rapid.Net.targets" Condition="Exists('..\packages\AnyCAD.Rapid.Net.2020.7.26\build\net\AnyCAD.Rapid.Net.targets')" />
+  <Import Project="..\packages\AnyCAD.Rapid.Net.2020.8.25\build\net\AnyCAD.Rapid.Net.targets" Condition="Exists('..\packages\AnyCAD.Rapid.Net.2020.8.25\build\net\AnyCAD.Rapid.Net.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\AnyCAD.Rapid.Net.2020.7.26\build\net\AnyCAD.Rapid.Net.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AnyCAD.Rapid.Net.2020.7.26\build\net\AnyCAD.Rapid.Net.targets'))" />
+    <Error Condition="!Exists('..\packages\AnyCAD.Rapid.Net.2020.8.25\build\net\AnyCAD.Rapid.Net.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AnyCAD.Rapid.Net.2020.8.25\build\net\AnyCAD.Rapid.Net.targets'))" />
   </Target>
 </Project>

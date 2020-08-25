@@ -87,8 +87,8 @@ namespace AnyCAD.Demo.Graphics
 
             NormalCalculator.ComputeVertexNormals(geometry);
 
-            var node = new PrimitiveSceneNode(geometry, EnumPrimitiveType.TRIANGLES);
-            node.SetMaterial(material);
+            var node = new PrimitiveSceneNode(geometry, EnumPrimitiveType.TRIANGLES, material);
+
             node.SetPickable(false);
 
 
@@ -107,8 +107,7 @@ namespace AnyCAD.Demo.Graphics
 
             var plane = GeometryBuilder.CreatePlane(25, 200);
 
-            var rainbow = new PrimitiveSceneNode(plane, EnumPrimitiveType.TRIANGLES);
-            rainbow.SetMaterial(rainbowMaterial);
+            var rainbow = new PrimitiveSceneNode(plane, rainbowMaterial);
 
             var overlay = new SceneNode2D();
             overlay.SetNode(rainbow);

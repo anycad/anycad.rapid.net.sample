@@ -27,8 +27,12 @@ Download link:
 
 ![CAE](showcase/cae.png)
 
+## 3 Documentation
 
-## 3 About
+- [API](http://www.opencascade.net/api/classes.html)
+- [Guide](http://www.opencascade.net/guide/)
+
+## 4 About
 http://www.anycad.cn
 
 ![Weixin](weixin.jpg)

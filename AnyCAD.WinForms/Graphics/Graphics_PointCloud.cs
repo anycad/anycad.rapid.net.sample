@@ -64,8 +64,8 @@ namespace AnyCAD.Demo.Graphics
             geometry.AddAttribute(position);
             geometry.AddAttribute(color);
 
-            var node = new PrimitiveSceneNode(geometry, EnumPrimitiveType.POINTS);
-            node.SetMaterial(material);
+            var node = new PrimitiveSceneNode(geometry, EnumPrimitiveType.POINTS, material);
+
             node.SetPickable(false);
 
             render.ShowSceneNode(node);

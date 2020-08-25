@@ -85,6 +85,7 @@
     <Compile Include="Analysis\Analysis_Shape.cs" />
     <Compile Include="Geometry\Geometry_Extrema.cs" />
     <Compile Include="Geometry\Geometry_Hole.cs" />
+    <Compile Include="Geometry\Geometry_Loft.cs" />
     <Compile Include="Geometry\Geometry_OffsetWire.cs" />
     <Compile Include="Geometry\Geometry_Pipe.cs" />
     <Compile Include="Geometry\Geometry_RectPipeStep.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Geometry\Geometry_Sweep.cs" />
     <Compile Include="Graphics\Graphics_Geometry_Dynamic.cs" />
     <Compile Include="Graphics\Graphics_Matlab.cs" />
+    <Compile Include="Graphics\Graphics_PointCloud.cs" />
     <Compile Include="Graphics\Graphics_SIM_Motion.cs" />
     <Compile Include="TestCase.cs" />
     <Compile Include="Analysis\Analysis_Curve.cs" />

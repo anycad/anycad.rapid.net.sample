@@ -5,7 +5,7 @@ using System;
 
 namespace AnyCAD.Demo.Graphics
 {
-    class Graphics_SIM_Motion : TestCase
+    class Graphics_Motion : TestCase
     {
         BrepSceneNode TubeNode;
         BrepSceneNode CylinderNode;

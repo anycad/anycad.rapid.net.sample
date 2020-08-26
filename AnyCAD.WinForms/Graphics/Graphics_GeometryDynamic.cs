@@ -5,7 +5,7 @@ using System;
 
 namespace AnyCAD.Demo.Graphics
 {
-    class Graphics_Geometry_Dynamic : TestCase
+    class Graphics_GeometryDynamic : TestCase
     {
         uint worldWidth = 128;
         uint worldDepth = 128;

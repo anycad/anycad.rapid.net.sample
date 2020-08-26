@@ -1,6 +1,7 @@
 ﻿using AnyCAD.Forms;
 using AnyCAD.Foundation;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
@@ -19,19 +20,32 @@ namespace AnyCAD.Demo
         public static void Register(TreeView tv)
         {
             var types = Assembly.GetExecutingAssembly().GetTypes();
+            Dictionary<String, TreeNode> dictNodes = new Dictionary<string, TreeNode>();
             foreach (var type in types)
             {
                 if (type.IsSubclassOf(typeof(TestCase)))
                 {
-                    var node = tv.Nodes.Add(type.Name);
+                    var items = type.Name.Split('_');
+                    TreeNode groupNode = null;
+                    if(!dictNodes.TryGetValue(items[0], out groupNode))
+                    {
+                        groupNode = tv.Nodes.Add(items[0]);
+                        dictNodes[items[0]] = groupNode;
+                    }
+
+                    var node = groupNode.Nodes.Add(items[1]);
                     node.Tag = type;
                 }
 
             }
+
+            tv.ExpandAll();
         }
 
         public static void CreateTest(object tag, RenderControl render)
         {
+            if (tag == null)
+                return; 
             var type = tag as Type;
             mCurrentDemo = Activator.CreateInstance(type) as TestCase;
             render.ClearAll();

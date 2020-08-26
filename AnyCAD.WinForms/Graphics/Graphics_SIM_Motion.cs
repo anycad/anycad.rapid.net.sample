@@ -80,7 +80,7 @@ namespace AnyCAD.Demo.Graphics
             CylinderNode.SetTransform(Matrix4.makeTranslation(0, 0, nCurrentHeight));
             CylinderNode.RequstUpdate();
 
-            render.GetContext().UpdateWorldBox();
+            render.GetContext().UpdateWorld();
             render.RequestDraw();
         }
     }

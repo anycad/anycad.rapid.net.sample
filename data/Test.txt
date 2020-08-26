@@ -1,0 +1,79 @@
+ //刀具
+            TopoShape sphere = GlobalInstance.BrepTools.MakeSphere(new Vector3(0, 0, 5), 5);//创建球(球心，半径)
+            TopoShape Cutter_handle = GlobalInstance.BrepTools.MakeCylinder(new Vector3(0, 0, 5), new Vector3(0, 0, 1), 5, 40, 360);//创建刀柄
+            TopoShape Cutter = GlobalInstance.BrepTools.BooleanAdd(sphere, Cutter_handle);
+            TopoShape Cutter1 = GlobalInstance.BrepTools.Translate(Cutter, new Vector3(0, -1, 6));//刀具球心变成到（0，-1，11）
+
+           // SceneNode node = renderView.ShowGeometry(Cutter1, ++shapeId);
+
+            //工件（长宽高：60，40，10）
+            TopoShape box = GlobalInstance.BrepTools.MakeBox(new Vector3(-30, -20, 0), new Vector3(0, 0, 1), new Vector3(60, 40, 10));
+            TopoShape box1 = GlobalInstance.BrepTools.Translate(box, new Vector3(30, 20, 0));
+
+          //  SceneNode node1 = renderView.ShowGeometry(box1, ++shapeId);
+
+            //加工
+           
+            for (int a = 1; a <= 15; a = a + 1)//进给（移刀）次数
+            {
+                TopoShape cutter2 = GlobalInstance.BrepTools.Translate(Cutter1, new Vector3(2 * (a-1), 0, 0));//刀具移动
+                //显示剩余的工件
+                TopoShape WorkpieceAfterCutting = GlobalInstance.BrepTools.BooleanCut(box1, cutter2);//每一步切削后的工件
+                //显示每一次的切屑
+                TopoShape UctChip = GlobalInstance.BrepTools.BooleanCommon(cutter2, box1);
+                TopoShape UctChip_Show = GlobalInstance.BrepTools.Translate(UctChip, new Vector3( 0,-6*a, 0));//偏移切屑并展示
+
+                
+                UctChip_group.Add(UctChip_Show);
+
+                box1 = WorkpieceAfterCutting;//每一刀后的工件变成下次一开始的新工件
+
+            }
+
+
+            //计算第一刀的每一层的进入、退出角（进退角）
+            //计算第10层的进退角
+            double A_p = 4;
+            double Number_disk = 5;
+            double delta_z = A_p / Number_disk;
+            int i = 5;
+            
+            //创建离散平面
+            Vector3 position = new Vector3(0, 0, 6 + i * delta_z);
+                TopoShape plane = GlobalInstance.BrepTools.MakePlaneFace(position, Vector3.UNIT_Z, -100, 100, -100, 100);
+
+                //创建公共平面
+                TopoShape common_plane = GlobalInstance.BrepTools.BooleanCommon(plane, UctChip_group.GetTopoShape(0));
+                //提取公共平面的边界线
+                TopoExplor edge = new TopoExplor();
+               TopoShapeGroup common_edge = edge.ExplorEdges(common_plane);
+     
+                TopoShape Com_edge = GlobalInstance.BrepTools.MakeSpline(common_edge);//makesplinehe makewire啥区别
+            TopoShape L1 = common_edge.GetTopoShape(0);
+            TopoShape L2 = common_edge.GetTopoShape(1);
+            TopoShape L3 = common_edge.GetTopoShape(2);
+            Vector3 b1 = new Vector3();
+            Vector3 b2 = new Vector3();
+            Vector3 b3 = new Vector3();
+            Vector3 b4 = new Vector3();
+            Vector3 e1 = new Vector3();
+            Vector3 e2 = new Vector3();
+            Vector3 e3 = new Vector3();
+            Vector3 e4 = new Vector3();
+            GeomCurve C1 = new GeomCurve();
+            C1.Initialize(L1);
+            GeomCurve C2 = new GeomCurve();
+            C2.Initialize(L2);
+            GeomCurve C3 = new GeomCurve();
+            C3.Initialize(L3);
+            GeomCurve C4 = new GeomCurve();
+            C4.Initialize(Com_edge);
+            b1 = C1.GetStartPoint();
+            e1 = C1.GetEndPoint();
+            b2 = C2.GetStartPoint();
+            e2 = C2.GetEndPoint();
+            b3 = C3.GetStartPoint();
+            e3 = C3.GetEndPoint();
+            b4 = C4.GetStartPoint();
+            e4 = C4.GetEndPoint();
+            MessageBox.Show(string.Format("线1b:{0}  线1e：{1} 线2b:{2} 线2e:{3} 线3b:{4} 线3e:{5} 线4b:{6} 线4e:{7}  ", b1, e1, b2, e2, b3, e3, b4, e4));

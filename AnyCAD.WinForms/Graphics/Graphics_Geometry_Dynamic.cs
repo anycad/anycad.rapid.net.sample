@@ -9,11 +9,11 @@ namespace AnyCAD.Demo.Graphics
     {
         uint worldWidth = 128;
         uint worldDepth = 128;
-        BufferGeometry mGeometry;
+        PrimitiveShape mGeometry;
         public override void Run(RenderControl render)
         {
             mGeometry = GeometryBuilder.CreatePlane(20000, 20000, worldWidth - 1, worldDepth - 1);
-            var position = mGeometry.GetAttribute(0);
+            var position = mGeometry.GetGeometry().GetAttribute(0);
             position.SetDataUsage(EnumBufferDataUsage.DYNAMIC_DRAW);
             var mPosition = new Float32Array(position.GetData());
             for (uint i = 0; i < position.GetCount()/3; i++)
@@ -43,8 +43,8 @@ namespace AnyCAD.Demo.Graphics
                 material.SetUniform("diffuse", Uniform.Create(color));
             }
 
-            var node = new PrimitiveSceneNode(mGeometry, EnumPrimitiveType.TRIANGLES);
-            node.SetMaterial(material);
+            var node = new PrimitiveSceneNode(mGeometry, material);
+        
             node.SetPickable(false);
             node.SetCulling(false);
 
@@ -53,7 +53,8 @@ namespace AnyCAD.Demo.Graphics
 
         public override void Animation(RenderControl render, float time)
         {
-            var position = mGeometry.GetAttribute(0);
+            var geometry = mGeometry.GetGeometry();
+            var position = geometry.GetAttribute(0);
             position.SetDataUsage(EnumBufferDataUsage.DYNAMIC_DRAW);
             var mPosition = new Float32Array(position.GetData());
             var count = mPosition.GetItemCount() / 3;
@@ -64,7 +65,7 @@ namespace AnyCAD.Demo.Graphics
                 mPosition.SetValue(i*3+2, z);
             }
             position.RequestUpdate();
-            mGeometry.RequestUpdate();
+            geometry.RequestUpdate();
 
             render.RequestDraw();
         }

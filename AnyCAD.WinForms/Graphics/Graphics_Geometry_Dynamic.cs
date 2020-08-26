@@ -23,25 +23,20 @@ namespace AnyCAD.Demo.Graphics
                 mPosition.SetValue(i * 3 + 2, z);
             }
 
-            var materialMgr = render.GetMaterialManager();
-            var material = materialMgr.FindInstance("basic-water");
-            if(material == null)
-            {
-                var mt = materialMgr.CreateTemplateByName("basic-water", "basic");
-                material = materialMgr.Create("basic-water", mt);
+            var materialMgr =render.GetMaterialManager();
+            var material = BasicMaterial.Create(materialMgr, "basic-water");
+            var img = FileImage.Create(GetResourcePath("textures/water.png"));
+            var texture = new ImageTexture2D();
+            texture.SetSource(img);
+            var desc = texture.GetDesc();
+            desc.SetWrapS(EnumTextureWrappingType.REPEAT);
+            desc.SetWrapT(EnumTextureWrappingType.REPEAT);
+            texture.SetRepeat(new Vector2(5, 5));
 
-                var img = FileImage.Create(GetResourcePath("textures/water.png"));
-                var texture = new ImageTexture2D();
-                texture.SetSource(img);
-                var desc = texture.GetDesc();
-                desc.SetWrapS(EnumTextureWrappingType.REPEAT);
-                desc.SetWrapT(EnumTextureWrappingType.REPEAT);
-                texture.SetRepeat(new Vector2(5, 5));
-
-                material.AddTexture("map", texture);
-                var color = Vector3.ColorFromHex(0x0044ff);
-                material.SetUniform("diffuse", Uniform.Create(color));
-            }
+            material.AddTexture("map", texture);
+            var color = Vector3.ColorFromHex(0x0044ff);
+            material.SetUniform("diffuse", Uniform.Create(color));
+     
 
             var node = new PrimitiveSceneNode(mGeometry, material);
         

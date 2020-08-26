@@ -68,15 +68,10 @@ namespace AnyCAD.Demo.Graphics
                 return;
 
             var materialManager = render.GetMaterialManager();
-            var material = materialManager.FindInstance("cae-material");
-            if(material == null)
-            {
-                var mt = materialManager.CreateTemplateByName("cae-template", "lambert");
-                mt.SetVertexColors(true);
-                mt.SetFaceSide(EnumFaceSide.DoubleSide);
+            var material = MeshPhongMaterial.Create(materialManager, "cae-material");
+            material.GetTemplate().SetVertexColors(true);
+            material.SetFaceSide(EnumFaceSide.DoubleSide);
 
-                material = materialManager.Create("cae-material", mt);
-            }
 
             var position = BufferAttribute.Create(EnumAttributeSemantic.Position, EnumAttributeComponents.Three, mPositions);
             var color = BufferAttribute.Create(EnumAttributeSemantic.Color, EnumAttributeComponents.Three, mColors);
@@ -92,18 +87,14 @@ namespace AnyCAD.Demo.Graphics
             node.SetPickable(false);
 
 
-            var rainbowMaterial = materialManager.FindInstance("cae-rainbow");
-            if(rainbowMaterial == null)
-            {
-                var mt = materialManager.CreateTemplateByName("cae-rainbow", "basic");
-                rainbowMaterial = materialManager.Create("cae-rainbow", mt);
-                rainbowMaterial.SetUniform("diffuse", Uniform.Create(new Vector3(1)));
+            var rainbowMaterial = BasicMaterial.Create(materialManager, "cae-rainbow");
+            rainbowMaterial.SetUniform("diffuse", Uniform.Create(new Vector3(1)));
 
-                var texture = new ImageTexture2D();
-                texture.SetSource(mImage);
+            var texture = new ImageTexture2D();
+            texture.SetSource(mImage);
 
-                rainbowMaterial.AddTexture("map", texture);
-            }
+            rainbowMaterial.AddTexture("map", texture);
+
 
             var plane = GeometryBuilder.CreatePlane(25, 200);
 

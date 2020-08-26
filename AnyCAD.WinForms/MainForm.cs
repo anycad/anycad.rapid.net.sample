@@ -158,5 +158,58 @@ namespace AnyCAD.Demo
             mRenderView.ShowSceneNode(node);
             mRenderView.ZoomAll();
         }
+
+        private void dToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mRenderView.SetStandardView(EnumStandardView.DefaultView);
+        }
+
+        private void frontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mRenderView.SetStandardView(EnumStandardView.Front);
+        }
+
+        private void backToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mRenderView.SetStandardView(EnumStandardView.Back);
+        }
+
+        private void topToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mRenderView.SetStandardView(EnumStandardView.Top);
+        }
+
+        private void bottomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mRenderView.SetStandardView(EnumStandardView.Bottom);
+        }
+
+        private void rightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mRenderView.SetStandardView(EnumStandardView.Right);
+        }
+
+        private void leftToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mRenderView.SetStandardView(EnumStandardView.Left);
+        }
+
+        private void backgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog dlg = new ColorDialog();
+            if (dlg.ShowDialog() != DialogResult.OK)
+                return;
+
+            mRenderView.SetBackgroundColor(dlg.Color.R / 255.0f, dlg.Color.G / 255.0f, dlg.Color.B / 255.0f, 1);
+        }
+
+        private void mouseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var ctx = mRenderView.GetContext();
+            // change orbit  to Left and middle buttons
+            ctx.SetOrbitButton(EnumMouseButton.LeftMiddle);
+            // change pan operation to right button
+            ctx.SetPanButton(EnumMouseButton.Right);
+        }
     }
 }

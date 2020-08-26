@@ -21,10 +21,10 @@ namespace AnyCAD.Demo.Graphics
         public override void Run(RenderControl render)
         {
             var mmgr = render.GetMaterialManager();
-            RedMaterial = mmgr.Create("tube.color", "phong");
+            RedMaterial = MeshPhongMaterial.Create(mmgr, "tube.color");
             RedMaterial.SetUniform("diffuse", Uniform.Create(new Vector3(1, 0, 1)));
 
-            GrayMaterial = mmgr.Create("cylinder.color", "phong");
+            GrayMaterial = MeshPhongMaterial.Create(mmgr, "cylinder.color");
             GrayMaterial.SetUniform("diffuse", Uniform.Create(new Vector3(0.8f)));
 
             var tube = ShapeBuilder.MakeTube(new GPnt(0,0,5), GP.DZ(), 10, 2, 50);

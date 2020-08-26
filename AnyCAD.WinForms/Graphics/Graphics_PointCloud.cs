@@ -49,13 +49,8 @@ namespace AnyCAD.Demo.Graphics
                 return;
 
             var materialManager = render.GetMaterialManager();
-            var material = materialManager.FindInstance("point-material");
-            if (material == null)
-            {
-                var mt = materialManager.CreateTemplateByName("point-material-template", "basic");
-                mt.SetVertexColors(true);
-                material = materialManager.Create("point-material", mt);
-            }
+            var material = BasicMaterial.Create(materialManager, "point-material");
+            material.GetTemplate().SetVertexColors(true);
 
             var position = BufferAttribute.Create(EnumAttributeSemantic.Position, EnumAttributeComponents.Three, mPositions);
             var color = BufferAttribute.Create(EnumAttributeSemantic.Color, EnumAttributeComponents.Three, mColors);

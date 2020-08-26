@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Analysis\Analysis_Shape.cs" />
+    <Compile Include="Analysis\Analysis_Surface.cs" />
     <Compile Include="Geometry\Geometry_Extrema.cs" />
     <Compile Include="Geometry\Geometry_Loft.cs" />
     <Compile Include="Geometry\Geometry_OffsetWire.cs" />

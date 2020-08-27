@@ -52,14 +52,9 @@ namespace AnyCAD.Demo.Graphics
             var material = BasicMaterial.Create(materialManager, "point-material");
             material.GetTemplate().SetVertexColors(true);
 
-            var position = BufferAttribute.Create(EnumAttributeSemantic.Position, EnumAttributeComponents.Three, mPositions);
-            var color = BufferAttribute.Create(EnumAttributeSemantic.Color, EnumAttributeComponents.Three, mColors);
+           var geometry =  GeometryBuilder.CreatePoints(new Float32Array(mPositions), new Float32Array(mColors));
 
-            BufferGeometry geometry = new BufferGeometry();
-            geometry.AddAttribute(position);
-            geometry.AddAttribute(color);
-
-            var node = new PrimitiveSceneNode(geometry, EnumPrimitiveType.POINTS, material);
+            var node = new PrimitiveSceneNode(geometry,  material);
 
             node.SetPickable(false);
 

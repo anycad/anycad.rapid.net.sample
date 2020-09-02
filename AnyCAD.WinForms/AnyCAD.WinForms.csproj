@@ -100,6 +100,7 @@
     <Compile Include="Graphics\Graphics_Matlab.cs" />
     <Compile Include="Graphics\Graphics_PointCloud.cs" />
     <Compile Include="Graphics\Graphics_Motion.cs" />
+    <Compile Include="Graphics\Graphics_Points.cs" />
     <Compile Include="TestCase.cs" />
     <Compile Include="Analysis\Analysis_Curve.cs" />
     <Compile Include="Geometry\Geometry_Boolean.cs" />

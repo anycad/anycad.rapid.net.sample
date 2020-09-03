@@ -73,6 +73,11 @@ namespace AnyCAD.Demo.Analysis
 
             var node = matplot.Build(render.GetMaterialManager(), ColorMapKeyword.Create(EnumSystemColorMap.Cooltowarm));
             node.SetPickable(false);
+
+            var pw = new PaletteWidget();
+            pw.Update(render.GetMaterialManager(), matplot.GetColorTable());
+
+            render.ShowSceneNode(pw);
             render.ShowSceneNode(node);
         }
     }

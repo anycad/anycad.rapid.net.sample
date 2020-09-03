@@ -13,7 +13,7 @@ namespace AnyCAD.Demo.Graphics
 
             var xRange = new PlotRange(0, 3.14f * 2, 0.1f);
             var yRange = new PlotRange(0, 3.14f * 2, 0.1f);
-            matplot.AddSurface(xRange, yRange, (u, v) =>
+            matplot.AddSurface(xRange, yRange, (idxU, idxV, u, v) =>
             {
                 double x = u;
                 double y = v;
@@ -22,7 +22,7 @@ namespace AnyCAD.Demo.Graphics
                 return new GPnt(x, y, z);
             });
 
-            var node = matplot.Build(render.GetMaterialManager());
+            var node = matplot.Build(render.GetMaterialManager(), null);
             node.SetPickable(false);
             render.ShowSceneNode(node);
         }

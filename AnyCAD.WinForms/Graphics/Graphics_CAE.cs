@@ -17,7 +17,7 @@ namespace AnyCAD.Demo.Graphics
         static Float32Buffer mPositions;
         static Float32Buffer mPressures;
         static Float32Buffer mColors;
-        static MemoryImage mImage;
+        static ColorLookupTable mColorTable;
         bool ReadData()
         {
             if (mPositions != null)
@@ -37,10 +37,9 @@ namespace AnyCAD.Demo.Graphics
                     mPositions.Append(val);
                 }
 
-                var colorMap = ColorMapKeyword.Create(EnumSystemColorMap.Rainbow);
-                var colorTable = new ColorLookupTable();
-                colorTable.SetMaxValue(2000);
-                colorTable.Update(colorMap);
+                mColorTable = new ColorLookupTable();
+                mColorTable.SetMaxValue(2000);
+                mColorTable.SetColorMap(ColorMapKeyword.Create(EnumSystemColorMap.Rainbow));
                 mColors = new Float32Buffer((uint)postionsToken.Count);
 
                 var pressureToken = obj["data"]["attributes"]["pressure"]["array"].Children().ToList();
@@ -52,12 +51,10 @@ namespace AnyCAD.Demo.Graphics
                     float val = token.ToObject<float>();
                     mPressures.Append(val);
 
-                    var clr = colorTable.GetColor(val);
+                    var clr = mColorTable.GetColor(val);
                     mColors.SetValue(idx * 3, clr);
                     ++idx;
                 }
-
-                mImage = colorTable.CreateImage(colorMap);
             }
 
             return true;
@@ -86,26 +83,10 @@ namespace AnyCAD.Demo.Graphics
 
             node.SetPickable(false);
 
+            PaletteWidget pw = new PaletteWidget();
+            pw.Update(materialManager, mColorTable);
 
-            var rainbowMaterial = BasicMaterial.Create(materialManager, "cae-rainbow");
-            rainbowMaterial.SetUniform("diffuse", Uniform.Create(new Vector3(1)));
-
-            var texture = new ImageTexture2D();
-            texture.SetSource(mImage);
-
-            rainbowMaterial.AddTexture("map", texture);
-
-
-            var plane = GeometryBuilder.CreatePlane(25, 200);
-
-            var rainbow = new PrimitiveSceneNode(plane, rainbowMaterial);
-
-            var overlay = new SceneNode2D();
-            overlay.SetNode(rainbow);
-            overlay.SetOrigin(new ViewPosition(new Vector2(0.02f, 0.98f), EnumPositionType.Relative));
-            overlay.SetSize(new ViewPosition(new Vector2(50, -200), EnumPositionType.Absolute));
-
-            render.ShowSceneNode(overlay);
+            render.ShowSceneNode(pw);
 
             render.ShowSceneNode(node);
         }

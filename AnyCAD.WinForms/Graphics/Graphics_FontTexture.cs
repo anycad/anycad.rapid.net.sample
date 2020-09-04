@@ -12,7 +12,7 @@ namespace AnyCAD.Demo.Graphics
     {
         public override void Run(RenderControl render)
         {
-            var fontMaterial = FontMaterial.Create(render.GetMaterialManager(), "font-texture-1");
+            var fontMaterial = FontMaterial.Create("font-texture-1");
             fontMaterial.SetFaceSide(EnumFaceSide.DoubleSide);
             fontMaterial.SetColor(new Vector3(1, 1, 0));
             fontMaterial.SetBackground(new Vector3(0, 0, 1));

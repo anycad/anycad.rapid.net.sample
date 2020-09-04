@@ -71,11 +71,11 @@ namespace AnyCAD.Demo.Analysis
                 return new GPnt(x, y, z);
             });
 
-            var node = matplot.Build(render.GetMaterialManager(), ColorMapKeyword.Create(EnumSystemColorMap.Cooltowarm));
+            var node = matplot.Build(ColorMapKeyword.Create(EnumSystemColorMap.Cooltowarm));
             node.SetPickable(false);
 
             var pw = new PaletteWidget();
-            pw.Update(render.GetMaterialManager(), matplot.GetColorTable());
+            pw.Update(matplot.GetColorTable());
 
             render.ShowSceneNode(pw);
             render.ShowSceneNode(node);

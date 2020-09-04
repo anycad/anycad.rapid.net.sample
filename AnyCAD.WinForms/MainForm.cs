@@ -152,7 +152,7 @@ namespace AnyCAD.Demo
             if (dlg.ShowDialog() != DialogResult.OK)
                 return;
 
-             var node = SceneIO.Load(dlg.FileName, mRenderView.GetMaterialManager());
+             var node = SceneIO.Load(dlg.FileName);
             if (node == null)
                 return;
             mRenderView.ShowSceneNode(node);
@@ -210,6 +210,13 @@ namespace AnyCAD.Demo
             ctx.SetOrbitButton(EnumMouseButton.LeftMiddle);
             // change pan operation to right button
             ctx.SetPanButton(EnumMouseButton.Right);
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewForm3D dlg = new NewForm3D();
+            dlg.ShowDialog();
+            dlg = null;
         }
     }
 }

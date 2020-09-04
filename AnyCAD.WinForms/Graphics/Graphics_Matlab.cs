@@ -22,7 +22,7 @@ namespace AnyCAD.Demo.Graphics
                 return new GPnt(x, y, z);
             });
 
-            var node = matplot.Build(render.GetMaterialManager(), null);
+            var node = matplot.Build(ColorMapKeyword.Create(EnumSystemColorMap.Rainbow));
             node.SetPickable(false);
             render.ShowSceneNode(node);
         }

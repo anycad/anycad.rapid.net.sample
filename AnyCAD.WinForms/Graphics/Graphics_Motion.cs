@@ -20,11 +20,10 @@ namespace AnyCAD.Demo.Graphics
         BrepSceneNode ConeNode2;
         public override void Run(RenderControl render)
         {
-            var mmgr = render.GetMaterialManager();
-            RedMaterial = MeshPhongMaterial.Create(mmgr, "tube.color");
+            RedMaterial = MeshPhongMaterial.Create("tube.color");
             RedMaterial.SetUniform("diffuse", Uniform.Create(new Vector3(1, 0, 1)));
 
-            GrayMaterial = MeshPhongMaterial.Create(mmgr, "cylinder.color");
+            GrayMaterial = MeshPhongMaterial.Create("cylinder.color");
             GrayMaterial.SetUniform("diffuse", Uniform.Create(new Vector3(0.8f)));
 
             var tube = ShapeBuilder.MakeTube(new GPnt(0,0,5), GP.DZ(), 10, 2, 50);

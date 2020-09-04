@@ -23,8 +23,7 @@ namespace AnyCAD.Demo.Graphics
                 mPosition.SetValue(i * 3 + 2, z);
             }
 
-            var materialMgr =render.GetMaterialManager();
-            var material = BasicMaterial.Create(materialMgr, "basic-water");
+            var material = BasicMaterial.Create("basic-water");
             var img = FileImage.Create(GetResourcePath("textures/water.png"));
             var texture = new ImageTexture2D();
             texture.SetSource(img);

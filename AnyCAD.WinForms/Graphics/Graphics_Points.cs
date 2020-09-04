@@ -34,7 +34,7 @@ namespace AnyCAD.Demo.Graphics
             var primitive = GeometryBuilder.CreatePoints(new Float32Array(buffer), new Float32Array(colors));
 
             // prepare point material
-            var material = PointsMaterial.Create(render.GetMaterialManager(), "points-material");
+            var material = PointsMaterial.Create("points-material");
             material.SetSizeAttenuation(false);
             material.SetPointSize(15.0f);
             material.SetColorMap(ImageTexture2D.Create(GetResourcePath("textures/snowflake7_alpha.png")));

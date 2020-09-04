@@ -68,12 +68,11 @@ namespace AnyCAD.Demo.Graphics
         {
 			CreateShader();
 
-			var materialMgr = render.GetMaterialManager();
-			mMaterial = materialMgr.FindInstance("blackHole_instance");
+			mMaterial = MaterialManager.Instance().FindInstance("blackHole_instance");
 			if(mMaterial == null)
 			{
-				var template = materialMgr.CreateTemplateByName("blackHole_shader_template", shaderName);
-				mMaterial = materialMgr.Create("blackHole_instance", template);
+				var template = MaterialManager.Instance().CreateTemplateByName("blackHole_shader_template", shaderName);
+				mMaterial = MaterialManager.Instance().Create("blackHole_instance", template);
 			}
 
 			var plane = GeometryBuilder.CreatePlane(2, 2);

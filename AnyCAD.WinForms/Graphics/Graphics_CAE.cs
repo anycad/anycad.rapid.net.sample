@@ -64,8 +64,7 @@ namespace AnyCAD.Demo.Graphics
             if (!ReadData())
                 return;
 
-            var materialManager = render.GetMaterialManager();
-            var material = MeshPhongMaterial.Create(materialManager, "cae-material");
+            var material = MeshPhongMaterial.Create("cae-material");
             material.GetTemplate().SetVertexColors(true);
             material.SetFaceSide(EnumFaceSide.DoubleSide);
 
@@ -84,7 +83,7 @@ namespace AnyCAD.Demo.Graphics
             node.SetPickable(false);
 
             PaletteWidget pw = new PaletteWidget();
-            pw.Update(materialManager, mColorTable);
+            pw.Update(mColorTable);
 
             render.ShowSceneNode(pw);
 

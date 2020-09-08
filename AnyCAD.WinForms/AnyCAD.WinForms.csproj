@@ -84,6 +84,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analysis\Analysis_Distance.cs" />
     <Compile Include="Analysis\Analysis_Points.cs" />
     <Compile Include="Analysis\Analysis_Shape.cs" />
     <Compile Include="Analysis\Analysis_Surface.cs" />

@@ -102,6 +102,7 @@
     <Compile Include="Graphics\Graphics_PointCloud.cs" />
     <Compile Include="Graphics\Graphics_Motion.cs" />
     <Compile Include="Graphics\Graphics_Points.cs" />
+    <Compile Include="Graphics\Graphics_Texture.cs" />
     <Compile Include="NewForm3D.cs">
       <SubType>Form</SubType>
     </Compile>

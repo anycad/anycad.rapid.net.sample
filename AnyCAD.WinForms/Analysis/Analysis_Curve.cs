@@ -1,6 +1,6 @@
 ﻿using AnyCAD.Forms;
 using AnyCAD.Foundation;
-
+using System.Linq;
 
 namespace AnyCAD.Demo.Geometry
 {
@@ -9,19 +9,31 @@ namespace AnyCAD.Demo.Geometry
         public override void Run(RenderControl renderer)
         {
             var ellipse = SketchBuilder.MakeEllipse(GP.Origin(), 10, 5, GP.DX(), GP.DZ());
-            renderer.ShowShape(ellipse, new Vector3(0.8f));
+            renderer.ShowShape(ellipse, Vector3.Blue);
 
-            var red = new Vector3(0.0f, 1.0f, 0.0f);
             ParametricCurve pc = new ParametricCurve(ellipse);
-            for (double param = pc.FirstParameter(), endParam = pc.LastParameter(); param < endParam; param += 0.2)
+ 
+            var paramsList = pc.SplitByUniformLength(1, 0.01);
+            var buffer = new Float32Buffer((uint)paramsList.Count * 3);
+            for(int ii=0; ii< paramsList.Count; ++ii)
             {
-                var value = pc.D1(param);
+                var value = pc.D1(paramsList[ii]);
                 var pos = value.GetPoint();
                 var dir = value.GetVectors()[0];
 
                 var dirShape = SketchBuilder.MakeLine(pos, new GPnt(pos.XYZ().Added(dir.XYZ())));
-                renderer.ShowShape(dirShape, red);
+                renderer.ShowShape(dirShape, Vector3.Red);
+
+                buffer.SetValue((uint)ii * 3, Vector3.From(pos));
             }
+
+            var primitive =  GeometryBuilder.CreatePoints(new Float32Array(buffer), null);
+            var node = new PrimitiveSceneNode(primitive);
+            var material = PointsMaterial.Create("pts");
+            material.SetColor(Vector3.Green);
+            material.SetPointSize(5.0f);
+            node.SetMaterial(material);
+            renderer.ShowSceneNode(node);
         }
     }
 }

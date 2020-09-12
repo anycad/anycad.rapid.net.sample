@@ -13,23 +13,44 @@ namespace AnyCAD.Demo.Geometry
             if (shape == null)
                 return;
 
-            var edge = shape.FindChild(EnumTopoShapeType.Topo_EDGE, 436);
-            var face = shape.FindChild(EnumTopoShapeType.Topo_FACE, 148);
 
-            var curve = new ParametricCurve(edge);
-            curve.GetEndPoint();
+            var face = shape.FindChild(EnumTopoShapeType.Topo_FACE, 148);
             var surface = new ParametricSurface(face);
 
-            var extrema = new ExtremaCurveSurface();
-            extrema.SetSurface(face);
-            if(extrema.Perform(curve))
+            var wireExp = new WireExplor(face);
+            var wires = wireExp.GetInnerWires();
+            foreach (var wire in wires)
             {
-                int nCount = extrema.GetPointCount();
-                MessageBox.Show(nCount.ToString());
+                // Show wire
+                renderer.ShowShape(wire, Vector3.Red);
+
+                var curve = new ParametricCurve(wire);
+                var paramList = curve.SplitByUniformLength(1, 0.01);
+
+                foreach (var p in paramList)
+                {
+                    var pt = curve.Value(p);
+                    var pointSur = new ExtremaPointSurface();
+                    if (pointSur.Initialize(surface, pt, GP.Resolution(), GP.Resolution()))
+                    {
+                        var uv = pointSur.GetParameter(0);
+                        var normal = surface.GetNormal(uv.X(), uv.Y());
+                        // show normal
+                        var dirShape = SketchBuilder.MakeLine(pt, new GPnt(pt.XYZ().Added(normal.XYZ())));
+                        renderer.ShowShape(dirShape, Vector3.Green);
+                    }
+
+                }
+
             }
 
-            renderer.ShowShape(edge, Vector3.Blue);
-            renderer.ShowShape(face, Vector3.LightGray);
+            // Show face
+            var faceMaterial = MeshStandardMaterial.Create("pbr.face");
+            faceMaterial.SetColor(Vector3.LightGray);
+            faceMaterial.SetFaceSide(EnumFaceSide.DoubleSide);
+            var faceNode = BrepSceneNode.Create(face, faceMaterial, null);
+            faceNode.SetDisplayFilter(EnumShapeFilter.Face);
+            renderer.ShowSceneNode(faceNode);
         }
     }
 }

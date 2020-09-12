@@ -16,7 +16,6 @@ namespace AnyCAD.Demo
             mRenderView = new RenderControl();
             this.splitContainer1.Panel2.Controls.Add(mRenderView);
             mRenderView.Dock = DockStyle.Fill;
-            mRenderView.TabIndex = 1;
 
             TestCase.Register(this.treeView1);
         }

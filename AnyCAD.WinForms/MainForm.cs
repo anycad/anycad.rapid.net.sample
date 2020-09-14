@@ -55,7 +55,7 @@ namespace AnyCAD.Demo
             if (dialog.ShowDialog() != DialogResult.OK)
                 return;
 
-            StepReader doc = new StepReader();
+            CADReader doc = new CADReader();
             doc.Open(dialog.FileName, (XdeNode xn, TopoShape shape, GTrsf trf, Vector3 color) =>
             {
                 
@@ -72,7 +72,7 @@ namespace AnyCAD.Demo
             if (dialog.ShowDialog() != DialogResult.OK)
                 return;
 
-            StepReader doc = new StepReader();
+            CADReader doc = new CADReader();
             doc.Open(dialog.FileName, (XdeNode xn, TopoShape shape, GTrsf trf, Vector3 color) =>
             {
                 mRenderView.ShowShape(shape.Transformed(trf), color);
@@ -201,7 +201,19 @@ namespace AnyCAD.Demo
 
             mRenderView.SetBackgroundColor(dlg.Color.R / 255.0f, dlg.Color.G / 255.0f, dlg.Color.B / 255.0f, 1);
         }
+        private void backgroundImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "Image files (*.png;*.jpg)|*.png;*.jpg";
+            if (dlg.ShowDialog() != DialogResult.OK)
+                return;
 
+            var texture = ImageTexture2D.Create(dlg.FileName);
+            var background = new ImageBackground(texture);
+
+            mRenderView.GetViewer().SetBackground(background);
+
+        }
         private void mouseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var ctx = mRenderView.GetContext();
@@ -217,5 +229,7 @@ namespace AnyCAD.Demo
             dlg.ShowDialog();
             dlg = null;
         }
+
+
     }
 }

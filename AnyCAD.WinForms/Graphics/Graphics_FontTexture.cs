@@ -10,21 +10,44 @@ namespace AnyCAD.Demo.Graphics
 {
     class Graphics_FontTexture : TestCase
     {
+        static bool mLoaded = false;
         public override void Run(RenderControl render)
         {
-            var fontMaterial = FontMaterial.Create("font-texture-1");
-            fontMaterial.SetFaceSide(EnumFaceSide.DoubleSide);
-            fontMaterial.SetColor(new Vector3(1, 1, 0));
-            fontMaterial.SetBackground(new Vector3(0, 0, 1));
-            fontMaterial.SetBillboard(true);
+            if(!mLoaded)
+            {
+                mLoaded = true;
 
-            var dim = fontMaterial.SetText("Hello 世界!", 128);
-            var shape = GeometryBuilder.CreatePlane(dim.x * 0.1f, dim.y*0.1f);
+                FontManager.Instance().AddFont("LS", @"C:\Windows\Fonts\STLITI.TTF");
+            }    
 
-            var node = new PrimitiveSceneNode(shape, fontMaterial);
-            node.SetPickable(false);
+            {
+                var fontMaterial = FontMaterial.Create("font-texture-1");
+                fontMaterial.SetFaceSide(EnumFaceSide.DoubleSide);
+                fontMaterial.SetColor(new Vector3(1, 1, 0));
+                fontMaterial.SetBackground(new Vector3(0, 0, 1));
+                fontMaterial.SetBillboard(true);
 
-            render.ShowSceneNode(node);
+                var dim = fontMaterial.SetText("Hello 世界!", 128, "LS");
+                var shape = GeometryBuilder.CreatePlane(dim.x * 0.1f, dim.y * 0.1f);
+
+                var node = new PrimitiveSceneNode(shape, fontMaterial);
+                node.SetPickable(false);
+
+                render.ShowSceneNode(node);
+            }
+            {
+                var fixedSizeMaterial = SpriteMaterial.Create("font-mesh-material");
+                fixedSizeMaterial.SetSizeAttenuation(false);
+                fixedSizeMaterial.SetColor(Vector3.Green);
+
+                var mesh = FontManager.Instance().CreateMesh("哈哈");
+                var node = new PrimitiveSceneNode(mesh, EnumPrimitiveType.TRIANGLES, fixedSizeMaterial);
+                var scale = 1 / 2200.0f;
+                node.SetTransform(Matrix4.makeTranslation(0, 0, 10) * Matrix4.makeScale(scale, scale, scale));
+                node.SetPickable(false);
+
+                render.ShowSceneNode(node);
+            }
         }
     }
 }

@@ -136,7 +136,7 @@ namespace AnyCAD.Demo
 
         private void zoomAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mRenderView.ZoomAll();
+            mRenderView.ZoomAll(1.2f);
         }
 
         private void projectionToolStripMenuItem_Click(object sender, EventArgs e)

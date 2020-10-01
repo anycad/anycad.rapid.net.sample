@@ -214,6 +214,12 @@ namespace AnyCAD.Demo
             mRenderView.GetViewer().SetBackground(background);
 
         }
+
+        private void backgroundSkyBoxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var background = SkyboxBackground.Create("cloudy");
+            mRenderView.GetViewer().SetBackground(background);
+        }
         private void mouseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var ctx = mRenderView.GetContext();
@@ -230,6 +236,44 @@ namespace AnyCAD.Demo
             dlg = null;
         }
 
+        bool bShowTooltip = false;
+        private void toolTipToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(bShowTooltip)
+            {
+                mRenderView.SetHilightingCallback(null);
+            }
+            else
+            {
+                mRenderView.SetHilightingCallback((PickedItem item) =>
+                {
+                    var text = item.GetPoint().GetPosition().ToString();
+                    this.mRenderView.SetToolTip(text);
+                    return true;
+                });
+            }
 
+            bShowTooltip = !bShowTooltip;
+        }
+
+        private void filterEdgeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var ctx = mRenderView.GetContext();
+            ctx.ClearDisplayFilter(EnumShapeFilter.All);
+            ctx.AddDisplayFilter(EnumShapeFilter.Edge);
+        }
+
+        private void filterFaceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var ctx = mRenderView.GetContext();
+            ctx.ClearDisplayFilter(EnumShapeFilter.All);
+            ctx.AddDisplayFilter(EnumShapeFilter.Face);
+        }
+
+        private void filterResetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var ctx = mRenderView.GetContext();
+            ctx.ResetDisplayFilters();
+        }
     }
 }

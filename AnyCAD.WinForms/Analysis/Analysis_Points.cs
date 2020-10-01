@@ -79,6 +79,12 @@ namespace AnyCAD.Demo.Analysis
 
             render.ShowSceneNode(pw);
             render.ShowSceneNode(node);
+
+
+            var text = new TextSceneNode("Wow", 24, new Vector3(1, 1, 0), Vector3.Red, false);
+            var tag = TagNode2D.Create(text, new Vector3(15), new Vector3(0));
+            
+            render.ShowSceneNode(tag);
         }
     }
 }

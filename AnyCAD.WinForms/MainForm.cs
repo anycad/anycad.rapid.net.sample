@@ -13,9 +13,7 @@ namespace AnyCAD.Demo
         {
             InitializeComponent();
 
-            mRenderView = new RenderControl();
-            this.splitContainer1.Panel2.Controls.Add(mRenderView);
-            mRenderView.Dock = DockStyle.Fill;
+            mRenderView = new RenderControl(this.splitContainer1.Panel2);
 
             TestCase.Register(this.treeView1);
         }

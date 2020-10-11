@@ -23,6 +23,8 @@ namespace AnyCAD.Demo
             mRenderView.SetSelectCallback((PickedItem item) =>
             {
                 this.listBox1.Items.Clear();
+                if (item.IsNull())
+                    return;
 
                 var ssn = BrepSceneNode.Cast(item.GetNode());
                 if (ssn != null)

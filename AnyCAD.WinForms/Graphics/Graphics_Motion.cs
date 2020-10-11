@@ -21,10 +21,12 @@ namespace AnyCAD.Demo.Graphics
         public override void Run(RenderControl render)
         {
             RedMaterial = MeshPhongMaterial.Create("phong.color");
-            RedMaterial.SetUniform("diffuse", Uniform.Create(new Vector3(1, 0, 1)));
+            RedMaterial.SetColor(Vector3.Red);
 
             GrayMaterial = MeshPhongMaterial.Create("phong.color");
-            GrayMaterial.SetUniform("diffuse", Uniform.Create(new Vector3(0.8f)));
+            GrayMaterial.SetColor(Vector3.LightGray);
+            GrayMaterial.SetTransparent(true);
+            GrayMaterial.SetOpacity(0.5f);
 
             var tube = ShapeBuilder.MakeTube(new GPnt(0,0,5), GP.DZ(), 10, 2, 50);
             TubeNode = BrepSceneNode.Create(tube, RedMaterial, null);

@@ -55,7 +55,7 @@ namespace AnyCAD.Demo.Graphics
 
             var node = new PrimitiveSceneNode(geometry,  material);
 
-            node.SetPickable(false);
+            //node.SetPickable(false);
 
             render.ShowSceneNode(node);
         }

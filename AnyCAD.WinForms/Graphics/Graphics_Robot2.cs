@@ -11,6 +11,7 @@ namespace AnyCAD.Demo.Graphics
     class Graphics_Robot2 : TestCase
     {
         RobotModel mRobot = new RobotModel();
+        ParticleSceneNode mMotionTrail = new ParticleSceneNode(1000, Vector3.Red, 3.0f);
         public override void Run(RenderControl render)
         {
             double d1 = 40;
@@ -53,11 +54,14 @@ namespace AnyCAD.Demo.Graphics
             mRobot.AddPart(j4);
 
             render.ShowSceneNode(mRobot);
+
+            render.ShowSceneNode(mMotionTrail);
         }
 
         float mTheta = 0;
         float mD = 10;
         float mSign = 1;
+        uint mCount = 0;
         public override void Animation(RenderControl render, float time)
         {
             mTheta += 0.5f;
@@ -71,7 +75,12 @@ namespace AnyCAD.Demo.Graphics
 
             mRobot.UpdateFrames();
 
-            render.UpdateWorld();
+            Vector3 pt = new Vector3(0);
+            pt = pt * mRobot.GetFinalTransform();
+            mMotionTrail.SetPosition(mCount, pt);
+            ++mCount;
+
+            render.RequestDraw(EnumUpdateFlags.Scene);
         }
      }
 }

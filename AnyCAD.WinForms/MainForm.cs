@@ -275,5 +275,12 @@ namespace AnyCAD.Demo
             var ctx = mRenderView.GetContext();
             ctx.ResetDisplayFilters();
         }
+
+        bool bShowCoordinateGrid = false;
+        private void coordinateGridToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bShowCoordinateGrid = !bShowCoordinateGrid;
+            mRenderView.ShowCoordinateGrid(bShowCoordinateGrid);
+        }
     }
 }

@@ -41,7 +41,7 @@ namespace AnyCAD.Demo.Graphics
                 fixedSizeMaterial.SetColor(Vector3.Green);
 
                 var mesh = FontManager.Instance().CreateMesh("哈哈");
-                var node = new PrimitiveSceneNode(mesh, EnumPrimitiveType.TRIANGLES, fixedSizeMaterial);
+                var node = new PrimitiveSceneNode(mesh, fixedSizeMaterial);
                 var scale = 1 / 2200.0f;
                 node.SetTransform(Matrix4.makeTranslation(0, 0, 10) * Matrix4.makeScale(scale, scale, scale));
                 node.SetPickable(false);

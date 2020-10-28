@@ -55,6 +55,7 @@
             this.backgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundSkyBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.coordinateGridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.filterEdgeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filterFaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,7 +72,9 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.coordinateGridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.selectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.depthTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -306,6 +309,13 @@
             this.backgroundSkyBoxToolStripMenuItem.Text = "Background SkyBox";
             this.backgroundSkyBoxToolStripMenuItem.Click += new System.EventHandler(this.backgroundSkyBoxToolStripMenuItem_Click);
             // 
+            // coordinateGridToolStripMenuItem
+            // 
+            this.coordinateGridToolStripMenuItem.Name = "coordinateGridToolStripMenuItem";
+            this.coordinateGridToolStripMenuItem.Size = new System.Drawing.Size(420, 48);
+            this.coordinateGridToolStripMenuItem.Text = "Coordinate Grid";
+            this.coordinateGridToolStripMenuItem.Click += new System.EventHandler(this.coordinateGridToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
@@ -337,7 +347,9 @@
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mouseToolStripMenuItem,
             this.toolStripMenuItem3,
-            this.toolTipToolStripMenuItem});
+            this.toolTipToolStripMenuItem,
+            this.toolStripMenuItem5,
+            this.selectionToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(142, 43);
             this.settingsToolStripMenuItem.Text = "Settings";
@@ -452,12 +464,25 @@
             this.listBox1.Size = new System.Drawing.Size(583, 392);
             this.listBox1.TabIndex = 0;
             // 
-            // coordinateGridToolStripMenuItem
+            // toolStripMenuItem5
             // 
-            this.coordinateGridToolStripMenuItem.Name = "coordinateGridToolStripMenuItem";
-            this.coordinateGridToolStripMenuItem.Size = new System.Drawing.Size(420, 48);
-            this.coordinateGridToolStripMenuItem.Text = "Coordinate Grid";
-            this.coordinateGridToolStripMenuItem.Click += new System.EventHandler(this.coordinateGridToolStripMenuItem_Click);
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(400, 6);
+            // 
+            // selectionToolStripMenuItem
+            // 
+            this.selectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.depthTestToolStripMenuItem});
+            this.selectionToolStripMenuItem.Name = "selectionToolStripMenuItem";
+            this.selectionToolStripMenuItem.Size = new System.Drawing.Size(403, 48);
+            this.selectionToolStripMenuItem.Text = "Selection";
+            // 
+            // depthTestToolStripMenuItem
+            // 
+            this.depthTestToolStripMenuItem.Name = "depthTestToolStripMenuItem";
+            this.depthTestToolStripMenuItem.Size = new System.Drawing.Size(403, 48);
+            this.depthTestToolStripMenuItem.Text = "DepthTest";
+            this.depthTestToolStripMenuItem.Click += new System.EventHandler(this.depthTestToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -534,6 +559,9 @@
         private System.Windows.Forms.ToolStripMenuItem filterFaceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem filterResetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem coordinateGridToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem selectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem depthTestToolStripMenuItem;
     }
 }
 

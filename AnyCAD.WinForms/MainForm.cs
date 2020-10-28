@@ -282,5 +282,13 @@ namespace AnyCAD.Demo
             bShowCoordinateGrid = !bShowCoordinateGrid;
             mRenderView.ShowCoordinateGrid(bShowCoordinateGrid);
         }
+
+        bool bEnableDepathTest = false;
+        private void depthTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bEnableDepathTest = !bEnableDepathTest;
+            mRenderView.GetContext().GetSelection().SetDepthTest(bEnableDepathTest);
+            mRenderView.RequestDraw(EnumUpdateFlags.Camera);
+        }
     }
 }

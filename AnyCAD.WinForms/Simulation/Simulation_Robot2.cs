@@ -8,7 +8,7 @@ using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Graphics
 {
-    class Graphics_Robot2 : TestCase
+    class Simulation_Robot2 : TestCase
     {
         RobotModel mRobot = new RobotModel();
         ParticleSceneNode mMotionTrail = new ParticleSceneNode(1000, Vector3.Red, 3.0f);
@@ -32,7 +32,7 @@ namespace AnyCAD.Demo.Graphics
             // Joint 2
             var s2 = SketchBuilder.MakeLine(new GPnt(0, 0, d1), new GPnt(a1, 0, d1));
             var n2 = BrepSceneNode.Create(s2, null, null);
-            var j2 = new RobotPart(EnumRobotJointType.Revolute, 0, a1, d2, 0);
+            var j2 = new RobotPart(EnumRobotJointType.Revolute, 90, a1, d2, 0);
             j2.SetVisualNode(n2);
             j2.SetPosition(Vector3.From(0, 0, d1));
             mRobot.AddPart(j2);

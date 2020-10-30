@@ -107,7 +107,7 @@
     <Compile Include="Graphics\Graphics_Motion.cs" />
     <Compile Include="Graphics\Graphics_Points.cs" />
     <Compile Include="Graphics\Graphics_Ray.cs" />
-    <Compile Include="Graphics\Graphics_Robot2.cs" />
+    <Compile Include="Simulation\Simulation_Robot2.cs" />
     <Compile Include="Graphics\Graphics_Texture.cs" />
     <Compile Include="NewForm3D.cs">
       <SubType>Form</SubType>
@@ -115,6 +115,7 @@
     <Compile Include="NewForm3D.Designer.cs">
       <DependentUpon>NewForm3D.cs</DependentUpon>
     </Compile>
+    <Compile Include="Simulation\Simulation_MotionTrail.cs" />
     <Compile Include="TestCase.cs" />
     <Compile Include="Analysis\Analysis_Curve.cs" />
     <Compile Include="Geometry\Geometry_Boolean.cs" />

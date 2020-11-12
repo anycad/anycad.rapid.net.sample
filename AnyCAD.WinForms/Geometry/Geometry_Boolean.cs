@@ -11,6 +11,8 @@ namespace AnyCAD.Demo.Geometry
             var box = ShapeBuilder.MakeBox(GP.XOY(), 10, 10, 10);
             var sphere = ShapeBuilder.MakeSphere(GP.Origin(), 5);
 
+            StlIO.Save(box, @"C:\Users\liwei_ggg0hzr\bin\xxx.stl");
+
             render.ShowShape(box, Vector3.Red);
             render.ShowShape(sphere, Vector3.Blue);
 

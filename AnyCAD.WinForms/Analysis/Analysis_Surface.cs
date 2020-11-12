@@ -27,6 +27,8 @@ namespace AnyCAD.Demo.Geometry
                 var curve = new ParametricCurve(wire);
                 var paramList = curve.SplitByUniformLength(1, 0.01);
 
+                var lines = new SegmentsSceneNode((uint)paramList.Count, Vector3.Green, 2);
+                uint idx = 0;
                 foreach (var p in paramList)
                 {
                     var pt = curve.Value(p);
@@ -35,12 +37,13 @@ namespace AnyCAD.Demo.Geometry
                     {
                         var uv = pointSur.GetParameter(0);
                         var normal = surface.GetNormal(uv.X(), uv.Y());
-                        // show normal
-                        var dirShape = SketchBuilder.MakeLine(pt, new GPnt(pt.XYZ().Added(normal.XYZ())));
-                        renderer.ShowShape(dirShape, Vector3.Green);
+
+                        lines.SetPositions(idx++, Vector3.From(pt), Vector3.From(pt.XYZ().Added(normal.XYZ())));
                     }
 
                 }
+
+                renderer.ShowSceneNode(lines);
 
             }
 

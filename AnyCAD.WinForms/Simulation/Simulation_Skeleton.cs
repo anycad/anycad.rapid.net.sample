@@ -14,17 +14,10 @@ namespace AnyCAD.Demo.Graphics
         ParticleSceneNode mMotionTrail = new ParticleSceneNode(1000, Vector3.Red, 3.0f);
         public override void Run(RenderControl render)
         {
-            double d1 = 40;
-            double d2 = 0;
-            double d4 = 5;
-            double a1 = 50;
-            double a2 = 25;
-
-
             double scale = 0.5;
             mRobot.AddJoint(EnumRobotJointType.Fixed, 0, 0, 200 * scale, 0);
             mRobot.AddJoint(EnumRobotJointType.Revolute, 0, 0, 130 * scale, 0);// Link1
-            var id = mRobot.AddJoint(EnumRobotJointType.Revolute, 90, 30, 0, 180);// Link2
+            mRobot.AddJoint(EnumRobotJointType.Revolute, 90, 30, 0, 180);// Link2
             mRobot.AddJoint(EnumRobotJointType.Fixed, 90, 0, 480 * scale, 0); // Link3
             mRobot.AddJoint(EnumRobotJointType.Revolute, 90, 0, 0, 270);
             mRobot.AddJoint(EnumRobotJointType.Fixed, 90, 0, 100 * scale, 0); // Link4

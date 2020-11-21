@@ -111,6 +111,7 @@
     <Compile Include="Graphics\Graphics_Motion.cs" />
     <Compile Include="Graphics\Graphics_Points.cs" />
     <Compile Include="Graphics\Graphics_Ray.cs" />
+    <Compile Include="Simulation\Simulation_Robot.cs" />
     <Compile Include="Simulation\Simulation_Skeleton.cs" />
     <Compile Include="Graphics\Graphics_Texture.cs" />
     <Compile Include="NewForm3D.cs">

@@ -13,7 +13,7 @@ namespace AnyCAD.Demo.Graphics
         public override void Run(RenderControl render)
         {
             var material = MeshPhongMaterial.Create("phong.texture");
-            material.SetUniform("diffuse", Uniform.Create(new Vector3(1, 0, 1)));
+            //material.SetUniform("diffuse", Uniform.Create(new Vector3(1, 0, 1)));
 
             var texture = ImageTexture2D.Create(GetResourcePath("textures/bricks2.jpg"));
             texture.SetRepeat(new Vector2(2.0f, 2.0f));
@@ -23,6 +23,12 @@ namespace AnyCAD.Demo.Graphics
 
             var shape = ShapeBuilder.MakeBox(GP.XOY(), 4,4,8);
             var node = BrepSceneNode.Create(shape, material, null);
+
+            var material2 = MeshPhongMaterial.Create("phong.texture");
+            var texture2 = ImageTexture2D.Create(GetResourcePath("textures/water.png"));
+            material2.SetColorMap(texture2);
+
+            node.SetFaceMaterial(0, material2);
 
             render.ShowSceneNode(node);
         }

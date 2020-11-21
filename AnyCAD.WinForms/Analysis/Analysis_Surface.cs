@@ -42,7 +42,7 @@ namespace AnyCAD.Demo.Geometry
                     }
 
                 }
-
+                lines.UpdateBoundingBox();
                 renderer.ShowSceneNode(lines);
 
             }

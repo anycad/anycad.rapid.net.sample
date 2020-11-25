@@ -110,6 +110,7 @@ namespace AnyCAD.Demo
             mRenderView.ShowShape(shape, new Vector3(0.8f));
 
             mRenderView.ZoomAll();
+            StlIO.Save(shape, dialog.FileName + ".stl");
         }
         private void igesToolStripMenuItem1_Click(object sender, EventArgs e)
         {

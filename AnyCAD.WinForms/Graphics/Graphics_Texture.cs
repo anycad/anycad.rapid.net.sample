@@ -10,27 +10,43 @@ namespace AnyCAD.Demo.Graphics
 {
     class Graphics_Texture : TestCase
     {
+        MeshPhongMaterial mMaterial1;
+        MeshPhongMaterial mMaterial2;
+        BrepSceneNode mNode;
         public override void Run(RenderControl render)
         {
-            var material = MeshPhongMaterial.Create("phong.texture");
-            //material.SetUniform("diffuse", Uniform.Create(new Vector3(1, 0, 1)));
+            mMaterial1 = MeshPhongMaterial.Create("phong.texture");
+            mMaterial1.SetUniform("diffuse", Uniform.Create(new Vector3(1, 0, 1)));
 
             var texture = ImageTexture2D.Create(GetResourcePath("textures/bricks2.jpg"));
             texture.SetRepeat(new Vector2(2.0f, 2.0f));
             texture.UpdateTransform();
 
-            material.SetColorMap(texture);
+            mMaterial1.SetColorMap(texture);
 
             var shape = ShapeBuilder.MakeBox(GP.XOY(), 4,4,8);
-            var node = BrepSceneNode.Create(shape, material, null);
+            mNode = BrepSceneNode.Create(shape, mMaterial1, null);
 
-            var material2 = MeshPhongMaterial.Create("phong.texture");
+            mMaterial2 = MeshPhongMaterial.Create("phong.texture");
             var texture2 = ImageTexture2D.Create(GetResourcePath("textures/water.png"));
-            material2.SetColorMap(texture2);
+            mMaterial2.SetColorMap(texture2);
 
-            node.SetFaceMaterial(0, material2);
 
-            render.ShowSceneNode(node);
+            render.ShowSceneNode(mNode);
+        }
+
+ 
+        public override void Animation(RenderControl render, float time)
+        {
+            int selector = (int)time % 2;
+
+            var faces = mNode.GetShape().GetFaces();
+            foreach(var face in faces)
+            {
+                face.SetMaterial(selector == 1? mMaterial1 : mMaterial2);
+            }
+
+            render.RequestDraw();
         }
     }
 }

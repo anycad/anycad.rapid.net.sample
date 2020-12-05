@@ -64,6 +64,9 @@
             this.mouseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolTipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.selectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.depthTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -72,9 +75,8 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
-            this.selectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.depthTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.commandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clipBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -93,6 +95,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.viewToolStripMenuItem,
+            this.commandToolStripMenuItem,
             this.settingsToolStripMenuItem,
             this.windowToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -357,21 +360,41 @@
             // mouseToolStripMenuItem
             // 
             this.mouseToolStripMenuItem.Name = "mouseToolStripMenuItem";
-            this.mouseToolStripMenuItem.Size = new System.Drawing.Size(403, 48);
+            this.mouseToolStripMenuItem.Size = new System.Drawing.Size(281, 48);
             this.mouseToolStripMenuItem.Text = "Mouse";
             this.mouseToolStripMenuItem.Click += new System.EventHandler(this.mouseToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(400, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(278, 6);
             // 
             // toolTipToolStripMenuItem
             // 
             this.toolTipToolStripMenuItem.Name = "toolTipToolStripMenuItem";
-            this.toolTipToolStripMenuItem.Size = new System.Drawing.Size(403, 48);
+            this.toolTipToolStripMenuItem.Size = new System.Drawing.Size(281, 48);
             this.toolTipToolStripMenuItem.Text = "ToolTip";
             this.toolTipToolStripMenuItem.Click += new System.EventHandler(this.toolTipToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(278, 6);
+            // 
+            // selectionToolStripMenuItem
+            // 
+            this.selectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.depthTestToolStripMenuItem});
+            this.selectionToolStripMenuItem.Name = "selectionToolStripMenuItem";
+            this.selectionToolStripMenuItem.Size = new System.Drawing.Size(281, 48);
+            this.selectionToolStripMenuItem.Text = "Selection";
+            // 
+            // depthTestToolStripMenuItem
+            // 
+            this.depthTestToolStripMenuItem.Name = "depthTestToolStripMenuItem";
+            this.depthTestToolStripMenuItem.Size = new System.Drawing.Size(296, 48);
+            this.depthTestToolStripMenuItem.Text = "DepthTest";
+            this.depthTestToolStripMenuItem.Click += new System.EventHandler(this.depthTestToolStripMenuItem_Click);
             // 
             // windowToolStripMenuItem
             // 
@@ -384,7 +407,7 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(221, 48);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(403, 48);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -464,25 +487,20 @@
             this.listBox1.Size = new System.Drawing.Size(583, 392);
             this.listBox1.TabIndex = 0;
             // 
-            // toolStripMenuItem5
+            // commandToolStripMenuItem
             // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(400, 6);
+            this.commandToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clipBoxToolStripMenuItem});
+            this.commandToolStripMenuItem.Name = "commandToolStripMenuItem";
+            this.commandToolStripMenuItem.Size = new System.Drawing.Size(171, 43);
+            this.commandToolStripMenuItem.Text = "Command";
             // 
-            // selectionToolStripMenuItem
+            // clipBoxToolStripMenuItem
             // 
-            this.selectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.depthTestToolStripMenuItem});
-            this.selectionToolStripMenuItem.Name = "selectionToolStripMenuItem";
-            this.selectionToolStripMenuItem.Size = new System.Drawing.Size(403, 48);
-            this.selectionToolStripMenuItem.Text = "Selection";
-            // 
-            // depthTestToolStripMenuItem
-            // 
-            this.depthTestToolStripMenuItem.Name = "depthTestToolStripMenuItem";
-            this.depthTestToolStripMenuItem.Size = new System.Drawing.Size(403, 48);
-            this.depthTestToolStripMenuItem.Text = "DepthTest";
-            this.depthTestToolStripMenuItem.Click += new System.EventHandler(this.depthTestToolStripMenuItem_Click);
+            this.clipBoxToolStripMenuItem.Name = "clipBoxToolStripMenuItem";
+            this.clipBoxToolStripMenuItem.Size = new System.Drawing.Size(403, 48);
+            this.clipBoxToolStripMenuItem.Text = "ClipBox";
+            this.clipBoxToolStripMenuItem.Click += new System.EventHandler(this.clipBoxToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -562,6 +580,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem selectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem depthTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem commandToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clipBoxToolStripMenuItem;
     }
 }
 

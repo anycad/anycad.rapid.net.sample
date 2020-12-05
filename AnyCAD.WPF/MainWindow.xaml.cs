@@ -21,7 +21,7 @@ namespace AnyCAD.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        RenderControl mRenderCtrl;
+  
         public MainWindow()
         {
             InitializeComponent();
@@ -30,8 +30,7 @@ namespace AnyCAD.WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            mRenderCtrl = new RenderControl();
-            this.viewHost.Child = mRenderCtrl;
+
         }
     }
 }

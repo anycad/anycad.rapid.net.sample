@@ -291,5 +291,10 @@ namespace AnyCAD.Demo
             mRenderView.GetContext().GetSelection().SetDepthTest(bEnableDepathTest);
             mRenderView.RequestDraw(EnumUpdateFlags.Camera);
         }
+
+        private void clipBoxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mRenderView.ExecuteCommand("ClipBox");
+        }
     }
 }

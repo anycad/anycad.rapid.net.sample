@@ -9,6 +9,7 @@ namespace AnyCAD.Demo
     public partial class MainForm : Form
     {
         RenderControl mRenderView;
+        ArrowWidget mArrow;
         public MainForm()
         {
             InitializeComponent();
@@ -20,6 +21,8 @@ namespace AnyCAD.Demo
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+
+
             mRenderView.SetSelectCallback((PickedItem item) =>
             {
                 this.listBox1.Items.Clear();
@@ -30,10 +33,38 @@ namespace AnyCAD.Demo
                 if (ssn != null)
                 {
                     this.listBox1.Items.Add(ssn.GetType().Name);
+                    if (mShowArrow && item.GetShapeType() == EnumShapeFilter.Face)
+                    {
+                        var face = ssn.GetShape().GetShape().FindChild(EnumTopoShapeType.Topo_FACE, (int)item.GetShapeIndex());
+                        if (face != null)
+                        {
+                            var surface = new ParametricSurface(face);
+                            var pt = item.GetPoint().GetPosition();
+                            var param = surface.ComputeClosestPoint(pt.ToPnt(), GP.Resolution(), GP.Resolution());
+
+                            var values = surface.D1(param.X(), param.Y());
+                            var postion = Vector3.From(values.GetPoint());
+                            var vecs = values.GetVectors();
+
+                            var dir = Vector3.From(vecs[0].Crossed(vecs[1]));
+                            dir.normalize();
+                            mArrow.SetLocation(postion, dir);
+                            mArrow.RequstUpdate();
+                            mArrow.Update();
+
+                            mRenderView.GetContext().GetSelection().Clear();
+
+                            mRenderView.RequestDraw(EnumUpdateFlags.Scene);
+
+                            this.listBox1.Items.Add(String.Format("ijk: {0}", dir.ToString()));
+                        }
+
+                    }
                 }
                 else
                 {
                     this.listBox1.Items.Add(item.GetNode().GetType().Name);
+
                 }
                 this.listBox1.Items.Add(String.Format("NodeId: {0}", item.GetNodeId()));
                 this.listBox1.Items.Add(item.GetPoint().GetPosition().ToString());
@@ -41,7 +72,8 @@ namespace AnyCAD.Demo
                 this.listBox1.Items.Add(String.Format("SubIndex: {0}", item.GetShapeIndex()));
             });
 
-            mRenderView.SetAnimationCallback((float timer)=>{
+            mRenderView.SetAnimationCallback((float timer) =>
+            {
                 TestCase.RunAnimation(mRenderView, timer);
             });
 
@@ -58,7 +90,7 @@ namespace AnyCAD.Demo
             CADReader doc = new CADReader();
             doc.Open(dialog.FileName, (XdeNode xn, TopoShape shape, GTrsf trf, Vector3 color) =>
             {
-                
+
                 mRenderView.ShowShape(shape.Transformed(trf), color);
             });
 
@@ -152,7 +184,7 @@ namespace AnyCAD.Demo
             if (dlg.ShowDialog() != DialogResult.OK)
                 return;
 
-             var node = SceneIO.Load(dlg.FileName);
+            var node = SceneIO.Load(dlg.FileName);
             if (node == null)
                 return;
             mRenderView.ShowSceneNode(node);
@@ -240,7 +272,7 @@ namespace AnyCAD.Demo
         bool bShowTooltip = false;
         private void toolTipToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(bShowTooltip)
+            if (bShowTooltip)
             {
                 mRenderView.SetHilightingCallback(null);
             }
@@ -295,6 +327,45 @@ namespace AnyCAD.Demo
         private void clipBoxToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mRenderView.ExecuteCommand("ClipBox");
+        }
+
+        private void orbitCenterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mRenderView.GetContext().SetUserOrbitPivot(Vector3.Zero);
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            TestCase.IncreaseCounter(mRenderView, 0);
+        }
+
+        private void sTLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbDlg = new FolderBrowserDialog();
+            if (fbDlg.ShowDialog() != DialogResult.OK)
+                return;
+            string myDir = fbDlg.SelectedPath;
+            foreach (string fileName in System.IO.Directory.GetFiles(myDir))
+            {
+                var shape = SceneIO.Load(fileName);
+                mRenderView.ShowSceneNode(shape);
+            }
+        }
+
+        bool mShowArrow = false;
+        private void addArrowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mShowArrow = !mShowArrow;
+
+            if(mShowArrow)
+            {
+                var arrowMaterial = MeshPhongMaterial.Create("arrow");
+                arrowMaterial.SetColor(Vector3.Red);
+                mArrow = ArrowWidget.Create(2, 10, arrowMaterial);
+                mArrow.SetPickable(false);
+                mRenderView.ShowSceneNode(mArrow);
+            }
+
         }
     }
 }

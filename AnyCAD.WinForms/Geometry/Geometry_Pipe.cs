@@ -13,6 +13,13 @@ namespace AnyCAD.Demo.Geometry
 
         public override void Run(RenderControl render)
         {
+            var material = MeshStandardMaterial.Create("metal-double");
+            material.SetColor(new Vector3(1.0f, 0.8f, 0.0f));
+            material.SetMetalness(0.8f);
+            material.SetRoughness(0.5f);
+            material.SetFaceSide(EnumFaceSide.DoubleSide);
+
+
             var startPt = new GVec(0, 100, 0);
             var points = new GPntList();
             points.Add(new GPnt(startPt.XYZ()));
@@ -33,8 +40,11 @@ namespace AnyCAD.Demo.Geometry
 
             TopoShape pipe = FeatureTool.SweepByFrenet(section1, path, EnumSweepTransitionMode.RoundCorner,
                 false);
+            BufferShape bs = new BufferShape(pipe, material, null, 0.1f);
+            bs.Build();
+            var node = new BrepSceneNode(bs);
 
-            render.ShowShape(pipe, Vector3.Blue);
+            render.ShowSceneNode(node);
         }
     }
 }

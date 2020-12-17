@@ -37,12 +37,15 @@ namespace AnyCAD.Demo.Graphics
         uint mCount = 0;
         public override void Animation(RenderControl render, float time)
         {
+            if (this.State == 0)
+                return;
+
             mTheta += 0.5f;
-            mRobot.SetVariable(1, mTheta * 2);
-            mRobot.SetVariable(2, mTheta * 3);
-            mRobot.SetVariable(4, mTheta * 6);
-            mRobot.SetVariable(6, mTheta * 2);
-            mRobot.SetVariable(7, mTheta * 6);
+            mRobot.SetVariable(1, mTheta * 1);
+            mRobot.SetVariable(2, mTheta * 2);
+            mRobot.SetVariable(4, mTheta * 3);
+            mRobot.SetVariable(6, mTheta * 4);
+            mRobot.SetVariable(7, mTheta * 5);
             mRobot.SetVariable(8, mTheta * 6);
             if (mD > 30 || mD < 10)
                 mSign *= -1;
@@ -53,7 +56,40 @@ namespace AnyCAD.Demo.Graphics
             Vector3 pt = new Vector3(0);
             pt = pt * mRobot.GetFinalTransform();
             mMotionTrail.SetPosition(mCount, pt);
+            mMotionTrail.UpdateBoundingBox();
             ++mCount;
+
+            if (this.State == 1)
+            {
+                var position = pt - Vector3.UNIT_Y * 500;
+                render.GetCamera().LookAt(position, pt, Vector3.UNIT_Z);
+            }
+            else if (this.State == 2)
+            {
+                var position = pt + Vector3.UNIT_Z * 500;
+                render.GetCamera().LookAt(position, pt, Vector3.UNIT_Y);
+            }
+            else if (this.State == 3)
+            {
+                var camera = render.GetCamera();
+                var postion = new Vector3(0, -500, 0);
+
+                var trf = Matrix4.makeRotationAxis(Vector3.UNIT_Z, mTheta * 3.1415926f/180);
+                postion.applyMatrix4(trf);
+               
+                camera.LookAt(postion, Vector3.Zero, Vector3.UNIT_Z);
+            }
+
+            if (this.State == 1 && mTheta > 360)
+            {
+                this.State = 2;
+            }
+            else if (this.State == 2 && mTheta > 720)
+            {
+                render.SetStandardView(EnumStandardView.Front);
+                this.State = 3;
+            }
+                
 
             render.RequestDraw(EnumUpdateFlags.Scene);
         }

@@ -11,6 +11,7 @@ namespace AnyCAD.Demo
     abstract class TestCase
     {
         private static TestCase mCurrentDemo; 
+        public int State { get; set; }
 
         public static string GetResourcePath(string fileName)
         {
@@ -49,6 +50,7 @@ namespace AnyCAD.Demo
             var type = tag as Type;
             mCurrentDemo = Activator.CreateInstance(type) as TestCase;
             render.ClearAll();
+            mCurrentDemo.State = 0;
             mCurrentDemo.Run(render);
             render.ZoomAll();
         }
@@ -63,6 +65,12 @@ namespace AnyCAD.Demo
         {
             if (mCurrentDemo != null)
                 mCurrentDemo.Animation(render, timer);
+        }
+
+        public static void IncreaseCounter(RenderControl render, int key)
+        {
+            if (mCurrentDemo != null)
+                mCurrentDemo.State += 1 ;
         }
     }
 

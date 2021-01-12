@@ -10,7 +10,7 @@ namespace AnyCAD.Demo.Graphics
 {
     class Simulation_Robot : TestCase
     {
-        RobotModel mRobot = new RobotModel();
+        RobotArm mRobot = new RobotArm();
         ParticleSceneNode mMotionTrail = new ParticleSceneNode(1000, Vector3.Red, 3.0f);
         public override void Run(RenderControl render)
         {

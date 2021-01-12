@@ -367,5 +367,20 @@ namespace AnyCAD.Demo
             }
 
         }
+
+        private void useViewAixsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mRenderView.SetViewCube(EnumViewCoordinateType.Axis);
+        }
+
+        private void useViewCubeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mRenderView.SetViewCube(EnumViewCoordinateType.Cube);
+        }
+
+        private void noneCoordinateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mRenderView.SetViewCube(EnumViewCoordinateType.Empty);
+        }
     }
 }

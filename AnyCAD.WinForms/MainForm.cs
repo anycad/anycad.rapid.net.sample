@@ -21,8 +21,6 @@ namespace AnyCAD.Demo
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
-
             mRenderView.SetSelectCallback((PickedItem item) =>
             {
                 this.listBox1.Items.Clear();
@@ -80,38 +78,6 @@ namespace AnyCAD.Demo
 
 
         }
-        private void sTEPToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "STEP (*.stp;*.step)|*.stp;*.step|IGES (*.igs;*.iges)|*.igs;*.iges";
-            if (dialog.ShowDialog() != DialogResult.OK)
-                return;
-
-            CADReader doc = new CADReader();
-            doc.Open(dialog.FileName, (XdeNode xn, TopoShape shape, GTrsf trf, Vector3 color) =>
-            {
-
-                mRenderView.ShowShape(shape.Transformed(trf), color);
-            });
-
-            mRenderView.ZoomAll();
-        }
-
-        private void iGESToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "IGES (*.igs;*.iges)|*.igs;*.iges|STEP (*.stp;*.step)|*.stp;*.step";
-            if (dialog.ShowDialog() != DialogResult.OK)
-                return;
-
-            CADReader doc = new CADReader();
-            doc.Open(dialog.FileName, (XdeNode xn, TopoShape shape, GTrsf trf, Vector3 color) =>
-            {
-                mRenderView.ShowShape(shape.Transformed(trf), color);
-            });
-
-            mRenderView.ZoomAll();
-        }
 
         private void clearToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -126,38 +92,6 @@ namespace AnyCAD.Demo
                 return;
 
             mRenderView.CaptureScreenShot(dialog.FileName);
-        }
-
-        private void stepToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "STEP (*.stp;*.step)|*.stp;*.step";
-            if (dialog.ShowDialog() != DialogResult.OK)
-                return;
-
-            var shape = StepIO.Open(dialog.FileName);
-            if (shape == null)
-                return;
-
-            mRenderView.ShowShape(shape, new Vector3(0.8f));
-
-            mRenderView.ZoomAll();
-            StlIO.Save(shape, dialog.FileName + ".stl");
-        }
-        private void igesToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "IGES (*.igs;*.iges)|*.igs;*.iges";
-            if (dialog.ShowDialog() != DialogResult.OK)
-                return;
-
-            var shape = IgesIO.Open(dialog.FileName);
-            if (shape == null)
-                return;
-
-            mRenderView.ShowShape(shape, new Vector3(0.8f));
-
-            mRenderView.ZoomAll();
         }
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
@@ -382,5 +316,39 @@ namespace AnyCAD.Demo
         {
             mRenderView.SetViewCube(EnumViewCoordinateType.Empty);
         }
+
+        private void openSTEPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "IGES (*.igs;*.iges)|*.igs;*.iges|STEP (*.stp;*.step)|*.stp;*.step";
+            if (dialog.ShowDialog() != DialogResult.OK)
+                return;
+
+            CADReader doc = new CADReader();
+            doc.Open(dialog.FileName, (XdeNode xn, TopoShape shape, GTrsf trf, Vector3 color) =>
+            {
+                mRenderView.ShowShape(shape.Transformed(trf), color);
+            });
+
+            mRenderView.ZoomAll();
+        }
+
+        private void openFastToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+               OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "IGES (*.igs;*.iges)|*.igs;*.iges|STEP (*.stp;*.step)|*.stp;*.step";
+                if (dialog.ShowDialog() != DialogResult.OK)
+                    return;
+
+                var shape = ShapeIO.Open(dialog.FileName);
+                if (shape == null)
+                    return;
+
+                mRenderView.ShowShape(shape, new Vector3(0.8f));
+
+                mRenderView.ZoomAll();
+        }
+    
     }
 }

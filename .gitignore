@@ -260,3 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 /data/models/1.stp.stl
+*.7z

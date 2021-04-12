@@ -19,10 +19,13 @@ namespace AnyCAD.Demo
             TestCase.Register(this.treeView1);
         }
 
+        bool mEnableAnimation = true;
+        uint mSelectedItm = 0;
         private void MainForm_Load(object sender, EventArgs e)
         {
             mRenderView.SetSelectCallback((PickedItem item) =>
             {
+                mSelectedItm = 0;
                 this.listBox1.Items.Clear();
                 if (item.IsNull())
                     return;
@@ -64,15 +67,18 @@ namespace AnyCAD.Demo
                     this.listBox1.Items.Add(item.GetNode().GetType().Name);
 
                 }
+                mSelectedItm = item.GetNodeId();
                 this.listBox1.Items.Add(String.Format("NodeId: {0}", item.GetNodeId()));
                 this.listBox1.Items.Add(item.GetPoint().GetPosition().ToString());
                 this.listBox1.Items.Add(item.GetShapeType().ToString());
                 this.listBox1.Items.Add(String.Format("SubIndex: {0}", item.GetShapeIndex()));
+                this.listBox1.Items.Add(String.Format("PrimitiveIndex: {0}", item.GetPoint().GetPrimitiveIndex()));
             });
 
             mRenderView.SetAnimationCallback((float timer) =>
             {
-                TestCase.RunAnimation(mRenderView, timer);
+                if(mEnableAnimation)
+                    TestCase.RunAnimation(mRenderView, timer);
             });
 
 
@@ -336,19 +342,39 @@ namespace AnyCAD.Demo
 
         private void openFastToolStripMenuItem_Click(object sender, EventArgs e)
         {
-               OpenFileDialog dialog = new OpenFileDialog();
-                dialog.Filter = "IGES (*.igs;*.iges)|*.igs;*.iges|STEP (*.stp;*.step)|*.stp;*.step";
-                if (dialog.ShowDialog() != DialogResult.OK)
-                    return;
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "IGES (*.igs;*.iges)|*.igs;*.iges|STEP (*.stp;*.step)|*.stp;*.step";
+            if (dialog.ShowDialog() != DialogResult.OK)
+                return;
 
-                var shape = ShapeIO.Open(dialog.FileName);
-                if (shape == null)
-                    return;
+            var shape = ShapeIO.Open(dialog.FileName);
+            if (shape == null)
+                return;
 
+            var solidList = shape.GetChildren(EnumTopoShapeType.Topo_SOLID);
+            if(solidList.Count > 0)
+            {
+                foreach(var solid in solidList)
+                {
+                    mRenderView.ShowShape(solid, new Vector3(0.8f));
+                }
+            }
+            else
+            {
                 mRenderView.ShowShape(shape, new Vector3(0.8f));
+            }
 
-                mRenderView.ZoomAll();
+
+            mRenderView.ZoomAll();
         }
-    
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (mSelectedItm < 1)
+                return;
+            mRenderView.GetScene().RemoveNode(mSelectedItm);
+            mRenderView.GetContext().GetSelection().Clear();
+            mRenderView.RequestDraw(EnumUpdateFlags.Scene);
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace AnyCAD.Demo.Graphics
             List<BrepSceneNode> links = new List<BrepSceneNode>();
             for(int ii=0; ii<files.Count; ++ii)
             {
-                links.Add(BrepSceneNode.Create(BrepIO.Open(rootPath + files[ii]), material, null, 0.1));
+                links.Add(BrepSceneNode.CreateBatch(ShapeIO.Open(rootPath + files[ii]), material, null, 0.1));
             }
 
             mRobot.AddJoint(EnumRobotJointType.Fixed, 0, 0, 200 , 0);

@@ -40,11 +40,7 @@ namespace AnyCAD.Demo.Graphics
         {
             int selector = (int)time % 2;
 
-            var faces = mNode.GetShape().GetFaces();
-            foreach(var face in faces)
-            {
-                face.SetMaterial(selector == 1? mMaterial1 : mMaterial2);
-            }
+            mNode.GetShape().SetFaceMaterial(selector == 1 ? mMaterial1 : mMaterial2);
 
             render.RequestDraw();
         }

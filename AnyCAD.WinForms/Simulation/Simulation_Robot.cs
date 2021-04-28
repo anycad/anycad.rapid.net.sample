@@ -14,7 +14,7 @@ namespace AnyCAD.Demo.Graphics
         ParticleSceneNode mMotionTrail = new ParticleSceneNode(1000, Vector3.Red, 3.0f);
         MaterialInstance mMaterial;
         MaterialInstance mRobotMaterial;
-
+        RobotAnimation mRobotAnimation;
         void PrepareMaterials()
         {
             if (mRobotMaterial != null)
@@ -74,41 +74,39 @@ namespace AnyCAD.Demo.Graphics
             render.ShowSceneNode(mRobot);
 
             render.ShowSceneNode(mMotionTrail);
+
+            // 4. Enable animation
+            mRobotAnimation = new RobotAnimation(mRobot);
+            mRobotAnimation.AddClip(new RobotAnimationClip(1, 0, 90, 0.05));
+            mRobotAnimation.AddClip(new RobotAnimationClip(2, 0, 180, 0.05));
+            mRobotAnimation.AddClip(new RobotAnimationClip(3, 0, 180, 0.05));
+            mRobotAnimation.AddClip(new RobotAnimationClip(4, 0, 180, 0.05));
+            mRobotAnimation.AddClip(new RobotAnimationClip(5, 0, 180, 0.05));
+            mRobotAnimation.AddClip(new RobotAnimationClip(6, 0, 180, 0.05));
+
+            mRobotAnimation.AddClip(new RobotAnimationClip(2, 180, 0, 0.1));
+            mRobotAnimation.AddClip(new RobotAnimationClip(3, 180, 0, 0.1));
+            mRobotAnimation.AddClip(new RobotAnimationClip(4, 180, 270, 0.1));
         }
 
-        float mTheta = 0;
-        float mD = 10;
-        float mSign = 1;
         uint mCount = 0;
 
         public override void Animation(RenderControl render, float time)
         {
-            mTheta += 0.5f;
+            if(mRobotAnimation.Play(time))
+            {
+                Vector3 pt = new Vector3(0);
+                pt = pt * mRobot.GetFinalTransform();
+                mMotionTrail.SetPosition(mCount, pt);
+                mMotionTrail.UpdateBoundingBox();
+                ++mCount;
 
-            mRobot.SetVariable(1, mTheta * 2);
-            mRobot.SetVariable(2, mTheta * 3);
-            mRobot.SetVariable(3, mTheta * 2);
-            mRobot.SetVariable(4, mTheta * 2);
-            mRobot.SetVariable(5, mTheta * 1);
-            mRobot.SetVariable(6, mTheta * 1);
+                //Blink blink effect
+                BrepSceneNode.Cast(mRobot.GetLink((mCount-1)%7).GetVisualNode()).GetShape().SetFaceMaterial(mRobotMaterial);
+                BrepSceneNode.Cast(mRobot.GetLink(mCount%7).GetVisualNode()).GetShape().SetFaceMaterial(mMaterial);
 
-            if (mD > 30 || mD < 10)
-                mSign *= -1;
-            mD += mSign * 0.2f;
-
-            mRobot.UpdateFrames();
-
-            Vector3 pt = new Vector3(0);
-            pt = pt * mRobot.GetFinalTransform();
-            mMotionTrail.SetPosition(mCount, pt);
-            mMotionTrail.UpdateBoundingBox();
-            ++mCount;
-
-            //Blink blink effect
-            BrepSceneNode.Cast(mRobot.GetLink((mCount-1)%7).GetVisualNode()).GetShape().SetFaceMaterial(mRobotMaterial);
-            BrepSceneNode.Cast(mRobot.GetLink(mCount%7).GetVisualNode()).GetShape().SetFaceMaterial(mMaterial);
-
-            render.RequestDraw(EnumUpdateFlags.Scene);
+                render.RequestDraw(EnumUpdateFlags.Scene);
+            }
         }
     }
 }

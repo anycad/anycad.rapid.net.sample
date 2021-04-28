@@ -6,8 +6,15 @@
         xmlns:anycad="clr-namespace:AnyCAD.WPF;assembly=AnyCAD.WPF.Net"
         xmlns:local="clr-namespace:AnyCAD.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="AnyCAD Rapid SDK for WPF" Height="600" Width="1024" Loaded="Window_Loaded">
     <Grid>
-        <anycad:RenderControl x:Name="mViewer" Margin="0,0,0,0"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="100" Width="0.3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TreeView x:Name="projectBrowser" SelectedItemChanged="projectBrowser_SelectedItemChanged" Grid.Column="0" Margin="0,0,0,0">
+
+        </TreeView>
+        <anycad:RenderControl Grid.Column="1" x:Name="mRenderCtrl" Margin="0,0,0,0"/>
     </Grid>
 </Window>

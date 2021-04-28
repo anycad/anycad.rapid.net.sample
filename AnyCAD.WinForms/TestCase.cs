@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace AnyCAD.Demo
 {
-    abstract class TestCase
+    public abstract class TestCase
     {
         private static TestCase mCurrentDemo; 
         public int State { get; set; }
@@ -18,28 +18,36 @@ namespace AnyCAD.Demo
             return AppDomain.CurrentDomain.BaseDirectory + @"\..\..\data\" + fileName;
         }
 
-        public static void Register(TreeView tv)
+        public delegate void TestCaseHandler(Type type, string name, string groupName);
+        public static void ForEachCase(TestCaseHandler handler)
         {
             var types = Assembly.GetExecutingAssembly().GetTypes();
-            Dictionary<String, TreeNode> dictNodes = new Dictionary<string, TreeNode>();
             foreach (var type in types)
             {
                 if (type.IsSubclassOf(typeof(TestCase)))
                 {
                     var items = type.Name.Split('_');
-                    TreeNode groupNode = null;
-                    if(!dictNodes.TryGetValue(items[0], out groupNode))
-                    {
-                        groupNode = tv.Nodes.Add(items[0]);
-                        dictNodes[items[0]] = groupNode;
-                    }
-
-                    var node = groupNode.Nodes.Add(items[1]);
-                    node.Tag = type;
+                    handler(type, items[1], items[0]);
                 }
 
             }
+        }
+        public static void Register(TreeView tv)
+        {
+            var types = Assembly.GetExecutingAssembly().GetTypes();
+            Dictionary<String, TreeNode> dictNodes = new Dictionary<string, TreeNode>();
+            ForEachCase((Type type, string name, string groupName) =>
+            {
+                TreeNode groupNode = null;
+                if (!dictNodes.TryGetValue(groupName, out groupNode))
+                {
+                    groupNode = tv.Nodes.Add(groupName);
+                    dictNodes[groupName] = groupNode;
+                }
 
+                var node = groupNode.Nodes.Add(name);
+                node.Tag = type;
+            });
             tv.ExpandAll();
         }
 
@@ -74,7 +82,7 @@ namespace AnyCAD.Demo
         }
     }
 
-    class _Welcom_AnyCAD : TestCase
+    class Welcome_AnyCAD : TestCase
     {
         public override void Run(RenderControl render)
         {

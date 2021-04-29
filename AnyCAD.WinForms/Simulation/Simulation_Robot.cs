@@ -77,16 +77,13 @@ namespace AnyCAD.Demo.Graphics
 
             // 4. Enable animation
             mRobotAnimation = new RobotAnimation(mRobot);
-            mRobotAnimation.AddClip(new RobotAnimationClip(1, 0, 90, 0.05));
-            mRobotAnimation.AddClip(new RobotAnimationClip(2, 0, 180, 0.05));
-            mRobotAnimation.AddClip(new RobotAnimationClip(3, 0, 180, 0.05));
-            mRobotAnimation.AddClip(new RobotAnimationClip(4, 0, 180, 0.05));
-            mRobotAnimation.AddClip(new RobotAnimationClip(5, 0, 180, 0.05));
-            mRobotAnimation.AddClip(new RobotAnimationClip(6, 0, 180, 0.05));
+            mRobotAnimation.AddClip(new RobotAnimationClip(1, 0, 90, 0, 5));
+            mRobotAnimation.AddClip(new RobotAnimationClip(2, 0, 180, 0, 5));
+            mRobotAnimation.AddClip(new RobotAnimationClip(3, 0, 180, 0, 5));
 
-            mRobotAnimation.AddClip(new RobotAnimationClip(2, 180, 0, 0.1));
-            mRobotAnimation.AddClip(new RobotAnimationClip(3, 180, 0, 0.1));
-            mRobotAnimation.AddClip(new RobotAnimationClip(4, 180, 270, 0.1));
+            mRobotAnimation.AddClip(new RobotAnimationClip(2, 180, 0, 5, 15));
+            mRobotAnimation.AddClip(new RobotAnimationClip(3, 180, 0, 5, 15));
+            mRobotAnimation.AddClip(new RobotAnimationClip(4, 180, 270, 5, 15));
         }
 
         uint mCount = 0;

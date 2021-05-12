@@ -9,7 +9,7 @@ namespace AnyCAD.Demo.Geometry
         public override void Run(RenderControl renderer)
         {
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "IGES (*.igs;*.iges)|*.igs;*.iges|STEP (*.stp;*.step)|*.stp;*.step";
+            dialog.Filter = "IGES (*.igs;*.iges)|*.igs;*.iges|STEP (*.stp;*.step)|*.stp;*.step|Brep (*.brep)|*.brep";
             if (dialog.ShowDialog() != DialogResult.OK)
                 return;
 
@@ -17,31 +17,35 @@ namespace AnyCAD.Demo.Geometry
             if (shape == null)
                 return;
 
-            var edgeMaterial = BasicMaterial.Create("hole-edge");
-            edgeMaterial.SetColor(Vector3.ColorFromHex(0xFF0000));
-            edgeMaterial.SetLineWidth(2);
+            var bs = new BufferShape(shape, null, null, 0);
+            bs.Build();
 
-
-            // 1. Find the exterial holes
+            // 1. Compute
             var holeExp = new HoleExplor();
-            if (!holeExp.Initialize(shape))
+            if (!holeExp.Initialize(bs))
                 return;
-            var holeNumber = holeExp.ComputeExteriorHoles();
+            var dir = holeExp.ComputeDirection();
+            holeExp.Compute(dir);
 
-            for(int ii=0; ii<holeNumber; ++ii)
+            var defaultMaterial = MeshPhongMaterial.Create("face-x");
+            defaultMaterial.SetFaceSide(EnumFaceSide.DoubleSide);
+            bs.SetFaceMaterial(defaultMaterial);
+           
+
+            // 2. Set hole faces with red color
+            var material = BasicMaterial.Create("hole-face");
+            material.SetFaceSide(EnumFaceSide.DoubleSide);
+            material.SetColor(new Vector3(0.5f, 0, 0));
+            var holeNumber = holeExp.GetHoleCount();
+            for(uint ii=0; ii< holeNumber; ++ii)
             {
-                var wire = holeExp.GetExteriorHoleWire(ii);
-                var wireNode = BrepSceneNode.Create(wire, null, edgeMaterial);
-
-                renderer.ShowSceneNode(wireNode);
+                var faceIDs = holeExp.GetHoleFaces(ii);
+                foreach(var faceIdx in faceIDs)
+                    bs.SetFaceMaterial(faceIdx, material);
             }
 
             // 2. Show the faces
-            var material = MeshNormalMaterial.Create("hole-face");
-            material.SetFaceSide(EnumFaceSide.DoubleSide);
-
-            var shapeNode = BrepSceneNode.Create(shape, material, null);
-            shapeNode.SetDisplayFilter(EnumShapeFilter.Face);
+            var shapeNode = new BrepSceneNode(bs);
             renderer.ShowSceneNode(shapeNode);
         }
     }

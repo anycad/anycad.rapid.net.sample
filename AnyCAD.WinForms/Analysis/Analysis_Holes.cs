@@ -18,7 +18,7 @@ namespace AnyCAD.Demo.Geometry
 
 
             // 1. Find the exterial holes
-            var holeExp = new HoleExplor();
+            var holeExp = new HoleExplorLegacy();
             if (!holeExp.Initialize(shape))
                 return;
             var holeNumber = holeExp.ComputeExteriorHoles();

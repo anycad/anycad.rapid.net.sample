@@ -29,13 +29,14 @@ namespace AnyCAD.Demo
             settings.SetToneMappingExposure(1.5f);
 
             // Selection changed
-            mRenderView.SetSelectCallback((PickedItem item) =>
+            mRenderView.SetSelectCallback((PickedResult result) =>
             {
                 mSelectedItm = 0;
                 this.listBox1.Items.Clear();
-                if (item.IsNull())
-                    return;
 
+                if (result.IsEmpty())
+                    return;
+                var item = result.GetItem();
                 var ssn = BrepSceneNode.Cast(item.GetNode());
                 if (ssn != null)
                 {
@@ -103,7 +104,8 @@ namespace AnyCAD.Demo
             if (dialog.ShowDialog() != DialogResult.OK)
                 return;
 
-            mRenderView.CaptureScreenShot(dialog.FileName);
+            var ss = mRenderView.CreateScreenShot();
+            ss.SaveFile(dialog.FileName);
         }
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
@@ -224,9 +226,9 @@ namespace AnyCAD.Demo
             }
             else
             {
-                mRenderView.SetHilightingCallback((PickedItem item) =>
+                mRenderView.SetHilightingCallback((PickedResult result) =>
                 {
-                    var text = item.GetPoint().GetPosition().ToString();
+                    var text = result.GetItem().GetPoint().GetPosition().ToString();
                     this.mRenderView.SetToolTip(text);
                     return true;
                 });

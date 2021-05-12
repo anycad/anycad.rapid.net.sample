@@ -25,7 +25,9 @@ namespace ConsoleApp
             scene.UpdateWorld();
             canvas.ZoomToExtend();
             canvas.Redraw(0);
-            canvas.CaptureScreenShot("image.bmp");
+            var ss = canvas.CreateScreenShot();
+            ss.SaveFile("image.bmp");
+
             canvas.Destroy();
 
             GlobalInstance.Destroy();

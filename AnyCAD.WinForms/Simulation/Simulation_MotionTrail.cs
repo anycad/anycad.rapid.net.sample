@@ -12,6 +12,8 @@ namespace AnyCAD.Demo.Graphics
     {
         BrepSceneNode mWorkpiece = null;
         ParticleSceneNode mMotionTrail = new ParticleSceneNode(1000, Vector3.Red, 3.0f);
+        RigidAnimation mAnimation;
+
         public override void Run(RenderControl render)
         {
             var material = MeshStandardMaterial.Create("workpiece");
@@ -32,34 +34,32 @@ namespace AnyCAD.Demo.Graphics
 
             render.ShowSceneNode(mMotionTrail);
 
-            mLength = 0;
-            mTheta = 0;
-        }
 
-        float mTheta = 0;
-        float mLength = 0;
+            // Initialize Animation
+            mAnimation = new RigidAnimation();
+
+            var rotation = Matrix4.makeRotationAxis(new Vector3(1, 0, 0), (float)Math.PI);
+            var trf = Matrix4.makeTranslation(-50, 0, 0) * rotation;
+
+            mAnimation.Add(new MatrixAnimationClip(mWorkpiece, mWorkpiece.GetTransform(), trf, 0, 10));
+            mAnimation.Add(new MatrixAnimationClip(mWorkpiece, trf, mWorkpiece.GetTransform(), 10, 15));
+        }
         
         uint mCount = 0;
         public override void Animation(RenderControl render, float time)
         {
-            if (mLength > 50)
-                return;
-  
-            mTheta += 0.02f;
-            var rotation = Matrix4.makeRotationAxis(new Vector3(1, 0, 0), mTheta);
-            mLength += 0.1f;
+            if(mAnimation.Play(time))
+            {
+                var trf = mWorkpiece.GetTransform();
+                Vector3 tailPostion = new Vector3(0, 0, 5);
+                tailPostion.applyMatrix4(trf);
+                mMotionTrail.SetPosition(mCount++, tailPostion);
+                mMotionTrail.RequstUpdate();
 
-            var trf = Matrix4.makeTranslation(-mLength, 0, 0) * rotation;
+                render.RequestDraw(EnumUpdateFlags.Scene);
+            }
 
-            mWorkpiece.SetTransform(trf);
-            mWorkpiece.RequstUpdate();
 
-            Vector3 tailPostion = new Vector3(0, 0, 5);
-            tailPostion.applyMatrix4(trf);
-            mMotionTrail.SetPosition(mCount++, tailPostion);
-            mMotionTrail.RequstUpdate();
-
-            render.RequestDraw(EnumUpdateFlags.Scene);
         }
      }
 }

@@ -1,0 +1,90 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using AnyCAD.Forms;
+using AnyCAD.Foundation;
+
+namespace AnyCAD.Demo.Graphics
+{
+    class Simulation_DynamicRay : TestCase
+    {
+        //点的位置
+        ParticleSceneNode mMotionTrail;
+        //目标的点
+        List<Vector3> mPoints = new List<Vector3>();
+
+        //射线
+        PrimitiveSceneNode mLineNode;
+
+
+        //射线发出的位置
+        Vector3 mStart = new Vector3(200, 0, 200);
+        public override void Run(RenderControl render)
+        {
+            var lineMaterial = BasicMaterial.Create("myline");
+            lineMaterial.SetColor(Vector3.ColorFromHex(0xFF0000));
+            var line = GeometryBuilder.CreateLine(Vector3.Zero, new Vector3(1, 0, 0));
+            mLineNode = new PrimitiveSceneNode(line, lineMaterial);
+
+            render.ShowSceneNode(mLineNode);
+
+
+            // 随便构造些点
+            float offset = 10.0f;
+            for(int ii=0; ii<50; ++ii)
+            {
+                for (int jj = 0; jj < ii; ++jj)
+                {
+                    mPoints.Add(new Vector3(jj* offset, 100, ii*offset));
+                }
+            }
+
+
+            mMotionTrail = new ParticleSceneNode((uint)mPoints.Count, Vector3.Green, 3.0f);
+
+            mCurrentIdx = 0;
+
+            render.ShowSceneNode(mMotionTrail);
+        }
+        
+        //构造矩阵，避免更新射线的几何
+        Matrix4 MakeTransform(Vector3 start, Vector3 end)
+        {
+            Vector3 dir = end - start;
+            float len = dir.length();
+            dir.normalize();
+
+           return Matrix4.makeTranslation(start) * Matrix4.makeRotation(Vector3.UNIT_X, dir) * Matrix4.makeScale(len, 1, 1);
+        }
+        //记录当前射向的点
+        int mCurrentIdx = 0;
+        //用于控制快慢
+        float mTime = 0;
+        public override void Animation(RenderControl render, float time)
+        {
+            mTime += time;
+            if (mTime < 100) //距离上次更新不到100ms，就返回
+                return;
+            mTime = 0;
+
+            if (mCurrentIdx >= mPoints.Count)
+            {
+                mCurrentIdx = 0;
+            }
+
+            Vector3 target = mPoints[mCurrentIdx];
+
+            mLineNode.SetTransform(MakeTransform(mStart, target));
+            mLineNode.RequstUpdate();
+
+            mMotionTrail.SetPosition((uint)mCurrentIdx, target); 
+            mMotionTrail.RequstUpdate();
+
+            render.RequestDraw(EnumUpdateFlags.Scene);
+
+            ++mCurrentIdx;
+        }
+     }
+}

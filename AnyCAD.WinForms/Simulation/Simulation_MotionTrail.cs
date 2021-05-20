@@ -25,12 +25,10 @@ namespace AnyCAD.Demo.Graphics
 
             render.ShowSceneNode(mWorkpiece);
 
-            {
-                var coord = new GAx2(new GPnt(0, 0, 5), GP.DZ());
-                var toolShape = ShapeBuilder.MakeCone(coord, 0, 2, 5, 0);
-                render.ShowShape(toolShape, Vector3.Blue);
-            }
-            
+            var coord = new GAx2(new GPnt(0, 0, 5), GP.DZ());
+            var toolShape = ShapeBuilder.MakeCone(coord, 0, 2, 5, 0);
+            var toolNode = render.ShowShape(toolShape, Vector3.Blue);
+
 
             render.ShowSceneNode(mMotionTrail);
 
@@ -42,7 +40,8 @@ namespace AnyCAD.Demo.Graphics
             var trf = Matrix4.makeTranslation(-50, 0, 0) * rotation;
 
             mAnimation.Add(new MatrixAnimationClip(mWorkpiece, mWorkpiece.GetTransform(), trf, 0, 10));
-            mAnimation.Add(new MatrixAnimationClip(mWorkpiece, trf, mWorkpiece.GetTransform(), 10, 15));
+            mAnimation.Add(new MatrixAnimationClip(toolNode, toolNode.GetTransform(), trf, 10, 15));
+            mAnimation.Add(new RotateAnimationClip(toolNode, Vector3.UNIT_Z, (float)Math.PI*4, 16, 20));
         }
         
         uint mCount = 0;

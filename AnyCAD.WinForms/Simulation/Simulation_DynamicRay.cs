@@ -23,12 +23,6 @@ namespace AnyCAD.Demo.Graphics
         Vector3 mStart = new Vector3(200, 0, 200);
         public override void Run(RenderControl render)
         {
-            var lineMaterial = BasicMaterial.Create("myline");
-            lineMaterial.SetColor(Vector3.ColorFromHex(0xFF0000));
-            var line = GeometryBuilder.CreateLine(Vector3.Zero, new Vector3(1, 0, 0));
-            mLineNode = new PrimitiveSceneNode(line, lineMaterial);
-
-            render.ShowSceneNode(mLineNode);
 
 
             // 随便构造些点
@@ -47,6 +41,15 @@ namespace AnyCAD.Demo.Graphics
             mCurrentIdx = 0;
 
             render.ShowSceneNode(mMotionTrail);
+
+            var lineMaterial = BasicMaterial.Create("myline");
+            lineMaterial.SetColor(Vector3.ColorFromHex(0xFF0000));
+            var line = GeometryBuilder.CreateLine(Vector3.Zero, new Vector3(1, 0, 0));
+            mLineNode = new PrimitiveSceneNode(line, lineMaterial);
+            mLineNode.SetTransform(MakeTransform(mStart, mPoints[0]));
+            mLineNode.RequstUpdate();
+            render.ShowSceneNode(mLineNode);
+
         }
         
         //构造矩阵，避免更新射线的几何

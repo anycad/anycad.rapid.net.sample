@@ -16,7 +16,7 @@ namespace AnyCAD.Demo.Graphics
         public override void Run(RenderControl render)
         {
             mMaterial1 = MeshPhongMaterial.Create("phong.texture");
-            mMaterial1.SetUniform("diffuse", Uniform.Create(new Vector3(1, 0, 1)));
+            mMaterial1.SetColor(new Vector3(1, 0, 1));
 
             var texture = ImageTexture2D.Create(GetResourcePath("textures/bricks2.jpg"));
             texture.SetRepeat(new Vector2(2.0f, 2.0f));

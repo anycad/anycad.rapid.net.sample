@@ -118,6 +118,7 @@
     <Compile Include="Graphics\Graphics_1000Sphere.cs" />
     <Compile Include="Graphics\Graphics_DashedLines.cs" />
     <Compile Include="Graphics\Graphics_FontTexture.cs" />
+    <Compile Include="Graphics\Graphics_Geometry.cs" />
     <Compile Include="Graphics\Graphics_GeometryDynamic.cs" />
     <Compile Include="Graphics\Graphics_Matlab.cs" />
     <Compile Include="Graphics\Graphics_PointCloud.cs" />

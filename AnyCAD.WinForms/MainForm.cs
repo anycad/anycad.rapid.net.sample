@@ -37,6 +37,9 @@ namespace AnyCAD.Demo
                 if (result.IsEmpty())
                     return;
                 var item = result.GetItem();
+                if (item.GetNode() == null)
+                    return;
+
                 var ssn = BrepSceneNode.Cast(item.GetNode());
                 if (ssn != null)
                 {

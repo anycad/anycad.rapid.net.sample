@@ -22,14 +22,11 @@ namespace AnyCAD.Demo
         {
             InitializeComponent();
 
+            mRenderView = new RenderControl(this.panel1);
+
             mTagCtl = new MyTagControl();
             this.panel1.Controls.Add(mTagCtl);
-           
-
-            mRenderView = new RenderControl();
-            this.panel1.Controls.Add(mRenderView);
-            mRenderView.Dock = DockStyle.Fill;
-            mRenderView.TabIndex = 1;
+            mTagCtl.BringToFront();
         }
 
         private void NewForm3D_Load(object sender, EventArgs e)

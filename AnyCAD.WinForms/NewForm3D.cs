@@ -15,45 +15,42 @@ namespace AnyCAD.Demo
     public partial class NewForm3D : Form
     {
         RenderControl mRenderView;
-        TagNode2D mTag;
 
-        MyTagControl mTagCtl;
+        public delegate void UpdateTagHandler();
+        public event UpdateTagHandler UpdateTagEvent;
+
         public NewForm3D()
         {
             InitializeComponent();
 
             mRenderView = new RenderControl(this.panel1);
-
-            mTagCtl = new MyTagControl();
-            this.panel1.Controls.Add(mTagCtl);
-            mTagCtl.BringToFront();
         }
 
         private void NewForm3D_Load(object sender, EventArgs e)
         {
-
             var box = GeometryBuilder.CreateBox(100, 200, 300);
+            var material = MeshPhongMaterial.Create("simple");
+            box.SetMaterial(material);
+            material.SetColor(Vector3.Red);
             var node = new PrimitiveSceneNode(box);
 
             mRenderView.ShowSceneNode(node);
 
-
-            mTag = TagNode2D.Create(null, new Vector3(200,300,400), Vector3.Zero);
-
-            mRenderView.ShowSceneNode(mTag);
-
             mRenderView.SetStandardView(EnumStandardView.DefaultView);
             mRenderView.ZoomAll();
 
-            mRenderView.SetAfterRenderingCallback(UpdateTagControls);
-        }
+            // 转发给事件处理
+            mRenderView.SetAfterRenderingCallback(()=>{
+                if (UpdateTagEvent != null)
+                    UpdateTagEvent();
+            });
 
-        void UpdateTagControls()
-        {
-            var position = mTag.GetViewportPosition();
+            // 创建两个自定义标注
+            var mTagCtl = new MyTagControl(mRenderView, new Vector3(200, 300, 400), Vector3.Zero);
+            UpdateTagEvent += mTagCtl.UpdateLayout;
 
-
-            mTagCtl.Location = new Point(Size.Width / 2 + (int)position.x - 20, Size.Height/2 - (int)position.y - 20);
+            var mTagCtl2 = new MyTagControl(mRenderView, new Vector3(-100, -200, 100), Vector3.Zero);
+            UpdateTagEvent += mTagCtl2.UpdateLayout;
         }
     }
 }

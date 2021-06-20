@@ -15,13 +15,18 @@ Download link:
 
 ### 2.1 Modeling
 
+![hole](showcase/holes.png)
+
 ![boolean](showcase/boolean.png)
 
 ![pipe](showcase/pipe.png)
 
 ![spring](showcase/spring.png)
 
+
 ### 2.2 Graphcis
+
+![dimension](showcase/dimension.png)
 
 ![matplot](showcase/matplot.png)
 

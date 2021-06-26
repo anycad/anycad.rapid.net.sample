@@ -23,10 +23,7 @@ namespace AnyCAD.Demo
         uint mSelectedItm = 0;
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // Add Exposure
-            var settings = mRenderView.GetContext().GetRenderSettings();
-            settings.SetToneMapping(EnumToneMapping.LinearToneMapping);
-            settings.SetToneMappingExposure(1.5f);
+
 
             // Selection changed
             mRenderView.SetSelectCallback((PickedResult result) =>
@@ -386,6 +383,16 @@ namespace AnyCAD.Demo
             mRenderView.GetScene().RemoveNode(mSelectedItm);
             mRenderView.GetContext().GetSelection().Clear();
             mRenderView.RequestDraw(EnumUpdateFlags.Scene);
+        }
+
+        private void explosureToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Add Exposure
+            //var settings = mRenderView.GetContext().GetRenderSettings();
+            //settings.SetToneMapping(EnumToneMapping.LinearToneMapping);
+            //settings.SetToneMappingExposure(1.5f);
+
+            //mRenderView.RequestDraw(EnumUpdateFlags.Material);
         }
     }
 }

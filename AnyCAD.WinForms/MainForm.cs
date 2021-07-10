@@ -24,7 +24,6 @@ namespace AnyCAD.Demo
         private void MainForm_Load(object sender, EventArgs e)
         {
 
-
             // Selection changed
             mRenderView.SetSelectCallback((PickedResult result) =>
             {
@@ -240,14 +239,14 @@ namespace AnyCAD.Demo
         private void filterEdgeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var ctx = mRenderView.GetContext();
-            ctx.ClearDisplayFilter(EnumShapeFilter.All);
+            ctx.ClearDisplayFilter(EnumShapeFilter.VertexEdgeFace);
             ctx.AddDisplayFilter(EnumShapeFilter.Edge);
         }
 
         private void filterFaceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var ctx = mRenderView.GetContext();
-            ctx.ClearDisplayFilter(EnumShapeFilter.All);
+            ctx.ClearDisplayFilter(EnumShapeFilter.VertexEdgeFace);
             ctx.AddDisplayFilter(EnumShapeFilter.Face);
         }
 
@@ -308,7 +307,7 @@ namespace AnyCAD.Demo
             if(mShowArrow)
             {
                 var arrowMaterial = MeshPhongMaterial.Create("arrow");
-                arrowMaterial.SetColor(Vector3.Red);
+                arrowMaterial.SetColor(ColorTable.Red);
                 mArrow = ArrowWidget.Create(2, 10, arrowMaterial);
                 mArrow.SetPickable(false);
                 mRenderView.ShowSceneNode(mArrow);
@@ -393,6 +392,18 @@ namespace AnyCAD.Demo
             //settings.SetToneMappingExposure(1.5f);
 
             //mRenderView.RequestDraw(EnumUpdateFlags.Material);
+        }
+
+        bool mContactShadow = false;
+        private void contactShadowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mContactShadow = !mContactShadow;
+
+            var settings = mRenderView.GetContext().GetRenderSettings();
+            //settings.SetShadowMapEnabled(mContactShadow);
+            settings.SetContactShadow(mContactShadow);
+            settings.SetContactShadowBlur(5.0f);
+            mRenderView.RequestDraw(EnumUpdateFlags.Light);
         }
     }
 }

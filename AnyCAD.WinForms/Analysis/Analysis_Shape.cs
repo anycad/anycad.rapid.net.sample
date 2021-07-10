@@ -25,9 +25,9 @@ namespace AnyCAD.Demo.Geometry
             {
                 var edge = shapeExplor.GetEdge(ii);
                 if(edge.GetCurveType() == EnumCurveType.CurveType_Line)
-                    renderer.ShowShape(edge.GetShape(), Vector3.Blue);
+                    renderer.ShowShape(edge.GetShape(), ColorTable.Blue);
                 else
-                    renderer.ShowShape(edge.GetShape(), Vector3.Red);
+                    renderer.ShowShape(edge.GetShape(), ColorTable.Red);
             }
         }
     }

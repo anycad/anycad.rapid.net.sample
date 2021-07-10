@@ -14,7 +14,7 @@ namespace AnyCAD.Demo.Geometry
             var face = SketchBuilder.MakePlanarFace(c2);
             var face2 = SketchBuilder.MakePlanarFace(c1);
             var shape = BooleanTool.Cut(face, face2);
-            //render.ShowShape(shape, Vector3.Blue);
+            //render.ShowShape(shape, ColorTable.Blue);
 
             var faces = shape.GetChildren(EnumTopoShapeType.Topo_FACE);
 

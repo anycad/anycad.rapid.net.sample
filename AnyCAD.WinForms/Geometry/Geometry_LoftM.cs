@@ -39,7 +39,7 @@ namespace AnyCAD.Demo.Geometry
 
 
             var temp1 = FeatureTool.Loft(tg, true, true);
-            render.ShowShape(temp1, Vector3.ColorFromHex(0xFF0000));
+            render.ShowShape(temp1, ColorTable.Hex(0xFF0000));
 
         
 

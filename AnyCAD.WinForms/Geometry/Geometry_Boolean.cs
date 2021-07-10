@@ -11,8 +11,8 @@ namespace AnyCAD.Demo.Geometry
             var box = ShapeBuilder.MakeBox(GP.XOY(), 10, 10, 10);
             var sphere = ShapeBuilder.MakeSphere(GP.Origin(), 5);
 
-            render.ShowShape(box, Vector3.Red);
-            render.ShowShape(sphere, Vector3.Blue);
+            render.ShowShape(box, ColorTable.Red);
+            render.ShowShape(sphere, ColorTable.Blue);
 
             var common = BooleanTool.Common(box, sphere);
             render.ShowShape(common, Matrix4.makeTranslation(-20,0,0));

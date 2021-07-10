@@ -13,16 +13,16 @@ namespace AnyCAD.Demo.Geometry
         public override void Run(RenderControl render)
         {
             var box = ShapeBuilder.MakeBox(GP.XOY(), 10, 20, 30);
-            render.ShowShape(box, Vector3.Green);
+            render.ShowShape(box, ColorTable.Green);
 
             var trans = TransformTool.Translate(box, new GVec(-20, 0, 0));
-            render.ShowShape(trans, Vector3.Blue);
+            render.ShowShape(trans, new Vector3(105.0f/256.0f));
 
             var scale = TransformTool.Scale(box, GP.Origin(), 0.5);
-            render.ShowShape(scale, Vector3.Blue);
+            render.ShowShape(scale, ColorTable.Blue);
 
             var rotate = TransformTool.Rotation(box, GP.OX(), 45);
-            render.ShowShape(rotate, Vector3.Red);
+            render.ShowShape(rotate, ColorTable.Red);
 
         }
     }

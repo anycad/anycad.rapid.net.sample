@@ -38,7 +38,7 @@ namespace AnyCAD.Demo.Graphics
             {
                 var fixedSizeMaterial = SpriteMaterial.Create("font-mesh-material");
                 fixedSizeMaterial.SetSizeAttenuation(false);
-                fixedSizeMaterial.SetColor(Vector3.Green);
+                fixedSizeMaterial.SetColor(ColorTable.Green);
 
                 var mesh = FontManager.Instance().CreateMesh("哈哈");
                 var node = new PrimitiveSceneNode(mesh, fixedSizeMaterial);

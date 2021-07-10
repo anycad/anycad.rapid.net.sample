@@ -11,7 +11,7 @@ namespace AnyCAD.Demo.Graphics
     class Simulation_Robot : TestCase
     {
         RobotArm mRobot = new RobotArm();
-        ParticleSceneNode mMotionTrail = new ParticleSceneNode(1000, Vector3.Red, 3.0f);
+        ParticleSceneNode mMotionTrail = new ParticleSceneNode(1000, ColorTable.Red, 3.0f);
         MaterialInstance mMaterial;
         MaterialInstance mRobotMaterial;
         RobotAnimation mRobotAnimation;
@@ -21,13 +21,13 @@ namespace AnyCAD.Demo.Graphics
                 return;
 
             mRobotMaterial = MeshStandardMaterial.Create("robot");
-            mRobotMaterial.SetColor(Vector3.ColorFromHex(0xEEFF22));
+            mRobotMaterial.SetColor(ColorTable.Hex(0xEEFF22));
             mRobotMaterial.SetFaceSide(EnumFaceSide.DoubleSide);
            // mRobotMaterial.SetOpacity(0.5f);
             //mRobotMaterial.SetTransparent(true);
 
             mMaterial = MeshStandardMaterial.Create("hilight-robot");
-            mMaterial.SetColor(Vector3.ColorFromHex(0xFF0000));
+            mMaterial.SetColor(ColorTable.Hex(0xFF0000));
             mMaterial.SetFaceSide(EnumFaceSide.DoubleSide);
         }
 

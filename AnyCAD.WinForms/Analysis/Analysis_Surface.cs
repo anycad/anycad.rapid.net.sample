@@ -22,12 +22,12 @@ namespace AnyCAD.Demo.Geometry
             foreach (var wire in wires)
             {
                 // Show wire
-                renderer.ShowShape(wire, Vector3.Red);
+                renderer.ShowShape(wire, ColorTable.Red);
 
                 var curve = new ParametricCurve(wire);
                 var paramList = curve.SplitByUniformLength(1, 0.01);
 
-                var lines = new SegmentsSceneNode((uint)paramList.Count, Vector3.Green, 2);
+                var lines = new SegmentsSceneNode((uint)paramList.Count, ColorTable.Green, 2);
                 uint idx = 0;
                 foreach (var p in paramList)
                 {
@@ -49,7 +49,7 @@ namespace AnyCAD.Demo.Geometry
 
             // Show face
             var faceMaterial = MeshStandardMaterial.Create("pbr.face");
-            faceMaterial.SetColor(Vector3.LightGray);
+            faceMaterial.SetColor(ColorTable.Gray);
             faceMaterial.SetFaceSide(EnumFaceSide.DoubleSide);
             var faceNode = BrepSceneNode.Create(face, faceMaterial, null);
             faceNode.SetDisplayFilter(EnumShapeFilter.Face);

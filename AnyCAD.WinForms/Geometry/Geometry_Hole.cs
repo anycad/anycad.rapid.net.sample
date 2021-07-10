@@ -20,9 +20,9 @@ namespace AnyCAD.Demo.Geometry
             var wires = wireExp.GetInnerWires();
             foreach(var wire in wires)
             {
-                render.ShowShape(wire, Vector3.Red);
+                render.ShowShape(wire, ColorTable.Red);
             }
-            render.ShowShape(shape,  Vector3.LightGray);
+            render.ShowShape(shape,  ColorTable.LightYellow);
         }
     }
 }

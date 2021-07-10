@@ -15,11 +15,11 @@ Download link:
 
 ### 2.1 Modeling
 
+![pipe](showcase/pipe.png)
+
 ![hole](showcase/holes.png)
 
 ![boolean](showcase/boolean.png)
-
-![pipe](showcase/pipe.png)
 
 ![spring](showcase/spring.png)
 

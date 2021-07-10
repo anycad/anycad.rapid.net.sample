@@ -59,7 +59,7 @@ namespace AnyCAD.Demo.Geometry
                 }
                 // var quxian = SketchBuilder.MakePolygon(points, true);  //生成拓扑，
                 var quxian = SketchBuilder.MakeBSpline(points, true);
-                //mRenderView.ShowShape(quxian, Vector3.Red);
+                //mRenderView.ShowShape(quxian, ColorTable.Red);
                 spline.Add(quxian);
             }
             var shape = FeatureTool.Loft(spline, true, false);
@@ -80,11 +80,11 @@ namespace AnyCAD.Demo.Geometry
 
             var cut = BooleanTool.Cut(shape, feature);   // 求差  保留前面的一个
             if (cut != null)
-                render.ShowShape(cut, Vector3.Green);
+                render.ShowShape(cut, ColorTable.Green);
 
             //var cut2 = BooleanTool.Cut(feature, shape);
             //if (cut2 != null)
-            //    render.ShowShape(cut2, Vector3.Blue);
+            //    render.ShowShape(cut2, ColorTable.Blue);
         }
     }
 }

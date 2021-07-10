@@ -32,8 +32,8 @@ namespace AnyCAD.Demo.Geometry
                 render.ShowSceneNode(node);
             }
 
-            render.ShowShape(arc, Vector3.Red);
-            render.ShowShape(line, Vector3.Green);
+            render.ShowShape(arc, ColorTable.Red);
+            render.ShowShape(line, ColorTable.Green);
         }
     }
 }

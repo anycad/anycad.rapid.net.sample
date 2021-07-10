@@ -21,10 +21,10 @@ namespace AnyCAD.Demo.Graphics
         public override void Run(RenderControl render)
         {
             RedMaterial = MeshPhongMaterial.Create("phong.color");
-            RedMaterial.SetColor(Vector3.Red);
+            RedMaterial.SetColor(ColorTable.Red);
 
             GrayMaterial = MeshPhongMaterial.Create("phong.color");
-            GrayMaterial.SetColor(Vector3.LightGray);
+            GrayMaterial.SetColor(ColorTable.小麦色);
             GrayMaterial.SetTransparent(true);
             GrayMaterial.SetOpacity(0.5f);
 

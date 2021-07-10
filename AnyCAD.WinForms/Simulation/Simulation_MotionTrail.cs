@@ -11,7 +11,7 @@ namespace AnyCAD.Demo.Graphics
     class Simulation_MotionTrail : TestCase
     {
         BrepSceneNode mWorkpiece = null;
-        ParticleSceneNode mMotionTrail = new ParticleSceneNode(1000, Vector3.Red, 3.0f);
+        ParticleSceneNode mMotionTrail = new ParticleSceneNode(1000, ColorTable.Red, 3.0f);
         RigidAnimation mAnimation;
 
         public override void Run(RenderControl render)
@@ -27,7 +27,7 @@ namespace AnyCAD.Demo.Graphics
 
             var coord = new GAx2(new GPnt(0, 0, 5), GP.DZ());
             var toolShape = ShapeBuilder.MakeCone(coord, 0, 2, 5, 0);
-            var toolNode = render.ShowShape(toolShape, Vector3.Blue);
+            var toolNode = render.ShowShape(toolShape, ColorTable.Blue);
 
 
             render.ShowSceneNode(mMotionTrail);

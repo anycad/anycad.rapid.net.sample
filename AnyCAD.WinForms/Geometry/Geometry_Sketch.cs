@@ -16,16 +16,16 @@ namespace AnyCAD.Demo.Geometry
             render.ShowShape(line, new Vector3(1, 1, 0));
             
             var ellips = SketchBuilder.MakeEllipse(GP.Origin(), 10, 5, GP.DX(), GP.DZ());
-            render.ShowShape(ellips, Vector3.Blue);
+            render.ShowShape(ellips, ColorTable.Blue);
 
             var circle = SketchBuilder.MakeCircle(GP.Origin(), 4, new GDir(0, 1, 0));
-            render.ShowShape(circle, Vector3.Green);
+            render.ShowShape(circle, ColorTable.Green);
 
             var arc = SketchBuilder.MakeArcOfCircle(GP.Origin(), new GPnt(50, 0, 50), new GPnt(20, 0, 40));
-            render.ShowShape(arc, Vector3.Red);
+            render.ShowShape(arc, ColorTable.Red);
 
             var rect = SketchBuilder.MakeRectangle(GP.XOY(), 30, 40, 5, false);
-            render.ShowShape(rect, Vector3.Green);
+            render.ShowShape(rect, ColorTable.Green);
         }
     }
 }

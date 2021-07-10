@@ -16,7 +16,7 @@ namespace AnyCAD.Demo.Geometry
             var material = MeshStandardMaterial.Create("my-material");
             material.SetRoughness(0.75f);
             material.SetMetalness(0.1f);
-            material.SetColor(Vector3.ColorFromHex(0xFFC107));
+            material.SetColor(ColorTable.Hex(0xFFC107));
 
             for (uint ii = 0; ii < 10; ++ii)
             {
@@ -28,10 +28,10 @@ namespace AnyCAD.Demo.Geometry
             //var bottom = SketchBuilder.MakeRectangle(GP.XOY(), 10, 20, 2, false);
             //var shape2 = FeatureTool.Loft(bottom, new GPnt(5, 10, 10));
 
-            //render.ShowShape(shape2, Vector3.Blue);
+            //render.ShowShape(shape2, ColorTable.Blue);
 
             //var shape3 =  ShapeBuilder.MakeCone(GP.XOY(), 10, 0, 10, 0);
-            //render.ShowShape(shape3, Vector3.Blue);
+            //render.ShowShape(shape3, ColorTable.Blue);
         }
     }
 }

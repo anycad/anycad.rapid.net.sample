@@ -18,17 +18,17 @@ namespace AnyCAD.Demo.Geometry
             {
                 GPntList points = new GPntList { GP.Origin(), new GPnt(20, 10, 30), new GPnt(50, 50, 50), };
                 var path = SketchBuilder.MakeBSpline(points);
-                render.ShowShape(path, Vector3.Green);
+                render.ShowShape(path, ColorTable.Green);
 
                 var feature = FeatureTool.Sweep(sketch, path, EnumGeomFillTrihedron.ConstantNormal);
-                render.ShowShape(feature, Vector3.Blue);
+                render.ShowShape(feature, ColorTable.Blue);
             }
 
             // 2. Revol
             {
                 var feature = FeatureTool.Revol(sketch, new GAx1(new GPnt(-20, 0, 0), GP.DY()), 90);
 
-                render.ShowShape(feature, Vector3.Green);
+                render.ShowShape(feature, ColorTable.Green);
             }
             // 3. Loft
             {
@@ -36,7 +36,7 @@ namespace AnyCAD.Demo.Geometry
                 var topWire = SketchBuilder.MakeCircle(new GPnt(60, -40, 40), 5, GP.DZ());
 
                 var loft = FeatureTool.Loft(baseWire, topWire, true);
-                render.ShowShape(loft, Vector3.Red);
+                render.ShowShape(loft, ColorTable.Red);
             }
             
         }

@@ -35,8 +35,8 @@ namespace AnyCAD.Demo.Geometry
             GAx2 coord1 = new GAx2(new GPnt(startPt.Added(new GVec(- 25, - 25, 0)).XYZ()), GP.DY());
             TopoShape section1 = SketchBuilder.MakeRectangle(coord1, 50, 50, 10, false);
 
-            render.ShowShape(section1, Vector3.Red);
-            render.ShowShape(path, Vector3.Green);
+            render.ShowShape(section1, ColorTable.Red);
+            render.ShowShape(path, ColorTable.Green);
 
             TopoShape pipe = FeatureTool.SweepByFrenet(section1, path, EnumSweepTransitionMode.RoundCorner,
                 false);

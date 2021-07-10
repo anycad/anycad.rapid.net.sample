@@ -35,7 +35,7 @@ namespace AnyCAD.Demo.Geometry
             }
 
             var path = SketchBuilder.MakeBSpline(points);
-            render.ShowShape(path, Vector3.Red);
+            render.ShowShape(path, ColorTable.Red);
 
             var curve = new ParametricCurve(path);
             var rt = curve.D1(curve.FirstParameter());

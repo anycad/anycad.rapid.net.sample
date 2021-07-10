@@ -19,7 +19,7 @@ namespace AnyCAD.Demo.Geometry
 
             var extrude = FeatureTool.Extrude(cut, 100, GP.DZ());
 
-            render.ShowShape(extrude, Vector3.Blue);
+            render.ShowShape(extrude, ColorTable.Blue);
         }
     }
 }

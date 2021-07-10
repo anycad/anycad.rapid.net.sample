@@ -38,7 +38,7 @@ namespace AnyCAD.Demo.Geometry
                 var curve = CreateSpline(GetResourcePath(fileName));
                 if(curve!=null)
                 {
-                    render.ShowShape(curve, Vector3.ColorFromHex(0xFF0000));
+                    render.ShowShape(curve, ColorTable.Hex(0xFF0000));
                     auxCurves.Add(curve);
                 }
             }
@@ -49,7 +49,7 @@ namespace AnyCAD.Demo.Geometry
                 var curve = CreateSpline(GetResourcePath(fileName));
                 if (curve != null)
                 {
-                    render.ShowShape(curve, Vector3.ColorFromHex(0xFF00FF));
+                    render.ShowShape(curve, ColorTable.Hex(0xFF00FF));
                     auxCurves.Add(curve);
                 }
             }

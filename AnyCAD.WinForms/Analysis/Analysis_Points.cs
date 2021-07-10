@@ -81,11 +81,11 @@ namespace AnyCAD.Demo.Analysis
             render.ShowSceneNode(node);
 
             var material = MeshPhongMaterial.Create("font-x");
-            material.SetColor(Vector3.Red);
+            material.SetColor(ColorTable.Red);
             var shape = FontManager.Instance().CreateMesh("Create a better world!");
             shape.SetMaterial(material);
             var text = new TextSceneNode(shape, 24, true);
-            //var text = new TextSceneNode("Wow", 24, new Vector3(1, 1, 0), Vector3.Red, false);
+            //var text = new TextSceneNode("Wow", 24, new Vector3(1, 1, 0), ColorTable.Red, false);
             var tag = TagNode2D.Create(text, new Vector3(15), new Vector3(0));
             
             render.ShowSceneNode(tag);

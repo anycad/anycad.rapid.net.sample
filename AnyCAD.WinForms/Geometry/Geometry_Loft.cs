@@ -20,7 +20,7 @@ namespace AnyCAD.Demo.Geometry
             // make loft
             var shape =  FeatureTool.Loft(baseSketch, topSketch, true);
 
-            render.ShowShape(shape, Vector3.Green);
+            render.ShowShape(shape, ColorTable.Green);
         }
     }
 }

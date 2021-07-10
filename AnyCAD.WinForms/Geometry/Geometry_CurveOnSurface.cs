@@ -23,7 +23,7 @@ namespace AnyCAD.Demo.Geometry
                 var curveOnConeSurface = SketchBuilder.MakeCurveOnSurface(paramCurve, coneFace);
 
                 var material = LineDashedMaterial.Create("my.dashed.material");
-                material.SetColor(Vector3.ColorFromHex(0x0FFAA));
+                material.SetColor(ColorTable.Hex(0x0FFAA));
                 var node = BrepSceneNode.Create(curveOnConeSurface, null, material);
                 node.ComputeLineDistances(); // Enable dashed line style.
 

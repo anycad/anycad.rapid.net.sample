@@ -33,7 +33,7 @@ namespace AnyCAD.Demo.Graphics
             texture.SetRepeat(new Vector2(5, 5));
 
             material.AddTexture("map", texture);
-            var color = Vector3.ColorFromHex(0x0044ff);
+            var color = ColorTable.Hex(0x0044ff);
             material.SetUniform("diffuse", Uniform.Create(color));
      
 

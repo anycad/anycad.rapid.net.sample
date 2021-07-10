@@ -57,7 +57,7 @@ namespace AnyCAD.Demo.Geometry
            var shape = ShapeBuilder.MakeBox(ax, width, thickness, height);
 
             var frameMaterial = MeshStandardMaterial.Create("window-glass");
-            frameMaterial.SetColor(Vector3.ColorFromHex(0xAAAAAA));
+            frameMaterial.SetColor(ColorTable.Hex(0xAAAAAA));
             frameMaterial.SetFaceSide(EnumFaceSide.DoubleSide);
             frameMaterial.SetTransparent(true);
             frameMaterial.SetOpacity(0.5f);

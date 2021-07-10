@@ -18,11 +18,11 @@ namespace AnyCAD.Demo.Geometry
 
             var shape = FeatureTool.SweepByFrenet(spline, path, EnumSweepTransitionMode.Transformed, false, false, false);
 
-            render.ShowShape(shape, Vector3.Red);
+            render.ShowShape(shape, ColorTable.Red);
 
             var cylinder = ShapeIO.Open(GetResourcePath("sweep/Cylinder.igs"));
 
-            render.ShowShape(cylinder, Vector3.Blue);
+            render.ShowShape(cylinder, ColorTable.Blue);
         }
     }
 }

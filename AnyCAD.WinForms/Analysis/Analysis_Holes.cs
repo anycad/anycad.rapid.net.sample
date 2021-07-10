@@ -13,7 +13,7 @@ namespace AnyCAD.Demo.Geometry
                 return;
 
             var edgeMaterial = BasicMaterial.Create("hole-edge");
-            edgeMaterial.SetColor(Vector3.ColorFromHex(0xFF0000));
+            edgeMaterial.SetColor(ColorTable.Hex(0xFF0000));
             edgeMaterial.SetLineWidth(2);
 
 
@@ -33,7 +33,7 @@ namespace AnyCAD.Demo.Geometry
 
             // 2. Show the faces
             var material = MeshStandardMaterial.Create("hole-face");
-            material.SetColor(Vector3.ColorFromHex(0xBBAA33));
+            material.SetColor(ColorTable.Hex(0xBBAA33));
             material.SetRoughness(0.8f);
             material.SetFaceSide(EnumFaceSide.DoubleSide);
 

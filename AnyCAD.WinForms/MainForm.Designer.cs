@@ -73,6 +73,8 @@
             this.selectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.depthTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.orbitCenterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
+            this.explosureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,8 +84,7 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
-            this.explosureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contactShadowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -363,7 +364,7 @@
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(246, 48);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(403, 48);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -379,14 +380,14 @@
             // clipBoxToolStripMenuItem
             // 
             this.clipBoxToolStripMenuItem.Name = "clipBoxToolStripMenuItem";
-            this.clipBoxToolStripMenuItem.Size = new System.Drawing.Size(301, 48);
+            this.clipBoxToolStripMenuItem.Size = new System.Drawing.Size(403, 48);
             this.clipBoxToolStripMenuItem.Text = "ClipBox";
             this.clipBoxToolStripMenuItem.Click += new System.EventHandler(this.clipBoxToolStripMenuItem_Click);
             // 
             // addArrowToolStripMenuItem
             // 
             this.addArrowToolStripMenuItem.Name = "addArrowToolStripMenuItem";
-            this.addArrowToolStripMenuItem.Size = new System.Drawing.Size(301, 48);
+            this.addArrowToolStripMenuItem.Size = new System.Drawing.Size(403, 48);
             this.addArrowToolStripMenuItem.Text = "Add Arrow";
             this.addArrowToolStripMenuItem.Click += new System.EventHandler(this.addArrowToolStripMenuItem_Click);
             // 
@@ -400,7 +401,8 @@
             this.selectionToolStripMenuItem,
             this.orbitCenterToolStripMenuItem,
             this.toolStripMenuItem8,
-            this.explosureToolStripMenuItem});
+            this.explosureToolStripMenuItem,
+            this.contactShadowToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(142, 43);
             this.settingsToolStripMenuItem.Text = "Settings";
@@ -450,6 +452,18 @@
             this.orbitCenterToolStripMenuItem.Size = new System.Drawing.Size(403, 48);
             this.orbitCenterToolStripMenuItem.Text = "Orbit Center";
             this.orbitCenterToolStripMenuItem.Click += new System.EventHandler(this.orbitCenterToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(400, 6);
+            // 
+            // explosureToolStripMenuItem
+            // 
+            this.explosureToolStripMenuItem.Name = "explosureToolStripMenuItem";
+            this.explosureToolStripMenuItem.Size = new System.Drawing.Size(403, 48);
+            this.explosureToolStripMenuItem.Text = "Exposure";
+            this.explosureToolStripMenuItem.Click += new System.EventHandler(this.explosureToolStripMenuItem_Click);
             // 
             // windowToolStripMenuItem
             // 
@@ -524,7 +538,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.listBox1);
             this.splitContainer2.Size = new System.Drawing.Size(583, 1167);
-            this.splitContainer2.SplitterDistance = 473;
+            this.splitContainer2.SplitterDistance = 472;
             this.splitContainer2.SplitterWidth = 10;
             this.splitContainer2.TabIndex = 1;
             // 
@@ -534,7 +548,7 @@
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Margin = new System.Windows.Forms.Padding(7);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(583, 473);
+            this.treeView1.Size = new System.Drawing.Size(583, 472);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
@@ -546,20 +560,15 @@
             this.listBox1.Location = new System.Drawing.Point(0, 0);
             this.listBox1.Margin = new System.Windows.Forms.Padding(7);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(583, 684);
+            this.listBox1.Size = new System.Drawing.Size(583, 685);
             this.listBox1.TabIndex = 0;
             // 
-            // toolStripMenuItem8
+            // contactShadowToolStripMenuItem
             // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(400, 6);
-            // 
-            // explosureToolStripMenuItem
-            // 
-            this.explosureToolStripMenuItem.Name = "explosureToolStripMenuItem";
-            this.explosureToolStripMenuItem.Size = new System.Drawing.Size(403, 48);
-            this.explosureToolStripMenuItem.Text = "Exposure";
-            this.explosureToolStripMenuItem.Click += new System.EventHandler(this.explosureToolStripMenuItem_Click);
+            this.contactShadowToolStripMenuItem.Name = "contactShadowToolStripMenuItem";
+            this.contactShadowToolStripMenuItem.Size = new System.Drawing.Size(403, 48);
+            this.contactShadowToolStripMenuItem.Text = "Contact Shadow";
+            this.contactShadowToolStripMenuItem.Click += new System.EventHandler(this.contactShadowToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -649,6 +658,7 @@
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem8;
         private System.Windows.Forms.ToolStripMenuItem explosureToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem contactShadowToolStripMenuItem;
     }
 }
 

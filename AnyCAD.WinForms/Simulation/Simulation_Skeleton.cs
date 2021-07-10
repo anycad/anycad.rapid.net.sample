@@ -11,7 +11,7 @@ namespace AnyCAD.Demo.Graphics
     class Simulation_Skeleton : TestCase
     {
         RobotArm mRobot = new RobotArm();
-        ParticleSceneNode mMotionTrail = new ParticleSceneNode(1000, Vector3.Red, 3.0f);
+        ParticleSceneNode mMotionTrail = new ParticleSceneNode(1000, ColorTable.Red, 3.0f);
         public override void Run(RenderControl render)
         {
             double scale = 0.5;

@@ -54,14 +54,14 @@ namespace AnyCAD.Demo.Graphics
             }
 
 
-            mMotionTrail = new ParticleSceneNode((uint)mPoints.Count, Vector3.Green, 3.0f);
+            mMotionTrail = new ParticleSceneNode((uint)mPoints.Count, ColorTable.Green, 3.0f);
 
             mCurrentIdx = 0;
 
             render.ShowSceneNode(mMotionTrail);
 
             var lineMaterial = BasicMaterial.Create("myline");
-            lineMaterial.SetColor(Vector3.ColorFromHex(0xFF0000));
+            lineMaterial.SetColor(ColorTable.Hex(0xFF0000));
             var line = GeometryBuilder.CreateLine(Vector3.Zero, new Vector3(1, 0, 0));
             mLineNode = new PrimitiveSceneNode(line, lineMaterial);
             mLineNode.SetTransform(MakeTransform(mStart, mPoints[0]));

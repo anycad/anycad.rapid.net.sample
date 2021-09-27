@@ -122,6 +122,8 @@ namespace AnyCAD.Demo.Graphics
             var plane = GeometryBuilder.CreatePlane(500, 500);
             var planeNode = new PrimitiveSceneNode(plane, mMaterial1);
             planeNode.SetTransform(Matrix4.makeTranslation(new Vector3(0, 0, -2.5f)));
+            planeNode.SetPickable(false);
+
             render.ShowSceneNode(planeNode);
 
 

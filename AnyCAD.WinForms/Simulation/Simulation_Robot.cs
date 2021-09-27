@@ -51,7 +51,11 @@ namespace AnyCAD.Demo.Graphics
             List<BrepSceneNode> links = new List<BrepSceneNode>();
             for(int ii=0; ii<files.Count; ++ii)
             {
-                links.Add(BrepSceneNode.CreateBatch(ShapeIO.Open(rootPath + files[ii]), mRobotMaterial, null, 0.1));
+                var shape = ShapeIO.Open(rootPath + files[ii]);
+                if (shape == null)
+                    return;
+
+                links.Add(BrepSceneNode.Create(shape, mRobotMaterial, null, 0.1));
             }
 
             //2. Create the arm

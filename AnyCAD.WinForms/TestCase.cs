@@ -15,7 +15,7 @@ namespace AnyCAD.Demo
 
         public static string GetResourcePath(string fileName)
         {
-            return AppDomain.CurrentDomain.BaseDirectory + @"\..\..\data\" + fileName;
+            return AppDomain.CurrentDomain.BaseDirectory + @"..\..\data\" + fileName;
         }
 
         public delegate void TestCaseHandler(Type type, string name, string groupName);

@@ -34,6 +34,11 @@ Download link:
 
 ![CAE](showcase/cae.png)
 
+![Robot](showcase/robot2.png)
+
+### 2.3 Featured App
+![Robot](showcase/robot.png)
+
 ## 3 Documentation
 
 - [API](http://www.opencascade.net/api/classes.html)

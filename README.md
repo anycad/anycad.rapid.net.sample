@@ -15,6 +15,8 @@ Download link:
 
 ### 2.1 Modeling
 
+![sweep](showcase/sweeploft.png)
+
 ![pipe](showcase/pipe.png)
 
 ![hole](showcase/holes.png)

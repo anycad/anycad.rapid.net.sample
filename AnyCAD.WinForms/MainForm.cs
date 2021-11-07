@@ -36,43 +36,9 @@ namespace AnyCAD.Demo
                 if (item.GetNode() == null)
                     return;
 
-                var ssn = BrepSceneNode.Cast(item.GetNode());
-                if (ssn != null)
-                {
-                    this.listBox1.Items.Add(ssn.GetType().Name);
-                    if (mShowArrow && item.GetShapeType() == EnumShapeFilter.Face)
-                    {
-                        var face = ssn.GetShape().GetShape().FindChild(EnumTopoShapeType.Topo_FACE, (int)item.GetShapeIndex());
-                        if (face != null)
-                        {
-                            var surface = new ParametricSurface(face);
-                            var pt = item.GetPoint().GetPosition();
-                            var param = surface.ComputeClosestPoint(pt.ToPnt(), GP.Resolution(), GP.Resolution());
+                TestCase.SelectionChanged(mRenderView, result);
 
-                            var values = surface.D1(param.X(), param.Y());
-                            var postion = Vector3.From(values.GetPoint());
-                            var vecs = values.GetVectors();
-
-                            var dir = Vector3.From(vecs[0].Crossed(vecs[1]));
-                            dir.normalize();
-                            mArrow.SetLocation(postion, dir);
-                            mArrow.RequstUpdate();
-                            mArrow.Update();
-
-                            mRenderView.GetContext().GetSelection().Clear();
-
-                            mRenderView.RequestDraw(EnumUpdateFlags.Scene);
-
-                            this.listBox1.Items.Add(String.Format("ijk: {0}", dir.ToString()));
-                        }
-
-                    }
-                }
-                else
-                {
-                    this.listBox1.Items.Add(item.GetNode().GetType().Name);
-
-                }
+                this.listBox1.Items.Add(item.GetNode().GetType().Name);
                 mSelectedItm = item.GetNodeId();
                 this.listBox1.Items.Add(String.Format("NodeId: {0}", item.GetNodeId()));
                 this.listBox1.Items.Add(item.GetPoint().GetPosition().ToString());
@@ -297,22 +263,6 @@ namespace AnyCAD.Demo
                 var shape = SceneIO.Load(fileName);
                 mRenderView.ShowSceneNode(shape);
             }
-        }
-
-        bool mShowArrow = false;
-        private void addArrowToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            mShowArrow = !mShowArrow;
-
-            if(mShowArrow)
-            {
-                var arrowMaterial = MeshPhongMaterial.Create("arrow");
-                arrowMaterial.SetColor(ColorTable.Red);
-                mArrow = ArrowWidget.Create(2, 10, arrowMaterial);
-                mArrow.SetPickable(false);
-                mRenderView.ShowSceneNode(mArrow);
-            }
-
         }
 
         private void useViewAixsToolStripMenuItem_Click(object sender, EventArgs e)

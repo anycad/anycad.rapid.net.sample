@@ -69,12 +69,22 @@ namespace AnyCAD.Demo
 
         }
 
+
         public static void RunAnimation(RenderControl render, float timer)
         {
             if (mCurrentDemo != null)
                 mCurrentDemo.Animation(render, timer);
         }
 
+        public virtual void OnSelectionChanged(RenderControl render, PickedResult result)
+        {
+
+        }
+        public static void SelectionChanged(RenderControl render, PickedResult result)
+        {
+            if (mCurrentDemo != null)
+                mCurrentDemo.OnSelectionChanged(render, result);
+        }
         public static void IncreaseCounter(RenderControl render, int key)
         {
             if (mCurrentDemo != null)

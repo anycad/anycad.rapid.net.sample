@@ -10,7 +10,7 @@ namespace AnyCAD.Demo.Geometry
 {
     class Geometry_Transform : TestCase
     {
-        void CustumTransform(RenderControl render)
+        void CustumTransform(RenderControl mRenderView)
         {
             TopoShapeList topoShapes = new TopoShapeList();
             var Line1 = SketchBuilder.MakeLine(new GPnt(-0.15, 0.4, 0), new GPnt(0.15, 0.4, 0));
@@ -52,17 +52,25 @@ namespace AnyCAD.Demo.Geometry
             var Shape = ShapeBuilder.MakeCompound(topoShapes);
             Shape = SketchBuilder.MakeWire(topoShapes);
             var View = SketchBuilder.MakePlanarFace(Shape);
-            render.ShowShape(View, Vector3.Red);
+
+            var View1 = SketchBuilder.MakePlanarFace(Shape);
+            View1 = TransformTool.Rotation(View1, new GAx1(new GPnt(0, 0, 0), new GDir(0, 1, 0)), Math.PI / 2);
+            View1 = TransformTool.Rotation(View1, new GAx1(new GPnt(0, 0, 0), new GDir(1, 0, 0)), Math.PI / 2);
+            mRenderView.ShowShape(View1, Vector3.Green);
+            var widget = AxisWidget.Create(0.01f, 0.1f);
+            mRenderView.ShowShape(View, Vector3.Red);
             GAx3 gAx31 = new GAx3(new GAx2(new GPnt(0, 0, 0), new GDir(0, 0, 1), new GDir(1, 0, 0)));
-            GAx3 gAx32 = new GAx3(new GAx2(new GPnt(0, 0, 0), new GDir(0, 0, 1), new GDir(0, 1, 0)));
+            GAx3 gAx32 = new GAx3(new GAx2(new GPnt(0, 0, 0), new GDir(1, 0, 0), new GDir(0, 1, 0)));
+            var dsad = gAx32.Direction().XYZ().X();
             GTrsf gTrsf = new GTrsf();
-            gTrsf.SetTransformation(gAx31, gAx32);
+            gTrsf.SetTransformation(gAx32, gAx31);
             View = TransformTool.Transform(View, gTrsf);
 
-            render.ShowShape(View, Vector3.Blue);
+            mRenderView.ShowShape(View, Vector3.Blue);
         }
         public override void Run(RenderControl render)
         {
+            render.SetViewCube(EnumViewCoordinateType.Axis);
             //var box = ShapeBuilder.MakeBox(GP.XOY(), 10, 20, 30);
             //render.ShowShape(box, ColorTable.Green);
 

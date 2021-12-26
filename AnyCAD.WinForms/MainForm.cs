@@ -53,7 +53,7 @@ namespace AnyCAD.Demo
                     TestCase.RunAnimation(mRenderView, timer);
             });
 
-
+            mRenderView.SwitchProjectionType();
 
         }
 

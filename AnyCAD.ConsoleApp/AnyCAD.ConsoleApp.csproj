@@ -35,14 +35,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AnyCAD.Foundation.NET4, Version=21.12.25.2131, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
-      <HintPath>..\packages\AnyCAD.Rapid.Net.2022.0.2\lib\net40\AnyCAD.Foundation.NET4.dll</HintPath>
+    <Reference Include="AnyCAD.Foundation.NET4, Version=21.12.26.1507, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
+      <HintPath>..\packages\AnyCAD.Rapid.Net.2022.0.3\lib\net40\AnyCAD.Foundation.NET4.dll</HintPath>
     </Reference>
-    <Reference Include="AnyCAD.WinForms.NET4, Version=21.12.25.2131, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
-      <HintPath>..\packages\AnyCAD.Rapid.Net.2022.0.2\lib\net40\AnyCAD.WinForms.NET4.dll</HintPath>
+    <Reference Include="AnyCAD.WinForms.NET4, Version=21.12.26.1507, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
+      <HintPath>..\packages\AnyCAD.Rapid.Net.2022.0.3\lib\net40\AnyCAD.WinForms.NET4.dll</HintPath>
     </Reference>
-    <Reference Include="AnyCAD.WPF.NET4, Version=21.12.25.2131, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
-      <HintPath>..\packages\AnyCAD.Rapid.Net.2022.0.2\lib\net40\AnyCAD.WPF.NET4.dll</HintPath>
+    <Reference Include="AnyCAD.WPF.NET4, Version=21.12.26.1507, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
+      <HintPath>..\packages\AnyCAD.Rapid.Net.2022.0.3\lib\net40\AnyCAD.WPF.NET4.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -62,11 +62,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\AnyCAD.Rapid.Net.2022.0.2\build\net\AnyCAD.Rapid.Net.targets" Condition="Exists('..\packages\AnyCAD.Rapid.Net.2022.0.2\build\net\AnyCAD.Rapid.Net.targets')" />
+  <Import Project="..\packages\AnyCAD.Rapid.Net.2022.0.3\build\net\AnyCAD.Rapid.Net.targets" Condition="Exists('..\packages\AnyCAD.Rapid.Net.2022.0.3\build\net\AnyCAD.Rapid.Net.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\AnyCAD.Rapid.Net.2022.0.2\build\net\AnyCAD.Rapid.Net.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AnyCAD.Rapid.Net.2022.0.2\build\net\AnyCAD.Rapid.Net.targets'))" />
+    <Error Condition="!Exists('..\packages\AnyCAD.Rapid.Net.2022.0.3\build\net\AnyCAD.Rapid.Net.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AnyCAD.Rapid.Net.2022.0.3\build\net\AnyCAD.Rapid.Net.targets'))" />
   </Target>
 </Project>

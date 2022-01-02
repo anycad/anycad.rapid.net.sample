@@ -1,6 +1,10 @@
 # AnyCAD Rapid Graphics .NET Sample
 
 
+## Notes:
+ - R2021:  Use 2021 branch
+ - R2022: Master branch
+
 ## 1 Prerequisites
 
 ### 1.1 Microsoft Visual C++ Runtime Library

@@ -30,9 +30,8 @@ namespace AnyCAD.Demo
         {
             var box = GeometryBuilder.CreateBox(100, 200, 300);
             var material = MeshPhongMaterial.Create("simple");
-            box.SetMaterial(material);
             material.SetColor(ColorTable.Red);
-            var node = new PrimitiveSceneNode(box);
+            var node = new PrimitiveSceneNode(box, material);
 
             mRenderView.ShowSceneNode(node);
 

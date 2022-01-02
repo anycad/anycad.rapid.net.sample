@@ -70,7 +70,7 @@ namespace AnyCAD.Demo.Geometry
             var line =  GeometryBuilder.CreateLine(start + offset, end + offset);
 
             var mesh = FontManager.Instance().CreateMesh(text);
-            var textNode = new PrimitiveSceneNode(mesh);
+            var textNode = new PrimitiveSceneNode(mesh, null);
 
             float scale = 0.015f;
             textNode.SetTransform(Matrix4.makeRotationAxis(Vector3.UNIT_X, 3.14159f * 0.5f) *Matrix4.makeScale(scale, scale, 1));
@@ -85,9 +85,9 @@ namespace AnyCAD.Demo.Geometry
             var line3 = GeometryBuilder.CreateLine(end, end + offset + new Vector3(0, 0, -2));
 
             GroupSceneNode group = new GroupSceneNode();
-            group.AddNode(new PrimitiveSceneNode(line));
-            group.AddNode(new PrimitiveSceneNode(line2));
-            group.AddNode(new PrimitiveSceneNode(line3));
+            group.AddNode(new PrimitiveSceneNode(line, null));
+            group.AddNode(new PrimitiveSceneNode(line2, null));
+            group.AddNode(new PrimitiveSceneNode(line3, null));
             group.AddNode(textNode);
 
             return group;

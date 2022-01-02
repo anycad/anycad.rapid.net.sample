@@ -128,7 +128,7 @@ namespace AnyCAD.Demo.Graphics
 
 
 
-            mDevice = new PrimitiveSceneNode(GeometryBuilder.CreateSphere(5));
+            mDevice = new PrimitiveSceneNode(GeometryBuilder.CreateSphere(5), null);
             render.ShowSceneNode(mDevice);
 
             mCome = new RigidAnimation();

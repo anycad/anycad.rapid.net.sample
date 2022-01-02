@@ -69,16 +69,13 @@ namespace AnyCAD.Demo.Graphics
             material.SetFaceSide(EnumFaceSide.DoubleSide);
 
 
-            var position = BufferAttribute.Create(EnumAttributeSemantic.Position, EnumAttributeComponents.Three, mPositions);
-            var color = BufferAttribute.Create(EnumAttributeSemantic.Color, EnumAttributeComponents.Three, mColors);
-
-            BufferGeometry geometry = new BufferGeometry();
-            geometry.AddAttribute(position);
-            geometry.AddAttribute(color);
+            BufferGeometry geometry = new BufferGeometry(EnumPrimitiveType.TRIANGLES);
+            geometry.AddAttribute(EnumAttributeSemantic.Position, EnumAttributeComponents.Three, mPositions);
+            geometry.AddAttribute(EnumAttributeSemantic.Color, EnumAttributeComponents.Three, mColors);
 
             NormalCalculator.ComputeVertexNormals(geometry);
 
-            var node = new PrimitiveSceneNode(geometry, EnumPrimitiveType.TRIANGLES, material);
+            var node = new PrimitiveSceneNode(geometry, material);
 
             node.SetPickable(false);
 

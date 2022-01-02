@@ -9,11 +9,11 @@ namespace AnyCAD.Demo.Graphics
     {
         uint worldWidth = 128;
         uint worldDepth = 128;
-        PrimitiveShape mGeometry;
+        BufferGeometry mGeometry;
         public override void Run(RenderControl render)
         {
             mGeometry = GeometryBuilder.CreatePlane(20000, 20000, worldWidth - 1, worldDepth - 1);
-            var position = mGeometry.GetGeometry().GetAttribute(0);
+            var position = mGeometry.GetAttribute(0);
             position.SetDataUsage(EnumBufferDataUsage.DYNAMIC_DRAW);
             var mPosition = new Float32Array(position.GetData());
             for (uint i = 0; i < position.GetCount()/3; i++)
@@ -47,8 +47,7 @@ namespace AnyCAD.Demo.Graphics
 
         public override void Animation(RenderControl render, float time)
         {
-            var geometry = mGeometry.GetGeometry();
-            var position = geometry.GetAttribute(0);
+            var position = mGeometry.GetAttribute(0);
             position.SetDataUsage(EnumBufferDataUsage.DYNAMIC_DRAW);
             var mPosition = new Float32Array(position.GetData());
             var count = mPosition.GetItemCount() / 3;
@@ -59,7 +58,7 @@ namespace AnyCAD.Demo.Graphics
                 mPosition.SetValue(i*3+2, z);
             }
             position.RequestUpdate();
-            geometry.RequestUpdate();
+            mGeometry.RequestUpdate();
 
             render.RequestDraw();
         }

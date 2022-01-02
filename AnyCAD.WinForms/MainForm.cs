@@ -9,7 +9,7 @@ namespace AnyCAD.Demo
     public partial class MainForm : Form
     {
         RenderControl mRenderView;
-        ArrowWidget mArrow;
+
         public MainForm()
         {
             InitializeComponent();

@@ -1,17 +1,20 @@
-# AnyCAD Rapid Graphics .NET Sample
+# AnyCAD Rapid .NET Sample
 
 
-## Notes:
- - R2021:  Use 2021 branch
+## 分支说明:
+ - R2021: 2021 branch
  - R2022: Master branch
 
-## 1 Prerequisites
+## 入门示例：
+https://gitee.com/anycad/rapid.net.starter
+
+## 1 准备
 
 ### 1.1 Microsoft Visual C++ Runtime Library
 
 Download link: 
-- [vc_redist.x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
-- [vc_redist.x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)
+- [vc_redist.x64](https://aka.ms/vs/17/release/vc_redist.x64.exe)
+- [vc_redist.x86](https://aka.ms/vs/17/release/vc_redist.x86.exe)
 
 ### 1.2 .Net Framework 4.0+
 
@@ -45,8 +48,8 @@ Download link:
 
 ## 3 Documentation
 
-- [API](http://www.opencascade.net/api/classes.html)
-- [Guide](http://www.opencascade.net/guide/)
+- [API](http://www.anycad.cn/api/classes.html)
+- [Guide](http://www.anycad.cn/guide/)
 
 ## 4 About
 http://www.anycad.cn

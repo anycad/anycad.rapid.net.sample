@@ -12,6 +12,7 @@ namespace AnyCAD.Demo.Graphics
     {
         public override void Run(RenderControl render)
         {
+            
             // prepare points data
             const int COUNT = 300;
             var buffer = new Float32Buffer(0);

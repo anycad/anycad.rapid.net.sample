@@ -48,7 +48,7 @@ namespace AnyCAD.Demo.Graphics
             if (!ReadData())
                 return;
        
-            var material = BasicMaterial.Create("point-material");
+            var material = PointsMaterial.Create("point-material");
             material.GetTemplate().SetVertexColors(true);
 
            var geometry =  GeometryBuilder.CreatePoints(new Float32Array(mPositions), new Float32Array(mColors));

@@ -9,7 +9,7 @@ namespace AnyCAD.Demo.Graphics
     {
         public override void Run(RenderControl render)
         {
-            var matplot = Matplot.Create("MyMatlab 2020");
+            var matplot = Matplot.Create("MyMatlab");
 
             var xRange = new PlotRange(0, 3.14f * 2, 0.1f);
             var yRange = new PlotRange(0, 3.14f * 2, 0.1f);

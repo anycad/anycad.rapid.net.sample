@@ -20,7 +20,7 @@ namespace AnyCAD.Demo.Graphics
                 double z = Math.Sin(u) + Math.Cos(v);
 
                 return new GPnt(x, y, z);
-            });
+            }, true);
 
             var node = matplot.Build(ColorMapKeyword.Create(EnumSystemColorMap.Rainbow));
             node.SetPickable(false);

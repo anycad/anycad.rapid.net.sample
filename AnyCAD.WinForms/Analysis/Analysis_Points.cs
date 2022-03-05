@@ -69,7 +69,7 @@ namespace AnyCAD.Demo.Analysis
                 double z = mData[idxU+1][idxV+1];
 
                 return new GPnt(x, y, z);
-            });
+            }, true);
 
             var node = matplot.Build(ColorMapKeyword.Create(EnumSystemColorMap.Cooltowarm));
             node.SetPickable(false);

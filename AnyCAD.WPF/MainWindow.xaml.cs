@@ -1,4 +1,5 @@
 ﻿using AnyCAD.Forms;
+using AnyCAD.Foundation;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -62,6 +63,11 @@ namespace AnyCAD.WPF
                 this.mRenderCtrl.View3D.SetAnimationCallback((float timer) =>
                 {
                     Demo.TestCase.RunAnimation(this.mRenderCtrl.View3D, timer);
+                });
+
+                this.mRenderCtrl.View3D.SetSelectCallback((PickedResult result) =>
+                {
+                    Console.Write("");
                 });
             };
         }

@@ -14,7 +14,7 @@ namespace AnyCAD.Demo.Geometry
         {
             Sphere sp = new Sphere(Vector3.Zero, 10);
 
-            var widget = AxisWidget.Create(0.05f, 0.4f);
+            var widget = AxisWidget.Create(0.05f, new Vector3(0.4f));
 
             for (int ii=-5; ii<5; ++ii)
                 for(int jj=-5; jj<5; ++jj)

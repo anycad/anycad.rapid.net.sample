@@ -355,5 +355,15 @@ namespace AnyCAD.Demo
             settings.SetContactShadowBlur(5.0f);
             mRenderView.RequestDraw(EnumUpdateFlags.Light);
         }
+
+        private void moveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mRenderView.ExecuteCommand("Move");
+        }
+
+        private void rotateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mRenderView.ExecuteCommand("Rotate");
+        }
     }
 }

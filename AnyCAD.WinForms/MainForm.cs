@@ -53,8 +53,14 @@ namespace AnyCAD.Demo
                     TestCase.RunAnimation(mRenderView, timer);
             });
 
-            //mRenderView.SwitchProjectionType();
+            
+            //mRenderView.GetContext().GetSelection().SelectSubShape(mRenderView.GetScene(), nodeId, type, shapeIndex);
 
+            //var itr = mRenderView.GetContext().GetSelection().GetSelection().CreateIterator();
+            //for(;itr.More();itr.Next())
+            //{
+            //    var item = itr.Current();
+            //}
         }
 
         private void clearToolStripMenuItem_Click(object sender, EventArgs e)
@@ -364,6 +370,11 @@ namespace AnyCAD.Demo
         private void rotateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mRenderView.ExecuteCommand("Rotate");
+        }
+
+        private void rectZoomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mRenderView.ExecuteCommand("RectZoom");
         }
     }
 }

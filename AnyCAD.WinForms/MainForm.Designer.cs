@@ -62,6 +62,8 @@
             this.noneCoordinateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.moveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.commandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clipBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,8 +86,7 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.moveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rotateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rectZoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -112,7 +113,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(11, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(1580, 38);
+            this.menuStrip1.Size = new System.Drawing.Size(1580, 39);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -371,10 +372,25 @@
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
+            // moveToolStripMenuItem
+            // 
+            this.moveToolStripMenuItem.Name = "moveToolStripMenuItem";
+            this.moveToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.moveToolStripMenuItem.Text = "Move";
+            this.moveToolStripMenuItem.Click += new System.EventHandler(this.moveToolStripMenuItem_Click);
+            // 
+            // rotateToolStripMenuItem
+            // 
+            this.rotateToolStripMenuItem.Name = "rotateToolStripMenuItem";
+            this.rotateToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.rotateToolStripMenuItem.Text = "Rotate";
+            this.rotateToolStripMenuItem.Click += new System.EventHandler(this.rotateToolStripMenuItem_Click);
+            // 
             // commandToolStripMenuItem
             // 
             this.commandToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clipBoxToolStripMenuItem});
+            this.clipBoxToolStripMenuItem,
+            this.rectZoomToolStripMenuItem});
             this.commandToolStripMenuItem.Name = "commandToolStripMenuItem";
             this.commandToolStripMenuItem.Size = new System.Drawing.Size(135, 33);
             this.commandToolStripMenuItem.Text = "Command";
@@ -492,15 +508,15 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 38);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 39);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(5);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.statusStrip1);
             this.splitContainer1.Panel1.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1580, 845);
+            this.splitContainer1.Size = new System.Drawing.Size(1580, 844);
             this.splitContainer1.SplitterDistance = 457;
             this.splitContainer1.SplitterWidth = 7;
             this.splitContainer1.TabIndex = 1;
@@ -510,7 +526,7 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(36, 36);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 808);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 807);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 26, 0);
             this.statusStrip1.Size = new System.Drawing.Size(457, 37);
@@ -528,7 +544,7 @@
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(5);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -539,8 +555,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.listBox1);
-            this.splitContainer2.Size = new System.Drawing.Size(457, 845);
-            this.splitContainer2.SplitterDistance = 341;
+            this.splitContainer2.Size = new System.Drawing.Size(457, 844);
+            this.splitContainer2.SplitterDistance = 340;
             this.splitContainer2.SplitterWidth = 7;
             this.splitContainer2.TabIndex = 1;
             // 
@@ -548,9 +564,9 @@
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(5);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(457, 341);
+            this.treeView1.Size = new System.Drawing.Size(457, 340);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
@@ -560,24 +576,17 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 21;
             this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(5);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(457, 497);
             this.listBox1.TabIndex = 0;
             // 
-            // moveToolStripMenuItem
+            // rectZoomToolStripMenuItem
             // 
-            this.moveToolStripMenuItem.Name = "moveToolStripMenuItem";
-            this.moveToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
-            this.moveToolStripMenuItem.Text = "Move";
-            this.moveToolStripMenuItem.Click += new System.EventHandler(this.moveToolStripMenuItem_Click);
-            // 
-            // rotateToolStripMenuItem
-            // 
-            this.rotateToolStripMenuItem.Name = "rotateToolStripMenuItem";
-            this.rotateToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
-            this.rotateToolStripMenuItem.Text = "Rotate";
-            this.rotateToolStripMenuItem.Click += new System.EventHandler(this.rotateToolStripMenuItem_Click);
+            this.rectZoomToolStripMenuItem.Name = "rectZoomToolStripMenuItem";
+            this.rectZoomToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.rectZoomToolStripMenuItem.Text = "RectZoom";
+            this.rectZoomToolStripMenuItem.Click += new System.EventHandler(this.rectZoomToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -587,7 +596,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "MainForm";
             this.Text = "AnyCAD Rapid SDK 2022";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -669,6 +678,7 @@
         private System.Windows.Forms.ToolStripMenuItem contactShadowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem moveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rotateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rectZoomToolStripMenuItem;
     }
 }
 

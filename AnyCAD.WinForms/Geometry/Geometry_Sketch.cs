@@ -27,5 +27,26 @@ namespace AnyCAD.Demo.Geometry
             var rect = SketchBuilder.MakeRectangle(GP.XOY(), 30, 40, 5, false);
             render.ShowShape(rect, ColorTable.Green);
         }
+        public override void OnSelectionChanged(RenderControl render, PickedResult result)
+        {
+            var node = BrepSceneNode.Cast(result.GetItem().GetNode());
+            if(node == null)
+                return;
+
+            var tool = SketchBuilder.MakeVertex(result.GetItem().GetPosition().ToPnt());
+            var compound = BooleanTool.Split(node.GetTopoShape(), tool);
+            if (compound == null)
+                return;
+
+            var edges = compound.GetChildren(EnumTopoShapeType.Topo_EDGE);
+            foreach (var edge in edges)
+            {
+                render.ShowShape(edge, ColorTable.Red);
+            }
+
+            render.RemoveSceneNode(node.GetUuid());
+
+            render.RequestDraw(EnumUpdateFlags.Scene);
+        }
     }
 }

@@ -69,7 +69,6 @@ namespace AnyCAD.Demo
 
         }
 
-
         public static void RunAnimation(RenderControl render, float timer)
         {
             if (mCurrentDemo != null)

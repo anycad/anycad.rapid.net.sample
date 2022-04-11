@@ -101,6 +101,7 @@
     <Compile Include="Analysis\Analysis_Points.cs" />
     <Compile Include="Analysis\Analysis_Shape.cs" />
     <Compile Include="Analysis\Analysis_Surface.cs" />
+    <Compile Include="Coordinate\CoordinateData.cs" />
     <Compile Include="Geometry\Geometry_BSpline.cs" />
     <Compile Include="Geometry\Geometry_Complex.cs" />
     <Compile Include="Geometry\Geometry_CurveOnSurface.cs" />
@@ -137,6 +138,12 @@
     <Compile Include="Graphics\Graphics_Ray.cs" />
     <Compile Include="Graphics\Graphics_SceneIterator.cs" />
     <Compile Include="Graphics\Graphics_Selection.cs" />
+    <Compile Include="MultiCoordinateSystemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MultiCoordinateSystemForm.Designer.cs">
+      <DependentUpon>MultiCoordinateSystemForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyTagControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -171,6 +178,9 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MultiCoordinateSystemForm.resx">
+      <DependentUpon>MultiCoordinateSystemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyTagControl.resx">
       <DependentUpon>MyTagControl.cs</DependentUpon>

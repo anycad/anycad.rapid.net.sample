@@ -13,9 +13,23 @@ namespace AnyCAD.Demo.Geometry
             if (dialog.ShowDialog() != DialogResult.OK)
                 return;
 
+           
             var shape = ShapeIO.Open(dialog.FileName);
             if (shape == null)
                 return;
+
+            var vpoints = shape.GetChildren(EnumTopoShapeType.Topo_VERTEX);
+            var edges = shape.GetChildren(EnumTopoShapeType.Topo_EDGE);
+
+            shape = ShapeBuilder.MakeSolid(shape);
+            shape = ShapeBuilder.FixSolid(shape);
+            var vpoints2 = shape.GetChildren(EnumTopoShapeType.Topo_VERTEX);
+            var edges2 = shape.GetChildren(EnumTopoShapeType.Topo_EDGE);
+            if (vpoints.Count == vpoints2.Count)
+                MessageBox.Show("Equal!");
+
+            if (edges.Count == edges2.Count)
+                MessageBox.Show("Edge Equal!");
 
             var bs = new BufferShape(shape, null, null, 0);
             bs.Build();

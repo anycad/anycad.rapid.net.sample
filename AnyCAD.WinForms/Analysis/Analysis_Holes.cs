@@ -8,7 +8,11 @@ namespace AnyCAD.Demo.Geometry
     {
         public override void Run(RenderControl renderer)
         {
-            var shape = ShapeIO.Open(GetResourcePath("hole/30-30.IGS"));
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "IGES (*.igs;*.iges)|*.igs;*.iges|STEP (*.stp;*.step)|*.stp;*.step|Brep (*.brep)|*.brep";
+            if (dialog.ShowDialog() != DialogResult.OK)
+                return;
+            var shape = ShapeIO.Open(dialog.FileName);
             if (shape == null)
                 return;
 

@@ -378,5 +378,12 @@ namespace AnyCAD.Demo
         {
             mRenderView.ExecuteCommand("RectZoom");
         }
+
+        private void 多坐标系ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MultiCoordinateSystemForm dlg = new MultiCoordinateSystemForm();
+            dlg.ShowDialog();
+            dlg = null;
+        }
     }
 }

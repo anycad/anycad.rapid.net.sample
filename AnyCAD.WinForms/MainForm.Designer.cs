@@ -66,6 +66,7 @@
             this.rotateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.commandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clipBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rectZoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mouseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
@@ -86,7 +87,7 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.rectZoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.多坐标系ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -402,6 +403,13 @@
             this.clipBoxToolStripMenuItem.Text = "ClipBox";
             this.clipBoxToolStripMenuItem.Click += new System.EventHandler(this.clipBoxToolStripMenuItem_Click);
             // 
+            // rectZoomToolStripMenuItem
+            // 
+            this.rectZoomToolStripMenuItem.Name = "rectZoomToolStripMenuItem";
+            this.rectZoomToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.rectZoomToolStripMenuItem.Text = "RectZoom";
+            this.rectZoomToolStripMenuItem.Click += new System.EventHandler(this.rectZoomToolStripMenuItem_Click);
+            // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -421,33 +429,33 @@
             // mouseToolStripMenuItem
             // 
             this.mouseToolStripMenuItem.Name = "mouseToolStripMenuItem";
-            this.mouseToolStripMenuItem.Size = new System.Drawing.Size(294, 40);
+            this.mouseToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
             this.mouseToolStripMenuItem.Text = "Mouse";
             this.mouseToolStripMenuItem.Click += new System.EventHandler(this.mouseToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(291, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(312, 6);
             // 
             // toolTipToolStripMenuItem
             // 
             this.toolTipToolStripMenuItem.Name = "toolTipToolStripMenuItem";
-            this.toolTipToolStripMenuItem.Size = new System.Drawing.Size(294, 40);
+            this.toolTipToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
             this.toolTipToolStripMenuItem.Text = "ToolTip";
             this.toolTipToolStripMenuItem.Click += new System.EventHandler(this.toolTipToolStripMenuItem_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(291, 6);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(312, 6);
             // 
             // selectionToolStripMenuItem
             // 
             this.selectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.depthTestToolStripMenuItem});
             this.selectionToolStripMenuItem.Name = "selectionToolStripMenuItem";
-            this.selectionToolStripMenuItem.Size = new System.Drawing.Size(294, 40);
+            this.selectionToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
             this.selectionToolStripMenuItem.Text = "Selection";
             // 
             // depthTestToolStripMenuItem
@@ -460,33 +468,34 @@
             // orbitCenterToolStripMenuItem
             // 
             this.orbitCenterToolStripMenuItem.Name = "orbitCenterToolStripMenuItem";
-            this.orbitCenterToolStripMenuItem.Size = new System.Drawing.Size(294, 40);
+            this.orbitCenterToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
             this.orbitCenterToolStripMenuItem.Text = "Orbit Center";
             this.orbitCenterToolStripMenuItem.Click += new System.EventHandler(this.orbitCenterToolStripMenuItem_Click);
             // 
             // toolStripMenuItem8
             // 
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(291, 6);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(312, 6);
             // 
             // explosureToolStripMenuItem
             // 
             this.explosureToolStripMenuItem.Name = "explosureToolStripMenuItem";
-            this.explosureToolStripMenuItem.Size = new System.Drawing.Size(294, 40);
+            this.explosureToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
             this.explosureToolStripMenuItem.Text = "Exposure";
             this.explosureToolStripMenuItem.Click += new System.EventHandler(this.explosureToolStripMenuItem_Click);
             // 
             // contactShadowToolStripMenuItem
             // 
             this.contactShadowToolStripMenuItem.Name = "contactShadowToolStripMenuItem";
-            this.contactShadowToolStripMenuItem.Size = new System.Drawing.Size(294, 40);
+            this.contactShadowToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
             this.contactShadowToolStripMenuItem.Text = "Contact Shadow";
             this.contactShadowToolStripMenuItem.Click += new System.EventHandler(this.contactShadowToolStripMenuItem_Click);
             // 
             // windowToolStripMenuItem
             // 
             this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem});
+            this.newToolStripMenuItem,
+            this.多坐标系ToolStripMenuItem});
             this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
             this.windowToolStripMenuItem.Size = new System.Drawing.Size(113, 33);
             this.windowToolStripMenuItem.Text = "Window";
@@ -494,7 +503,7 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(175, 40);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -581,12 +590,12 @@
             this.listBox1.Size = new System.Drawing.Size(457, 497);
             this.listBox1.TabIndex = 0;
             // 
-            // rectZoomToolStripMenuItem
+            // 多坐标系ToolStripMenuItem
             // 
-            this.rectZoomToolStripMenuItem.Name = "rectZoomToolStripMenuItem";
-            this.rectZoomToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
-            this.rectZoomToolStripMenuItem.Text = "RectZoom";
-            this.rectZoomToolStripMenuItem.Click += new System.EventHandler(this.rectZoomToolStripMenuItem_Click);
+            this.多坐标系ToolStripMenuItem.Name = "多坐标系ToolStripMenuItem";
+            this.多坐标系ToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.多坐标系ToolStripMenuItem.Text = "多坐标系";
+            this.多坐标系ToolStripMenuItem.Click += new System.EventHandler(this.多坐标系ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -679,6 +688,7 @@
         private System.Windows.Forms.ToolStripMenuItem moveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rotateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rectZoomToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 多坐标系ToolStripMenuItem;
     }
 }
 

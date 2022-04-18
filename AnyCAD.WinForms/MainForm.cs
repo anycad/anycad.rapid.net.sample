@@ -45,8 +45,6 @@ namespace AnyCAD.Demo
                 this.listBox1.Items.Add(item.GetShapeType().ToString());
                 this.listBox1.Items.Add(String.Format("SubIndex: {0}", item.GetShapeIndex()));
                 this.listBox1.Items.Add(String.Format("PrimitiveIndex: {0}", item.GetPoint().GetPrimitiveIndex()));
-
-                TestCase.SelectionChanged(mRenderView, result);
             });
 
             mRenderView.SetAnimationCallback((float timer) =>
@@ -185,7 +183,7 @@ namespace AnyCAD.Demo
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NewForm3D dlg = new NewForm3D();
+            NewForm3D dlg = new NewForm3D(mRenderView.GetScene());
             dlg.ShowDialog();
             dlg = null;
         }

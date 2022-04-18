@@ -38,7 +38,7 @@ namespace AnyCAD.WPF
             AnyCAD.Demo.TestCase.ForEachCase((Type type, string name, string groupName) =>
             {
                 int groupId = 0;
-                if(!groupDict.TryGetValue(groupName, out groupId))
+                if (!groupDict.TryGetValue(groupName, out groupId))
                 {
                     groupId = rootNodes.Count;
                     groupDict[groupName] = groupId;
@@ -67,7 +67,7 @@ namespace AnyCAD.WPF
 
                 this.mRenderCtrl.View3D.SetSelectCallback((PickedResult result) =>
                 {
-                    Console.Write("");
+                    Demo.TestCase.SelectionChanged(mRenderCtrl.View3D, result);
                 });
             };
         }

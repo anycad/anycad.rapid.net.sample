@@ -59,7 +59,7 @@ namespace AnyCAD.Demo
                 }
                 else // 显示相对于Plane坐标系
                 {
-                    mCurrentAxis = mPlane.Coordinate;
+                    mCurrentAxis = mPlane.WorldCoordinate;
                     
                 }
             }
@@ -74,12 +74,12 @@ namespace AnyCAD.Demo
                 }
                 else // 显示相对于Part坐标系
                 {
-                    mCurrentAxis = mPart.Coordinate;
+                    mCurrentAxis = mPart.WorldCoordinate;
                 }
 
             }
 
-            mCurrentPart.UpdateUI(mCurrentAxis);
+            mCurrentPart.UpdateViewModel(mCurrentAxis);
 
             bUpdateUI = true;
             this.upDownX.Value = (long)mCurrentPart.X;
@@ -134,7 +134,7 @@ namespace AnyCAD.Demo
             mCurrentPart.B = (double)this.upDownB.Value;
             mCurrentPart.C = (double)this.upDownC.Value;
 
-            mCurrentPart.UpdateData(mCurrentAxis);
+            mCurrentPart.UpdateModel(mCurrentAxis);
 
             mRenderCtrl.RequestDraw(EnumUpdateFlags.Scene);
         }   

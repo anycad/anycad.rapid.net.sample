@@ -19,8 +19,10 @@ namespace AnyCAD.Demo
         public delegate void UpdateTagHandler();
         public event UpdateTagHandler UpdateTagEvent;
 
-        public NewForm3D()
+        public Scene mScene;
+        public NewForm3D(Scene scene)
         {
+            mScene = scene;
             InitializeComponent();
 
             mRenderView = new RenderControl(this.panel1);
@@ -28,12 +30,20 @@ namespace AnyCAD.Demo
 
         private void NewForm3D_Load(object sender, EventArgs e)
         {
-            var box = GeometryBuilder.CreateBox(100, 200, 300);
-            var material = MeshPhongMaterial.Create("simple");
-            material.SetColor(ColorTable.Red);
-            var node = new PrimitiveSceneNode(box, material);
+            //var box = GeometryBuilder.CreateBox(100, 200, 300);
+            //var material = MeshPhongMaterial.Create("simple");
+            //material.SetColor(ColorTable.Red);
+            //var node = new PrimitiveSceneNode(box, material);
 
-            mRenderView.ShowSceneNode(node);
+            //mRenderView.ShowSceneNode(node);
+
+
+            var itr = mScene.CreateIterator();
+            for(;itr.More();itr.Next())
+            {
+                mRenderView.ShowSceneNode(itr.Current());
+            }
+
 
             mRenderView.SetStandardView(EnumStandardView.DefaultView);
             mRenderView.ZoomAll();
@@ -44,12 +54,12 @@ namespace AnyCAD.Demo
                     UpdateTagEvent();
             });
 
-            // 创建两个自定义标注
-            var mTagCtl = new MyTagControl(mRenderView, new Vector3(200, 300, 400), Vector3.Zero);
-            UpdateTagEvent += mTagCtl.UpdateLayout;
+            //// 创建两个自定义标注
+            //var mTagCtl = new MyTagControl(mRenderView, new Vector3(200, 300, 400), Vector3.Zero);
+            //UpdateTagEvent += mTagCtl.UpdateLayout;
 
-            var mTagCtl2 = new MyTagControl(mRenderView, new Vector3(-100, -200, 100), Vector3.Zero);
-            UpdateTagEvent += mTagCtl2.UpdateLayout;
+            //var mTagCtl2 = new MyTagControl(mRenderView, new Vector3(-100, -200, 100), Vector3.Zero);
+            //UpdateTagEvent += mTagCtl2.UpdateLayout;
         }
     }
 }

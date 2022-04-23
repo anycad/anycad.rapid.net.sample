@@ -181,13 +181,6 @@ namespace AnyCAD.Demo
             ctx.SetPanButton(EnumMouseButton.Right);
         }
 
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            NewForm3D dlg = new NewForm3D(mRenderView.GetScene());
-            dlg.ShowDialog();
-            dlg = null;
-        }
-
         bool bShowTooltip = false;
         private void toolTipToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -375,13 +368,6 @@ namespace AnyCAD.Demo
         private void rectZoomToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mRenderView.ExecuteCommand("RectZoom");
-        }
-
-        private void 多坐标系ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MultiCoordinateSystemForm dlg = new MultiCoordinateSystemForm();
-            dlg.ShowDialog();
-            dlg = null;
         }
     }
 }

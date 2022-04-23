@@ -78,8 +78,6 @@
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
             this.explosureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactShadowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -87,7 +85,6 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.多坐标系ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -109,7 +106,6 @@
             this.editToolStripMenuItem,
             this.commandToolStripMenuItem,
             this.settingsToolStripMenuItem,
-            this.windowToolStripMenuItem,
             this.toolStripMenuItem6});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -491,22 +487,6 @@
             this.contactShadowToolStripMenuItem.Text = "Contact Shadow";
             this.contactShadowToolStripMenuItem.Click += new System.EventHandler(this.contactShadowToolStripMenuItem_Click);
             // 
-            // windowToolStripMenuItem
-            // 
-            this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
-            this.多坐标系ToolStripMenuItem});
-            this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
-            this.windowToolStripMenuItem.Size = new System.Drawing.Size(113, 33);
-            this.windowToolStripMenuItem.Text = "Window";
-            // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
-            this.newToolStripMenuItem.Text = "New";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
-            // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
@@ -590,13 +570,6 @@
             this.listBox1.Size = new System.Drawing.Size(457, 497);
             this.listBox1.TabIndex = 0;
             // 
-            // 多坐标系ToolStripMenuItem
-            // 
-            this.多坐标系ToolStripMenuItem.Name = "多坐标系ToolStripMenuItem";
-            this.多坐标系ToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
-            this.多坐标系ToolStripMenuItem.Text = "多坐标系";
-            this.多坐标系ToolStripMenuItem.Click += new System.EventHandler(this.多坐标系ToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
@@ -658,8 +631,6 @@
         private System.Windows.Forms.ToolStripMenuItem backgroundColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mouseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backgroundImageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backgroundSkyBoxToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
@@ -688,7 +659,6 @@
         private System.Windows.Forms.ToolStripMenuItem moveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rotateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rectZoomToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 多坐标系ToolStripMenuItem;
     }
 }
 

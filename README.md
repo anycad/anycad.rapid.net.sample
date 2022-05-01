@@ -5,10 +5,8 @@
  - R2021: 2021 branch
  - R2022: Master branch
 
-## 入门示例：
-https://gitee.com/anycad/rapid.net.starter
 
-## 1 准备
+## 1 环境准备
 
 ### 1.1 Microsoft Visual C++ Runtime Library
 
@@ -16,9 +14,10 @@ Download link:
 - [vc_redist.x64](https://aka.ms/vs/17/release/vc_redist.x64.exe)
 - [vc_redist.x86](https://aka.ms/vs/17/release/vc_redist.x86.exe)
 
-### 1.2 .Net Framework 4.0+
+### 1.2 .Net Framework 4.8
+### 1.3 .Net 6.0
 
-## 2 Showcases
+## 2 程序示例
 
 ### 2.1 Modeling
 
@@ -43,7 +42,9 @@ Download link:
 
 ![Robot](showcase/robot2.png)
 
+
 ### 2.3 Featured App
+[Robot.NET](https://gitee.com/anycad/anycad.rapid.net.sample/AnyRobot.NET)
 ![Robot](showcase/robot.png)
 
 ## 3 Documentation
@@ -51,7 +52,13 @@ Download link:
 - [API](http://www.anycad.cn/api/classes.html)
 - [Guide](http://www.anycad.cn/guide/)
 
-## 4 About
+## 4 更多示例
+### 入门示例：
+https://gitee.com/anycad/rapid.net.starter
+### 高级示例：
+https://gitee.com/anycad/RapidCAX
+
+## 5 关于
 http://www.anycad.cn
 
 ![Weixin](weixin.jpg)

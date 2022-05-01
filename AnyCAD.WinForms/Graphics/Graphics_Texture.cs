@@ -28,6 +28,8 @@ namespace AnyCAD.Demo.Graphics
             mNode = BrepSceneNode.Create(shape, mMaterial1, null);
 
             mMaterial2 = MeshPhongMaterial.Create("phong.texture");
+            mMaterial2.SetTransparent(true);
+            mMaterial2.SetOpacity(0.5f);
             var texture2 = ImageTexture2D.Create(GetResourcePath("textures/water.png"));
             mMaterial2.SetColorMap(texture2);
 

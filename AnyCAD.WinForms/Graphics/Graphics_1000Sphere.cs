@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AnyCAD.Demo.Graphics
 {
-    class Graphics_1000Sphere : TestCase
+    class Graphics_90000Sphere : TestCase
     {
         public override void Run(RenderControl renderer)
         {
@@ -17,12 +17,12 @@ namespace AnyCAD.Demo.Graphics
             bufferShape.Build();
 
             float distance = 3.0f;
-            int halfCount = 5;
-
+            int halfCount = 150;
+            int kk = 0;
             var scene = renderer.GetScene();
             for (int ii = -halfCount; ii < halfCount; ++ii)
                 for (int jj = -halfCount; jj < halfCount; ++jj)
-                    for (int kk = -halfCount; kk < halfCount; ++kk)
+                    //for (int kk = -halfCount; kk < halfCount; ++kk)
                     {
                         var node = new BrepSceneNode(bufferShape);
                         node.SetTransform(Matrix4.makeTranslation(ii * distance, jj * distance, kk * distance));

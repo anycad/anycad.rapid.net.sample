@@ -100,6 +100,7 @@ namespace AnyCAD.Demo
             mPart.Show(mRenderCtrl);
             mPlane.Show(mRenderCtrl);
 
+            mRenderCtrl.GetViewer().SetCoordinateWidget(EnumViewCoordinateType.Axis);
 
             mRenderCtrl.SetSelectCallback((PickedResult ret) =>
             {

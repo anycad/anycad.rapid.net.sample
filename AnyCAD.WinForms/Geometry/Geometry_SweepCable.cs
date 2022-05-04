@@ -42,10 +42,23 @@ namespace AnyCAD.Demo.Geometry
 
             var position = rt.GetPoint();
             var dir = new GDir(rt.GetVectors()[0]);
-            var sketch = SketchBuilder.MakeCircle(position, 1, dir);
-            var pipe = FeatureTool.Sweep(sketch, path, EnumGeomFillTrihedron.ConstantNormal);
-            if(pipe != null)
-                 render.ShowShape(pipe, new Vector3(0.8f));
+            var sketch = SketchBuilder.MakeCircle(position, 10, dir);
+            render.ShowShape(sketch, new Vector3(0.8f));
+            var pipe = FeatureTool.SweepByFrenet(sketch, path, EnumSweepTransitionMode.RightCorner, false);
+
+            try
+            {
+
+                if (pipe != null)
+                {
+                    render.ShowShape(pipe, new Vector3(0.8f));
+                }
+                    
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

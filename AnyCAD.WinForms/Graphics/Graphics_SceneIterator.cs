@@ -7,6 +7,7 @@ using AnyCAD.Forms;
 using AnyCAD.Foundation;
 using System.IO.Compression;
 using System.IO;
+using System.Windows.Forms;
 
 namespace AnyCAD.Demo.Graphics
 {
@@ -17,25 +18,33 @@ namespace AnyCAD.Demo.Graphics
         {
             base.Run(render);
 
-            // Let's iterate the scene
-            using (FileStream fs = new FileStream("d:/myZip.zip", FileMode.Create))
+            try
             {
-                using (ZipArchive zipArchive = new ZipArchive(fs, ZipArchiveMode.Create))
+                // Let's iterate the scene
+                using (FileStream fs = new FileStream("d:/myZip.zip", FileMode.Create))
                 {
-                    for (var itr = render.GetScene().CreateIterator(); itr.More(); itr.Next())
+                    using (ZipArchive zipArchive = new ZipArchive(fs, ZipArchiveMode.Create))
                     {
-                        var node = BrepSceneNode.Cast(itr.Current());
-                        if (node == null)
-                            continue;
-
-                        ZipArchiveEntry entry = zipArchive.CreateEntry(String.Format("{0}.brep", node.GetUuid()));
-                        using (StreamWriter writer = new StreamWriter(entry.Open(), Encoding.Default))
+                        for (var itr = render.GetScene().CreateIterator(); itr.More(); itr.Next())
                         {
-                            writer.Write(node.GetTopoShape().Write());
+                            var node = BrepSceneNode.Cast(itr.Current());
+                            if (node == null)
+                                continue;
+
+                            ZipArchiveEntry entry = zipArchive.CreateEntry(String.Format("{0}.brep", node.GetUuid()));
+                            using (StreamWriter writer = new StreamWriter(entry.Open(), Encoding.Default))
+                            {
+                                writer.Write(node.GetTopoShape().Write());
+                            }
                         }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            MessageBox.Show("d:/myZip.zip");
         }
     }
 }

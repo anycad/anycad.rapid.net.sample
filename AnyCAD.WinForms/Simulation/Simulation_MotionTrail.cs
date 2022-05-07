@@ -47,6 +47,13 @@ namespace AnyCAD.Demo.Graphics
         uint mCount = 0;
         public override void Animation(RenderControl render, float time)
         {
+            if(mCount > 100)
+            {
+                mMotionTrail.SetVisible(false);
+                render.RequestDraw(EnumUpdateFlags.Scene);
+                return;
+            }
+
             if(mAnimation.Play(time))
             {
                 var trf = mWorkpiece.GetTransform();

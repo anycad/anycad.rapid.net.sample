@@ -8,7 +8,7 @@ using System.IO;
 
 namespace AnyCAD.Demo.Graphics
 {
-    class Graphics_FontTexture : TestCase
+    class Graphics_Text : TestCase
     {
         static bool mLoaded = false;
         public override void Run(RenderControl render)
@@ -38,12 +38,12 @@ namespace AnyCAD.Demo.Graphics
             {
                 var fixedSizeMaterial = SpriteMaterial.Create("font-mesh-material");
                 fixedSizeMaterial.SetSizeAttenuation(false);
-                fixedSizeMaterial.SetColor(ColorTable.Green);
+                fixedSizeMaterial.SetColor(ColorTable.OrangeRed);
 
-                var mesh = FontManager.Instance().CreateMesh("哈哈");
+                var mesh = FontManager.Instance().CreateMesh("为中华之崛起而代码！");
                 var node = new PrimitiveSceneNode(mesh, fixedSizeMaterial);
-                var scale = 1 / 2200.0f;
-                node.SetTransform(Matrix4.makeTranslation(0, 0, 10) * Matrix4.makeScale(scale, scale, scale));
+                var scale = 1 / 22.0f;
+                node.SetTransform(Matrix4.makeTranslation(0, 10, 10) * Matrix4.makeScale(scale, scale, scale));
                 node.SetPickable(false);
 
                 render.ShowSceneNode(node);

@@ -370,5 +370,15 @@ namespace AnyCAD.Demo
         {
             mRenderView.ExecuteCommand("RectZoom");
         }
+
+        private void 框选ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mRenderView.GetContext().SetRectPick(true);
+        }
+
+        private void 单选ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mRenderView.GetContext().SetRectPick(false);
+        }
     }
 }

@@ -42,6 +42,8 @@ Download link:
 
 ![Robot](showcase/robot2.png)
 
+![Tag](showcase/tag.png)
+
 ### 2.3 交互
 ![move](showcase/move.png)
 ![move](showcase/rotate.png)

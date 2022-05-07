@@ -19,7 +19,7 @@ Download link:
 
 ## 2 程序示例
 
-### 2.1 Modeling
+### 2.1 建模
 
 ![sweep](showcase/sweeploft.png)
 
@@ -32,7 +32,7 @@ Download link:
 ![spring](showcase/spring.png)
 
 
-### 2.2 Graphcis
+### 2.2 显示
 
 ![dimension](showcase/dimension.png)
 
@@ -42,8 +42,11 @@ Download link:
 
 ![Robot](showcase/robot2.png)
 
+### 2.3 交互
+![move](showcase/move.png)
+![move](showcase/rotate.png)
 
-### 2.3 Featured App
+### 2.4 Featured App
 [Robot.NET](https://gitee.com/anycad/anycad.rapid.net.sample/AnyRobot.NET)
 ![Robot](showcase/robot.png)
 

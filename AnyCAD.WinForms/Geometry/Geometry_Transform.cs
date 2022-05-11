@@ -70,21 +70,32 @@ namespace AnyCAD.Demo.Geometry
         }
         public override void Run(RenderControl render)
         {
-            render.SetViewCube(EnumViewCoordinateType.Axis);
-            //var box = ShapeBuilder.MakeBox(GP.XOY(), 10, 20, 30);
-            //render.ShowShape(box, ColorTable.Green);
-
-            //var trans = TransformTool.Translate(box, new GVec(-20, 0, 0));
-            //render.ShowShape(trans, new Vector3(105.0f / 256.0f));
-
-            //var scale = TransformTool.Scale(box, GP.Origin(), 0.5);
-            //render.ShowShape(scale, ColorTable.Blue);
-
-            //var rotate = TransformTool.Rotation(box, GP.OX(), 45);
-            //render.ShowShape(rotate, ColorTable.Red);
+            //render.SetViewCube(EnumViewCoordinateType.Axis);
+            //CustumTransform(render);
 
 
-            CustumTransform(render);
+            MeshStandardMaterial material = MeshStandardMaterial.Create("workpiece");
+            material.SetColor(new Vector3(0.9f));
+            material.SetFaceSide(EnumFaceSide.DoubleSide);
+            material.SetTransparent(true);
+            material.SetOpacity(0.5f);
+
+            var box = ShapeBuilder.MakeBox(GP.XOY(), 10, 10, 10); //源toposhape
+            var sphere = ShapeBuilder.MakeSphere(GP.Origin(), 5);
+
+            //下面几行目的是把源toposhape往X轴移动一下，然后获取移动后的toposhape
+            BrepSceneNode node = BrepSceneNode.Create(box, material, null);
+            var trfCT2 = Matrix4.makeTranslation(4, 0, 0);
+            node.SetTransform(trfCT2);
+            node.RequstUpdate();
+            var tp = TransformTool.TransformByMatrix(node.GetTopoShape(), node.GetTransform());
+
+            //用移动后的toposhape做cut运算
+            var cut = BooleanTool.Cut(tp, sphere);
+            render.ShowShape(cut, ColorTable.BlanchedAlmond);
+
+            //render.ShowShape(sphere, ColorTable.BrulyWood);      
+            render.ShowSceneNode(node);
         }
     }
 }

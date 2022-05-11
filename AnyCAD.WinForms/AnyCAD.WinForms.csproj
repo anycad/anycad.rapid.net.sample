@@ -98,10 +98,12 @@
     <Compile Include="Analysis\Analysis_Distance.cs" />
     <Compile Include="Analysis\Analysis_Holes.cs" />
     <Compile Include="Analysis\Analysis_HolesOpenFile.cs" />
+    <Compile Include="Analysis\Analysis_MiddlePath.cs" />
     <Compile Include="Analysis\Analysis_Points.cs" />
     <Compile Include="Analysis\Analysis_Shape.cs" />
     <Compile Include="Analysis\Analysis_SplitCurve.cs" />
     <Compile Include="Analysis\Analysis_Surface.cs" />
+    <Compile Include="Analysis\Analysis_Wire.cs" />
     <Compile Include="Coordinate\CoordinateData.cs" />
     <Compile Include="Coordinate\Graphics_Coordinate.cs" />
     <Compile Include="Geometry\Geometry_BSpline.cs" />
@@ -130,6 +132,7 @@
     <Compile Include="Graphics\Graphics_1000Sphere.cs" />
     <Compile Include="Graphics\Graphics_DashedLines.cs" />
     <Compile Include="Graphics\Graphics_Dimension.cs" />
+    <Compile Include="Graphics\Graphics_Points_Group.cs" />
     <Compile Include="Graphics\Graphics_Text.cs" />
     <Compile Include="Graphics\Graphics_Geometry.cs" />
     <Compile Include="Graphics\Graphics_GeometryDynamic.cs" />

@@ -196,13 +196,13 @@
             // indicatorToolStripMenuItem
             // 
             this.indicatorToolStripMenuItem.Name = "indicatorToolStripMenuItem";
-            this.indicatorToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.indicatorToolStripMenuItem.Size = new System.Drawing.Size(219, 40);
             this.indicatorToolStripMenuItem.Text = "&Indicator";
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(219, 40);
             this.optionsToolStripMenuItem.Text = "&Options";
             // 
             // helpToolStripMenuItem

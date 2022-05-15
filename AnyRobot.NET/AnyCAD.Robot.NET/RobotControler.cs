@@ -15,7 +15,7 @@ namespace AnyCAD.Robot
         public RobotControler(RobotBody robot)
         {
             mRobot = robot;
-            mTrackingNode.SetVisible(false);
+            mTrackingNode.SetVisible(true);
         }
 
         public void Reset()

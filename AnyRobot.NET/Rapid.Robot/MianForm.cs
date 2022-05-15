@@ -73,7 +73,7 @@ namespace RapidRobot
             mRobotControler = new AnyCAD.Robot.RobotControler(robot);
             mRenderView.ShowSceneNode(mRobotControler.TrackingPath);
 
-            mRenderView.SetStandardView(EnumStandardView.DefaultView);
+            mRenderView.GetViewer().SetStandardView(EnumStandardView.DefaultView, false);
             mRenderView.ZoomAll();
         }
 

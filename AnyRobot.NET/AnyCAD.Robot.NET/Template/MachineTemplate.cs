@@ -39,7 +39,7 @@ namespace AnyCAD.Robot
 
         private EnumModelType mModelType = EnumModelType.BREP;
 
-        static public readonly string Filter = "AnyCAD Robot(*.robot)|*.robot";
+        static public readonly string Filter = "AnyCAD Machine(*.mson)|*.mson";
         public MachineTemplate()
         {
             Author = "AnyCAD";
@@ -178,6 +178,7 @@ namespace AnyCAD.Robot
             foreach(var arm in Arms)
             {
                 var robotArm = new RobotArm();
+                robotArm.SetComputeMethod(EnumDHComputeMethod.Modified_DH);
                 robotArm.SetName(arm.Name);
                 robotArm.SetAxisSize(AxisSize);
                 for (int ii = 0; ii < arm.Joints.Count; ++ii)

@@ -28,6 +28,11 @@ namespace AnyCAD.Demo.Graphics
             var dim2 = new LinearDimensionNode(new Vector3(100, 0, 0), new Vector3(0, 100, 0), new Vector3(120, 0, 0), -90, "高度");
             dim2.Update();
             render.ShowSceneNode(dim2);
+
+
+            var angle = new AngularDimensionNode(new Vector3(-100, 0, 0), new Vector3(-50, 0, 0), new Vector3(-50, 50, 0), "45");
+            angle.Update();
+            render.ShowSceneNode(angle);
         }
 
     }

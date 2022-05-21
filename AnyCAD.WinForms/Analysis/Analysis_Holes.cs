@@ -22,14 +22,14 @@ namespace AnyCAD.Demo.Geometry
 
 
             // 1. Find the exterial holes
-            var holeExp = new HoleExplorLegacy();
+            var holeExp = new HoleDetector();
             if (!holeExp.Initialize(shape))
                 return;
-            var holeNumber = holeExp.ComputeExteriorHoles();
+            var holeNumber = holeExp.GetHoleCount();
 
-            for(int ii=0; ii<holeNumber; ++ii)
+            for(uint ii=0; ii< holeNumber; ++ii)
             {
-                var wire = holeExp.GetExteriorHoleWire(ii);
+                var wire = holeExp.GetHoleExteriorEdges(ii);
                 var wireNode = BrepSceneNode.Create(wire, null, edgeMaterial);
 
                 renderer.ShowSceneNode(wireNode);

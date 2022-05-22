@@ -35,7 +35,7 @@ namespace AnyCAD.Demo.Graphics
         }
     }
 
-    class Graphics_Measure : Graphics_PointCloud
+    class Interaction_Measure : Graphics_PointCloud
     {
         MyEditorListner mEditorListener;
         public override void Run(RenderControl render)

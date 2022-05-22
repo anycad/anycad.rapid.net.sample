@@ -142,15 +142,16 @@
     <Compile Include="Graphics\Graphics_Points.cs" />
     <Compile Include="Graphics\Graphics_Ray.cs" />
     <Compile Include="Graphics\Graphics_SceneIterator.cs" />
-    <Compile Include="Graphics\Graphics_Selection.cs" />
     <Compile Include="Coordinate\MultiCoordinateSystemForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Coordinate\MultiCoordinateSystemForm.Designer.cs">
       <DependentUpon>MultiCoordinateSystemForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interaction\Interaction_Measure.cs" />
+    <Compile Include="Interaction\Interaction_PickEdge.cs" />
+    <Compile Include="Interaction\Interaction_PickFace.cs" />
     <Compile Include="Simulation\Simulation_Links.cs" />
-    <Compile Include="Tag\Graphics_Measure.cs" />
     <Compile Include="Tag\Graphics_Tag.cs" />
     <Compile Include="Tag\MyTagControl.cs">
       <SubType>UserControl</SubType>

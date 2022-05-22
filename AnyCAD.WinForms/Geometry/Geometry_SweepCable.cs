@@ -57,7 +57,7 @@ namespace AnyCAD.Demo.Geometry
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
         }
     }

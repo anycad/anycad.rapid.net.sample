@@ -148,9 +148,16 @@
     <Compile Include="Coordinate\MultiCoordinateSystemForm.Designer.cs">
       <DependentUpon>MultiCoordinateSystemForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interaction\Dlg\TransformDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interaction\Dlg\TransformDlg.Designer.cs">
+      <DependentUpon>TransformDlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interaction\Interaction_Measure.cs" />
     <Compile Include="Interaction\Interaction_PickEdge.cs" />
     <Compile Include="Interaction\Interaction_PickFace.cs" />
+    <Compile Include="Interaction\Interaction_Transform.cs" />
     <Compile Include="Simulation\Simulation_Links.cs" />
     <Compile Include="Tag\Graphics_Tag.cs" />
     <Compile Include="Tag\MyTagControl.cs">
@@ -182,6 +189,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Interaction\Dlg\TransformDlg.resx">
+      <DependentUpon>TransformDlg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>

@@ -120,6 +120,7 @@
     <Compile Include="Geometry\Geometry_Pyramid.cs" />
     <Compile Include="Geometry\Geometry_RectPipeStep.cs" />
     <Compile Include="Geometry\Geometry_Sketch.cs" />
+    <Compile Include="Geometry\Geometry_Slice.cs" />
     <Compile Include="Geometry\Geometry_Spring.cs" />
     <Compile Include="Geometry\Geometry_Surface.cs" />
     <Compile Include="Geometry\Geometry_Sweep.cs" />

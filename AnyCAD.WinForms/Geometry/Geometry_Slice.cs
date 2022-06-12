@@ -11,18 +11,17 @@ namespace AnyCAD.Demo.Geometry
     {
         public override void Run(RenderControl render)
         {
-            var dir = new GDir(1, 0, 0);
+            var dir = new GDir(0, 0, 1);
 
             var shape = ShapeBuilder.MakeCone(GP.XOY(), 100, 50, 200, 0);
 
             for(int ii=0; ii<10; ++ii)
             {
-                var pos = new GPnt(-80 + ii * 20, 0, 40);
-                var tool = ShapeBuilder.MakeHalfSpace(pos, dir);
+                var pos = new GPnt(0,0, 10 + ii * 20);
 
-                var result = BooleanTool.Section(shape, tool);
-
-                render.ShowShape(result, ColorTable.BlanchedAlmond);
+                var result = BooleanTool.Slice(shape, pos, dir, 0.01);
+                foreach(var face in result)
+                    render.ShowShape(face, ColorTable.BlanchedAlmond);
             }
 
             var material = MeshStandardMaterial.Create("cut-transparent");

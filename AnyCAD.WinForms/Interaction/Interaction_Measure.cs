@@ -14,11 +14,11 @@ namespace AnyCAD.Demo.Graphics
 {
     class MyEditorListner : EditorListener
     {
-        public override void OnChanging(string name, ViewContext ctx, SceneNode pNode)
+        public override void OnChanging(string name, ViewContext ctx, SceneNode pNode, ElementIdSet ids)
         {
 
         }
-        public override void OnChanged(string name, ViewContext ctx, SceneNode pNode)
+        public override void OnChanged(string name, ViewContext ctx, SceneNode pNode, ElementIdSet ids)
         {
             if (name == "MeasureTwoPoints")
             {

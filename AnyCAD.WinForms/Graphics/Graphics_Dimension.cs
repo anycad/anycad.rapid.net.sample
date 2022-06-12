@@ -33,6 +33,14 @@ namespace AnyCAD.Demo.Graphics
             var angle = new AngularDimensionNode(new Vector3(-100, 0, 0), new Vector3(-50, 0, 0), new Vector3(-50, 50, 0), "45");
             angle.Update();
             render.ShowSceneNode(angle);
+
+            var circle = SketchBuilder.MakeCircle(GP.Origin(), 25, GP.DZ());
+            render.ShowShape(circle, ColorTable.Beige);
+
+            var radiusDim = new RadiusDimensionNode(new Vector3(0), 25, 45, 15, "R25");
+            radiusDim.Update();
+
+            render.ShowSceneNode(radiusDim);
         }
 
     }

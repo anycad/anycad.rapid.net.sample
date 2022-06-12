@@ -20,7 +20,7 @@ Download link:
 ## 2 程序示例
 
 ### 2.1 建模
-
+![sweep](showcase/slice.png)
 ![sweep](showcase/sweeploft.png)
 
 ![pipe](showcase/pipe.png)

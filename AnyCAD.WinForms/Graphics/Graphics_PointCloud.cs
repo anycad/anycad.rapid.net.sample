@@ -48,14 +48,8 @@ namespace AnyCAD.Demo.Graphics
             if (!ReadData())
                 return;
        
-            var material = PointsMaterial.Create("point-material");
-            material.GetTemplate().SetVertexColors(true);
 
-           var geometry =  GeometryBuilder.CreatePoints(new Float32Array(mPositions), new Float32Array(mColors));
-
-            var node = new PrimitiveSceneNode(geometry,  material);
-
-            //node.SetPickable(false);
+            PointCloud node = PointCloud.Create(mPositions, mColors, 1);
 
             render.ShowSceneNode(node);
         }

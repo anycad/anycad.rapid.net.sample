@@ -55,6 +55,10 @@ namespace AnyCAD.Demo
         {
             if (tag == null)
                 return; 
+
+            if(mCurrentDemo!=null)
+                mCurrentDemo.Exit(render);
+
             var type = tag as Type;
             mCurrentDemo = Activator.CreateInstance(type) as TestCase;
             render.ClearAll();
@@ -68,7 +72,8 @@ namespace AnyCAD.Demo
         {
 
         }
-
+        public virtual void Exit(RenderControl render)
+        { }
         public static void RunAnimation(RenderControl render, float timer)
         {
             if (mCurrentDemo != null)

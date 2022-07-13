@@ -261,3 +261,4 @@ __pycache__/
 *.pyc
 /data/models/1.stp.stl
 *.7z
+/AnyCAD.WinForms/Analysis/Analysis_Tube.cs

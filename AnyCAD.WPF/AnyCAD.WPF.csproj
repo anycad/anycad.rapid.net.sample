@@ -37,17 +37,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AnyCAD.Foundation.NET4, Version=22.6.18.955, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
-      <HintPath>..\packages\AnyCAD.Rapid.Net.2022.6.18\lib\net40\AnyCAD.Foundation.NET4.dll</HintPath>
+    <Reference Include="AnyCAD.Foundation.NET4, Version=22.7.10.1724, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
+      <HintPath>..\packages\AnyCAD.Rapid.Net.2022.7.10\lib\net40\AnyCAD.Foundation.NET4.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="AnyCAD.ScriptPy.NET4, Version=22.6.18.955, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
-      <HintPath>..\packages\AnyCAD.Rapid.Net.2022.6.18\lib\net40\AnyCAD.ScriptPy.NET4.dll</HintPath>
+    <Reference Include="AnyCAD.ScriptPy.NET4, Version=22.7.10.1724, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
+      <HintPath>..\packages\AnyCAD.Rapid.Net.2022.7.10\lib\net40\AnyCAD.ScriptPy.NET4.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="AnyCAD.WinForms.NET4, Version=22.6.18.955, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
-      <HintPath>..\packages\AnyCAD.Rapid.Net.2022.6.18\lib\net40\AnyCAD.WinForms.NET4.dll</HintPath>
+    <Reference Include="AnyCAD.WinForms.NET4, Version=22.7.10.1724, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
+      <HintPath>..\packages\AnyCAD.Rapid.Net.2022.7.10\lib\net40\AnyCAD.WinForms.NET4.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="AnyCAD.WPF.NET4, Version=22.6.18.955, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
-      <HintPath>..\packages\AnyCAD.Rapid.Net.2022.6.18\lib\net40\AnyCAD.WPF.NET4.dll</HintPath>
+    <Reference Include="AnyCAD.WPF.NET4, Version=22.7.10.1724, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
+      <HintPath>..\packages\AnyCAD.Rapid.Net.2022.7.10\lib\net40\AnyCAD.WPF.NET4.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -118,11 +122,11 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\AnyCAD.Rapid.Net.2022.6.18\build\net\AnyCAD.Rapid.Net.targets" Condition="Exists('..\packages\AnyCAD.Rapid.Net.2022.6.18\build\net\AnyCAD.Rapid.Net.targets')" />
+  <Import Project="..\packages\AnyCAD.Rapid.Net.2022.7.10\build\net\AnyCAD.Rapid.Net.targets" Condition="Exists('..\packages\AnyCAD.Rapid.Net.2022.7.10\build\net\AnyCAD.Rapid.Net.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\AnyCAD.Rapid.Net.2022.6.18\build\net\AnyCAD.Rapid.Net.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AnyCAD.Rapid.Net.2022.6.18\build\net\AnyCAD.Rapid.Net.targets'))" />
+    <Error Condition="!Exists('..\packages\AnyCAD.Rapid.Net.2022.7.10\build\net\AnyCAD.Rapid.Net.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AnyCAD.Rapid.Net.2022.7.10\build\net\AnyCAD.Rapid.Net.targets'))" />
   </Target>
 </Project>

@@ -45,7 +45,35 @@ namespace AnyCAD.Demo
                 this.listBox1.Items.Add(item.GetShapeType().ToString());
                 this.listBox1.Items.Add(String.Format("SubIndex: {0}", item.GetShapeIndex()));
                 this.listBox1.Items.Add(String.Format("PrimitiveIndex: {0}", item.GetPoint().GetPrimitiveIndex()));
-                this.listBox1.Items.Add(String.Format("TopoShapeId: {0}", item.GetTopoShapeId()));               
+                this.listBox1.Items.Add(String.Format("TopoShapeId: {0}", item.GetTopoShapeId()));
+
+                // 获取圆弧信息的例子
+                var node = BrepSceneNode.Cast(item.GetNode());
+                if(node != null)
+                {
+                    var shape = node.GetTopoShape();
+
+                    if(item.GetShapeType() == EnumShapeFilter.Edge)
+                    {
+                        var subShape = shape.FindChild(EnumTopoShapeType.Topo_EDGE, (int)item.GetTopoShapeId());
+                        if(subShape != null)
+                        {
+                            var curve = new ParametricCurve(subShape);
+                            if(curve.IsValidGeometry())
+                            {
+                                if(curve.GetCurveType() == EnumCurveType.CurveType_Circle)
+                                {
+                                    var circle = curve.TryCircle();
+                                    var axis = circle.Axis();
+                                    var center = axis.Location();
+                                    var dir = axis.Direction();
+                                    var radius = circle.Radius();
+                                }
+                            }
+                        }
+                    }
+                    
+                }
             });
 
             mRenderView.SetAnimationCallback((float timer) =>

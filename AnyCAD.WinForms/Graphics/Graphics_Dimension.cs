@@ -37,7 +37,7 @@ namespace AnyCAD.Demo.Graphics
             var circle = SketchBuilder.MakeCircle(GP.Origin(), 25, GP.DZ());
             render.ShowShape(circle, ColorTable.Beige);
 
-            var radiusDim = new RadiusDimensionNode(new Vector3(0), 25, 45, 15, "R25");
+            var radiusDim = new RadiusDimensionNode(new Vector3(0), new Vector3(25,25,0), new Vector3(30,30,0), "R25");
             radiusDim.Update();
 
             render.ShowSceneNode(radiusDim);

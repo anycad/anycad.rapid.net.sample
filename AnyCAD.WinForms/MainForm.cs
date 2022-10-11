@@ -100,7 +100,7 @@ namespace AnyCAD.Demo
         private void captureToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog dialog = new SaveFileDialog();
-            dialog.Filter = "Bitmap (*.bmp)|*.bmp";
+            dialog.Filter = "Image (*.png)|*.png";
             if (dialog.ShowDialog() != DialogResult.OK)
                 return;
 
@@ -328,7 +328,7 @@ namespace AnyCAD.Demo
         private void openFastToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "Models (*.igs;*.iges;*.stp;*.step;*.brep)|*.igs;*.iges;*.stp;*.step;*.brep";
+            dialog.Filter = "Models (*.igs;*.iges;*.stp;*.step;*.brep;*.stl)|*.igs;*.iges;*.stp;*.step;*.brep;*.stl";
             if (dialog.ShowDialog() != DialogResult.OK)
                 return;
 

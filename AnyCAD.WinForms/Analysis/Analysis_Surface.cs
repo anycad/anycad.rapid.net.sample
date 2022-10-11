@@ -33,7 +33,7 @@ namespace AnyCAD.Demo.Geometry
                 {
                     var pt = curve.Value(p);
                     var pointSur = new ExtremaPointSurface();
-                    if (pointSur.Initialize(surface, pt, GP.Resolution(), GP.Resolution()))
+                    if (pointSur.Initialize(face, pt))
                     {
                         var uv = pointSur.GetParameter(0);
                         var normal = surface.GetNormal(uv.X(), uv.Y());

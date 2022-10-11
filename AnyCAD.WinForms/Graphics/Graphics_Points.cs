@@ -32,7 +32,7 @@ namespace AnyCAD.Demo.Graphics
                 colors.Append( (float)random.NextDouble(), (float)random.NextDouble() , (float)random.NextDouble() );
             }
 
-            var primitive = GeometryBuilder.CreatePoints(new Float32Array(buffer), new Float32Array(colors));
+            var primitive = GeometryBuilder.CreatePoints(new Float32Array(buffer), new Float32Array(colors), null);
 
             // prepare point material
             var material = PointsMaterial.Create("points-material");

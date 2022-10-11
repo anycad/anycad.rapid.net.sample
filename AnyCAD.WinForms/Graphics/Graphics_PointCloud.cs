@@ -49,9 +49,12 @@ namespace AnyCAD.Demo.Graphics
                 return;
        
 
-            PointCloud node = PointCloud.Create(mPositions, mColors, 1);
+            PointCloud node = PointCloud.Create(mPositions, mColors, null, 1);
 
             render.ShowSceneNode(node);
+
+            render.GetContext().GetSceneManager().SelectSubShape(node.GetUuid(), EnumShapeFilter.Vertex, 0);
+
         }
     }
 }

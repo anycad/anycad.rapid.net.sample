@@ -41,6 +41,7 @@ namespace AnyCAD.Demo
                 this.listBox1.Items.Add(item.GetNode().GetType().Name);
                 mSelectedItm = item.GetNodeId();
                 this.listBox1.Items.Add(String.Format("NodeId: {0}", item.GetNodeId()));
+                this.listBox1.Items.Add(String.Format("UserId: {0}", item.GetUserId()));
                 this.listBox1.Items.Add(item.GetPoint().GetPosition().ToString());
                 this.listBox1.Items.Add(item.GetShapeType().ToString());
                 this.listBox1.Items.Add(String.Format("SubIndex: {0}", item.GetShapeIndex()));
@@ -135,6 +136,7 @@ namespace AnyCAD.Demo
             var node = SceneIO.Load(dlg.FileName);
             if (node == null)
                 return;
+            
             mRenderView.ShowSceneNode(node);
             mRenderView.ZoomAll();
         }

@@ -42,8 +42,9 @@ namespace AnyCAD.Demo.Graphics
         {
             int selector = (int)time % 2;
 
-            mNode.GetShape().SetFaceMaterial(selector == 1 ? mMaterial1 : mMaterial2);
-
+            mNode.SetFaceMaterial(0, selector == 1 ? mMaterial1 : mMaterial2);
+            mNode.SetFaceMaterial(1, selector == 1 ? mMaterial1 : mMaterial2);
+            mNode.SetFaceMaterial(5, selector == 1 ? mMaterial1 : mMaterial2);
             render.RequestDraw();
         }
     }

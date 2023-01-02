@@ -39,7 +39,7 @@ namespace AnyCAD.Robot
             if(val == "Prismatic")
                 return EnumRobotJointType.Prismatic;
 
-            return EnumRobotJointType.Undefined;
+            return EnumRobotJointType.Fixed;
         }  
         
         public void SetJointType(EnumRobotJointType type)

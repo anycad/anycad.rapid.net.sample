@@ -15,16 +15,16 @@ namespace AnyCAD.Demo.Geometry
             render.ShowShape(sphere, ColorTable.Blue);
 
             var common = BooleanTool.Common(box, sphere);
-            render.ShowShape(common, Matrix4.makeTranslation(-20,0,0));
+            render.ShowShape(common, ColorTable.Green).SetTransform(Matrix4.makeTranslation(-20, 0, 0));
 
             var cut = BooleanTool.Cut(box, sphere);
-            render.ShowShape(cut, Matrix4.makeTranslation(0, 20, 0));
+            render.ShowShape(cut, ColorTable.Honeydew).SetTransform(Matrix4.makeTranslation(0, 20, 0));
 
             var cut2 = BooleanTool.Cut(sphere, box);
-            render.ShowShape(cut2, Matrix4.makeTranslation(0, -20,0));
+            render.ShowShape(cut2, ColorTable.Violet).SetTransform(Matrix4.makeTranslation(0, -20, 0));
 
             var fuse = BooleanTool.Fuse(box, sphere);
-            render.ShowShape(fuse, Matrix4.makeTranslation(20, 0, 0));
+            render.ShowShape(fuse, ColorTable.LightYellow).SetTransform(Matrix4.makeTranslation(20, 0, 0));
 
 
         }

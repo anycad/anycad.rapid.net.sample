@@ -63,14 +63,14 @@
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AnyCAD.Foundation.NET4, Version=2023.1.2.1040, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
-      <HintPath>..\packages\AnyCAD.Foundation.NET.2023.1.2.1040\lib\net48\AnyCAD.Foundation.NET4.dll</HintPath>
+    <Reference Include="AnyCAD.Foundation.NET4, Version=2023.2.10.1730, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
+      <HintPath>..\packages\AnyCAD.Foundation.NET.2023.2.10.1730\lib\net48\AnyCAD.Foundation.NET4.dll</HintPath>
     </Reference>
-    <Reference Include="AnyCAD.WinForms.NET4, Version=2023.1.2.1040, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
-      <HintPath>..\packages\AnyCAD.Rapid.NET.2023.1.2.1040\lib\net48\AnyCAD.WinForms.NET4.dll</HintPath>
+    <Reference Include="AnyCAD.WinForms.NET4, Version=2023.2.10.1730, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
+      <HintPath>..\packages\AnyCAD.Rapid.NET.2023.2.10.1730\lib\net48\AnyCAD.WinForms.NET4.dll</HintPath>
     </Reference>
-    <Reference Include="AnyCAD.WPF.NET4, Version=2023.1.2.1040, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
-      <HintPath>..\packages\AnyCAD.Rapid.NET.2023.1.2.1040\lib\net48\AnyCAD.WPF.NET4.dll</HintPath>
+    <Reference Include="AnyCAD.WPF.NET4, Version=2023.2.10.1730, Culture=neutral, PublicKeyToken=adad17ef48f32d48, processorArchitecture=MSIL">
+      <HintPath>..\packages\AnyCAD.Rapid.NET.2023.2.10.1730\lib\net48\AnyCAD.WPF.NET4.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -94,7 +94,6 @@
     <Compile Include="Analysis\Analysis_Curvature.cs" />
     <Compile Include="Analysis\Analysis_Distance.cs" />
     <Compile Include="Analysis\Analysis_Holes.cs" />
-    <Compile Include="Analysis\Analysis_HolesOpenFile.cs" />
     <Compile Include="Analysis\Analysis_MiddlePath.cs" />
     <Compile Include="Analysis\Analysis_Points.cs" />
     <Compile Include="Analysis\Analysis_Shape.cs" />
@@ -234,11 +233,11 @@
     <None Include="Resources\weixin.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\AnyCAD.Foundation.NET.2023.1.2.1040\build\net\AnyCAD.Foundation.NET.targets" Condition="Exists('..\packages\AnyCAD.Foundation.NET.2023.1.2.1040\build\net\AnyCAD.Foundation.NET.targets')" />
+  <Import Project="..\packages\AnyCAD.Foundation.NET.2023.2.10.1730\build\net\AnyCAD.Foundation.NET.targets" Condition="Exists('..\packages\AnyCAD.Foundation.NET.2023.2.10.1730\build\net\AnyCAD.Foundation.NET.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\AnyCAD.Foundation.NET.2023.1.2.1040\build\net\AnyCAD.Foundation.NET.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AnyCAD.Foundation.NET.2023.1.2.1040\build\net\AnyCAD.Foundation.NET.targets'))" />
+    <Error Condition="!Exists('..\packages\AnyCAD.Foundation.NET.2023.2.10.1730\build\net\AnyCAD.Foundation.NET.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AnyCAD.Foundation.NET.2023.2.10.1730\build\net\AnyCAD.Foundation.NET.targets'))" />
   </Target>
 </Project>

@@ -34,7 +34,7 @@ namespace AnyCAD.Demo.Graphics
 
             material.AddTexture("map", texture);
             var color = ColorTable.Hex(0x0044ff);
-            material.SetUniform("diffuse", Uniform.Create(color));
+            material.SetUniform("diffuse", color);
      
 
             var node = new PrimitiveSceneNode(mGeometry, material);

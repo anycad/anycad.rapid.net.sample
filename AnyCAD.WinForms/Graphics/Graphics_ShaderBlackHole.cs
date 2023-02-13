@@ -11,8 +11,8 @@ namespace AnyCAD.Demo.Graphics
 		{
 			if (ShaderTemplateManager.Instance().IsExist(shaderName))
 				return;
-
-            var st = new ShaderTemplate(shaderName,
+            
+			ShaderTemplateManager.Instance().Create(shaderName,
             @"
 			varying vec2 vUv;
 			void main()	{
@@ -20,7 +20,7 @@ namespace AnyCAD.Demo.Graphics
 				gl_Position = vec4( position, 1.0 );
 			}                    
             ",
-			@"
+            @"
 			varying vec2 vUv;
 
 			uniform float time;
@@ -56,11 +56,9 @@ namespace AnyCAD.Demo.Graphics
 			}
 
 			",
-			@"
+            @"
 			float time 1.0;
 			");
-
-			ShaderTemplateManager.Instance().Add(st);
 		}
 
 		MaterialInstance mMaterial;
@@ -88,7 +86,7 @@ namespace AnyCAD.Demo.Graphics
 			if (mMaterial == null)
 				return;
 
-			mMaterial.SetUniform("time", Uniform.Create(time));
+			mMaterial.SetUniform("time", time);
 
 			render.RequestDraw();
 

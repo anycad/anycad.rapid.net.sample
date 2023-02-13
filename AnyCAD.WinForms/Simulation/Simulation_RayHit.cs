@@ -21,8 +21,12 @@ namespace AnyCAD.Demo.Graphics
 
             mTargetNode = new PrimitiveSceneNode(geometry, null);
 
-            var camera = Camera.CreateOrthographic(100, 100, 1, 0.1f, 1000);
-            camera.LookAt(new Vector3(0, 100, 0), new Vector3(0), Vector3.UNIT_Z);
+            var camera = new Camera(100, 100, new Vector3(0, 100, 0), new Vector3(0), Vector3.UNIT_Z);
+            //Camera.CreateOrthographic(100, 100, 1, 0.1f, 1000);
+            camera.SetNear(0.1f);
+            camera.SetFar(1000);
+            camera.SetProjectionType(EnumProjectionType.Orthographic);
+            camera.UpdateProjectionMatrix();
 
             var ray = new Ray(new Vector3(0, 100, 0), -Vector3.UNIT_Y);
             mCaster = new Raycaster(camera, (uint)EnumShapeFilter.Face, ray);

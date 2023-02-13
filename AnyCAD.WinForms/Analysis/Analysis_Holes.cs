@@ -29,7 +29,7 @@ namespace AnyCAD.Demo.Geometry
 
             for(uint ii=0; ii< holeNumber; ++ii)
             {
-                var wire = holeExp.GetHoleExteriorEdges(ii);
+                var wire = holeExp.GetHoleExteriorWire(ii);
                 var wireNode = BrepSceneNode.Create(wire, null, edgeMaterial);
 
                 renderer.ShowSceneNode(wireNode);

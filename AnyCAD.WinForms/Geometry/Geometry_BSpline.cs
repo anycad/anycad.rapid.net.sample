@@ -13,7 +13,7 @@ namespace AnyCAD.Demo.Graphics
         public override void Run(RenderControl render)
         {
             var material = MeshPhongMaterial.Create("phong.bspline");
-            material.SetUniform("diffuse", Uniform.Create(new Vector3(1, 0, 1)));
+            material.SetUniform("diffuse", new Vector3(1, 0, 1));
 
             var shape = CreateShape();
             var node = BrepSceneNode.Create(shape, material, null);

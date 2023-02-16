@@ -15,11 +15,11 @@ namespace AnyCAD.Demo
 
         public static string GetResourcePath(string fileName)
         {
-            return AppDomain.CurrentDomain.BaseDirectory + @"..\..\data\" + fileName;
+            return AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\data\" + fileName;
         }
 
         public delegate void TestCaseHandler(Type type, string name, string groupName);
-        public static void ForEachCase(TestCaseHandler handler)
+        public static void ForEachCase(TestCaseHandler handler, Assembly assembly)
         {
             var types = Assembly.GetExecutingAssembly().GetTypes();
             foreach (var type in types)
@@ -31,8 +31,19 @@ namespace AnyCAD.Demo
                 }
 
             }
+
+            types = assembly.GetTypes();
+            foreach (var type in types)
+            {
+                if (type.IsSubclassOf(typeof(TestCase)))
+                {
+                    var items = type.Name.Split('_');
+                    handler(type, items[1], items[0]);
+                }
+
+            }
         }
-        public static void Register(TreeView tv)
+        public static void Register(TreeView tv, Assembly assembly)
         {
             var types = Assembly.GetExecutingAssembly().GetTypes();
             Dictionary<String, TreeNode> dictNodes = new Dictionary<string, TreeNode>();
@@ -47,7 +58,7 @@ namespace AnyCAD.Demo
 
                 var node = groupNode.Nodes.Add(name);
                 node.Tag = type;
-            });
+            }, assembly);
             tv.ExpandAll();
         }
 

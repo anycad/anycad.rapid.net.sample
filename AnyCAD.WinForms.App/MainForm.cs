@@ -1,8 +1,7 @@
 ﻿using AnyCAD.Exchange;
 using AnyCAD.Forms;
 using AnyCAD.Foundation;
-using System;
-using System.Windows.Forms;
+using System.Reflection;
 
 namespace AnyCAD.Demo
 {
@@ -16,7 +15,7 @@ namespace AnyCAD.Demo
 
             mRenderView = new RenderControl(this.splitContainer1.Panel2);
 
-            TestCase.Register(this.treeView1);
+            TestCase.Register(this.treeView1, Assembly.GetExecutingAssembly());
         }
 
         bool mEnableAnimation = true;

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:anycad="clr-namespace:AnyCAD.WPF;assembly=AnyCAD.WPF.NET4"
+        xmlns:anycad="clr-namespace:AnyCAD.WPF;assembly=AnyCAD.WPF.NET6"
         xmlns:local="clr-namespace:AnyCAD.WPF"
         mc:Ignorable="d"
         Title="AnyCAD Rapid SDK for WPF" Height="600" Width="1024" Loaded="Window_Loaded">

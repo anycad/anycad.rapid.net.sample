@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+	<BaseOutputPath>..\bin\</BaseOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AnyCAD.Rapid.NET" Version="2023.2.10.1730" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AnyCAD.WinForms\AnyCAD.Demo.csproj" />
+  </ItemGroup>
+
+</Project>

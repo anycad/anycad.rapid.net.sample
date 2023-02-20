@@ -262,7 +262,7 @@ namespace AnyCAD.Demo
         private void depthTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bEnableDepathTest = !bEnableDepathTest;
-            mRenderView.GetContext().GetSelection().SetDepthTest(bEnableDepathTest);
+            mRenderView.GetContext().GetSelectionManager().SetDepthTest(bEnableDepathTest);
             mRenderView.RequestDraw(EnumUpdateFlags.Camera);
         }
 
@@ -359,7 +359,7 @@ namespace AnyCAD.Demo
             if (mSelectedItm < 1)
                 return;
             mRenderView.GetScene().RemoveNode(mSelectedItm);
-            mRenderView.GetContext().GetSelection().Clear();
+            mRenderView.GetContext().GetSelectionManager().Clear();
             mRenderView.RequestDraw(EnumUpdateFlags.Scene);
         }
 

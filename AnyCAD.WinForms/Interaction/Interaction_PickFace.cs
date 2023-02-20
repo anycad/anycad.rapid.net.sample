@@ -58,7 +58,7 @@ namespace AnyCAD.Demo.Graphics
                     mArrow.RequstUpdate();
                     mArrow.Update();
 
-                    render.GetContext().GetSelection().Clear();
+                    render.GetContext().GetSelectionManager().Clear();
 
                     render.RequestDraw(EnumUpdateFlags.Scene);
                 }

@@ -41,7 +41,7 @@ namespace AnyCAD.Demo.Graphics
 
             var picker = new PickedItem(node, new IntersectPoint(EnumShapeFilter.Zero, 0));
 
-            render.GetContext().GetSceneManager().GetSelection().GetSelection().Add(picker, true);
+            render.GetContext().GetSelectionManager().GetSelection().Add(picker, true);
         }
     }
 }

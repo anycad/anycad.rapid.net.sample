@@ -25,7 +25,7 @@ namespace AnyCAD.WPF
             // List all test cases
             var rootNodes = new ObservableCollection<TreeViewItem>();
             Dictionary<string, int> groupDict = new Dictionary<string, int>();
-            AnyCAD.Demo.TestCase.ForEachCase((Type type, string name, string groupName) =>
+            AnyCAD.Demo.TestCaseLoader.ForEachCase((Type type, string name, string groupName) =>
             {
                 int groupId = 0;
                 if (!groupDict.TryGetValue(groupName, out groupId))
@@ -42,7 +42,7 @@ namespace AnyCAD.WPF
                 testNode.Header = name;
                 testNode.Tag = type;
                 rootNodes[groupId].Items.Add(testNode);
-            }, Assembly.GetExecutingAssembly());
+            });
 
             projectBrowser.ItemsSource = rootNodes;
 
@@ -50,15 +50,15 @@ namespace AnyCAD.WPF
             // Enable animation.
             this.mRenderCtrl.ViewerReady += () =>
             {
-                this.mRenderCtrl.View3D.SetAnimationCallback((float timer) =>
+                this.mRenderCtrl.View3D.SetAnimationCallback((ViewerListener.AnimationHandler)((float timer) =>
                 {
                     Demo.TestCase.RunAnimation(this.mRenderCtrl.View3D, timer);
-                });
+                }));
 
-                this.mRenderCtrl.View3D.SetSelectCallback((PickedResult result) =>
+                this.mRenderCtrl.View3D.SetSelectCallback((ViewerListener.AfterSelectHandler)((PickedResult result) =>
                 {
                     Demo.TestCase.SelectionChanged(mRenderCtrl.View3D, result);
-                });
+                }));
             };
         }
 

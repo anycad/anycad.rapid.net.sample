@@ -20,7 +20,7 @@ namespace AnyCAD.Demo.Graphics
             var shape = SketchBuilder.MakePolygon(points, true);
             render.ShowShape(shape, ColorTable.Red);
 
-            var dim1 = new AlignedDimensionNode(new Vector3(-100,0,0), new Vector3(0,100,0), 20, Vector3.UNIT_Z, "长度");
+            var dim1 = new AlignedDimensionNode(new Vector3(-100,0,0), new Vector3(0,100,0), 20, "长度");
             dim1.GetMaterial().SetColor(ColorTable.Green);
             dim1.Update();
             render.ShowSceneNode(dim1);

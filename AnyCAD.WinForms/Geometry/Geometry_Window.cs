@@ -108,8 +108,8 @@ namespace AnyCAD.Demo.Geometry
             render.ShowSceneNode(glass);
 
             var dim = new AlignedDimensionNode(new Vector3(0, deep * 0.5f, 0), new Vector3(width, deep * 0.5f, 0),
-                -10, new Vector3(0,-1,0), "100");
-           
+                -10, "100");
+            dim.SetAxisZ(new Vector3(0, -1, 0));
             dim.Update();
             render.ShowSceneNode(dim);
         }

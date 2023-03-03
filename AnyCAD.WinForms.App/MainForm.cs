@@ -14,7 +14,7 @@ namespace AnyCAD.Demo
             InitializeComponent();
 
             mRenderView = new RenderControl(this.splitContainer1.Panel2);
-
+            TestCaseLoader.Register(this.treeView1);
             TestCase.Register(this.treeView1, Assembly.GetExecutingAssembly());
         }
 
@@ -24,7 +24,7 @@ namespace AnyCAD.Demo
         {
 
             // Selection changed
-            mRenderView.SetSelectCallback((PickedResult result) =>
+            mRenderView.SetSelectCallback((ViewerListener.AfterSelectHandler)((PickedResult result) =>
             {
                 mSelectedItm = 0;
                 this.listBox1.Items.Clear();
@@ -35,17 +35,17 @@ namespace AnyCAD.Demo
                 if (item.GetNode() == null)
                     return;
 
-                TestCase.SelectionChanged(mRenderView, result);
+                Demo.TestCase.SelectionChanged(mRenderView, result);
 
                 this.listBox1.Items.Add(item.GetNode().GetType().Name);
                 mSelectedItm = item.GetNodeId();
-                this.listBox1.Items.Add(String.Format("NodeId: {0}", item.GetNodeId()));
-                this.listBox1.Items.Add(String.Format("UserId: {0}", item.GetUserId()));
+                this.listBox1.Items.Add(string.Format("NodeId: {0}", item.GetNodeId()));
+                this.listBox1.Items.Add(string.Format("UserId: {0}", item.GetUserId()));
                 this.listBox1.Items.Add(item.GetPoint().GetPosition().ToString());
                 this.listBox1.Items.Add(item.GetShapeType().ToString());
-                this.listBox1.Items.Add(String.Format("SubIndex: {0}", item.GetShapeIndex()));
-                this.listBox1.Items.Add(String.Format("PrimitiveIndex: {0}", item.GetPoint().GetPrimitiveIndex()));
-                this.listBox1.Items.Add(String.Format("TopoShapeId: {0}", item.GetTopoShapeId()));
+                this.listBox1.Items.Add(string.Format("SubIndex: {0}", item.GetShapeIndex()));
+                this.listBox1.Items.Add(string.Format("PrimitiveIndex: {0}", item.GetPoint().GetPrimitiveIndex()));
+                this.listBox1.Items.Add(string.Format("TopoShapeId: {0}", item.GetTopoShapeId()));
 
                 // 获取圆弧信息的例子
                 var node = BrepSceneNode.Cast(item.GetNode());
@@ -74,13 +74,13 @@ namespace AnyCAD.Demo
                     }
                     
                 }
-            });
+            }));
 
-            mRenderView.SetAnimationCallback((float timer) =>
+            mRenderView.SetAnimationCallback((ViewerListener.AnimationHandler)((float timer) =>
             {
                 if(mEnableAnimation)
-                    TestCase.RunAnimation(mRenderView, timer);
-            });
+                    Demo.TestCase.RunAnimation(mRenderView, timer);
+            }));
 
             
             //mRenderView.GetContext().GetSelection().SelectSubShape(mRenderView.GetScene(), nodeId, type, shapeIndex);

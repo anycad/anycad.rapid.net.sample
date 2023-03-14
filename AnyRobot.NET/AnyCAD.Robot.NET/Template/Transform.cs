@@ -1,4 +1,6 @@
 ﻿
+using AnyCAD.Foundation;
+
 namespace AnyCAD.Robot
 {
     public class Transform
@@ -13,6 +15,11 @@ namespace AnyCAD.Robot
             Location[0] = Location[1] = Location[2] = 0;
             Angle = 0;
             Scale = 0;
+        }
+
+        public Matrix4 ToMatrix()
+        {
+            return Matrix4.makeTranslation((float)Location[0], (float)Location[1], (float)Location[2]);
         }
     }
 }

@@ -119,12 +119,12 @@ namespace AnyCAD.Robot
 
             if (template.GetModelType() == EnumModelType.BREP)
             {
-                MeshStandardMaterial mMaterial = MeshStandardMaterial.Create("robot");
+                MeshPhongMaterial mMaterial = MeshPhongMaterial.Create("robot");
                 mMaterial.SetColor(new Vector3(0.9f, 0.8f, 0.2f));
-                mMaterial.SetMetalness(0.2f);
-                mMaterial.SetRoughness(0.4f);
+                mMaterial.SetShininess(200);
+                mMaterial.SetSpecular(new Vector3(0.9f, 0.8f, 0.2f));
 
-                foreach(var arm in template.Arms)
+                foreach (var arm in template.Arms)
                 {
                     int childStep = step / arm.Joints.Count;
                     foreach (var joint in arm.Joints)
@@ -191,6 +191,8 @@ namespace AnyCAD.Robot
                 robotArm.ApplyDH();
                 robot.AddArm(robotArm);
             }
+
+            robot.SetTransform(Transform.ToMatrix());
 
             robot.Reset();
 

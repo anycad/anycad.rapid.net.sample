@@ -81,6 +81,8 @@ namespace RapidRobot
         {
             mRenderView.GetCamera().SetProjectionType(EnumProjectionType.Orthographic);
             mRenderView.RequestDraw(EnumUpdateFlags.Camera);
+
+            mRenderView.ShowCoordinateGrid(true);
         }
 
         RobotIndicatorForm mIndicatorUI;
@@ -103,6 +105,16 @@ namespace RapidRobot
         private void moveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mRenderView.ExecuteCommand("Move");
+        }
+
+        private void byNodeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mRenderView.ViewContext.SetPickFilter((uint)(EnumShapeFilter.RootNode | EnumShapeFilter.VertexEdgeFace));
+        }
+
+        private void bySubNodeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mRenderView.ViewContext.SetPickFilter((uint)(EnumShapeFilter.LeafNode | EnumShapeFilter.VertexEdgeFace));
         }
     }
 }

@@ -15,7 +15,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AnyCAD.Rapid.Net" Version="2023.2.10.1730" />
+    <PackageReference Include="AnyCAD.Rapid.Net" Version="2023.3.6.1549" />
   </ItemGroup>
 
   <ItemGroup>

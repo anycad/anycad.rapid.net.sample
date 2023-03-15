@@ -1,11 +1,10 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Graphics
 {
     class Graphics_Dimension : TestCase
     {
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             GPntList points = new GPntList();
             points.Add(new GPnt(-100, 0, 0));

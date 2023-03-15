@@ -1,5 +1,4 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Graphics
 {
@@ -104,16 +103,15 @@ namespace AnyCAD.Demo.Graphics
 
     class Interaction_DrawLine : TestCase
     {
-        DrawLineEditor mEditor;
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
-            mEditor = new DrawLineEditor();
-            render.GetViewer().PushEditor(mEditor, true);
+            var mEditor = new DrawLineEditor();
+            render.SetEditor(mEditor);
         }
 
-        public override void Exit(RenderControl render)
+        public override void Exit(IRenderView render)
         {
-            render.GetViewer().ClearEditor();
+            render.Viewer.ClearEditor();
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
-using System;
+﻿using AnyCAD.Foundation;
 using System.Collections.Generic;
 using System.IO;
 
@@ -53,7 +51,7 @@ namespace AnyCAD.Demo.Analysis
 
             return true;
         }
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             if (!ReadData())
                 return;

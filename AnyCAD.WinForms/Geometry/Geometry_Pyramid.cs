@@ -1,17 +1,11 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Geometry
 {
     class Geometry_Pyramid : TestCase
     {
 
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             var material = MeshStandardMaterial.Create("my-material");
             material.SetRoughness(0.75f);

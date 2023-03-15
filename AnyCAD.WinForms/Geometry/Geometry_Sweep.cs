@@ -1,16 +1,10 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Geometry
 {
     class Geometry_Sweep : TestCase
     {
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             var sketch = SketchBuilder.MakeEllipse(GP.Origin(), 5, 3, GP.DX(), GP.DZ());
 
@@ -26,7 +20,7 @@ namespace AnyCAD.Demo.Geometry
 
             // 2. Revol
             {
-                var feature = FeatureTool.Revol(sketch, new GAx1(new GPnt(-20, 0, 0), GP.DY()), 90);
+                var feature = FeatureTool.Revolve(sketch, new GAx1(new GPnt(-20, 0, 0), GP.DY()), 90);
 
                 render.ShowShape(feature, ColorTable.Green);
             }

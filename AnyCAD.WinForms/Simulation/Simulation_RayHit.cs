@@ -1,5 +1,4 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 using System;
 
 namespace AnyCAD.Demo.Graphics
@@ -11,7 +10,7 @@ namespace AnyCAD.Demo.Graphics
         SceneNode mTargetNode;
         SegmentsSceneNode mLine;
         ParticleSceneNode mParticle;
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             ColorLookupTable clt = new ColorLookupTable();
             clt.SetColorMap(ColorMapKeyword.Create(EnumSystemColorMap.Rainbow));
@@ -42,7 +41,7 @@ namespace AnyCAD.Demo.Graphics
 
         float _Angle = -30;
         uint _PointIndex = 0;
-        public override void Animation(RenderControl render, float time)
+        public override void Animation(IRenderView render, float time)
         {
             if (_Angle > 30)
             {

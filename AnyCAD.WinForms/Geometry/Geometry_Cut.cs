@@ -1,7 +1,5 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
@@ -9,7 +7,7 @@ namespace AnyCAD.Demo.Geometry
 {
     class Geometry_Cut : TestCase
     {
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             string filepathp = GetResourcePath(@"data\blade_p.dat");    // p侧字符型数据
             string[] data_p = File.ReadAllLines(filepathp, Encoding.Default);  // 1行    2401列，
@@ -76,7 +74,7 @@ namespace AnyCAD.Demo.Geometry
             points_shroud.Add(P13);
             var quxian1 = SketchBuilder.MakePolygon(points_shroud, true);
             var face = SketchBuilder.MakePlanarFace(quxian1);
-            var feature = FeatureTool.Revol(face, new GAx1(new GPnt(0, 0, 0), GP.DZ()), 0);
+            var feature = FeatureTool.Revolve(face, new GAx1(new GPnt(0, 0, 0), GP.DZ()), 0);
 
             var cut = BooleanTool.Cut(shape, feature);   // 求差  保留前面的一个
             if (cut != null)

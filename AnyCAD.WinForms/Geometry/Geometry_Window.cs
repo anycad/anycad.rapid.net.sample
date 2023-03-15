@@ -1,10 +1,5 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AnyCAD.Demo.Geometry
 {
@@ -92,7 +87,7 @@ namespace AnyCAD.Demo.Geometry
 
             return group;
         }
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             var deep = 8.0f;
             var radius = 6;

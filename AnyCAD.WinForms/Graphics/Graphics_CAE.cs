@@ -1,5 +1,4 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Linq;
@@ -53,7 +52,7 @@ namespace AnyCAD.Demo.Graphics
 
             return true;
         }
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             if (!ReadData())
                 return;

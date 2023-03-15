@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
+using System;
 namespace AnyCAD.Demo.Coordinate
 {
 
@@ -131,7 +126,7 @@ namespace AnyCAD.Demo.Coordinate
         /// 显示物体
         /// </summary>
         /// <param name="render"></param>
-        public void Show(RenderControl render)
+        public void Show(IRenderView render)
         {
             render.ShowSceneNode(VisualNode);
             render.ShowSceneNode(VisualAxis);

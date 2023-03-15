@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Geometry
 {
     class Geometry_Loft : TestCase
     {
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             var baseSketch = SketchBuilder.MakeRectangle(GP.XOY(), 10, 20, 2, false);
             

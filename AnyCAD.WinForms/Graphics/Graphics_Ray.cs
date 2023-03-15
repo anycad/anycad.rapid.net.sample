@@ -1,11 +1,10 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Geometry
 {
     class Graphics_Ray : TestCase
     {
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             Sphere sp = new Sphere(Vector3.Zero, 10);
 

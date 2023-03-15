@@ -1,12 +1,11 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 using System.Windows.Forms;
 
 namespace AnyCAD.Demo.Geometry
 {
     class Analysis_Holes : TestCase
     {
-        public override void Run(RenderControl renderer)
+        public override void Run(IRenderView renderer)
         {
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "IGES (*.igs;*.iges)|*.igs;*.iges|STEP (*.stp;*.step)|*.stp;*.step|Brep (*.brep)|*.brep";

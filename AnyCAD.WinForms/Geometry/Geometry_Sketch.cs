@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Geometry
 {
     class Geometry_Sketch : TestCase
     {
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             var line = SketchBuilder.MakeLine(new GPnt(10, 10, 10), new GPnt(-10, -10, -10));
             render.ShowShape(line, new Vector3(1, 1, 0));
@@ -27,7 +21,7 @@ namespace AnyCAD.Demo.Geometry
             var rect = SketchBuilder.MakeRectangle(GP.XOY(), 30, 40, 5, false);
             render.ShowShape(rect, ColorTable.Green);
         }
-        public override void OnSelectionChanged(RenderControl render, PickedResult result)
+        public override void OnSelectionChanged(IRenderView render, PickedResult result)
         {
             var node = BrepSceneNode.Cast(result.GetItem().GetNode());
             if(node == null)

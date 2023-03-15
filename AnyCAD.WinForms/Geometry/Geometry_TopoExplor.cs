@@ -1,16 +1,10 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Geometry
 {
     class Geometry_TopoExplor : TestCase
     {
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
            var fileName = GetResourcePath("models/YONGSHENGDA_9998.igs");
            var shape = ShapeIO.Open(fileName);

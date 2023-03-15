@@ -1,22 +1,13 @@
 ﻿using AnyCAD.Forms;
 using AnyCAD.Foundation;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace AnyCAD.Demo.Graphics
 {
     class Graphics_Tag : TestCase
     {
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
-            NewForm3D dlg = new NewForm3D(render.GetScene());
+            NewForm3D dlg = new NewForm3D(render.Scene);
             dlg.ShowDialog();
             dlg = null;
         }

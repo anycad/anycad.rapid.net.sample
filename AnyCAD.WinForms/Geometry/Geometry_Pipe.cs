@@ -1,17 +1,11 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Geometry
 {
     class Geometry_Pipe : TestCase
     {
 
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             var material = MeshStandardMaterial.Create("metal-double");
             material.SetColor(new Vector3(1.0f, 0.8f, 0.0f));

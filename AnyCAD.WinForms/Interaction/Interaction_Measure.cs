@@ -1,5 +1,4 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 using System;
 using System.Windows.Forms;
 
@@ -31,7 +30,7 @@ namespace AnyCAD.Demo.Graphics
     class Interaction_Measure : Graphics_PointCloud
     {
         MyEditorListner mEditorListener;
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             base.Run(render);
 
@@ -41,7 +40,7 @@ namespace AnyCAD.Demo.Graphics
                 EditorEvent.Instance().AddListener(mEditorListener);
             }
 
-            render.ExecuteCommand("MeasureTwoPoints");
+            AnyCAD.Foundation.Application.Instance().ExecuteCommand("MeasureTwoPoints");
         }
     }
 }

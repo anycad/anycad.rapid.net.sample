@@ -1,7 +1,5 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 using System;
-using System.Collections.Generic;
 using System.IO;
 
 namespace AnyCAD.Demo.Geometry
@@ -28,7 +26,7 @@ namespace AnyCAD.Demo.Geometry
 
             return null;
         }
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             TopoShapeList auxCurves = new TopoShapeList();
             for(int ii=0; ii<4; ++ii)

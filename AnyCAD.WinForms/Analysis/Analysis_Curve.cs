@@ -1,13 +1,11 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 using System;
-using System.Linq;
 
 namespace AnyCAD.Demo.Geometry
 {
     class Analysis_Curve : TestCase
     {
-        public override void Run(RenderControl renderer)
+        public override void Run(IRenderView renderer)
         {
             var ellipse = SketchBuilder.MakeEllipse(GP.Origin(), 10, 5, GP.DX(), GP.DZ());
             renderer.ShowShape(ellipse, ColorTable.Blue);

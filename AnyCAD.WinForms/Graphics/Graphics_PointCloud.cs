@@ -1,5 +1,4 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 using System.IO;
 
 
@@ -41,7 +40,7 @@ namespace AnyCAD.Demo.Graphics
 
             return true;
         }
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             if (!ReadData())
                 return;
@@ -51,7 +50,7 @@ namespace AnyCAD.Demo.Graphics
 
             render.ShowSceneNode(node);
 
-            render.GetContext().GetSceneManager().SelectSubShape(node.GetUuid(), EnumShapeFilter.Vertex, 0);
+            render.ViewContext.GetSceneManager().SelectSubShape(node.GetUuid(), EnumShapeFilter.Vertex, 0);
 
         }
     }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Graphics
 {
@@ -12,7 +6,7 @@ namespace AnyCAD.Demo.Graphics
     {
         ArrowWidget mArrow;
 
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             var arrowMaterial = MeshPhongMaterial.Create("arrow");
             arrowMaterial.SetColor(ColorTable.Red);
@@ -30,7 +24,7 @@ namespace AnyCAD.Demo.Graphics
         }
 
 
-        public override void OnSelectionChanged(RenderControl render, PickedResult result)
+        public override void OnSelectionChanged(IRenderView render, PickedResult result)
         {
             var item = result.GetItem();
             if (item.GetNode() == null)
@@ -58,7 +52,7 @@ namespace AnyCAD.Demo.Graphics
                     mArrow.RequstUpdate();
                     mArrow.Update();
 
-                    render.GetContext().GetSelectionManager().Clear();
+                    render.ViewContext.GetSelectionManager().Clear();
 
                     render.RequestDraw(EnumUpdateFlags.Scene);
                 }

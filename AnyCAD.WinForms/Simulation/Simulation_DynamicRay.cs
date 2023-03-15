@@ -1,10 +1,5 @@
-﻿using System;
+﻿using AnyCAD.Foundation;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AnyCAD.Forms;
-using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Graphics
 {
@@ -41,7 +36,7 @@ namespace AnyCAD.Demo.Graphics
             mStart = position.clone();
         }
 
-        public void Create(RenderControl render)
+        public void Create(IRenderView render)
         {
             // 随便构造些点
             float offset = 10.0f;
@@ -69,7 +64,7 @@ namespace AnyCAD.Demo.Graphics
             render.ShowSceneNode(mLineNode);
         }
 
-        public bool Play(RenderControl render, float time)
+        public bool Play(IRenderView render, float time)
         {
             if (mCurrentIdx >= mPoints.Count)
             {
@@ -110,7 +105,7 @@ namespace AnyCAD.Demo.Graphics
         Vector3 mWorkingPosition = new Vector3(200, 200, 0);
 
         PrimitiveSceneNode mDevice;
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
 
             // add a plane
@@ -141,7 +136,7 @@ namespace AnyCAD.Demo.Graphics
 
 
         int step = 0;
-        public override void Animation(RenderControl render, float time)
+        public override void Animation(IRenderView render, float time)
         {
             if(step == 0)
             {

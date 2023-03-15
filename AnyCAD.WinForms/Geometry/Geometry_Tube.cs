@@ -1,8 +1,4 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
-using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Geometry
 {
@@ -27,7 +23,7 @@ namespace AnyCAD.Demo.Geometry
             var tube = FeatureTool.Extrude(cut, length, new GDir(0, 1, 0));
             return tube;
         }
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             var tube = Generate(100, 100, 150, 150, 5, 100);
             render.ShowShape(tube, ColorTable.Beige);

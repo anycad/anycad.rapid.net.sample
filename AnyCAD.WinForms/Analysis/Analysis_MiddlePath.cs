@@ -1,12 +1,10 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
-using System.Windows.Forms;
+﻿using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Geometry
 {
     class Analysis_MiddlePath : TestCase
     {
-        public override void Run(RenderControl renderer)
+        public override void Run(IRenderView renderer)
         {
             var steelLine = ShapeIO.Open(GetResourcePath("models/SteelLine.STEP"));
 

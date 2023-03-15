@@ -1,14 +1,11 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
-using System;
-using System.Collections.Generic;
+﻿using AnyCAD.Foundation;
 
 
 namespace AnyCAD.Demo.Geometry
 {
     class Geometry_Hole : TestCase
     {
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             string fileName = GetResourcePath("models/hole.STEP");
             var shape = StepIO.Open(fileName);

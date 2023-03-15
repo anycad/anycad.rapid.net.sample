@@ -1,14 +1,11 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
-using System;
-using System.Collections.Generic;
+﻿using AnyCAD.Foundation;
 using System.IO;
 
 namespace AnyCAD.Demo.Geometry
 {
     class Geometry_LoftM : TestCase
     {
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             TopoShapeList tg = new TopoShapeList();
             GPntList points = new GPntList();

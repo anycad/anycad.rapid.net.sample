@@ -1,11 +1,10 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Graphics
 {
     class Graphics_Geometry : TestCase
     {
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             // Create material
             var mMaterial1 = MeshPhongMaterial.Create("phong.texture");

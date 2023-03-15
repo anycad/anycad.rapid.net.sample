@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
+using System;
 
 namespace AnyCAD.Demo.Graphics
 {
@@ -14,7 +9,7 @@ namespace AnyCAD.Demo.Graphics
         ParticleSceneNode mMotionTrail = new ParticleSceneNode(1000, ColorTable.Red, 3.0f);
         RigidAnimation mAnimation;
 
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             var material = MeshStandardMaterial.Create("workpiece");
             material.SetColor(new Vector3(0.9f));
@@ -45,7 +40,7 @@ namespace AnyCAD.Demo.Graphics
         }
         
         uint mCount = 0;
-        public override void Animation(RenderControl render, float time)
+        public override void Animation(IRenderView render, float time)
         {
             if(mCount > 100)
             {

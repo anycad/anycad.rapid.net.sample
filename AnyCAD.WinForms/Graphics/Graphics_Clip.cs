@@ -1,5 +1,4 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 using System;
 
 namespace AnyCAD.Demo.Graphics
@@ -8,7 +7,7 @@ namespace AnyCAD.Demo.Graphics
     {
 
         ClipPlaneView mClipView = new ClipPlaneView();
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             var shape = ShapeBuilder.MakeCylinder(GP.XOY(), 50, 100, Math.PI * 1.2);
 
@@ -21,7 +20,7 @@ namespace AnyCAD.Demo.Graphics
 
             mClipView.SetStartPoint(new Vector3(0, 0, 50));
             mClipView.SetDirection(-dir);
-            mClipView.Start(render.GetContext()); 
+            mClipView.Start(render.ViewContext); 
 
             var plane = BooleanTool.Slice(shape, new GPnt(0, 0, 50), new GDir(dir.x, dir.y, dir.z), 0.001);
             var planes = ShapeBuilder.MakeCompound(plane);
@@ -36,13 +35,13 @@ namespace AnyCAD.Demo.Graphics
             var planeNode = BrepSceneNode.Create(planes, material, edgeMaterial);
             render.ShowSceneNode(planeNode);
         }
-        public override void Animation(RenderControl render, float time)
+        public override void Animation(IRenderView render, float time)
         {
-            mClipView.Update(render.GetContext());
+            mClipView.Update(render.ViewContext);
         }
-        public override void Exit(RenderControl render)
+        public override void Exit(IRenderView render)
         {
-            mClipView.Finish(render.GetContext());
+            mClipView.Finish(render.ViewContext);
         }
     }
 }

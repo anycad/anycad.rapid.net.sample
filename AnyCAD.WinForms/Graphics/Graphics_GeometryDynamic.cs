@@ -1,5 +1,4 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 using System;
 
 
@@ -10,7 +9,7 @@ namespace AnyCAD.Demo.Graphics
         uint worldWidth = 128;
         uint worldDepth = 128;
         BufferGeometry mGeometry;
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             mGeometry = GeometryBuilder.CreatePlane(20000, 20000, worldWidth - 1, worldDepth - 1);
             var position = mGeometry.GetAttribute(0);
@@ -45,7 +44,7 @@ namespace AnyCAD.Demo.Graphics
             render.ShowSceneNode(node);
         }
 
-        public override void Animation(RenderControl render, float time)
+        public override void Animation(IRenderView render, float time)
         {
             var position = mGeometry.GetAttribute(0);
             position.SetDataUsage(EnumBufferDataUsage.DYNAMIC_DRAW);

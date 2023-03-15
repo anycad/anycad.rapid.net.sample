@@ -1,5 +1,4 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 using System;
 
 
@@ -8,7 +7,7 @@ namespace AnyCAD.Demo.Graphics
 {
     class Graphics_DashedLines : TestCase
     {
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             // prepare lines data
             const int COUNT = 300;

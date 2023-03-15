@@ -1,5 +1,4 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 using System;
 
 
@@ -8,7 +7,7 @@ namespace AnyCAD.Demo.Graphics
 {
     class Graphics_PointsGroup : TestCase
     {
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             
             // prepare points data
@@ -39,7 +38,7 @@ namespace AnyCAD.Demo.Graphics
 
             var picker = new PickedItem(node, new IntersectPoint(EnumShapeFilter.Zero, 0));
 
-            render.GetContext().GetSelectionManager().GetSelection().Add(picker, true);
+            render.ViewContext.GetSelectionManager().GetSelection().Add(picker, true);
         }
     }
 }

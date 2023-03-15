@@ -1,6 +1,4 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
-using System;
+﻿using AnyCAD.Foundation;
 
 
 namespace AnyCAD.Demo.Graphics
@@ -18,7 +16,7 @@ namespace AnyCAD.Demo.Graphics
 
         BrepSceneNode ConeNode1;
         BrepSceneNode ConeNode2;
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             RedMaterial = MeshPhongMaterial.Create("phong.color");
             RedMaterial.SetColor(ColorTable.Red);
@@ -48,7 +46,7 @@ namespace AnyCAD.Demo.Graphics
             render.ShowSceneNode(ConeNode2);
         }
 
-        public override void Animation(RenderControl render, float time)
+        public override void Animation(IRenderView render, float time)
         {
             if (nCurrentHeight > 50)
             {

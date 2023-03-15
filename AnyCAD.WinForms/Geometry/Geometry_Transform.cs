@@ -1,16 +1,11 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AnyCAD.Demo.Geometry
 {
     class Geometry_Transform : TestCase
     {
-        void CustumTransform(RenderControl mRenderView)
+        void CustumTransform(IRenderView mRenderView)
         {
             TopoShapeList topoShapes = new TopoShapeList();
             var Line1 = SketchBuilder.MakeLine(new GPnt(-0.15, 0.4, 0), new GPnt(0.15, 0.4, 0));
@@ -68,7 +63,7 @@ namespace AnyCAD.Demo.Geometry
 
             mRenderView.ShowShape(View, Vector3.Blue);
         }
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             //render.SetViewCube(EnumViewCoordinateType.Axis);
             //CustumTransform(render);

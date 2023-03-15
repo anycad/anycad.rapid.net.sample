@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AnyCAD.Forms;
-using AnyCAD.Foundation;
-using System.IO.Compression;
+﻿using AnyCAD.Foundation;
+using System;
 using System.IO;
+using System.IO.Compression;
+using System.Text;
 using System.Windows.Forms;
 
 namespace AnyCAD.Demo.Graphics
@@ -14,7 +10,7 @@ namespace AnyCAD.Demo.Graphics
     class Graphics_SceneIterator : AnyCAD.Demo.Geometry.Geometry_Boolean
     {
    
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             base.Run(render);
 
@@ -25,7 +21,7 @@ namespace AnyCAD.Demo.Graphics
                 {
                     using (ZipArchive zipArchive = new ZipArchive(fs, ZipArchiveMode.Create))
                     {
-                        for (var itr = render.GetScene().CreateIterator(); itr.More(); itr.Next())
+                        for (var itr = render.Scene.CreateIterator(); itr.More(); itr.Next())
                         {
                             var node = BrepSceneNode.Cast(itr.Current());
                             if (node == null)

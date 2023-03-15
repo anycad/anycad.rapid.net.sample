@@ -1,17 +1,12 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AnyCAD.Demo.Geometry
 {
     class Geometry_SweepCable : TestCase
     {
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             GPntList points = new GPntList();
             string fileName = GetResourcePath("data/CableViewInfo.txt");

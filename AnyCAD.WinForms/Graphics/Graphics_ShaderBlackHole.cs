@@ -1,5 +1,4 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 using System;
 
 namespace AnyCAD.Demo.Graphics
@@ -62,7 +61,7 @@ namespace AnyCAD.Demo.Graphics
 		}
 
 		MaterialInstance mMaterial;
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
 			CreateShader();
 
@@ -81,7 +80,7 @@ namespace AnyCAD.Demo.Graphics
 			render.ShowSceneNode(node);
         }
 
-        public override void Animation(RenderControl render, float time)
+        public override void Animation(IRenderView render, float time)
         {
 			if (mMaterial == null)
 				return;

@@ -1,12 +1,10 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
-using System;
+﻿using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Geometry
 {
     class Geometry_Boolean : TestCase
     {
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             var box = ShapeBuilder.MakeBox(GP.XOY(), 10, 10, 10);
             var sphere = ShapeBuilder.MakeSphere(GP.Origin(), 5);

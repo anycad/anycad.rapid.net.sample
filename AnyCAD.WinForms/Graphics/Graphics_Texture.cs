@@ -1,5 +1,4 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Graphics
 {
@@ -8,7 +7,7 @@ namespace AnyCAD.Demo.Graphics
         MeshPhongMaterial mMaterial1;
         MeshPhongMaterial mMaterial2;
         BrepSceneNode mNode;
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             mMaterial1 = MeshPhongMaterial.Create("phong.texture");
             mMaterial1.SetColor(new Vector3(1, 0, 1));
@@ -33,7 +32,7 @@ namespace AnyCAD.Demo.Graphics
         }
 
  
-        public override void Animation(RenderControl render, float time)
+        public override void Animation(IRenderView render, float time)
         {
             int selector = (int)time % 2;
 

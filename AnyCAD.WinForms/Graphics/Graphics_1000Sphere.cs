@@ -1,20 +1,19 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Graphics
 {
     class Graphics_90000Sphere : TestCase
     {
-        public override void Run(RenderControl renderer)
+        public override void Run(IRenderView renderer)
         {
             var shape = ShapeBuilder.MakeSphere(new GPnt(), 1);
             var bufferShape = new BufferShape(shape, null, null, 0.1);
             bufferShape.Build();
 
             float distance = 3.0f;
-            int halfCount = 150;
+            int halfCount = 50;
             int kk = 0;
-            var scene = renderer.GetScene();
+            var scene = renderer.Scene;
             for (int ii = -halfCount; ii < halfCount; ++ii)
                 for (int jj = -halfCount; jj < halfCount; ++jj)
                     //for (int kk = -halfCount; kk < halfCount; ++kk)

@@ -1,14 +1,12 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 using System;
-using System.Collections.Generic;
 using System.IO;
 
 namespace AnyCAD.Demo.Geometry
 {
     class Analysis_Curvature : TestCase
     {
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             //1. Create Shape
             TopoShapeList tg = new TopoShapeList();
@@ -61,8 +59,8 @@ namespace AnyCAD.Demo.Geometry
                 var sc = new SurfaceCurvature(bs);
                 if (sc.Compute(ii, EnumCurvatureType.MeanCurvature))
                 {
-                    Console.WriteLine("{0}, {1}", sc.GetMinValue(), sc.GetMaxValue());
-                    var colorBuffer = sc.ComputeColors(clt, scale);
+                    Console.WriteLine("{0}, {1}", sc.GetMinValue(), sc.GetMaxValue());                   
+                    var colorBuffer = clt.ComputeColors(sc.GetValues(), scale);
                     bs.SetVertexColors(ii, colorBuffer);
                 }
 

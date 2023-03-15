@@ -1,12 +1,10 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
-using System.Windows.Forms;
+﻿using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Geometry
 {
     class Analysis_Surface : TestCase
     {
-        public override void Run(RenderControl renderer)
+        public override void Run(IRenderView renderer)
         {
             string fileName = GetResourcePath("Holes.stp");
             var shape = StepIO.Open(fileName);

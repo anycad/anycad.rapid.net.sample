@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Graphics
 {
@@ -23,7 +17,7 @@ namespace AnyCAD.Demo.Graphics
             var line = GeometryBuilder.CreateLine(start, end);
             return new PrimitiveSceneNode(line, material);
         }
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             mLinkMaterial = BasicMaterial.Create("link");
             mLinkMaterial.SetColor(ColorTable.Indigo);
@@ -83,7 +77,7 @@ namespace AnyCAD.Demo.Graphics
         double step = 0;
         double sign = 0.5;
         uint pointIdx = 0;
-        public override void Animation(RenderControl render, float time)
+        public override void Animation(IRenderView render, float time)
         {
             step += sign;
             if (step > 100)

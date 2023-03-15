@@ -1,11 +1,10 @@
-﻿using AnyCAD.Forms;
-using AnyCAD.Foundation;
+﻿using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Geometry
 {
     class Geometry_Hatcher : TestCase
     {
-        public override void Run(RenderControl render)
+        public override void Run(IRenderView render)
         {
             // 1. Make face with a hole.
             var c1 = SketchBuilder.MakeCircle(GP.Origin(), 30, GP.DZ());

@@ -3,7 +3,7 @@ using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Graphics
 {
-    class Graphics_Geometry : TestCase
+    class Graphics_Delete : TestCase
     {
         public override void Run(RenderControl render)
         {
@@ -18,15 +18,32 @@ namespace AnyCAD.Demo.Graphics
             planeNode.SetTransform(Matrix4.makeTranslation(new Vector3(0, 0, -100)));
             render.ShowSceneNode(planeNode);
 
+            var group = new GroupSceneNode();
+
             var box = GeometryBuilder.CreateBox(100, 100, 200);
             var boxNode = new PrimitiveSceneNode(box, mMaterial1);
-            render.ShowSceneNode(boxNode);
+            group.AddNode(boxNode);
 
             var sphere = GeometryBuilder.CreateSphere(50, 32, 32);
             var sphereNode = new PrimitiveSceneNode(sphere, mMaterial1);
             sphereNode.SetTransform(Matrix4.makeTranslation(new Vector3(0, 0, 150)));
 
-            render.ShowSceneNode(sphereNode);
+            group.AddNode(sphereNode);
+
+            render.ShowSceneNode(group);
+
+           
+            // 根据ID删除Node
+            
+            //注意：加在Group中的Node，只能从Group中删除
+            // render.GetScene().RemoveNode(sphereNode.GetUuid()); //不工作
+            
+            
+            // 从Group中删除
+            group.RemoveNode(sphereNode.GetUuid());
+            group.RequstUpdate();
+
+            render.ViewContext.RequestUpdate(EnumUpdateFlags.Scene);
         }
 
     }

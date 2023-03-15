@@ -4,7 +4,7 @@ using System;
 
 namespace AnyCAD.Demo.Graphics
 {
-    class Graphics_ShaderBlackHole : TestCase
+	class Graphics_ShaderBlackHole : TestCase
     {
 		String shaderName = "blackHole_shader";
 		void CreateShader()

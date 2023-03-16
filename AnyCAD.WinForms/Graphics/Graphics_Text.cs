@@ -44,6 +44,12 @@ namespace AnyCAD.Demo.Graphics
 
                 render.ShowSceneNode(node);
             }
+
+            {
+                var text = new TextSceneNode(" 33.0℃ ", 32, ColorTable.White, ColorTable.Green, true);
+                var tag = TagNode2D.Create(text, new Vector3(10, 10, 0), new Vector3(0));
+                render.ShowSceneNode(tag);
+            }
         }
     }
 }

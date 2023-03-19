@@ -31,7 +31,7 @@ namespace AnyCAD.Demo
         /// </summary>
         public void UpdateLayout()
         {
-            var position = TagNode.GetViewportPosition();
+            var position = TagNode.GetPosition();
             var size = this.Parent.Size;
             this.Location = new Point(size.Width / 2 + (int)position.x - 20, size.Height / 2 - (int)position.y - 20);
         }

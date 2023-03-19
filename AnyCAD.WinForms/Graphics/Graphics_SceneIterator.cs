@@ -3,7 +3,6 @@ using System;
 using System.IO;
 using System.IO.Compression;
 using System.Text;
-using System.Windows.Forms;
 
 namespace AnyCAD.Demo.Graphics
 {
@@ -17,7 +16,7 @@ namespace AnyCAD.Demo.Graphics
             try
             {
                 // Let's iterate the scene
-                using (FileStream fs = new FileStream("d:/myZip.zip", FileMode.Create))
+                using (FileStream fs = new FileStream("../../myZip.zip", FileMode.Create))
                 {
                     using (ZipArchive zipArchive = new ZipArchive(fs, ZipArchiveMode.Create))
                     {
@@ -38,9 +37,8 @@ namespace AnyCAD.Demo.Graphics
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+               DialogUtil.ShowMessageBox("Exception",ex.Message);
             }
-            MessageBox.Show("d:/myZip.zip");
         }
     }
 }

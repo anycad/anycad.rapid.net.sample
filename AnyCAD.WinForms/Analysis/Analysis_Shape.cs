@@ -1,5 +1,4 @@
 ﻿using AnyCAD.Foundation;
-using System.Windows.Forms;
 
 namespace AnyCAD.Demo.Geometry
 {
@@ -7,11 +6,11 @@ namespace AnyCAD.Demo.Geometry
     {
         public override void Run(IRenderView renderer)
         {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "STEP (*.stp;*.step)|*.stp;*.step";
-            if (dialog.ShowDialog() != DialogResult.OK)
+            var fullPath = DialogUtil.OpenFileDialog("选择模型文件", new StringList(new string[] { "CAD Files (.igs .iges .stp .step .brep)", "*.igs *.iges *.stp *.step *.brep" }));
+            if (fullPath.IsEmpty())
                 return;
-            var shape = StepIO.Open(dialog.FileName);
+
+            var shape = ShapeIO.Open(fullPath);
             if (shape == null)
                 return;
 

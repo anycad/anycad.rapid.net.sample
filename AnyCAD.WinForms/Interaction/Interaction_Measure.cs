@@ -1,6 +1,5 @@
 ﻿using AnyCAD.Foundation;
 using System;
-using System.Windows.Forms;
 
 namespace AnyCAD.Demo.Graphics
 {
@@ -19,7 +18,7 @@ namespace AnyCAD.Demo.Graphics
                 {
                     var start = mdn.GetStart().GetPosition();
                     var end = mdn.GetEnd().GetPosition();
-                    MessageBox.Show(String.Format("Measure Info: Distance: {6} \n{0},{1},{2} --> {3},{4},{5}", 
+                    DialogUtil.ShowMessageBox("Info", String.Format("Measure Info: Distance: {6} \n{0},{1},{2} --> {3},{4},{5}", 
                         start.x, start.y, start.z, end.x, end.y, end.z, start.distanceTo(end)));
                 }
                

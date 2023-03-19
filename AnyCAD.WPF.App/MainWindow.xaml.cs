@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Reflection;
+using AnyCAD.Demo;
 
 namespace AnyCAD.WPF
 {
@@ -25,7 +26,7 @@ namespace AnyCAD.WPF
             // List all test cases
             var rootNodes = new ObservableCollection<TreeViewItem>();
             Dictionary<string, int> groupDict = new Dictionary<string, int>();
-            AnyCAD.Demo.TestCaseLoader.ForEachCase((Type type, string name, string groupName) =>
+            TestCaseLoaderBase.ForEachCase((Type type, string name, string groupName) =>
             {
                 int groupId = 0;
                 if (!groupDict.TryGetValue(groupName, out groupId))

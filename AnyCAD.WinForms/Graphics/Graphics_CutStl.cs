@@ -1,6 +1,4 @@
 ﻿using AnyCAD.Foundation;
-using System;
-using System.Windows.Forms;
 
 namespace AnyCAD.Demo.Graphics
 {
@@ -11,12 +9,11 @@ namespace AnyCAD.Demo.Graphics
     {
         public override void Run(IRenderView render)
         {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "STL (*.stl;*.stb)|*.stl;*.stb";
-            if (dialog.ShowDialog() != DialogResult.OK)
+            var fullPath = DialogUtil.OpenFileDialog("STL", new StringList(new string[] { "3D Files (.stl .stb)", "*.stl *.stb" }));
+            if (fullPath.IsEmpty())
                 return;
 
-            var node = SceneIO.Load(dialog.FileName);
+            var node = SceneIO.Load(fullPath.GetString());
             if (node == null)
                 return;
             render.ShowSceneNode(node);

@@ -1,17 +1,15 @@
 ﻿using AnyCAD.Foundation;
-using System.Windows.Forms;
-
 namespace AnyCAD.Demo.Geometry
 {
     class Analysis_Holes : TestCase
     {
         public override void Run(IRenderView renderer)
         {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "IGES (*.igs;*.iges)|*.igs;*.iges|STEP (*.stp;*.step)|*.stp;*.step|Brep (*.brep)|*.brep";
-            if (dialog.ShowDialog() != DialogResult.OK)
+            var fullPath = DialogUtil.OpenFileDialog("选择模型文件", new StringList(new string[] { "CAD Files (.igs .iges .stp .step .brep)", "*.igs *.iges *.stp *.step *.brep" }));
+            if (fullPath.IsEmpty())
                 return;
-            var shape = ShapeIO.Open(dialog.FileName);
+
+            var shape = ShapeIO.Open(fullPath);
             if (shape == null)
                 return;
 

@@ -2,12 +2,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-		xmlns:anycad="clr-namespace:AnyCAD.AvaloniaUI;assembly=AnyCAD.AvaloniaUI"
+		xmlns:anycad="clr-namespace:AnyCAD.AvaloniaUI;assembly=AnyCAD.Rapid.Avalonia"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="AnyCAD.AvaloniaApp.MainWindow"
         Title="AnyCAD.AvaloniaApp">
-	<StackPanel>
-	    <Button Content="打开" Width="160"  Click="OnOpen"/>
-	    <anycad:RenderControl x:Name="mRenderView" Width="800" Height="600"></anycad:RenderControl>
-	</StackPanel>
+	<Grid>
+		<StackPanel Width="200">
+			<TreeView x:Name="mTreeView" Width="200"></TreeView>
+		</StackPanel>
+		<StackPanel>
+			<Button Content="打开" Width="160"  Click="OnOpen"/>
+			<anycad:RenderControl x:Name="mRenderView" Width="800" Height="600"></anycad:RenderControl>
+		</StackPanel>	
+	</Grid>
+
 </Window>

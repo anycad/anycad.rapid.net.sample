@@ -1,6 +1,10 @@
+using AnyCAD.Demo;
 using AnyCAD.Foundation;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace AnyCAD.AvaloniaApp
 {
@@ -8,7 +12,32 @@ namespace AnyCAD.AvaloniaApp
     {
         public MainWindow()
         {
-            InitializeComponent();           
+            InitializeComponent();
+
+            var rootNodes = new ObservableCollection<TreeViewItem>();
+            Dictionary<string, ObservableCollection<TreeViewItem>> groupDict = new Dictionary<string, ObservableCollection<TreeViewItem>>();
+            TestCaseLoaderBase.ForEachCase((Type type, string name, string groupName) =>
+            {
+                ObservableCollection<TreeViewItem> group = null;
+                if (!groupDict.TryGetValue(groupName, out group))
+                {
+                    group = new ObservableCollection<TreeViewItem>();
+                    groupDict[groupName] = group;
+
+                    var node = new TreeViewItem();
+                    node.Items = group;
+                    node.Header = groupName;
+                    rootNodes.Add(node);
+                    node.IsExpanded = true;
+                }
+
+                var testNode = new TreeViewItem();
+                testNode.Header = name;
+                testNode.Tag = type;
+                group.Add(testNode);
+            });
+
+            this.mTreeView.DataContext = rootNodes;            
         }
 
         public void OnOpen(object sender, RoutedEventArgs e)

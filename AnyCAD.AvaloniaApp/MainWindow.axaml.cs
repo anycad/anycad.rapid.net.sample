@@ -14,52 +14,26 @@ namespace AnyCAD.AvaloniaApp
         {
             InitializeComponent();
 
-            var rootNodes = new ObservableCollection<TreeViewItem>();
-            Dictionary<string, ObservableCollection<TreeViewItem>> groupDict = new Dictionary<string, ObservableCollection<TreeViewItem>>();
-            TestCaseLoaderBase.ForEachCase((Type type, string name, string groupName) =>
+            this.DataContext = new MainViewModel();
+
+            this.mRenderView.SetAnimationCallback((ViewerListener.AnimationHandler)((float timer) =>
             {
-                ObservableCollection<TreeViewItem> group = null;
-                if (!groupDict.TryGetValue(groupName, out group))
-                {
-                    group = new ObservableCollection<TreeViewItem>();
-                    groupDict[groupName] = group;
+                Demo.TestCase.RunAnimation(mRenderView, timer);
+            }));
 
-                    var node = new TreeViewItem();
-                    node.Items = group;
-                    node.Header = groupName;
-                    rootNodes.Add(node);
-                    node.IsExpanded = true;
-                }
-
-                var testNode = new TreeViewItem();
-                testNode.Header = name;
-                testNode.Tag = type;
-                group.Add(testNode);
-            });
-
-            this.mTreeView.DataContext = rootNodes;            
+            this.mRenderView.SetSelectCallback((ViewerListener.AfterSelectHandler)((PickedResult result) =>
+            {
+                Demo.TestCase.SelectionChanged(mRenderView, result);
+            }));
         }
 
-        public void OnOpen(object sender, RoutedEventArgs e)
+        public void TreeView_SelectedItemChanged(object sender, SelectionChangedEventArgs e)
         {
-            var dlg = new OpenFileDialog();
-            dlg.Filters.Add(new FileDialogFilter() { Name = "Model Files", Extensions = { "step", "stp", "iges", "igs" } });
-
-            var result = dlg.ShowAsync(this);
-            if (result == null)
+            var treeView =  e.Source as TreeView;
+            var node = treeView.SelectedItem as TreeViewItem;
+            if (node == null)
                 return;
-
-            string fileName = result.Result[0];
-
-            var shape = ShapeIO.Open(fileName);
-            if(shape != null)
-            {
-                var node = BrepSceneNode.Create(shape, null, null);
-                var scene = mRenderView.ViewContext.GetScene();
-                scene.AddNode(node);
-
-                mRenderView.ViewContext.RequestUpdate(EnumUpdateFlags.Scene);
-            }
+            Demo.TestCase.CreateTest(node.Tag, mRenderView);
         }
     }
 }

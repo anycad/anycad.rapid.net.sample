@@ -6,14 +6,18 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="AnyCAD.AvaloniaApp.MainWindow"
         Title="AnyCAD.AvaloniaApp">
-	<Grid>
-		<StackPanel Width="200">
-			<TreeView x:Name="mTreeView" Width="200"></TreeView>
-		</StackPanel>
-		<StackPanel>
-			<Button Content="打开" Width="160"  Click="OnOpen"/>
-			<anycad:RenderControl x:Name="mRenderView" Width="800" Height="600"></anycad:RenderControl>
-		</StackPanel>	
+	<Grid ColumnDefinitions="220, 3, *" Margin="7">
+		<ScrollViewer Grid.Column="0" >
+			<TreeView Items="{Binding Items}" SelectionChanged ="TreeView_SelectedItemChanged">
+				<TreeView.ItemTemplate>
+					<TreeDataTemplate ItemsSource="{Binding Items}">
+						<TextBlock Text="{Binding Header}"/>
+					</TreeDataTemplate>
+				</TreeView.ItemTemplate>
+			</TreeView>
+		</ScrollViewer>
+		<GridSplitter Grid.Column="1" ResizeDirection="Columns"/>
+		<anycad:RenderControl Grid.Column="2" x:Name="mRenderView"  />
 	</Grid>
 
 </Window>

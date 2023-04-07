@@ -13,7 +13,7 @@ namespace AnyCAD.Demo.Geometry
             var shapeList = new TopoShapeList();
             shapeList.Add(baseSketch);
             shapeList.Add(topSketch);
-            var shape = FeatureTool.SweepByFrenet2(shapeList, path, EnumSweepTransitionMode.RoundCorner, true);
+            var shape = FeatureTool.SweepBySections(shapeList, path, EnumSweepTransitionMode.RoundCorner, true);
 
             render.ShowShape(shape, ColorTable.Beige);
         }

@@ -1,8 +1,11 @@
 ﻿using AnyCAD.Foundation;
 using System;
 using System.IO;
-using System.IO.Compression;
 using System.Text;
+
+#if !(NETSTANDARD1_3 || NETSTANDARD1_4 || NETSTANDARD1_5 || NETSTANDARD1_6 || NETSTANDARD2_0 || NETSTANDARD2_1) || (NET46 || NET461 || NET462 || NET47 || NET471 || NET472 || NET48)
+
+using System.IO.Compression;
 
 namespace AnyCAD.Demo.Graphics
 {
@@ -42,3 +45,4 @@ namespace AnyCAD.Demo.Graphics
         }
     }
 }
+#endif

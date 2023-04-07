@@ -5,7 +5,7 @@ using System.IO;
 using System;
 using System.Linq;
 
-class Geometry_SweepByFrenet2 : TestCase
+class Geometry_SweepBySections : TestCase
 {
     public override void Run(IRenderView render)
     {
@@ -15,7 +15,25 @@ class Geometry_SweepByFrenet2 : TestCase
             createFont(render, listGData[i]);
         }
 
+        Sweep(render, mPointList, EnumSweepTransitionMode.RoundCorner, 1);
+        Sweep(render, mPointList, EnumSweepTransitionMode.Transformed, 2.5f);
+        Sweep(render, mPointList, EnumSweepTransitionMode.RightCorner, 4);
+
+        render.RequestDraw();
     }//
+
+    void Sweep(IRenderView render, GPntList points, EnumSweepTransitionMode mode, float offset)
+    {
+        var path = SketchBuilder.MakePolygon(points, false);
+
+        var sketch =  SketchBuilder.MakeCircle(GP.XOY(), 0.1);
+
+        var shape = FeatureTool.SweepByFrenet(sketch, path, mode, true);
+
+        var node = render.ShowShape(shape, ColorTable.Aqua);
+        node.SetTransform(Matrix4.makeTranslation(0, offset, 0));
+        node.RequstUpdate();
+    }
 
     private void createFont(IRenderView mRenderView, GPntList gPnts)
     {
@@ -48,10 +66,12 @@ class Geometry_SweepByFrenet2 : TestCase
         //var shape = FeatureTool.SweepByFrenet(sketch1, path, EnumSweepTransitionMode.RoundCorner, true, true);
 
         mRenderView.ShowShape(shape, new Vector3(0.8f));
+
     }
 
 
     List<GPntList> listGData = new List<GPntList>();
+    GPntList mPointList = new GPntList();
     private void getPath2()
     {
         listGData = new List<GPntList>();
@@ -78,8 +98,8 @@ class Geometry_SweepByFrenet2 : TestCase
 
                 if (k == 0)
                 {
-
-                }
+                    mPointList.Add(new GPnt(x, y, 50));
+                }                
             }
 
             listGData.Add(listPoint);

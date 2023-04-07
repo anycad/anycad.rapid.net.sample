@@ -29,7 +29,7 @@ namespace AnyCAD.Demo.Geometry
 
             }
 
-            var path = SketchBuilder.MakeBSpline(points);
+            var path = SketchBuilder.MakePolygon(points, false);
             render.ShowShape(path, ColorTable.Red);
 
             var curve = new ParametricCurve(path);
@@ -39,7 +39,7 @@ namespace AnyCAD.Demo.Geometry
             var dir = new GDir(rt.GetVectors()[0]);
             var sketch = SketchBuilder.MakeCircle(position, 10, dir);
             render.ShowShape(sketch, new Vector3(0.8f));
-            var pipe = FeatureTool.SweepByFrenet(sketch, path, EnumSweepTransitionMode.RightCorner, false);
+            var pipe = FeatureTool.SweepByFrenet(sketch, path, EnumSweepTransitionMode.RoundCorner, false);
 
             try
             {

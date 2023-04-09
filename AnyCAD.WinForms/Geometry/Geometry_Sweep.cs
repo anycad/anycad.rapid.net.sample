@@ -21,7 +21,7 @@ namespace AnyCAD.Demo.Geometry
                 }
 
                 {
-                    var feature = FeatureTool.SweepByFrenet(sketch, path, EnumSweepTransitionMode.RoundCorner, false, false, false);
+                    var feature = FeatureTool.SweepByFrenet(sketch, path, EnumSweepTransitionMode.RoundCorner, true, false, false);
                     var node = render.ShowShape(feature, ColorTable.RoyalBlue);
                     node.SetTransform(Matrix4.makeTranslation(50, 50, 0));
                     node.RequstUpdate();

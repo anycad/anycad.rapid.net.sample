@@ -6,13 +6,13 @@ namespace AnyCAD.Demo.Geometry
 {
     class Geometry_SweepCable : TestCase
     {
-        public override void Run(IRenderView render)
+        void TestCase1(IRenderView render)
         {
             GPntList points = new GPntList();
             string fileName = GetResourcePath("data/CableViewInfo.txt");
             using (StreamReader reader = File.OpenText(fileName))
             {
-                while(!reader.EndOfStream)
+                while (!reader.EndOfStream)
                 {
                     var line = reader.ReadLine();
                     var items = line.Split(',');
@@ -24,7 +24,7 @@ namespace AnyCAD.Demo.Geometry
                     double z = double.Parse(items[2]);
 
                     points.Add(new GPnt(x, y, z));
-                   
+
                 }
 
             }
@@ -48,12 +48,29 @@ namespace AnyCAD.Demo.Geometry
                 {
                     render.ShowShape(pipe, new Vector3(0.8f));
                 }
-                    
+
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+        void TestCase2(IRenderView render)
+        {
+            var path = ShapeIO.Open(GetResourcePath("sweep/path2.igs"));
+            var sketch = ShapeIO.Open(GetResourcePath("sweep/prof.igs"));
+
+            var we = new WireExplor(sketch);
+            var wire = we.GetOuterWire();
+
+            render.ShowShape(path, ColorTable.Red);
+            var pipe = FeatureTool.SweepByFrenet(wire, path, EnumSweepTransitionMode.RoundCorner, true);
+            var node = BrepSceneNode.Cast(render.ShowShape(pipe, ColorTable.Chocolate));
+            node.SetDisplayFilter(EnumShapeFilter.Face);
+        }
+        public override void Run(IRenderView render)
+        {
+            TestCase2(render);
         }
     }
 }

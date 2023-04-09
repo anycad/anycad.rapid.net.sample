@@ -10,19 +10,19 @@ class Geometry_SweepBySections : TestCase
     public override void Run(IRenderView render)
     {
         getPath2();
-        for (int i = 0; i < listGData.Count; i++)
-        {
-            createFont(render, listGData[i]);
-        }
+        //for (int i = 0; i < listGData.Count; i++)
+        //{
+        //    createFont(render, listGData[i]);
+        //}
 
-        Sweep(render, mPointList, EnumSweepTransitionMode.RoundCorner, 1);
-        Sweep(render, mPointList, EnumSweepTransitionMode.Transformed, 2.5f);
-        Sweep(render, mPointList, EnumSweepTransitionMode.RightCorner, 4);
+        Sweep(render, mPointList, EnumSweepTransitionMode.RoundCorner, 5, ColorTable.Coral);
+        Sweep(render, mPointList, EnumSweepTransitionMode.Transformed, 10, ColorTable.Cyan);
+        Sweep(render, mPointList, EnumSweepTransitionMode.RightCorner, 15, ColorTable.Gainsboro);
 
         render.RequestDraw();
     }//
 
-    void Sweep(IRenderView render, GPntList points, EnumSweepTransitionMode mode, float offset)
+    void Sweep(IRenderView render, GPntList points, EnumSweepTransitionMode mode, float offset, Vector3 color)
     {
         var path = SketchBuilder.MakePolygon(points, false);
 
@@ -30,8 +30,8 @@ class Geometry_SweepBySections : TestCase
 
         var shape = FeatureTool.SweepByFrenet(sketch, path, mode, true);
 
-        var node = render.ShowShape(shape, ColorTable.Aqua);
-        node.SetTransform(Matrix4.makeTranslation(0, offset, 0));
+        var node = render.ShowShape(shape, color);
+        node.SetTransform(Matrix4.makeTranslation(offset, 0, 0));
         node.RequstUpdate();
     }
 

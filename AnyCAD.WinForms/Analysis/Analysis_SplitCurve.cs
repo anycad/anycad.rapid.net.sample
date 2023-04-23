@@ -34,7 +34,7 @@ namespace AnyCAD.Demo.Analysis
 
 
                 node2.SetTransform(Matrix4.makeScale(0.5f, 0.5f, 0.5f));
-                node2.RequstUpdate();
+                node2.RequestUpdate();
                 renderer.ShowSceneNode(node2);
             }
             //{

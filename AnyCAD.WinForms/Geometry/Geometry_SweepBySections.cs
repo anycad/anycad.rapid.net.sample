@@ -32,7 +32,7 @@ class Geometry_SweepBySections : TestCase
 
         var node = render.ShowShape(shape, color);
         node.SetTransform(Matrix4.makeTranslation(offset, 0, 0));
-        node.RequstUpdate();
+        node.RequestUpdate();
     }
 
     private void createFont(IRenderView mRenderView, GPntList gPnts)

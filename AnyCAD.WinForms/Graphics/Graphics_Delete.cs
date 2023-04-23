@@ -40,7 +40,7 @@ namespace AnyCAD.Demo.Graphics
             
             // 从Group中删除
             group.RemoveNode(sphereNode.GetUuid());
-            group.RequstUpdate();
+            group.RequestUpdate();
 
             render.ViewContext.RequestUpdate(EnumUpdateFlags.Scene);
         }

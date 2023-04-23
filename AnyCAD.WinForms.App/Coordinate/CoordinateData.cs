@@ -114,12 +114,12 @@ namespace AnyCAD.Demo.Coordinate
 
             // 更新坐标轴位置
             VisualAxis.SetTransform(mat);
-            VisualAxis.RequstUpdate();
+            VisualAxis.RequestUpdate();
 
             // 更新可视化数据
             // LocalBiasMatrix是对原始模型的调整，这里需要乘上
             VisualNode.SetTransform(mat * LocalBiasMatrix);
-            VisualNode.RequstUpdate();
+            VisualNode.RequestUpdate();
         }
 
         /// <summary>

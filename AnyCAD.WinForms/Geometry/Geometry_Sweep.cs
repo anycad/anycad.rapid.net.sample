@@ -24,13 +24,13 @@ namespace AnyCAD.Demo.Geometry
                     var feature = FeatureTool.SweepByFrenet(sketch, path, EnumSweepTransitionMode.RoundCorner, true, false, false);
                     var node = render.ShowShape(feature, ColorTable.RoyalBlue);
                     node.SetTransform(Matrix4.makeTranslation(50, 50, 0));
-                    node.RequstUpdate();
+                    node.RequestUpdate();
                 }
                 {
                     var feature2 = FeatureTool.Sweep(sketch, path, EnumGeomFillTrihedron.ConstantNormal);
                     var node = render.ShowShape(feature2, ColorTable.Green);
                     node.SetTransform(Matrix4.makeTranslation(-50,-50,0));
-                    node.RequstUpdate();
+                    node.RequestUpdate();
                 }
 
 

@@ -38,7 +38,7 @@ namespace AnyCAD.Demo.Graphics
 
             mNode.SetShape(bs);
             mNode.SetVisible(true);
-            mNode.RequstUpdate();
+            mNode.RequestUpdate();
         }
 
         public override void Finish(ViewContext ctx)

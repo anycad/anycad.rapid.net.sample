@@ -82,7 +82,7 @@ namespace AnyCAD.Demo.Geometry
             BrepSceneNode node = BrepSceneNode.Create(box, material, null);
             var trfCT2 = Matrix4.makeTranslation(4, 0, 0);
             node.SetTransform(trfCT2);
-            node.RequstUpdate();
+            node.RequestUpdate();
             var tp = TransformTool.TransformByMatrix(node.GetTopoShape(), node.GetTransform());
 
             //用移动后的toposhape做cut运算

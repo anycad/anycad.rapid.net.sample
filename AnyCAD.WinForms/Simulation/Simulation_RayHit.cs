@@ -28,7 +28,7 @@ namespace AnyCAD.Demo.Graphics
             camera.UpdateProjectionMatrix();
 
             var ray = new Ray(new Vector3(0, 100, 0), -Vector3.UNIT_Y);
-            mCaster = new Raycaster(camera, (uint)EnumShapeFilter.Face, ray);
+            mCaster = new Raycaster(camera, (uint)EnumShapeFilter.Face, ray, 50,50);
 
             mLine = new SegmentsSceneNode(1, ColorTable.Red, 1);
             render.ShowSceneNode(mLine);

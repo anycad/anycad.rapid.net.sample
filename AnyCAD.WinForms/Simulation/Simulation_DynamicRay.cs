@@ -60,7 +60,7 @@ namespace AnyCAD.Demo.Graphics
             var line = GeometryBuilder.CreateLine(Vector3.Zero, new Vector3(1, 0, 0));
             mLineNode = new PrimitiveSceneNode(line, lineMaterial);
             mLineNode.SetTransform(MakeTransform(mStart, mPoints[0]));
-            mLineNode.RequstUpdate();
+            mLineNode.RequestUpdate();
             render.ShowSceneNode(mLineNode);
         }
 
@@ -83,10 +83,10 @@ namespace AnyCAD.Demo.Graphics
             Vector3 target = mPoints[mCurrentIdx];
 
             mLineNode.SetTransform(MakeTransform(mStart, target));
-            mLineNode.RequstUpdate();
+            mLineNode.RequestUpdate();
 
             mMotionTrail.SetPosition((uint)mCurrentIdx, target);
-            mMotionTrail.RequstUpdate();
+            mMotionTrail.RequestUpdate();
 
             render.RequestDraw(EnumUpdateFlags.Scene);
 

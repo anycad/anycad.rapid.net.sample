@@ -53,7 +53,7 @@ namespace AnyCAD.Demo.Graphics
 
             mDistance += mStep;
             mObject1.AddTransform(Matrix4.makeTranslation(mStep, mStep, 0));
-            mObject1.RequstUpdate();
+            mObject1.RequestUpdate();
 
             render.RequestDraw(EnumUpdateFlags.Scene);
         }

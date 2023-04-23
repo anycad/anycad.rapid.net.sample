@@ -65,19 +65,19 @@ namespace AnyCAD.Demo.Graphics
                 var matrixR = Matrix4.makeRotationAxis(new Vector3(0, 0, 1), time);
                 var matrixT = Matrix4.makeTranslation(-50, 0, 0);
                 ConeNode1.SetTransform(matrixR * matrixT);
-                ConeNode1.RequstUpdate();
+                ConeNode1.RequestUpdate();
 
                 nScale *= 1.01f;
                 if (nScale > 5)
                     nScale = 1;
                 ConeNode2.SetTransform(matrixT * matrixR * Matrix4.makeScale(1, nScale, nScale));
-                ConeNode2.RequstUpdate();
+                ConeNode2.RequestUpdate();
             }
                 
 
             nCurrentHeight += nStep * nDirection;
             CylinderNode.SetTransform(Matrix4.makeTranslation(0, 0, nCurrentHeight));
-            CylinderNode.RequstUpdate();
+            CylinderNode.RequestUpdate();
 
             render.RequestDraw(EnumUpdateFlags.Scene);
         }

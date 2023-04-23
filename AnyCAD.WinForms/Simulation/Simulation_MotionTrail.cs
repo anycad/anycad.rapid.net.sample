@@ -55,7 +55,7 @@ namespace AnyCAD.Demo.Graphics
                 Vector3 tailPostion = new Vector3(0, 0, 5);
                 tailPostion.applyMatrix4(trf);
                 mMotionTrail.SetPosition(mCount++, tailPostion);
-                mMotionTrail.RequstUpdate();
+                mMotionTrail.RequestUpdate();
 
                 render.RequestDraw(EnumUpdateFlags.Scene);
             }

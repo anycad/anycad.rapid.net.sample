@@ -193,18 +193,18 @@ namespace AnyCAD.Demo
             var texture = ImageTexture2D.Create(dlg.FileName);
             var background = new ImageBackground(texture);
 
-            mRenderView.GetViewer().SetBackground(background);
+            mRenderView.Viewer.SetBackground(background);
 
         }
 
         private void backgroundSkyBoxToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var background = SkyboxBackground.Create("cloudy");
-            mRenderView.GetViewer().SetBackground(background);
+            mRenderView.Viewer.SetBackground(background);
         }
         private void mouseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var ctx = mRenderView.GetContext();
+            var ctx = mRenderView.ViewContext;
             // change orbit  to Left and middle buttons
             ctx.SetOrbitButton(EnumMouseButton.LeftMiddle);
             // change pan operation to right button
@@ -233,21 +233,21 @@ namespace AnyCAD.Demo
 
         private void filterEdgeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var ctx = mRenderView.GetContext();
+            var ctx = mRenderView.ViewContext;
             ctx.ClearDisplayFilter(EnumShapeFilter.VertexEdgeFace);
             ctx.AddDisplayFilter(EnumShapeFilter.Edge);
         }
 
         private void filterFaceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var ctx = mRenderView.GetContext();
+            var ctx = mRenderView.ViewContext;
             ctx.ClearDisplayFilter(EnumShapeFilter.VertexEdgeFace);
             ctx.AddDisplayFilter(EnumShapeFilter.Face);
         }
 
         private void filterResetToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var ctx = mRenderView.GetContext();
+            var ctx = mRenderView.ViewContext;
             ctx.ResetDisplayFilters();
         }
 
@@ -262,7 +262,7 @@ namespace AnyCAD.Demo
         private void depthTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bEnableDepathTest = !bEnableDepathTest;
-            mRenderView.GetContext().GetSelectionManager().SetDepthTest(bEnableDepathTest);
+            mRenderView.ViewContext.GetSelectionManager().SetDepthTest(bEnableDepathTest);
             mRenderView.RequestDraw(EnumUpdateFlags.Camera);
         }
 
@@ -273,7 +273,7 @@ namespace AnyCAD.Demo
 
         private void orbitCenterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mRenderView.GetContext().SetUserOrbitPivot(Vector3.Zero);
+            mRenderView.ViewContext.SetUserOrbitPivot(Vector3.Zero);
         }
 
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
@@ -358,8 +358,8 @@ namespace AnyCAD.Demo
         {
             if (mSelectedItm < 1)
                 return;
-            mRenderView.GetScene().RemoveNode(mSelectedItm);
-            mRenderView.GetContext().GetSelectionManager().Clear();
+            mRenderView.Scene.RemoveNode(mSelectedItm);
+            mRenderView.ViewContext.GetSelectionManager().Clear();
             mRenderView.RequestDraw(EnumUpdateFlags.Scene);
         }
 
@@ -378,11 +378,11 @@ namespace AnyCAD.Demo
         {
             mContactShadow = !mContactShadow;
 
-            var settings = mRenderView.GetContext().GetRenderSettings();
+            var settings = mRenderView.ViewContext.GetRenderSettings();
             //settings.SetShadowMapEnabled(mContactShadow);
             settings.SetContactShadow(mContactShadow);
             settings.SetContactShadowBlur(5.0f);
-            mRenderView.RequestDraw(EnumUpdateFlags.Light);
+            mRenderView.RequestDraw(EnumUpdateFlags.Scene);
         }
 
         private void moveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -402,12 +402,12 @@ namespace AnyCAD.Demo
 
         private void 框选ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mRenderView.GetContext().SetRectPick(true);
+            mRenderView.ViewContext.SetRectPick(true);
         }
 
         private void 单选ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mRenderView.GetContext().SetRectPick(false);
+            mRenderView.ViewContext.SetRectPick(false);
         }
     }
 }

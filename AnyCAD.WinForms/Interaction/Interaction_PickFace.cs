@@ -49,7 +49,7 @@ namespace AnyCAD.Demo.Graphics
                     var dir = Vector3.From(vecs[1].Crossed(vecs[0]));
                     dir.normalize();
                     mArrow.SetLocation(postion, dir);
-                    mArrow.RequstUpdate();
+                    mArrow.RequestUpdate();
                     mArrow.Update();
 
                     render.ViewContext.GetSelectionManager().Clear();

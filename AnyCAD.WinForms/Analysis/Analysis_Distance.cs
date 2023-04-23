@@ -10,7 +10,7 @@ namespace AnyCAD.Demo.Geometry
             var shape = StepIO.Open(fileName);
             if (shape == null)
                 return;
-            renderer.ShowSceneNode(BrepSceneNode.CreateBatch(shape, null, null));
+            renderer.ShowSceneNode(BrepSceneNode.Create(shape, null, null, 0, true));
 
             var bbox = shape.GetBBox();
 

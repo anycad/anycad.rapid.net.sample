@@ -11,6 +11,7 @@ namespace AnyCAD.Demo.Graphics
             mMaterial1.SetFaceSide(EnumFaceSide.DoubleSide);
             var texture = ImageTexture2D.Create(GetResourcePath("textures/bricks2.jpg"));
             mMaterial1.SetColorMap(texture);
+            mMaterial1.SetColor(new Vector3(1));
 
             var plane = GeometryBuilder.CreatePlane(500, 500);
             var planeNode = new PrimitiveSceneNode(plane, mMaterial1);

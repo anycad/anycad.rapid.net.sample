@@ -1,19 +1,24 @@
 ﻿
 using System.Collections.Generic;
 
-namespace AnyCAD.Robot
+namespace AnyCAD.Robot.Template
 {
-    public class Arm
+    /// <summary>
+    /// 机械臂
+    /// </summary>
+    internal class Arm
     {
-        public string Name { get; set; }
+        /// <summary>
+        /// 名称
+        /// </summary>
+        public string Name { get; set; } = string.Empty;
         /// <summary>
         /// 关节参数列表
         /// </summary>
-        public List<Joint> Joints { get; set; }
+        public List<Link> Links { get; set; } = new List<Link>();
         public Arm()
         {
-            Name = "";
-            Joints = new List<Joint>();
+
         }
     }
 }

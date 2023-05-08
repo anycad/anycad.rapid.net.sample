@@ -15,11 +15,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AnyCAD.Rapid.Net" Version="2023.3.6.1549" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\AnyCAD.Robot.NET\AnyCAD.Robot.NET.csproj" />
+    <PackageReference Include="AnyCAD.Rapid.Net" Version="2023.5.8.1819" />
+    <PackageReference Include="AnyCAD.Simulate.NET" Version="2023.5.8.1819" />
   </ItemGroup>
 
 </Project>

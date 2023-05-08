@@ -41,9 +41,9 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showLinktoolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.moveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showLinktoolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pickToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.byNodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bySubNodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -161,19 +161,13 @@
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showLinktoolStripMenuItem1,
             this.toolStripMenuItem1,
             this.moveToolStripMenuItem,
+            this.showLinktoolStripMenuItem1,
             this.pickToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(86, 43);
             this.editToolStripMenuItem.Text = "&Edit";
-            // 
-            // showLinktoolStripMenuItem1
-            // 
-            this.showLinktoolStripMenuItem1.Name = "showLinktoolStripMenuItem1";
-            this.showLinktoolStripMenuItem1.Size = new System.Drawing.Size(403, 48);
-            this.showLinktoolStripMenuItem1.Text = "Link";
             // 
             // toolStripMenuItem1
             // 
@@ -187,6 +181,12 @@
             this.moveToolStripMenuItem.Text = "Move";
             this.moveToolStripMenuItem.Click += new System.EventHandler(this.moveToolStripMenuItem_Click);
             // 
+            // showLinktoolStripMenuItem1
+            // 
+            this.showLinktoolStripMenuItem1.Name = "showLinktoolStripMenuItem1";
+            this.showLinktoolStripMenuItem1.Size = new System.Drawing.Size(403, 48);
+            this.showLinktoolStripMenuItem1.Text = "Link";
+            // 
             // pickToolStripMenuItem
             // 
             this.pickToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -199,14 +199,14 @@
             // byNodeToolStripMenuItem
             // 
             this.byNodeToolStripMenuItem.Name = "byNodeToolStripMenuItem";
-            this.byNodeToolStripMenuItem.Size = new System.Drawing.Size(403, 48);
+            this.byNodeToolStripMenuItem.Size = new System.Drawing.Size(315, 48);
             this.byNodeToolStripMenuItem.Text = "ByNode";
             this.byNodeToolStripMenuItem.Click += new System.EventHandler(this.byNodeToolStripMenuItem_Click);
             // 
             // bySubNodeToolStripMenuItem
             // 
             this.bySubNodeToolStripMenuItem.Name = "bySubNodeToolStripMenuItem";
-            this.bySubNodeToolStripMenuItem.Size = new System.Drawing.Size(403, 48);
+            this.bySubNodeToolStripMenuItem.Size = new System.Drawing.Size(315, 48);
             this.bySubNodeToolStripMenuItem.Text = "BySubNode";
             this.bySubNodeToolStripMenuItem.Click += new System.EventHandler(this.bySubNodeToolStripMenuItem_Click);
             // 
@@ -277,17 +277,16 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(36, 36);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 1034);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 1058);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1601, 46);
+            this.statusStrip1.Size = new System.Drawing.Size(1601, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(215, 35);
-            this.toolStripStatusLabel1.Text = "www.anycad.cn";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 11);
             // 
             // panel1
             // 
@@ -295,7 +294,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 47);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1601, 987);
+            this.panel1.Size = new System.Drawing.Size(1601, 1011);
             this.panel1.TabIndex = 2;
             // 
             // progressBar1
@@ -319,7 +318,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
-            this.Text = "AnyCAD Rapid Robot 2023";
+            this.Text = "AnyCAD三维图形平台";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

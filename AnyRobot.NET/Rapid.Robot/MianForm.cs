@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using AnyCAD.Forms;
+﻿using AnyCAD.Forms;
 using AnyCAD.Foundation;
+using AnyCAD.Robot;
+using Rapid.Robot;
+using System;
+using System.Windows.Forms;
+
 namespace RapidRobot
 {
     public partial class MainForm : Form
     {
-
+        MachineFactory mMachineFactory = new MachineFactory();
         RenderControl mRenderView;
         AnyCAD.Robot.RobotControler mRobotControler;
         public MainForm()
@@ -31,10 +27,10 @@ namespace RapidRobot
         private void SaveTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog save = new SaveFileDialog();
-            save.Filter = AnyCAD.Robot.MachineTemplate.Filter;
+            save.Filter = MachineFactory.Filter;
             if (save.ShowDialog() != DialogResult.OK)
                 return;
-            AnyCAD.Robot.MachineTemplate.SaveSample(save.FileName);
+            mMachineFactory.SaveSample(save.FileName);
         }
 
         private void NewProject(object sender, EventArgs e)
@@ -49,31 +45,31 @@ namespace RapidRobot
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = AnyCAD.Robot.MachineTemplate.Filter;
+            dlg.Filter = MachineFactory.Filter;
             if (dlg.ShowDialog() != DialogResult.OK)
                 return;
 
             this.progressBar1.Visible = true;
-           var template = AnyCAD.Robot.MachineTemplate.Load(dlg.FileName, (int progress)=>
+           var name = mMachineFactory.Load(dlg.FileName, (int progress)=>
            {
                this.progressBar1.Value = progress;
            });
             this.progressBar1.Visible = false;
 
-            if(template == null)
+            if(name.Length == 0)
             {
                 MessageBox.Show("打开配置文件失败");
                 return;
             }
 
-            var robot = template.CreateInstance();
+            var robot = mMachineFactory.CreateInstance(name);
             mRenderView.ShowSceneNode(robot);
 
 
             mRobotControler = new AnyCAD.Robot.RobotControler(robot);
-            mRenderView.ShowSceneNode(mRobotControler.TrackingPath);
+            mRenderView.ShowSceneNode(mRobotControler.Trajectory);
 
-            mRenderView.GetViewer().SetStandardView(EnumStandardView.DefaultView, false);
+            mRenderView.Viewer.SetStandardView(EnumStandardView.DefaultView, false);
             mRenderView.ZoomAll();
         }
 
@@ -88,7 +84,11 @@ namespace RapidRobot
         RobotIndicatorForm mIndicatorUI;
         private void IndicatorToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (mRobotControler == null)
+                return;
+
             mIndicatorUI = new RobotIndicatorForm(mRobotControler);
+            mIndicatorUI.Owner = this;
             mIndicatorUI.OnUpdate = OnUpdateModel;
             mIndicatorUI.Show();
         }
@@ -104,7 +104,11 @@ namespace RapidRobot
 
         private void moveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mRenderView.ExecuteCommand("Move");
+            var arm = mRobotControler.Robot.GetArm(0);
+            var target = arm.GetJoint(arm.GetJointCount() - 1).GetAxisNode();
+            var editor = new RobotTargetEditor(target, arm);
+
+            mRenderView.SetEditor(editor);
         }
 
         private void byNodeToolStripMenuItem_Click(object sender, EventArgs e)

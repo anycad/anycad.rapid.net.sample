@@ -6,7 +6,7 @@
         xmlns:anycad="clr-namespace:AnyCAD.WPF;assembly=AnyCAD.WPF.NET6"
         xmlns:local="clr-namespace:AnyCAD.WPF"
         mc:Ignorable="d"
-        Title="AnyCAD Rapid SDK for WPF" Height="600" Width="1024" Loaded="Window_Loaded">
+        Title="AnyCAD三维图形平台" Height="600" Width="1024" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="100" Width="0.3*"/>

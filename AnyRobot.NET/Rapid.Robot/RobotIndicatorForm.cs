@@ -1,14 +1,7 @@
-﻿using System;
+﻿using AnyCAD.Foundation;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using AnyCAD.Foundation;
-using AnyCAD;
 namespace RapidRobot
 {
     public partial class RobotIndicatorForm : Form
@@ -28,13 +21,6 @@ namespace RapidRobot
             mLabelA.Add(labelA4);
             mLabelA.Add(labelA5);
             mLabelA.Add(labelA6);
-
-            labelA1.Text = robot.GetVariable(0, 0).ToString();
-            labelA2.Text = robot.GetVariable(0, 1).ToString();
-            labelA3.Text = robot.GetVariable(0, 2).ToString();
-            labelA4.Text = robot.GetVariable(0, 3).ToString();
-            labelA5.Text = robot.GetVariable(0, 4).ToString();
-            labelA6.Text = robot.GetVariable(0, 5).ToString();
 
             uint nArmCount = robot.Robot.GetArmCount();
             for(uint ii=0; ii<nArmCount; ++ii)
@@ -59,17 +45,29 @@ namespace RapidRobot
             var trf = mRobot.GetFinalPosition(0);
 
             var position = new Vector3(0);
-            position.applyMatrix4(trf);
+            position.applyMatrix4d(trf);
 
-            labelX.Text = position.x.ToString();
-            labelY.Text = position.y.ToString();
-            labelZ.Text = position.z.ToString();
+
+            labelX.Text = String.Format("{0:N}", position.x);
+            labelY.Text = String.Format("{0:N}", position.y);
+            labelZ.Text = String.Format("{0:N}", position.z);
+
+            numericX.Value = (decimal)position.x;
+            numericY.Value = (decimal)position.y;
+            numericZ.Value = (decimal)position.z;
 
             mRobot.AddTrackingPoint(position);
+
+
+            for(int ii=0; ii< mLabelA.Count; ++ii)
+            {
+                mLabelA[ii].Text = String.Format("{0:N}", mRobot.GetVariable(0, (uint)ii+2));
+            }
 
             if (OnUpdate != null)
                 OnUpdate();
         }
+     
         private void buttonPositive_MouseDown(object sender, MouseEventArgs e)
         {
             Button c1 = (Button)sender;
@@ -104,10 +102,59 @@ namespace RapidRobot
         private void timer1_Tick(object sender, EventArgs e)
         {
             uint armIdx = (uint)comboBox1.SelectedIndex;
-            var v = mRobot.AddVariable(armIdx, mButtonIndex, mMoveSign * (double)numericUpDownSpeed.Value);
-            if(mButtonIndex>0)
-                mLabelA[(int)mButtonIndex - 1].Text = v.ToString();
+            var v = mRobot.AddVariable(armIdx, mButtonIndex + 1, mMoveSign * (double)numericUpDownSpeed.Value);
             UpdateAll();
+        }
+
+        private void numeric_ValueChanged(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (mSavedFrame == null)
+                return;
+
+            var arm = mRobot.Robot.GetArm(0);
+            var solver = new IkSolverLMA();
+            if (!solver.Initialize(arm))
+                return;
+
+
+            solver.MoveToFrame(mSavedFrame);
+            {
+
+                for(uint ii=0; ii < arm.GetJointCount(); ++ii)
+                {
+                    var v = solver.GetValue(ii);
+                    arm.SetValue(ii, v * 180/Math.PI);
+                }
+
+                mRobot.Robot.UpdateFrames();
+
+                UpdateAll();
+            }            
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            var arm = mRobot.Robot.GetArm(0);
+            for (uint ii = 0; ii < arm.GetJointCount(); ++ii)
+            {
+                arm.SetValue(ii, 0);
+            }
+
+            mRobot.Robot.UpdateFrames();
+
+            UpdateAll();
+        }
+
+        Matrix4d mSavedFrame;
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            mSavedFrame = mRobot.GetFinalPosition(0).clone();
         }
     }
 }

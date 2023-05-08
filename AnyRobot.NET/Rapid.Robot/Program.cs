@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RapidRobot
@@ -14,6 +11,7 @@ namespace RapidRobot
         [STAThread]
         static void Main()
         {
+            AnyCAD.Foundation.GlobalInstance.Initialize();
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

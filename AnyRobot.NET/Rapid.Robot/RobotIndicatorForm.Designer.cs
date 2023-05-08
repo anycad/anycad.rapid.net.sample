@@ -59,6 +59,9 @@ namespace RapidRobot
             this.label7 = new System.Windows.Forms.Label();
             this.labelA1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.numericZ = new System.Windows.Forms.NumericUpDown();
+            this.numericY = new System.Windows.Forms.NumericUpDown();
+            this.numericX = new System.Windows.Forms.NumericUpDown();
             this.labelZ = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.labelX = new System.Windows.Forms.Label();
@@ -71,9 +74,15 @@ namespace RapidRobot
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.buttonReset = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericZ)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,21 +102,21 @@ namespace RapidRobot
             this.groupBox1.Controls.Add(this.buttonA4P);
             this.groupBox1.Controls.Add(this.buttonA2P);
             this.groupBox1.Controls.Add(this.buttonA1P);
-            this.groupBox1.Location = new System.Drawing.Point(10, 85);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(12, 106);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(660, 144);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(812, 180);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "单步操作";
             // 
             // buttonA1N
             // 
-            this.buttonA1N.Location = new System.Drawing.Point(16, 88);
-            this.buttonA1N.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonA1N.Location = new System.Drawing.Point(20, 110);
+            this.buttonA1N.Margin = new System.Windows.Forms.Padding(2);
             this.buttonA1N.Name = "buttonA1N";
-            this.buttonA1N.Size = new System.Drawing.Size(80, 42);
+            this.buttonA1N.Size = new System.Drawing.Size(98, 52);
             this.buttonA1N.TabIndex = 0;
             this.buttonA1N.Tag = "1";
             this.buttonA1N.Text = "A1-";
@@ -117,10 +126,10 @@ namespace RapidRobot
             // 
             // buttonA2N
             // 
-            this.buttonA2N.Location = new System.Drawing.Point(102, 88);
-            this.buttonA2N.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonA2N.Location = new System.Drawing.Point(126, 110);
+            this.buttonA2N.Margin = new System.Windows.Forms.Padding(2);
             this.buttonA2N.Name = "buttonA2N";
-            this.buttonA2N.Size = new System.Drawing.Size(80, 42);
+            this.buttonA2N.Size = new System.Drawing.Size(98, 52);
             this.buttonA2N.TabIndex = 0;
             this.buttonA2N.Tag = "2";
             this.buttonA2N.Text = "A2-";
@@ -130,10 +139,10 @@ namespace RapidRobot
             // 
             // buttonA3N
             // 
-            this.buttonA3N.Location = new System.Drawing.Point(187, 88);
-            this.buttonA3N.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonA3N.Location = new System.Drawing.Point(230, 110);
+            this.buttonA3N.Margin = new System.Windows.Forms.Padding(2);
             this.buttonA3N.Name = "buttonA3N";
-            this.buttonA3N.Size = new System.Drawing.Size(80, 42);
+            this.buttonA3N.Size = new System.Drawing.Size(98, 52);
             this.buttonA3N.TabIndex = 0;
             this.buttonA3N.Tag = "3";
             this.buttonA3N.Text = "A3-";
@@ -143,10 +152,10 @@ namespace RapidRobot
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(539, 88);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Location = new System.Drawing.Point(663, 110);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 42);
+            this.button2.Size = new System.Drawing.Size(98, 52);
             this.button2.TabIndex = 0;
             this.button2.Tag = "0";
             this.button2.Text = "A0-";
@@ -156,10 +165,10 @@ namespace RapidRobot
             // 
             // buttonA6N
             // 
-            this.buttonA6N.Location = new System.Drawing.Point(444, 88);
-            this.buttonA6N.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonA6N.Location = new System.Drawing.Point(546, 110);
+            this.buttonA6N.Margin = new System.Windows.Forms.Padding(2);
             this.buttonA6N.Name = "buttonA6N";
-            this.buttonA6N.Size = new System.Drawing.Size(80, 42);
+            this.buttonA6N.Size = new System.Drawing.Size(98, 52);
             this.buttonA6N.TabIndex = 0;
             this.buttonA6N.Tag = "6";
             this.buttonA6N.Text = "A6-";
@@ -169,10 +178,10 @@ namespace RapidRobot
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(539, 33);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(663, 41);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 42);
+            this.button1.Size = new System.Drawing.Size(98, 52);
             this.button1.TabIndex = 0;
             this.button1.Tag = "0";
             this.button1.Text = "A0+";
@@ -182,10 +191,10 @@ namespace RapidRobot
             // 
             // buttonA5N
             // 
-            this.buttonA5N.Location = new System.Drawing.Point(359, 88);
-            this.buttonA5N.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonA5N.Location = new System.Drawing.Point(442, 110);
+            this.buttonA5N.Margin = new System.Windows.Forms.Padding(2);
             this.buttonA5N.Name = "buttonA5N";
-            this.buttonA5N.Size = new System.Drawing.Size(80, 42);
+            this.buttonA5N.Size = new System.Drawing.Size(98, 52);
             this.buttonA5N.TabIndex = 0;
             this.buttonA5N.Tag = "5";
             this.buttonA5N.Text = "A5-";
@@ -195,10 +204,10 @@ namespace RapidRobot
             // 
             // buttonA6P
             // 
-            this.buttonA6P.Location = new System.Drawing.Point(444, 33);
-            this.buttonA6P.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonA6P.Location = new System.Drawing.Point(546, 41);
+            this.buttonA6P.Margin = new System.Windows.Forms.Padding(2);
             this.buttonA6P.Name = "buttonA6P";
-            this.buttonA6P.Size = new System.Drawing.Size(80, 42);
+            this.buttonA6P.Size = new System.Drawing.Size(98, 52);
             this.buttonA6P.TabIndex = 0;
             this.buttonA6P.Tag = "6";
             this.buttonA6P.Text = "A6+";
@@ -208,10 +217,10 @@ namespace RapidRobot
             // 
             // buttonA5P
             // 
-            this.buttonA5P.Location = new System.Drawing.Point(359, 33);
-            this.buttonA5P.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonA5P.Location = new System.Drawing.Point(442, 41);
+            this.buttonA5P.Margin = new System.Windows.Forms.Padding(2);
             this.buttonA5P.Name = "buttonA5P";
-            this.buttonA5P.Size = new System.Drawing.Size(80, 42);
+            this.buttonA5P.Size = new System.Drawing.Size(98, 52);
             this.buttonA5P.TabIndex = 0;
             this.buttonA5P.Tag = "5";
             this.buttonA5P.Text = "A5+";
@@ -221,10 +230,10 @@ namespace RapidRobot
             // 
             // buttonA4N
             // 
-            this.buttonA4N.Location = new System.Drawing.Point(274, 88);
-            this.buttonA4N.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonA4N.Location = new System.Drawing.Point(337, 110);
+            this.buttonA4N.Margin = new System.Windows.Forms.Padding(2);
             this.buttonA4N.Name = "buttonA4N";
-            this.buttonA4N.Size = new System.Drawing.Size(80, 42);
+            this.buttonA4N.Size = new System.Drawing.Size(98, 52);
             this.buttonA4N.TabIndex = 0;
             this.buttonA4N.Tag = "4";
             this.buttonA4N.Text = "A4-";
@@ -234,10 +243,10 @@ namespace RapidRobot
             // 
             // buttonA3P
             // 
-            this.buttonA3P.Location = new System.Drawing.Point(187, 33);
-            this.buttonA3P.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonA3P.Location = new System.Drawing.Point(230, 41);
+            this.buttonA3P.Margin = new System.Windows.Forms.Padding(2);
             this.buttonA3P.Name = "buttonA3P";
-            this.buttonA3P.Size = new System.Drawing.Size(80, 42);
+            this.buttonA3P.Size = new System.Drawing.Size(98, 52);
             this.buttonA3P.TabIndex = 0;
             this.buttonA3P.Tag = "3";
             this.buttonA3P.Text = "A3+";
@@ -247,10 +256,10 @@ namespace RapidRobot
             // 
             // buttonA4P
             // 
-            this.buttonA4P.Location = new System.Drawing.Point(274, 33);
-            this.buttonA4P.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonA4P.Location = new System.Drawing.Point(337, 41);
+            this.buttonA4P.Margin = new System.Windows.Forms.Padding(2);
             this.buttonA4P.Name = "buttonA4P";
-            this.buttonA4P.Size = new System.Drawing.Size(80, 42);
+            this.buttonA4P.Size = new System.Drawing.Size(98, 52);
             this.buttonA4P.TabIndex = 0;
             this.buttonA4P.Tag = "4";
             this.buttonA4P.Text = "A4+";
@@ -260,10 +269,10 @@ namespace RapidRobot
             // 
             // buttonA2P
             // 
-            this.buttonA2P.Location = new System.Drawing.Point(102, 33);
-            this.buttonA2P.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonA2P.Location = new System.Drawing.Point(126, 41);
+            this.buttonA2P.Margin = new System.Windows.Forms.Padding(2);
             this.buttonA2P.Name = "buttonA2P";
-            this.buttonA2P.Size = new System.Drawing.Size(80, 42);
+            this.buttonA2P.Size = new System.Drawing.Size(98, 52);
             this.buttonA2P.TabIndex = 0;
             this.buttonA2P.Tag = "2";
             this.buttonA2P.Text = "A2+";
@@ -273,10 +282,10 @@ namespace RapidRobot
             // 
             // buttonA1P
             // 
-            this.buttonA1P.Location = new System.Drawing.Point(16, 33);
-            this.buttonA1P.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonA1P.Location = new System.Drawing.Point(20, 41);
+            this.buttonA1P.Margin = new System.Windows.Forms.Padding(2);
             this.buttonA1P.Name = "buttonA1P";
-            this.buttonA1P.Size = new System.Drawing.Size(80, 42);
+            this.buttonA1P.Size = new System.Drawing.Size(98, 52);
             this.buttonA1P.TabIndex = 0;
             this.buttonA1P.Tag = "1";
             this.buttonA1P.Text = "A1+";
@@ -287,10 +296,10 @@ namespace RapidRobot
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 46);
+            this.label1.Location = new System.Drawing.Point(20, 58);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 28);
+            this.label1.Size = new System.Drawing.Size(57, 35);
             this.label1.TabIndex = 1;
             this.label1.Text = "A1:";
             // 
@@ -308,11 +317,11 @@ namespace RapidRobot
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.labelA1);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(10, 245);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Location = new System.Drawing.Point(12, 306);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(660, 138);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(673, 172);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "轴实时位置";
@@ -320,201 +329,276 @@ namespace RapidRobot
             // labelA6
             // 
             this.labelA6.AutoSize = true;
-            this.labelA6.Location = new System.Drawing.Point(420, 92);
+            this.labelA6.Location = new System.Drawing.Point(517, 115);
             this.labelA6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelA6.Name = "labelA6";
-            this.labelA6.Size = new System.Drawing.Size(73, 28);
+            this.labelA6.Size = new System.Drawing.Size(92, 35);
             this.labelA6.TabIndex = 2;
             this.labelA6.Text = "label2";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(358, 92);
+            this.label11.Location = new System.Drawing.Point(441, 115);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 28);
+            this.label11.Size = new System.Drawing.Size(57, 35);
             this.label11.TabIndex = 1;
             this.label11.Text = "A6:";
             // 
             // labelA3
             // 
             this.labelA3.AutoSize = true;
-            this.labelA3.Location = new System.Drawing.Point(420, 46);
+            this.labelA3.Location = new System.Drawing.Point(517, 58);
             this.labelA3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelA3.Name = "labelA3";
-            this.labelA3.Size = new System.Drawing.Size(73, 28);
+            this.labelA3.Size = new System.Drawing.Size(92, 35);
             this.labelA3.TabIndex = 2;
             this.labelA3.Text = "label2";
             // 
             // labelA5
             // 
             this.labelA5.AutoSize = true;
-            this.labelA5.Location = new System.Drawing.Point(247, 92);
+            this.labelA5.Location = new System.Drawing.Point(304, 115);
             this.labelA5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelA5.Name = "labelA5";
-            this.labelA5.Size = new System.Drawing.Size(73, 28);
+            this.labelA5.Size = new System.Drawing.Size(92, 35);
             this.labelA5.TabIndex = 2;
             this.labelA5.Text = "label2";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(358, 46);
+            this.label5.Location = new System.Drawing.Point(441, 58);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 28);
+            this.label5.Size = new System.Drawing.Size(57, 35);
             this.label5.TabIndex = 1;
             this.label5.Text = "A3:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(185, 92);
+            this.label9.Location = new System.Drawing.Point(228, 115);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 28);
+            this.label9.Size = new System.Drawing.Size(57, 35);
             this.label9.TabIndex = 1;
             this.label9.Text = "A5:";
             // 
             // labelA2
             // 
             this.labelA2.AutoSize = true;
-            this.labelA2.Location = new System.Drawing.Point(247, 46);
+            this.labelA2.Location = new System.Drawing.Point(304, 58);
             this.labelA2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelA2.Name = "labelA2";
-            this.labelA2.Size = new System.Drawing.Size(73, 28);
+            this.labelA2.Size = new System.Drawing.Size(92, 35);
             this.labelA2.TabIndex = 2;
             this.labelA2.Text = "label2";
             // 
             // labelA4
             // 
             this.labelA4.AutoSize = true;
-            this.labelA4.Location = new System.Drawing.Point(78, 92);
+            this.labelA4.Location = new System.Drawing.Point(96, 115);
             this.labelA4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelA4.Name = "labelA4";
-            this.labelA4.Size = new System.Drawing.Size(73, 28);
+            this.labelA4.Size = new System.Drawing.Size(92, 35);
             this.labelA4.TabIndex = 2;
             this.labelA4.Text = "label2";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(185, 46);
+            this.label3.Location = new System.Drawing.Point(228, 58);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 28);
+            this.label3.Size = new System.Drawing.Size(57, 35);
             this.label3.TabIndex = 1;
             this.label3.Text = "A2:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 92);
+            this.label7.Location = new System.Drawing.Point(20, 115);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 28);
+            this.label7.Size = new System.Drawing.Size(57, 35);
             this.label7.TabIndex = 1;
             this.label7.Text = "A4:";
             // 
             // labelA1
             // 
             this.labelA1.AutoSize = true;
-            this.labelA1.Location = new System.Drawing.Point(78, 46);
+            this.labelA1.Location = new System.Drawing.Point(96, 58);
             this.labelA1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelA1.Name = "labelA1";
-            this.labelA1.Size = new System.Drawing.Size(73, 28);
+            this.labelA1.Size = new System.Drawing.Size(92, 35);
             this.labelA1.TabIndex = 2;
             this.labelA1.Text = "label2";
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.numericZ);
+            this.groupBox3.Controls.Add(this.numericY);
+            this.groupBox3.Controls.Add(this.numericX);
             this.groupBox3.Controls.Add(this.labelZ);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.labelX);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.labelY);
-            this.groupBox3.Location = new System.Drawing.Point(10, 397);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Location = new System.Drawing.Point(12, 496);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox3.Size = new System.Drawing.Size(547, 98);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Size = new System.Drawing.Size(673, 203);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "末端位置和方向";
             // 
+            // numericZ
+            // 
+            this.numericZ.DecimalPlaces = 2;
+            this.numericZ.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericZ.Location = new System.Drawing.Point(486, 139);
+            this.numericZ.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.numericZ.Minimum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            -2147483648});
+            this.numericZ.Name = "numericZ";
+            this.numericZ.Size = new System.Drawing.Size(182, 42);
+            this.numericZ.TabIndex = 5;
+            this.numericZ.ValueChanged += new System.EventHandler(this.numeric_ValueChanged);
+            // 
+            // numericY
+            // 
+            this.numericY.DecimalPlaces = 2;
+            this.numericY.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericY.Location = new System.Drawing.Point(272, 139);
+            this.numericY.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.numericY.Minimum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            -2147483648});
+            this.numericY.Name = "numericY";
+            this.numericY.Size = new System.Drawing.Size(145, 42);
+            this.numericY.TabIndex = 4;
+            this.numericY.ValueChanged += new System.EventHandler(this.numeric_ValueChanged);
+            // 
+            // numericX
+            // 
+            this.numericX.DecimalPlaces = 2;
+            this.numericX.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericX.Location = new System.Drawing.Point(65, 139);
+            this.numericX.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.numericX.Minimum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            -2147483648});
+            this.numericX.Name = "numericX";
+            this.numericX.Size = new System.Drawing.Size(159, 42);
+            this.numericX.TabIndex = 3;
+            this.numericX.ValueChanged += new System.EventHandler(this.numeric_ValueChanged);
+            // 
             // labelZ
             // 
             this.labelZ.AutoSize = true;
-            this.labelZ.Location = new System.Drawing.Point(395, 49);
+            this.labelZ.Location = new System.Drawing.Point(486, 61);
             this.labelZ.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelZ.Name = "labelZ";
-            this.labelZ.Size = new System.Drawing.Size(73, 28);
+            this.labelZ.Size = new System.Drawing.Size(92, 35);
             this.labelZ.TabIndex = 2;
             this.labelZ.Text = "label2";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(16, 49);
+            this.label13.Location = new System.Drawing.Point(20, 61);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(31, 28);
+            this.label13.Size = new System.Drawing.Size(39, 35);
             this.label13.TabIndex = 1;
             this.label13.Text = "X:";
             // 
             // labelX
             // 
             this.labelX.AutoSize = true;
-            this.labelX.Location = new System.Drawing.Point(53, 49);
+            this.labelX.Location = new System.Drawing.Point(65, 61);
             this.labelX.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelX.Name = "labelX";
-            this.labelX.Size = new System.Drawing.Size(73, 28);
+            this.labelX.Size = new System.Drawing.Size(92, 35);
             this.labelX.TabIndex = 2;
             this.labelX.Text = "label2";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(185, 49);
+            this.label15.Location = new System.Drawing.Point(228, 61);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(30, 28);
+            this.label15.Size = new System.Drawing.Size(38, 35);
             this.label15.TabIndex = 1;
             this.label15.Text = "Y:";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(358, 49);
+            this.label17.Location = new System.Drawing.Point(441, 61);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(30, 28);
+            this.label17.Size = new System.Drawing.Size(39, 35);
             this.label17.TabIndex = 1;
             this.label17.Text = "Z:";
             // 
             // labelY
             // 
             this.labelY.AutoSize = true;
-            this.labelY.Location = new System.Drawing.Point(221, 49);
+            this.labelY.Location = new System.Drawing.Point(272, 61);
             this.labelY.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelY.Name = "labelY";
-            this.labelY.Size = new System.Drawing.Size(73, 28);
+            this.labelY.Size = new System.Drawing.Size(92, 35);
             this.labelY.TabIndex = 2;
             this.labelY.Text = "label2";
             // 
             // numericUpDownSpeed
             // 
-            this.numericUpDownSpeed.Location = new System.Drawing.Point(454, 21);
-            this.numericUpDownSpeed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownSpeed.Location = new System.Drawing.Point(559, 26);
+            this.numericUpDownSpeed.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownSpeed.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             196608});
             this.numericUpDownSpeed.Name = "numericUpDownSpeed";
-            this.numericUpDownSpeed.Size = new System.Drawing.Size(80, 34);
+            this.numericUpDownSpeed.Size = new System.Drawing.Size(98, 42);
             this.numericUpDownSpeed.TabIndex = 4;
             this.numericUpDownSpeed.Value = new decimal(new int[] {
             1,
@@ -525,10 +609,10 @@ namespace RapidRobot
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(384, 22);
+            this.label2.Location = new System.Drawing.Point(473, 28);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 28);
+            this.label2.Size = new System.Drawing.Size(96, 35);
             this.label2.TabIndex = 5;
             this.label2.Text = "速度：";
             // 
@@ -537,10 +621,10 @@ namespace RapidRobot
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(26, 531);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox1.Location = new System.Drawing.Point(23, 724);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(122, 32);
+            this.checkBox1.Size = new System.Drawing.Size(155, 39);
             this.checkBox1.TabIndex = 6;
             this.checkBox1.Text = "显示轨迹";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -554,27 +638,60 @@ namespace RapidRobot
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(115, 22);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Location = new System.Drawing.Point(142, 28);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(192, 36);
+            this.comboBox1.Size = new System.Drawing.Size(235, 43);
             this.comboBox1.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 25);
+            this.label4.Location = new System.Drawing.Point(12, 31);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 28);
+            this.label4.Size = new System.Drawing.Size(123, 35);
             this.label4.TabIndex = 8;
             this.label4.Text = "机械臂：";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(703, 515);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(121, 176);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "计算";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(703, 320);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(121, 162);
+            this.buttonReset.TabIndex = 10;
+            this.buttonReset.Text = "重置";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Location = new System.Drawing.Point(516, 724);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(169, 52);
+            this.buttonSave.TabIndex = 11;
+            this.buttonSave.Text = "保存";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
             // RobotIndicatorForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 35F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(679, 596);
+            this.ClientSize = new System.Drawing.Size(839, 849);
+            this.Controls.Add(this.buttonSave);
+            this.Controls.Add(this.buttonReset);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.checkBox1);
@@ -584,15 +701,19 @@ namespace RapidRobot
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "RobotIndicatorForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "机器人示教";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericZ)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -642,5 +763,11 @@ namespace RapidRobot
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.NumericUpDown numericZ;
+        private System.Windows.Forms.NumericUpDown numericY;
+        private System.Windows.Forms.NumericUpDown numericX;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.Button buttonSave;
     }
 }

@@ -101,7 +101,6 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(36, 36);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -113,7 +112,8 @@
             this.toolStripMenuItem6});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(2011, 47);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
+            this.menuStrip1.Size = new System.Drawing.Size(2298, 45);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -520,17 +520,17 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 47);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 45);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.statusStrip1);
             this.splitContainer1.Panel1.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(2011, 1088);
-            this.splitContainer1.SplitterDistance = 581;
-            this.splitContainer1.SplitterWidth = 9;
+            this.splitContainer1.Size = new System.Drawing.Size(2298, 1426);
+            this.splitContainer1.SplitterDistance = 663;
+            this.splitContainer1.SplitterWidth = 10;
             this.splitContainer1.TabIndex = 1;
             // 
             // statusStrip1
@@ -538,10 +538,10 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(36, 36);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 1042);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 1383);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 33, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(581, 46);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 38, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(663, 43);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -549,14 +549,13 @@
             // 
             this.toolStripStatusLabel1.IsLink = true;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(300, 35);
-            this.toolStripStatusLabel1.Text = "http://www.anycad.cn";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 32);
             // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -567,18 +566,18 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.listBox1);
-            this.splitContainer2.Size = new System.Drawing.Size(581, 1088);
-            this.splitContainer2.SplitterDistance = 437;
-            this.splitContainer2.SplitterWidth = 9;
+            this.splitContainer2.Size = new System.Drawing.Size(663, 1426);
+            this.splitContainer2.SplitterDistance = 572;
+            this.splitContainer2.SplitterWidth = 12;
             this.splitContainer2.TabIndex = 1;
             // 
             // treeView1
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(581, 437);
+            this.treeView1.Size = new System.Drawing.Size(663, 572);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
@@ -586,24 +585,24 @@
             // 
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 27;
+            this.listBox1.ItemHeight = 35;
             this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(581, 642);
+            this.listBox1.Size = new System.Drawing.Size(663, 842);
             this.listBox1.TabIndex = 0;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 35F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2011, 1135);
+            this.ClientSize = new System.Drawing.Size(2298, 1471);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.Name = "MainForm";
-            this.Text = "AnyCAD Rapid SDK 2023";
+            this.Text = "AnyCAD三维图形平台";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);

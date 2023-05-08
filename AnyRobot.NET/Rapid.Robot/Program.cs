@@ -11,10 +11,10 @@ namespace RapidRobot
         [STAThread]
         static void Main()
         {
-            AnyCAD.Foundation.GlobalInstance.Initialize();
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            AnyCAD.Foundation.GlobalInstance.Initialize();
             Application.Run(new MainForm());
             AnyCAD.Foundation.GlobalInstance.Destroy();
         }

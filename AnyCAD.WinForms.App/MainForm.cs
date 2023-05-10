@@ -279,6 +279,7 @@ namespace AnyCAD.Demo
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
         {
             TestCase.IncreaseCounter(mRenderView, 0);
+            TestCase.RunCommnad(mRenderView);
         }
 
         private void sTLToolStripMenuItem_Click(object sender, EventArgs e)

@@ -9,7 +9,7 @@ namespace RapidRobot
 {
     public partial class MainForm : Form
     {
-        MachineFactory mMachineFactory = new MachineFactory();
+        MachineFactory mMachineFactory = new ();
         RenderControl mRenderView;
         AnyCAD.Robot.RobotControler mRobotControler;
         public MainForm()

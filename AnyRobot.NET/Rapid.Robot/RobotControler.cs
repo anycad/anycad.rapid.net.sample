@@ -6,7 +6,7 @@ namespace AnyCAD.Robot
     public class RobotControler
     {
         RobotBody mRobot;
-        ParticleSceneNode mTrajectory = new ParticleSceneNode(1000, Vector3.Red, 5);
+        ParticleSceneNode mTrajectory = new ParticleSceneNode(1000, ColorTable.Red, 5);
         uint nSeedIdx = 0;
 
         public RobotBody Robot { get { return mRobot; } }

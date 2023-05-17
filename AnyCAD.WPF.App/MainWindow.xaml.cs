@@ -23,30 +23,8 @@ namespace AnyCAD.WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // List all test cases
-            var rootNodes = new ObservableCollection<TreeViewItem>();
-            Dictionary<string, int> groupDict = new Dictionary<string, int>();
-            TestCaseLoaderBase.ForEachCase((Type type, string name, string groupName) =>
-            {
-                int groupId = 0;
-                if (!groupDict.TryGetValue(groupName, out groupId))
-                {
-                    groupId = rootNodes.Count;
-                    groupDict[groupName] = groupId;
-                    var node = new TreeViewItem();
-                    node.Header = groupName;
-                    rootNodes.Add(node);
-                    node.IsExpanded = true;
-                }
-
-                var testNode = new TreeViewItem();
-                testNode.Header = name;
-                testNode.Tag = type;
-                rootNodes[groupId].Items.Add(testNode);
-            });
-
-            projectBrowser.ItemsSource = rootNodes;
-
+            _BasicTree.ItemsSource = TestCaseLoader.LoadBasic();
+            _AdvTree.ItemsSource = TestCaseLoader.LoadAdv();
 
             // Enable animation.
             this.mRenderCtrl.ViewerReady += () =>
@@ -63,9 +41,13 @@ namespace AnyCAD.WPF
             };
         }
 
-        private void projectBrowser_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        private void Browser_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            var node = projectBrowser.SelectedItem as TreeViewItem;
+            TreeView treeView= (TreeView)sender;
+            if(treeView == null)
+                return;
+
+            var node = treeView.SelectedItem as TreeViewItem;
             if (node == null)
                 return;
             Demo.TestCase.CreateTest(node.Tag, this.mRenderCtrl.View3D);

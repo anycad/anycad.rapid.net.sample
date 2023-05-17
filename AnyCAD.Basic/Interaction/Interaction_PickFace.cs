@@ -17,7 +17,7 @@ namespace AnyCAD.Demo.Graphics
 
             var shape = ShapeBuilder.MakeBox(GP.XOY(), 10, 20, 30);
             var mat = MeshStandardMaterial.Create("ss");
-            mat.SetColor(Vector3.LightGray);
+            mat.SetColor(ColorTable.LightGrey);
 
             var node = BrepSceneNode.Create(shape, mat, null);
             render.ShowSceneNode(node);

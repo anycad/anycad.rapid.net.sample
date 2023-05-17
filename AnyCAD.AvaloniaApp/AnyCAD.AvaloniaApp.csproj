@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AnyCAD.Rapid.Avalonia" Version="2023.4.23.1608" />
+    <PackageReference Include="AnyCAD.Rapid.Avalonia" Version="2023.5.17.1500" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.18" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AnyCAD.WinForms\AnyCAD.Demo.csproj" />
+    <ProjectReference Include="..\AnyCAD.Advanced\AnyCAD.Advanced.csproj" />
+    <ProjectReference Include="..\AnyCAD.Basic\AnyCAD.Basic.csproj" />
   </ItemGroup>
 </Project>

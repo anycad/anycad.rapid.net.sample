@@ -51,9 +51,9 @@ namespace AnyCAD.Demo.Geometry
             var View1 = SketchBuilder.MakePlanarFace(Shape);
             View1 = TransformTool.Rotation(View1, new GAx1(new GPnt(0, 0, 0), new GDir(0, 1, 0)), Math.PI / 2);
             View1 = TransformTool.Rotation(View1, new GAx1(new GPnt(0, 0, 0), new GDir(1, 0, 0)), Math.PI / 2);
-            mRenderView.ShowShape(View1, Vector3.Green);
+            mRenderView.ShowShape(View1, ColorTable.Green);
             var widget = AxisWidget.Create(0.01f, new Vector3(0.1f));
-            mRenderView.ShowShape(View, Vector3.Red);
+            mRenderView.ShowShape(View, ColorTable.Red);
             GAx3 gAx31 = new GAx3(new GAx2(new GPnt(0, 0, 0), new GDir(0, 0, 1), new GDir(1, 0, 0)));
             GAx3 gAx32 = new GAx3(new GAx2(new GPnt(0, 0, 0), new GDir(1, 0, 0), new GDir(0, 1, 0)));
             var dsad = gAx32.Direction().XYZ().X();
@@ -61,7 +61,7 @@ namespace AnyCAD.Demo.Geometry
             gTrsf.SetTransformation(gAx32, gAx31);
             View = TransformTool.Transform(View, gTrsf);
 
-            mRenderView.ShowShape(View, Vector3.Blue);
+            mRenderView.ShowShape(View, ColorTable.Blue);
         }
         public override void Run(IRenderView render)
         {

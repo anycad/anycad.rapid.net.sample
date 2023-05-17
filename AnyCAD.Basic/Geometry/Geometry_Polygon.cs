@@ -16,7 +16,7 @@ namespace AnyCAD.Demo.Geometry
             mat.SetRoughness(0.5f);
             mat.SetTransparent(true);
             mat.SetMetalness(0.2f);
-            mat.SetColor(Vector3.Green);
+            mat.SetColor(ColorTable.Green);
             polygon = BrepSceneNode.Create(plygon, mat, mat);
             render.ShowSceneNode(polygon);
 
@@ -52,7 +52,7 @@ namespace AnyCAD.Demo.Geometry
             mat.SetRoughness(0.5f);
             mat.SetTransparent(true);
             mat.SetMetalness(0.2f);
-            mat.SetColor(Vector3.Green);
+            mat.SetColor(ColorTable.Green);
             buff.Build();
             polygon.SetShape(buff);
             polygon.SetFaceMaterial(mat);

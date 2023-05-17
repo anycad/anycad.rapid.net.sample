@@ -34,7 +34,7 @@ namespace AnyCAD.Demo.Geometry
             var frame4 = FeatureTool.Loft(s21, s11, false);
 
             var frameMaterial = MeshStandardMaterial.Create("window-frame");
-            frameMaterial.SetColor(Vector3.LightGray);
+            frameMaterial.SetColor(ColorTable.LightGrey);
             frameMaterial.SetMetalness(0.5f);
             frameMaterial.SetFaceSide(EnumFaceSide.DoubleSide);
 

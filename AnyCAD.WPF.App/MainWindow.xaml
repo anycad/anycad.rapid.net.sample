@@ -6,15 +6,23 @@
         xmlns:anycad="clr-namespace:AnyCAD.WPF;assembly=AnyCAD.WPF.NET6"
         xmlns:local="clr-namespace:AnyCAD.WPF"
         mc:Ignorable="d"
-        Title="AnyCAD三维图形平台" Height="600" Width="1024" Loaded="Window_Loaded">
+        Title="AnyCAD三维图形平台: 功能展示" Height="600" Width="1024" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="100" Width="0.3*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TreeView x:Name="projectBrowser" SelectedItemChanged="projectBrowser_SelectedItemChanged" Grid.Column="0" Margin="0,0,0,0">
+        <TabControl>
+            <TabItem Header="基础功能">
+                <TreeView x:Name="_BasicTree" SelectedItemChanged="Browser_SelectedItemChanged" Grid.Column="0" Margin="0,0,0,0">
+                </TreeView>
+            </TabItem>
+            <TabItem Header="高级功能">
+                <TreeView x:Name="_AdvTree" SelectedItemChanged="Browser_SelectedItemChanged" Grid.Column="0" Margin="0,0,0,0">
+                </TreeView>
+            </TabItem>
+        </TabControl>
 
-        </TreeView>
         <anycad:RenderControl Grid.Column="1" x:Name="mRenderCtrl" Margin="0,0,0,0"/>
     </Grid>
 </Window>

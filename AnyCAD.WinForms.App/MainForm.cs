@@ -15,7 +15,7 @@ namespace AnyCAD.Demo
 
             mRenderView = new RenderControl(this.splitContainer1.Panel2);
             TestCaseLoader.Register(this.treeView1);
-            TestCaseLoader.Register(this.treeView1, Assembly.GetExecutingAssembly());
+
         }
 
         bool mEnableAnimation = true;

@@ -6,16 +6,32 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="AnyCAD.AvaloniaApp.MainWindow"
         Title="AnyCAD.AvaloniaApp">
-	<Grid ColumnDefinitions="220, 3, *" Margin="7">
-		<ScrollViewer Grid.Column="0" >
-			<TreeView Items="{Binding Items}" SelectionChanged ="TreeView_SelectedItemChanged">
-				<TreeView.ItemTemplate>
-					<TreeDataTemplate ItemsSource="{Binding Items}">
-						<TextBlock Text="{Binding Header}"/>
-					</TreeDataTemplate>
-				</TreeView.ItemTemplate>
-			</TreeView>
-		</ScrollViewer>
+	<Grid ColumnDefinitions="250, 3, *" Margin="7">
+		<TabControl>
+			<TabItem Header="基础功能">
+				<ScrollViewer Grid.Column="0" >
+					<TreeView Items="{Binding BasicItems}" SelectionChanged ="TreeView_SelectedItemChanged">
+						<TreeView.ItemTemplate>
+							<TreeDataTemplate ItemsSource="{Binding Items}">
+								<TextBlock Text="{Binding Header}"/>
+							</TreeDataTemplate>
+						</TreeView.ItemTemplate>
+					</TreeView>
+				</ScrollViewer>
+			</TabItem>
+			<TabItem Header="高级功能">
+				<ScrollViewer Grid.Column="0" >
+					<TreeView Items="{Binding AdvItems}" SelectionChanged ="TreeView_SelectedItemChanged">
+						<TreeView.ItemTemplate>
+							<TreeDataTemplate ItemsSource="{Binding Items}">
+								<TextBlock Text="{Binding Header}"/>
+							</TreeDataTemplate>
+						</TreeView.ItemTemplate>
+					</TreeView>
+				</ScrollViewer>
+			</TabItem>	
+		</TabControl>
+
 		<GridSplitter Grid.Column="1" ResizeDirection="Columns"/>
 		<anycad:RenderControl Grid.Column="2" x:Name="mRenderView"  />
 	</Grid>

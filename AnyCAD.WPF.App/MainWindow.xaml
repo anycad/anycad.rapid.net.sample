@@ -26,24 +26,8 @@
                           ResizeBehavior="PreviousAndNext"  />
             <TabControl Grid.Column="2"  Metro:HeaderedControlHelper.HeaderFontSize="16" Metro:TabControlHelper.UnderlineBrush="#FFF75656" Metro:TabControlHelper.Underlined="SelectedTabItem">
                 <TabItem Header="基础功能">
-                    <StackPanel Orientation="Vertical">
-                        <Menu>
-                            <MenuItem  Header="选择">
-                                <MenuItem  Header="选对象" Command="{Binding PickByObjectCommand}"/>
-                                <MenuItem  Header="选元素" Command="{Binding PickByPrimitiveCommand}"/>
-                                <Separator></Separator>
-                                <MenuItem  Header="选择模式：点选/框选" Command="{Binding PickByRectCommand}"/>
-                            </MenuItem>
-                            <MenuItem Header="设置">
-                                <MenuItem Header="网格可见性" Command="{Binding ShowGridCommand}">
-                                </MenuItem>
-                                <MenuItem Header="投影：正交/透视" Command="{Binding CameraProjectionCommand}">
-                                </MenuItem>
-                            </MenuItem>
-                        </Menu>
-                        <TreeView ItemsSource="{Binding BasicSamples}" SelectedItemChanged="Browser_SelectedItemChanged" Grid.Column="0" Margin="0,0,0,0">
-                        </TreeView>
-                    </StackPanel>
+                    <TreeView ItemsSource="{Binding BasicSamples}" SelectedItemChanged="Browser_SelectedItemChanged" Grid.Column="0" Margin="0,0,0,0">
+                    </TreeView>
                 </TabItem>
                 <TabItem Header="高级功能">
                     <TreeView ItemsSource="{Binding AdvSamples}" SelectedItemChanged="Browser_SelectedItemChanged" Grid.Column="0" Margin="0,0,0,0">
@@ -58,6 +42,20 @@
             <StatusBarItem Width="200" Content="{Binding MousePosition}"/>
             <StatusBarItem HorizontalAlignment="Center">
                 <StackPanel Orientation ="Horizontal">
+                    <Menu>
+                        <MenuItem  Header="选择">
+                            <MenuItem  Header="选对象" Command="{Binding PickByObjectCommand}"/>
+                            <MenuItem  Header="选元素" Command="{Binding PickByPrimitiveCommand}"/>
+                            <Separator></Separator>
+                            <MenuItem  Header="选择模式：点选/框选" Command="{Binding PickByRectCommand}"/>
+                        </MenuItem>
+                        <MenuItem Header="设置">
+                            <MenuItem Header="网格可见性" Command="{Binding ShowGridCommand}">
+                            </MenuItem>
+                            <MenuItem Header="投影：正交/透视" Command="{Binding CameraProjectionCommand}">
+                            </MenuItem>
+                        </MenuItem>
+                    </Menu>
                 </StackPanel>
             </StatusBarItem>
         </StatusBar>

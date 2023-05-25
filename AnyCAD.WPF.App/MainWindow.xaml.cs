@@ -15,7 +15,7 @@ namespace AnyCAD.WPF
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-  
+
         public MainWindow()
         {
             InitializeComponent();
@@ -24,19 +24,7 @@ namespace AnyCAD.WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // Enable animation.
-            this.mRenderCtrl.ViewerReady += () =>
-            {
-                this.mRenderCtrl.View3D.SetAnimationCallback((ViewerListener.AnimationHandler)((float timer) =>
-                {
-                    Demo.TestCase.RunAnimation(this.mRenderCtrl.View3D, timer);
-                }));
-
-                this.mRenderCtrl.View3D.SetSelectCallback((ViewerListener.AfterSelectHandler)((PickedResult result) =>
-                {
-                    Demo.TestCase.SelectionChanged(mRenderCtrl.View3D, result);
-                }));
-            };
+         
         }
 
         private void Browser_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
@@ -51,5 +39,24 @@ namespace AnyCAD.WPF
             Demo.TestCase.CreateTest(node.Tag, this.mRenderCtrl.View3D);
         }
 
+        private void RenderCtrl_ViewerReady()
+        {
+            var vm = this.DataContext as MainViewModel;
+            if (vm == null)
+                throw new Exception("DataContext is null!");
+
+            this.mRenderCtrl.SetAnimationCallback((ViewerListener.AnimationHandler)((float timer) =>
+            {
+                Demo.TestCase.RunAnimation(this.mRenderCtrl.View3D, timer);
+            }));
+
+            this.mRenderCtrl.SetSelectCallback((ViewerListener.AfterSelectHandler)((PickedResult result) =>
+            {
+                Demo.TestCase.SelectionChanged(mRenderCtrl.View3D, result);
+                vm.UpdateSelectionInfo(result);
+            }));
+
+            vm.ViewReady();
+        }
     }
 }

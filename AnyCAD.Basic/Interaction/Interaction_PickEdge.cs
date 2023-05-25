@@ -4,6 +4,7 @@ namespace AnyCAD.Demo.Graphics
 {
     class Interaction_PickEdge : TestCase
     {
+        uint _PickFilter = 0;
         public override void Run(IRenderView render)
         {
             string fileName = GetResourcePath("ST038.stp");
@@ -11,7 +12,16 @@ namespace AnyCAD.Demo.Graphics
             if (shape == null)
                 return;
 
-            render.ShowShape(shape, ColorTable.Chocolate);
+            var material = MeshPhongMaterial.Create("mesh.transparent");
+            material.SetColor(ColorTable.BlanchedAlmond);
+            material.SetTransparent(true);
+            material.SetOpacity(0.5f);
+
+            var node = BrepSceneNode.Create(shape, material, null);
+            render.ShowSceneNode(node);
+
+            _PickFilter = render.ViewContext.GetPickFilter();
+            render.ViewContext.SetPickFilter((uint)EnumShapeFilter.Edge);
         }
 
 
@@ -35,8 +45,9 @@ namespace AnyCAD.Demo.Graphics
                 {
                   
                    var parameters =  curve.SplitByUniformAbscissa(20);
-                    var node = new ParticleSceneNode((uint)parameters.Count+1, ColorTable.ForestGreen, 8);
-                    for(uint ii=0; ii< parameters.Count; ++ii)
+                    var node = new ParticleSceneNode((uint)parameters.Count+1, ColorTable.ForestGreen, 10);
+                    
+                    for (uint ii=0; ii< parameters.Count; ++ii)
                     {                       
                          node.SetPosition(ii, Vector3.From(curve.Value(parameters[(int)ii])));
                     }
@@ -47,6 +58,15 @@ namespace AnyCAD.Demo.Graphics
                     render.RequestDraw();
                 }
             }
+
+            render.SelectionManager.Clear(false);
+            render.RequestDraw(EnumUpdateFlags.Selection);
+        }
+
+        public override void Exit(IRenderView render)
+        {
+            render.ViewContext.SetPickFilter(_PickFilter);
+            base.Exit(render);
         }
     }
 }

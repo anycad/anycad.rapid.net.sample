@@ -1,6 +1,4 @@
-﻿using AnyCAD.Demo.Geometry;
-using AnyCAD.Foundation;
-using System;
+﻿using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Graphics
 {

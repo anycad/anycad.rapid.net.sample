@@ -7,15 +7,28 @@
     <UseWPF>true</UseWPF>
 	<UseWindowsForms>true</UseWindowsForms>
 	<BaseOutputPath>..\bin\</BaseOutputPath>
+	<ApplicationIcon>app.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AnyCAD.Rapid.NET" Version="2023.5.24.1458" />
+    <None Remove="app.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="app.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AnyCAD.UIFramework.NET" Version="2023.5.24.1458" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AnyCAD.Advanced\AnyCAD.Advanced.csproj" />
     <ProjectReference Include="..\AnyCAD.Basic\AnyCAD.Basic.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="app.ico" />
   </ItemGroup>
 
 </Project>

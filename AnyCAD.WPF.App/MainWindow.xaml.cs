@@ -6,26 +6,24 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Reflection;
 using AnyCAD.Demo;
+using MahApps.Metro.Controls;
 
 namespace AnyCAD.WPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
   
         public MainWindow()
         {
             InitializeComponent();
-
+            this.DataContext = new MainViewModel(this.mRenderCtrl);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            _BasicTree.ItemsSource = TestCaseLoader.LoadBasic();
-            _AdvTree.ItemsSource = TestCaseLoader.LoadAdv();
-
             // Enable animation.
             this.mRenderCtrl.ViewerReady += () =>
             {

@@ -6,7 +6,12 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
 	<BaseOutputPath>..\bin\</BaseOutputPath>
+	<ApplicationIcon>app.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="app.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AnyCAD.Rapid.NET" Version="2023.5.24.1458" />

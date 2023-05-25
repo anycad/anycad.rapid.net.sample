@@ -1,28 +1,42 @@
-﻿<Window x:Class="AnyCAD.WPF.MainWindow"
+﻿<Metro:MetroWindow x:Class="AnyCAD.WPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:anycad="clr-namespace:AnyCAD.WPF;assembly=AnyCAD.WPF.NET6"
         xmlns:local="clr-namespace:AnyCAD.WPF"
+        xmlns:Metro="http://metro.mahapps.com/winfx/xaml/controls"
         mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=local:MainViewModel}"
         Title="AnyCAD三维图形平台: 功能展示" Height="600" Width="1024" Loaded="Window_Loaded">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition MinWidth="100" Width="0.3*"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <TabControl>
-            <TabItem Header="基础功能">
-                <TreeView x:Name="_BasicTree" SelectedItemChanged="Browser_SelectedItemChanged" Grid.Column="0" Margin="0,0,0,0">
-                </TreeView>
-            </TabItem>
-            <TabItem Header="高级功能">
-                <TreeView x:Name="_AdvTree" SelectedItemChanged="Browser_SelectedItemChanged" Grid.Column="0" Margin="0,0,0,0">
-                </TreeView>
-            </TabItem>
-        </TabControl>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" MinHeight="200"/>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MinWidth="200"/>
+                <ColumnDefinition Width="3"/>
+                <ColumnDefinition MinWidth="100" Width="200"/>
+            </Grid.ColumnDefinitions>
+            <anycad:RenderControl Grid.Column="0" x:Name="mRenderCtrl" Margin="0,0,0,0"/>
 
-        <anycad:RenderControl Grid.Column="1" x:Name="mRenderCtrl" Margin="0,0,0,0"/>
+            <GridSplitter Grid.Column="1" 
+                          ResizeBehavior="PreviousAndNext"  />
+            <TabControl Grid.Column="2"  Metro:HeaderedControlHelper.HeaderFontSize="16" Metro:TabControlHelper.UnderlineBrush="#FFF75656" Metro:TabControlHelper.Underlined="SelectedTabItem">
+                <TabItem Header="基础功能">
+                    <TreeView ItemsSource="{Binding BasicSamples}" SelectedItemChanged="Browser_SelectedItemChanged" Grid.Column="0" Margin="0,0,0,0">
+                    </TreeView>
+                </TabItem>
+                <TabItem Header="高级功能">
+                    <TreeView ItemsSource="{Binding AdvSamples}" SelectedItemChanged="Browser_SelectedItemChanged" Grid.Column="0" Margin="0,0,0,0">
+                    </TreeView>
+                </TabItem>
+            </TabControl>
+        </Grid>
+        <StatusBar Grid.Row="1">
+            <StatusBarItem Content="准备就绪"/>
+        </StatusBar>
     </Grid>
-</Window>
+</Metro:MetroWindow>

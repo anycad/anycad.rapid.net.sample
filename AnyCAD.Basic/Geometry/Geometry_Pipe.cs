@@ -8,8 +8,8 @@ namespace AnyCAD.Demo.Geometry
         public override void Run(IRenderView render)
         {
             var material = MeshStandardMaterial.Create("metal-double");
-            material.SetColor(new Vector3(1.0f, 0.8f, 0.0f));
-            material.SetMetalness(0.8f);
+            material.SetColor(ColorTable.金);
+            material.SetMetalness(0.4f);
             material.SetRoughness(0.5f);
             material.SetFaceSide(EnumFaceSide.DoubleSide);
 
@@ -34,9 +34,8 @@ namespace AnyCAD.Demo.Geometry
 
             TopoShape pipe = FeatureTool.SweepByFrenet(section1, path, EnumSweepTransitionMode.RoundCorner,
                 false);
-            BufferShape bs = new BufferShape(pipe, material, null, 0.1f);
-            bs.Build();
-            var node = new BrepSceneNode(bs);
+
+            var node = BrepSceneNode.Create(pipe, material, null);
 
             render.ShowSceneNode(node);
         }

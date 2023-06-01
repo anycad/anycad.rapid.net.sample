@@ -321,7 +321,7 @@ namespace AnyCAD.Demo
             CADReader doc = new CADReader();
             doc.Open(dialog.FileName, (XdeNode xn, TopoShape shape, GTrsf trf, Vector3 color) =>
             {
-                mRenderView.ShowShape(shape.Transformed(trf), color);
+                mRenderView.ShowShape( TransformTool.Transform(shape, trf), color);
             });
 
             mRenderView.ZoomAll();

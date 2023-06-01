@@ -8,15 +8,26 @@
         xmlns:Metro="http://metro.mahapps.com/winfx/xaml/controls"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Type=local:MainViewModel}"
-        Title="AnyCAD三维图形平台: 功能展示" Height="600" Width="1024" Loaded="Window_Loaded">
+        Title="AnyCAD三维图形平台: 功能展示" Height="600" Width="1024" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Metro:MetroWindow.RightWindowCommands>
         <Metro:WindowCommands ShowSeparators="False">
-            <Menu Margin="50,0,0,0" Background="#00000000">
+            <Menu Margin="50,2,0,0" Background="#00000000">
+                <MenuItem  Header="文件" Background="#00000000">
+                    <MenuItem  Header="新建" Command="{Binding NewSceneCommand}"/>
+                    <MenuItem  Header="导入实体..." Command="{Binding OpenModelCommand}"/>
+                    <MenuItem  Header="导入网格..." Command="{Binding OpenMeshCommand}"/>
+                    <MenuItem  Header="导入JSON..." Command="{Binding OpenDrawingCommand}"/>
+                </MenuItem>
                 <MenuItem  Header="编辑" Background="#00000000">
+                    <MenuItem Header="移动" Command="{Binding ExecuteSystemCommand}" CommandParameter="Move"></MenuItem>
+                    <MenuItem Header="旋转" Command="{Binding ExecuteSystemCommand}" CommandParameter="Rotate"></MenuItem>
+                    <MenuItem Header="移动+旋转" Command="{Binding ExecuteSystemCommand}" CommandParameter="Transform"></MenuItem>                    
+                </MenuItem>
+                <MenuItem  Header="过滤器" Background="#00000000">
                     <MenuItem  Header="选对象" Command="{Binding PickByObjectCommand}"/>
                     <MenuItem  Header="选元素" Command="{Binding PickByPrimitiveCommand}"/>
-                    <Separator></Separator>
                     <MenuItem  Header="选择模式：点选/框选" Command="{Binding PickByRectCommand}"/>
+                    <Separator Height="3"></Separator>
                 </MenuItem>
                 <MenuItem Header="视图" Background="#00000000">
                     <MenuItem Header="网格可见性" Command="{Binding ShowGridCommand}">
@@ -24,6 +35,8 @@
                     <MenuItem Header="投影：正交/透视" Command="{Binding CameraProjectionCommand}">
                     </MenuItem>
                 </MenuItem>
+                <MenuItem Header="设置" Background="#00000000" Command="{Binding ViewSettingCommand}"/>
+                <MenuItem Header="帮助" Background="#00000000" Click="VisitHelpWebsite"/>
             </Menu>
         </Metro:WindowCommands>
     </Metro:MetroWindow.RightWindowCommands>

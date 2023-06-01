@@ -1,6 +1,10 @@
-﻿using AnyCAD.Foundation;
+﻿using AnyCAD.Drawing;
+using AnyCAD.Foundation;
+using AnyCAD.NX.Settings;
+using AnyCAD.NX.View;
 using AnyCAD.NX.ViewModel;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
 
@@ -23,6 +27,7 @@ namespace AnyCAD.WPF
         { 
             _BasicSamples = TestCaseLoader.LoadBasic();
             _AdvSamples = TestCaseLoader.LoadAdv();
+            PropertyChanged += ViewModel_PropertyChanged;
         }
 
         public void ViewReady()
@@ -104,6 +109,122 @@ namespace AnyCAD.WPF
             }
             
             SelectionInfo= msg ;
+        }
+
+        [RelayCommand]
+        void OnViewSetting()
+        {
+            ViewSettings settings = new();
+            settings.Initialize(RenderView);
+
+            //settings.Save("d:/ViewSetting.json");
+
+            ViewSettingsView settingView = new(settings, RenderView);
+            settingView.ShowDialog();
+        }
+
+        [RelayCommand]
+        void OnNewScene()
+        {
+            RenderView.ClearAll();
+        }
+
+        [RelayCommand]
+        void OnOpenModel()
+        {
+            var dlg = new Microsoft.Win32.OpenFileDialog
+            {
+                DefaultExt = ".stp",
+                Filter = "Models (*.igs;*.iges;*.stp;*.step;*.brep;*.stl)|*.igs;*.iges;*.stp;*.step;*.brep;*.stl"
+            };
+            if (dlg.ShowDialog() != true)
+                return;
+
+            SceneNode? node = null;
+            ProgressView pv = new ProgressView(() =>
+            {
+                var shape = ShapeIO.Open(dlg.FileName);
+                if (shape == null)
+                    return;
+                node = BrepSceneNode.Create(shape, null, null);
+            });
+            pv.ShowDialog();
+
+            if (node == null)
+                return;
+
+            mRenderView.ShowSceneNode(node);
+            mRenderView.ZoomAll();
+        }
+
+        [RelayCommand]
+        void OnOpenMesh()
+        {
+            var dlg = new Microsoft.Win32.OpenFileDialog
+            {
+                DefaultExt = ".obj",
+                Filter = SceneIO.FormatFilters()
+            };
+            if (dlg.ShowDialog() != true)
+                return;
+
+            SceneNode? node = null;
+            ProgressView pv = new ProgressView(() =>
+            {
+                node = SceneIO.Load(dlg.FileName);
+            });
+            pv.ShowDialog();
+
+            if (node == null)
+                return;
+
+            mRenderView.ShowSceneNode(node);
+            mRenderView.ZoomAll();
+        }
+
+        [RelayCommand]
+        void OnOpenDrawing()
+        {
+            var dlg = new Microsoft.Win32.OpenFileDialog
+            {
+                DefaultExt = ".json",
+                Filter = "Drawing (*.json)|*.json"
+            };
+            if (dlg.ShowDialog() != true)
+                return;
+
+            var drawing = DrawingDb.Load(dlg.FileName);
+            if(drawing != null)
+            {
+                drawing.Show(RenderView);
+            }
+        }
+
+
+        ConfirmInputView? _ConfirmInputView = null;
+        private void ViewModel_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(MainViewModel.ConfirmInputVisible))
+            {
+                if (ConfirmInputVisible)
+                {
+                    if (_ConfirmInputView != null)
+                    {
+                        _ConfirmInputView.Close();
+                    }
+                    _ConfirmInputView = new ConfirmInputView(this);
+                    _ConfirmInputView.Show();
+                }
+                else
+                {
+                    if (_ConfirmInputView != null)
+                    {
+                        _ConfirmInputView.Close();
+                        _ConfirmInputView = null;
+                    }
+
+                }
+            }
         }
     }
 }

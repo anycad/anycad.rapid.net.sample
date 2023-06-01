@@ -1,12 +1,9 @@
 ﻿using AnyCAD.Foundation;
+using MahApps.Metro.Controls;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
-using System.Reflection;
-using AnyCAD.Demo;
-using MahApps.Metro.Controls;
 
 namespace AnyCAD.WPF
 {
@@ -19,7 +16,8 @@ namespace AnyCAD.WPF
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new MainViewModel(this.mRenderCtrl);
+            var vm = new MainViewModel(this.mRenderCtrl);
+            this.DataContext = vm;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -58,5 +56,16 @@ namespace AnyCAD.WPF
 
             vm.ViewReady();
         }
+
+
+        private void VisitHelpWebsite(object sender, RoutedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "http://www.anycad.cn",
+                UseShellExecute = true,
+            });
+        }
+
     }
 }

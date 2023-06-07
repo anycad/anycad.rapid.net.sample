@@ -1,7 +1,9 @@
 ﻿using AnyCAD.Foundation;
+using AnyCAD.NX.Command;
 using MahApps.Metro.Controls;
 using System;
 using System.Diagnostics;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -22,7 +24,7 @@ namespace AnyCAD.WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-         
+            UICommandManager.Instance.Register(Assembly.GetExecutingAssembly());
         }
 
         private void Browser_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
@@ -42,17 +44,6 @@ namespace AnyCAD.WPF
             var vm = this.DataContext as MainViewModel;
             if (vm == null)
                 throw new Exception("DataContext is null!");
-
-            this.mRenderCtrl.SetAnimationCallback((ViewerListener.AnimationHandler)((float timer) =>
-            {
-                Demo.TestCase.RunAnimation(this.mRenderCtrl.View3D, timer);
-            }));
-
-            this.mRenderCtrl.SetSelectCallback((ViewerListener.AfterSelectHandler)((PickedResult result) =>
-            {
-                Demo.TestCase.SelectionChanged(mRenderCtrl.View3D, result);
-                vm.UpdateSelectionInfo(result);
-            }));
 
             vm.ViewReady();
         }

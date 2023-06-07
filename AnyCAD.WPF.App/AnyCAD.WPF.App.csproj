@@ -8,6 +8,7 @@
 	<UseWindowsForms>true</UseWindowsForms>
 	<BaseOutputPath>..\bin\</BaseOutputPath>
 	<ApplicationIcon>app.ico</ApplicationIcon>
+    <RootNamespace>AnyCAD.WPF</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AnyCAD.SourceGenerator.Tools" Version="1.0.8" />
     <PackageReference Include="AnyCAD.UIFramework.NET" Version="2023.6.1.830" />
   </ItemGroup>
 

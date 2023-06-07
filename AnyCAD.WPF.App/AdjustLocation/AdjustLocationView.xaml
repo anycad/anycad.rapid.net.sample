@@ -1,0 +1,37 @@
+﻿<au:AuStackView x:Class="AnyCAD.WPF.AdjustLocation.AdjustLocationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:au ="clr-namespace:AnyCAD.NX.Controls;assembly=AnyCAD.NX.Controls"
+        xmlns:local="clr-namespace:AnyCAD.WPF.AdjustLocation"
+        mc:Ignorable="d" 
+        d:DesignWidth="250"
+        d:DataContext="{d:DesignInstance Type=local:AdjustLocationViewModel}"
+                >
+    <Expander Header="操作对象" IsExpanded="True">
+        <StackPanel Margin="7,7,7,0" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,7">
+                <au:AuStepButton Content="选择对象" Margin="0,0,7,0"
+                                         IsChecked ="{Binding SourceObjectChecked, Mode=OneWay}"
+                                         IsStateFocused="{Binding SourceObjectFocused, Mode=OneWay}"
+                                         StepName ="SourceObject"
+                                         Click="OnClickStep"/>
+                <au:AuImageButton Click="OnChoosePoint"                                  
+                                  IsStateFocused="{Binding SourcePointFocused, Mode=OneWay}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,7">
+                <au:AuNumericBox  Width="70" Value="{Binding SourcePointX}" Margin="0,0,7,0"/>
+                <au:AuNumericBox  Width="70" Value="{Binding SourcePointY}" Margin="0,0,7,0"/>
+                <au:AuNumericBox  Width="70" Value="{Binding SourcePointZ}" Margin="0,0,7,0"/>
+            </StackPanel>
+        </StackPanel>
+    </Expander>
+    <Expander Header="目标位置" IsExpanded="True">
+        <StackPanel Orientation="Horizontal" Margin="7,7,0,7">
+            <au:AuNumericBox  Width="70" Value="{Binding TargetPointX}" Margin="0,0,7,0"/>
+            <au:AuNumericBox  Width="70" Value="{Binding TargetPointY}" Margin="0,0,7,0"/>
+            <au:AuNumericBox  Width="70" Value="{Binding TargetPointZ}" Margin="0,0,7,0"/>
+        </StackPanel>
+    </Expander>
+</au:AuStackView>

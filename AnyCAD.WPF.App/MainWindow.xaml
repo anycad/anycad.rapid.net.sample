@@ -21,7 +21,9 @@
                 <MenuItem  Header="编辑" Background="#00000000">
                     <MenuItem Header="移动" Command="{Binding ExecuteSystemCommand}" CommandParameter="Move"></MenuItem>
                     <MenuItem Header="旋转" Command="{Binding ExecuteSystemCommand}" CommandParameter="Rotate"></MenuItem>
-                    <MenuItem Header="移动+旋转" Command="{Binding ExecuteSystemCommand}" CommandParameter="Transform"></MenuItem>                    
+                    <MenuItem Header="移动+旋转" Command="{Binding ExecuteSystemCommand}" CommandParameter="Transform"></MenuItem>
+                    <Separator></Separator>
+                    <MenuItem Header="自定义位置调整" Command="{Binding CreateObjectCommand}" CommandParameter="My.AdjustLocation"></MenuItem>
                 </MenuItem>
                 <MenuItem  Header="过滤器" Background="#00000000">
                     <MenuItem  Header="选对象" Command="{Binding PickByObjectCommand}"/>

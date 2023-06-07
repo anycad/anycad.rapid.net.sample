@@ -1,5 +1,7 @@
 ﻿using AnyCAD.Drawing;
 using AnyCAD.Foundation;
+using AnyCAD.NX.Command;
+using AnyCAD.NX.Controls;
 using AnyCAD.NX.Settings;
 using AnyCAD.NX.View;
 using AnyCAD.NX.ViewModel;
@@ -27,7 +29,7 @@ namespace AnyCAD.WPF
         { 
             _BasicSamples = TestCaseLoader.LoadBasic();
             _AdvSamples = TestCaseLoader.LoadAdv();
-            PropertyChanged += ViewModel_PropertyChanged;
+            PropertyChanged += ViewModel_PropertyChanged;            
         }
 
         public void ViewReady()
@@ -38,6 +40,24 @@ namespace AnyCAD.WPF
                 MousePosition = $"{pt.x} {pt.y} {pt.z}";
                 return true;
             });
+
+            mRenderView.SetAnimationCallback((ViewerListener.AnimationHandler)((float timer) =>
+            {
+                Demo.TestCase.RunAnimation(mRenderView, timer);
+            }));
+
+            DoInitialize();
+        }
+
+        protected override void OnViewSelectionChanged(PickedResult result)
+        {
+            Demo.TestCase.SelectionChanged(mRenderView, result);
+            UpdateSelectionInfo(result);
+        }
+
+        protected override ICommandView OnCreateCommandView(CommandContext ctx, string title)
+        {
+            return new AuCommandView(ctx, title);
         }
 
         public void UpdateSelectionInfo(PickedResult pr)

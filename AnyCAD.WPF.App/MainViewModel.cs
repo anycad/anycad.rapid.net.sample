@@ -166,7 +166,7 @@ namespace AnyCAD.WPF
                 var shape = ShapeIO.Open(dlg.FileName);
                 if (shape == null)
                     return;
-                node = BrepSceneNode.Create(shape, null, null);
+                node = BrepSceneNode.Create(shape, null, null, 0, false);
             });
             pv.ShowDialog();
 

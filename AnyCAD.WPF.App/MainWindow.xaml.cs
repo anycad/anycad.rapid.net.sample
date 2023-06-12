@@ -36,7 +36,7 @@ namespace AnyCAD.WPF
             var node = treeView.SelectedItem as TreeViewItem;
             if (node == null)
                 return;
-            Demo.TestCase.CreateTest(node.Tag, this.mRenderCtrl.View3D);
+            Demo.TestCase.CreateTest(node.Tag, this.mRenderCtrl);
         }
 
         private void RenderCtrl_ViewerReady()

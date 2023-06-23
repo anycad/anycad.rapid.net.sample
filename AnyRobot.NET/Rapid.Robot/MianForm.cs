@@ -52,9 +52,9 @@ namespace RapidRobot
             this.progressBar1.Visible = true;
            var name = mMachineFactory.Load(dlg.FileName, (int progress)=>
            {
-               this.progressBar1.Value = progress;
+              this.progressBar1.Value = progress;
            });
-            this.progressBar1.Visible = false;
+           this.progressBar1.Visible = false;
 
             if(name.Length == 0)
             {

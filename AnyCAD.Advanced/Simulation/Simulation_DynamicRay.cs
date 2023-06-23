@@ -49,7 +49,7 @@ namespace AnyCAD.Demo.Graphics
             }
 
 
-            mMotionTrail = new ParticleSceneNode((uint)mPoints.Count, ColorTable.Green, 3.0f);
+            mMotionTrail = new ParticleSceneNode((uint)mPoints.Count, ColorTable.Green, 10.0f);
 
             mCurrentIdx = 0;
 
@@ -132,8 +132,13 @@ namespace AnyCAD.Demo.Graphics
             mGo = new RigidAnimation();
             mGo.Add(new MoveAnimationClip(mDevice, new Vector3(-200, -200, 0), 0, 5));
 
-        }
+            render.EnableAnimation(true);
 
+        }
+        public override void Exit(IRenderView render)
+        {
+            render.EnableAnimation(false);
+        }
 
         int step = 0;
         public override void Animation(IRenderView render, float time)

@@ -42,6 +42,13 @@ namespace AnyCAD.Demo.Graphics
             node.SetCulling(false);
 
             render.ShowSceneNode(node);
+
+            render.EnableAnimation(true);
+        }
+
+        public override void Exit(IRenderView render)
+        {
+            render.EnableAnimation(false);
         }
 
         public override void Animation(IRenderView render, float time)

@@ -44,6 +44,13 @@ namespace AnyCAD.Demo.Graphics
 
             render.ShowSceneNode(ConeNode1);
             render.ShowSceneNode(ConeNode2);
+
+            render.EnableAnimation(true);
+        }
+
+        public override void Exit(IRenderView render)
+        {
+            render.EnableAnimation(false);
         }
 
         public override void Animation(IRenderView render, float time)

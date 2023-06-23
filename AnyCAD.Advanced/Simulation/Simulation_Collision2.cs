@@ -42,6 +42,12 @@ namespace AnyCAD.Demo.Graphics
             render.ShowSceneNode(mObject1);
             render.ShowSceneNode(mObject2);
 
+            render.EnableAnimation(true);
+        }
+
+        public override void Exit(IRenderView render)
+        {
+            render.EnableAnimation(false);
         }
 
         float mDistance = -200;

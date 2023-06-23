@@ -37,6 +37,12 @@ namespace AnyCAD.Demo.Graphics
             render.ShowSceneNode(mParticle);
 
             render.ShowSceneNode(mTargetNode);
+
+            render.EnableAnimation(true);
+        }
+        public override void Exit(IRenderView render)
+        {
+            render.EnableAnimation(false);
         }
 
         float _Angle = -30;

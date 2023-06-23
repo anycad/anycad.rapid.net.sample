@@ -37,8 +37,15 @@ namespace AnyCAD.Demo.Graphics
             mAnimation.Add(new MatrixAnimationClip(mWorkpiece, mWorkpiece.GetTransform(), trf, 0, 10));
             mAnimation.Add(new MatrixAnimationClip(toolNode, toolNode.GetTransform(), trf, 10, 15));
             mAnimation.Add(new RotateAnimationClip(toolNode, Vector3.UNIT_Z, (float)Math.PI*4, 16, 20));
+
+            render.EnableAnimation(true);
         }
-        
+
+        public override void Exit(IRenderView render)
+        {
+            render.EnableAnimation(false);
+        }
+
         uint mCount = 0;
         public override void Animation(IRenderView render, float time)
         {

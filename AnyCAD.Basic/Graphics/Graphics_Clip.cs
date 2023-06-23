@@ -34,6 +34,8 @@ namespace AnyCAD.Demo.Graphics
 
             var planeNode = BrepSceneNode.Create(planes, material, edgeMaterial);
             render.ShowSceneNode(planeNode);
+
+            render.EnableAnimation(true);
         }
         public override void Animation(IRenderView render, float time)
         {
@@ -42,6 +44,7 @@ namespace AnyCAD.Demo.Graphics
         public override void Exit(IRenderView render)
         {
             mClipView.Finish(render.ViewContext);
+            render.EnableAnimation(false);
         }
     }
 }

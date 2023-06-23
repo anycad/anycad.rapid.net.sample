@@ -20,8 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AnyCAD.SourceGenerator.Tools" Version="1.0.9" />
-    <PackageReference Include="AnyCAD.UIFramework.NET" Version="2023.6.12.814" />
+    <PackageReference Include="AnyCAD.SourceGenerator.Tools" Version="1.1.1" />
+    <PackageReference Include="AnyCAD.UIFramework.NET" Version="2023.6.23.1044" />
   </ItemGroup>
 
   <ItemGroup>

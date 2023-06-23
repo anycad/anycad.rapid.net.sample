@@ -33,6 +33,7 @@
             this.openFastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openSTEPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openAdvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
@@ -122,7 +123,8 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openFastToolStripMenuItem,
             this.openSTEPToolStripMenuItem,
-            this.importToolStripMenuItem});
+            this.importToolStripMenuItem,
+            this.openAdvToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(80, 39);
             this.fileToolStripMenuItem.Text = "File";
@@ -147,6 +149,13 @@
             this.importToolStripMenuItem.Size = new System.Drawing.Size(512, 48);
             this.importToolStripMenuItem.Text = "Open STL";
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
+            // 
+            // openAdvToolStripMenuItem
+            // 
+            this.openAdvToolStripMenuItem.Name = "openAdvToolStripMenuItem";
+            this.openAdvToolStripMenuItem.Size = new System.Drawing.Size(512, 48);
+            this.openAdvToolStripMenuItem.Text = "Open Adv...";
+            this.openAdvToolStripMenuItem.Click += new System.EventHandler(this.openAdvToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -567,7 +576,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.listBox1);
             this.splitContainer2.Size = new System.Drawing.Size(423, 1426);
-            this.splitContainer2.SplitterDistance = 1141;
+            this.splitContainer2.SplitterDistance = 1140;
             this.splitContainer2.SplitterWidth = 12;
             this.splitContainer2.TabIndex = 1;
             // 
@@ -577,7 +586,7 @@
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(423, 1141);
+            this.treeView1.Size = new System.Drawing.Size(423, 1140);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
@@ -589,7 +598,7 @@
             this.listBox1.Location = new System.Drawing.Point(0, 0);
             this.listBox1.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(423, 273);
+            this.listBox1.Size = new System.Drawing.Size(423, 274);
             this.listBox1.TabIndex = 0;
             // 
             // MainForm
@@ -684,6 +693,7 @@
         private System.Windows.Forms.ToolStripMenuItem filterEdgeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem filterFaceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem filterResetToolStripMenuItem;
+        private ToolStripMenuItem openAdvToolStripMenuItem;
     }
 }
 

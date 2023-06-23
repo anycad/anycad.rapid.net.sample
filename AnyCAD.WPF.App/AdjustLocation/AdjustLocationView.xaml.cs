@@ -1,5 +1,6 @@
 ﻿using AnyCAD.NX.Command;
 using AnyCAD.NX.Controls;
+using AnyCAD.NX.View;
 using AnyCAD.NX.ViewModel;
 
 namespace AnyCAD.WPF.AdjustLocation
@@ -7,7 +8,7 @@ namespace AnyCAD.WPF.AdjustLocation
     /// <summary>
     /// AdjustLocationView.xaml 的交互逻辑
     /// </summary>
-    public partial class AdjustLocationView : AuStackView
+    public partial class AdjustLocationView : AuSubView
     {
         public AdjustLocationView()
         {
@@ -33,9 +34,9 @@ namespace AnyCAD.WPF.AdjustLocation
             return new AdjustLocationViewModel();
         }
 
-        public override AuStackView CreateView(TransientViewModel vm)
+        public override void CreateView(ICommandView view, TransientViewModel vm)
         {
-            return new AdjustLocationView();
+            view.AddView(new AdjustLocationView());
         }
     }
 }

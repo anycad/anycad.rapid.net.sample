@@ -27,6 +27,12 @@ namespace AnyCAD.WPF
             UICommandManager.Instance.Register(Assembly.GetExecutingAssembly());
         }
 
+        private void Window_StateChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState == WindowState.Maximized || this.WindowState == WindowState.Normal)
+                mRenderCtrl.ForceUpdate();
+        }
+
         private void Browser_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             TreeView treeView= (TreeView)sender;

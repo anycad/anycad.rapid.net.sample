@@ -14,12 +14,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AnyCAD.Rapid.NET" Version="2023.6.12.814" />
+    <PackageReference Include="AnyCAD.Rapid.NET" Version="2023.6.23.1044" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AnyCAD.Advanced\AnyCAD.Advanced.csproj" />
     <ProjectReference Include="..\AnyCAD.Basic\AnyCAD.Basic.csproj" />
+    <ProjectReference Include="..\ThirdParty\FileDlgExtenders\FileDlgExtenders.csproj" />
   </ItemGroup>
 
   <ItemGroup>

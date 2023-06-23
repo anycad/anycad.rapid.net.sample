@@ -1,6 +1,7 @@
 ﻿using AnyCAD.Exchange;
 using AnyCAD.Forms;
 using AnyCAD.Foundation;
+using AnyCAD.WinForms.App.Dialog;
 using System.Reflection;
 
 namespace AnyCAD.Demo
@@ -409,6 +410,12 @@ namespace AnyCAD.Demo
         private void 单选ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mRenderView.ViewContext.SetRectPick(false);
+        }
+
+        private void openAdvToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ModelFileDialogControl dialogControl= new ModelFileDialogControl();
+            dialogControl.ShowDialog();
         }
     }
 }

@@ -17,9 +17,24 @@ namespace AnyCAD.Demo.Graphics
             if (node == null)
                 return;
             render.ShowSceneNode(node);
+            PrimitiveShape mesh = null;
             // 获取Mesh
             var nodeSS = ShapeSceneNode.Cast(node);
-            PrimitiveShape mesh = nodeSS.GetPrimitive(0);
+            if(nodeSS !=null)
+            {
+                mesh = nodeSS.GetPrimitive(0);
+            }
+            else
+            {
+                var nodePS = PrimitiveSceneNode.Cast(node);
+                if (nodePS != null)
+                {
+                    mesh = nodePS.GetPrimitive();
+                }
+            }
+            if (mesh == null)
+                return;
+
             var geom = mesh.GetGeometry();
 
             //在中间砍一刀

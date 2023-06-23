@@ -39,28 +39,31 @@ dotnet msbuild AnyCAD.Rapid.Avalonia.sln
 
 ### 2.1 建模
 
-![boolean](showcase/boolean.png)
+- 布尔运算
+![pCY0cMq.md.png](https://s1.ax1x.com/2023/06/23/pCY0cMq.md.png)
 
-![sweep](showcase/slice.png)
+- 特征识别
+![pCY0rGj.md.png](https://s1.ax1x.com/2023/06/23/pCY0rGj.md.png)
 
+- 几何造型
 
-![hole](showcase/holes.png)
+![pCY0hoF.md.png](https://s1.ax1x.com/2023/06/23/pCY0hoF.md.png)
 
-![spring](showcase/spring.png)
+![pCY0IJJ.md.png](https://s1.ax1x.com/2023/06/23/pCY0IJJ.md.png)
 
 
 ### 2.2 显示
-![CAE](showcase/cae.png)
+![pCY0XdO.md.png](https://s1.ax1x.com/2023/06/23/pCY0XdO.md.png)
 
-![dimension](showcase/dimension.png)
+![pCY0sRs.md.png](https://s1.ax1x.com/2023/06/23/pCY0sRs.md.png)
 
-![matplot](showcase/matplot.png)
+![pCY0bsx.md.png](https://s1.ax1x.com/2023/06/23/pCY0bsx.md.png)
 
 
 
 ### 2.3 交互
 
-![move](showcase/rotate.png)
+![pCY0fdU.md.png](https://s1.ax1x.com/2023/06/23/pCY0fdU.md.png)
 
 ### 2.4 跨平台Linux
 
@@ -71,7 +74,7 @@ dotnet msbuild AnyCAD.Rapid.Avalonia.sln
 
 ### 2.4 Featured App
 [Robot.NET](https://gitee.com/anycad/anycad.rapid.net.sample/AnyRobot.NET)
-![Robot](showcase/robot.png)
+[![pCY0WZT.md.png](https://s1.ax1x.com/2023/06/23/pCY0WZT.md.png)](https://imgse.com/i/pCY0WZT)
 
 ## 3 Documentation
 

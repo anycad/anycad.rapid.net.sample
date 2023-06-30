@@ -7,7 +7,7 @@ namespace AnyCAD.Demo.Geometry
         public override void Run(IRenderView render)
         {
             var box = ShapeBuilder.MakeBox(GP.XOY(), 10, 10, 10);
-            var sphere = ShapeBuilder.MakeSphere(GP.Origin(), 5);
+            var sphere = ShapeBuilder.MakeBox(new GAx2(new GPnt(5,5,0), new GDir(0,0,1)), 10, 10, 10);
 
             render.ShowShape(box, ColorTable.Red);
             render.ShowShape(sphere, ColorTable.Blue);
@@ -28,10 +28,10 @@ namespace AnyCAD.Demo.Geometry
             node.RequestUpdate();
 
             var fuse = BooleanTool.Fuse(box, sphere);
+            fuse = BooleanTool.Unify(fuse, true, true, true);
             node = render.ShowShape(fuse, ColorTable.LightYellow);
             node.SetTransform(Matrix4.makeTranslation(20, 0, 0));
             node.RequestUpdate();
-
         }
     }
 }

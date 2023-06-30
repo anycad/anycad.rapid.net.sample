@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:AnyCAD.WPF"
         xmlns:Metro="http://metro.mahapps.com/winfx/xaml/controls"
         mc:Ignorable="d"
+        SaveWindowPosition="True"
         d:DataContext="{d:DesignInstance Type=local:MainViewModel}"
         Title="AnyCAD三维图形平台: 功能展示" Height="600" Width="1024" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" StateChanged="Window_StateChanged">
     <Metro:MetroWindow.RightWindowCommands>

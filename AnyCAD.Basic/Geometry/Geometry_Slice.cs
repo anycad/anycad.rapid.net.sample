@@ -24,7 +24,7 @@ namespace AnyCAD.Demo.Geometry
             material.SetTransparent(true);
             material.SetOpacity(0.6f);
 
-            var node = BrepSceneNode.Create(shape, material, null);
+            var node = BrepSceneNode.Create(shape, material, null,0, true);
             node.SetDisplayFilter(EnumShapeFilter.Face);
             render.ShowSceneNode(node);
         }

@@ -1,10 +1,5 @@
-using AnyCAD.Demo;
 using AnyCAD.Foundation;
 using Avalonia.Controls;
-using Avalonia.Interactivity;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace AnyCAD.AvaloniaApp
 {

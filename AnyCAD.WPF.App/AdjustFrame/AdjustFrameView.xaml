@@ -1,0 +1,130 @@
+﻿<au:AuSubView x:Class="AnyCAD.WPF.AdjustFrame.AdjustFrameView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:au ="clr-namespace:AnyCAD.NX.Controls;assembly=AnyCAD.NX.Controls"
+        xmlns:local="clr-namespace:AnyCAD.WPF.AdjustFrame"
+        mc:Ignorable="d" 
+        d:DesignWidth="260"
+        d:DataContext="{d:DesignInstance Type=local:AdjustFrameViewModel}"
+                >
+    <Expander Header="操作对象" IsExpanded="True">
+        <StackPanel Margin="7,7,7,0" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,7" HorizontalAlignment="Center">
+                <au:AuStepButton Content="选择对象" Margin="0,0,7,0"
+                                         IsChecked ="{Binding SourceObjectChecked, Mode=OneWay}"
+                                         IsStateFocused="{Binding SourceObjectFocused, Mode=OneWay}"
+                                         StepName ="SourceObject"
+                                         Click="OnClickStep"/>
+            </StackPanel>
+        </StackPanel>
+    </Expander>
+    <Expander Header="初始姿态" IsExpanded="True">
+        <StackPanel Margin="7,7,7,0" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,7">
+                <au:AuStepButton Content="第一个点：原点" Margin="0,0,7,0"
+                                         IsChecked ="{Binding SourceFrameOriginChecked, Mode=OneWay}"
+                                         IsStateFocused="{Binding SourceFrameOriginFocused, Mode=OneWay}"
+                                         StepName ="SourceFrameOrigin"
+                                         Click="OnClickStep"/>
+                <au:AuImageButton Click="OnChoosePoint"                                  
+                                  IsStateFocused="{Binding SourceFrameOriginFocused, Mode=OneWay}"
+                                  StepName ="SourceFrameOrigin"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,7">
+                <au:AuNumericBox  Width="70" Value="{Binding SourceFrameOriginX}" Margin="0,0,7,0"/>
+                <au:AuNumericBox  Width="70" Value="{Binding SourceFrameOriginY}" Margin="0,0,7,0"/>
+                <au:AuNumericBox  Width="70" Value="{Binding SourceFrameOriginZ}" Margin="0,0,7,0"/>
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,7">
+                <au:AuStepButton Content="第二个点：确定X轴方向" Margin="0,0,7,0"
+                                        IsChecked ="{Binding SourceFrameXdirChecked, Mode=OneWay}"
+                                        IsStateFocused="{Binding SourceFrameXdirFocused, Mode=OneWay}"
+                                        StepName ="SourceFrameXdir"
+                                        Click="OnClickStep"/>
+                <au:AuImageButton Click="OnChoosePoint"                                  
+                                IsStateFocused="{Binding SourceFrameXdirFocused, Mode=OneWay}"
+                                StepName ="SourceFrameXdir"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,7">
+                <au:AuNumericBox  Width="70" Value="{Binding SourceFrameXdirX}" Margin="0,0,7,0"/>
+                <au:AuNumericBox  Width="70" Value="{Binding SourceFrameXdirY}" Margin="0,0,7,0"/>
+                <au:AuNumericBox  Width="70" Value="{Binding SourceFrameXdirZ}" Margin="0,0,7,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,7">
+                <au:AuStepButton Content="第三个点：确定Z轴方向" Margin="0,0,7,0"
+                                        IsChecked ="{Binding SourceFrameZdirChecked, Mode=OneWay}"
+                                        IsStateFocused="{Binding SourceFrameZdirFocused, Mode=OneWay}"
+                                        StepName ="SourceFrameZdir"
+                                        Click="OnClickStep"/>
+                <au:AuImageButton Click="OnChoosePoint"                                  
+                                IsStateFocused="{Binding SourceFrameZdirFocused, Mode=OneWay}"
+                                StepName ="SourceFrameXdir"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,7">
+                <au:AuNumericBox  Width="70" Value="{Binding SourceFrameZdirX}" Margin="0,0,7,0"/>
+                <au:AuNumericBox  Width="70" Value="{Binding SourceFrameZdirY}" Margin="0,0,7,0"/>
+                <au:AuNumericBox  Width="70" Value="{Binding SourceFrameZdirZ}" Margin="0,0,7,0"/>
+            </StackPanel>
+            
+        </StackPanel>
+
+    </Expander>
+    <Expander Header="目标姿态" IsExpanded="True">
+        <StackPanel Margin="7,7,7,0" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,7">
+                <au:AuStepButton Content="第一个点：原点" Margin="0,0,7,0"
+                                         IsChecked ="{Binding TargetFrameOriginChecked, Mode=OneWay}"
+                                         IsStateFocused="{Binding TargetFrameOriginFocused, Mode=OneWay}"
+                                         StepName ="TargetFrameOrigin"
+                                         Click="OnClickStep"/>
+                <au:AuImageButton Click="OnChoosePoint"                                  
+                                  IsStateFocused="{Binding TargetFrameOriginFocused, Mode=OneWay}"
+                                  StepName ="TargetFrameOrigin"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,7">
+                <au:AuNumericBox  Width="70" Value="{Binding TargetFrameOriginX}" Margin="0,0,7,0"/>
+                <au:AuNumericBox  Width="70" Value="{Binding TargetFrameOriginY}" Margin="0,0,7,0"/>
+                <au:AuNumericBox  Width="70" Value="{Binding TargetFrameOriginZ}" Margin="0,0,7,0"/>
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,7">
+                <au:AuStepButton Content="第二个点：确定X轴方向" Margin="0,0,7,0"
+                                        IsChecked ="{Binding TargetFrameXdirChecked, Mode=OneWay}"
+                                        IsStateFocused="{Binding TargetFrameXdirFocused, Mode=OneWay}"
+                                        StepName ="TargetFrameXdir"
+                                        Click="OnClickStep"/>
+                <au:AuImageButton Click="OnChoosePoint"                                  
+                                IsStateFocused="{Binding TargetFrameXdirFocused, Mode=OneWay}"
+                                StepName ="TargetFrameXdir"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,7">
+                <au:AuNumericBox  Width="70" Value="{Binding TargetFrameXdirX}" Margin="0,0,7,0"/>
+                <au:AuNumericBox  Width="70" Value="{Binding TargetFrameXdirY}" Margin="0,0,7,0"/>
+                <au:AuNumericBox  Width="70" Value="{Binding TargetFrameXdirZ}" Margin="0,0,7,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,7">
+                <au:AuStepButton Content="第三个点：确定Z轴方向" Margin="0,0,7,0"
+                                        IsChecked ="{Binding TargetFrameZdirChecked, Mode=OneWay}"
+                                        IsStateFocused="{Binding TargetFrameZdirFocused, Mode=OneWay}"
+                                        StepName ="TargetFrameZdir"
+                                        Click="OnClickStep"/>
+                <au:AuImageButton Click="OnChoosePoint"                                  
+                                IsStateFocused="{Binding TargetFrameZdirFocused, Mode=OneWay}"
+                                StepName ="TargetFrameXdir"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,7">
+                <au:AuNumericBox  Width="70" Value="{Binding TargetFrameZdirX}" Margin="0,0,7,0"/>
+                <au:AuNumericBox  Width="70" Value="{Binding TargetFrameZdirY}" Margin="0,0,7,0"/>
+                <au:AuNumericBox  Width="70" Value="{Binding TargetFrameZdirZ}" Margin="0,0,7,0"/>
+            </StackPanel>
+
+        </StackPanel>
+    </Expander>
+</au:AuSubView>

@@ -29,9 +29,11 @@
                 </MenuItem>
                 <MenuItem  Header="过滤器" Background="#00000000">
                     <MenuItem  Header="选对象" Command="{Binding PickByObjectCommand}"/>
-                    <MenuItem  Header="选元素" Command="{Binding PickByPrimitiveCommand}"/>
+                    <MenuItem  Header="选元素（点、边、面）" Command="{Binding PickByPrimitiveCommand}"/>
+                    <MenuItem  Header="选边" Command="{Binding PickEdgeCommand}"/>                    
                     <MenuItem  Header="选择模式：点选/框选" Command="{Binding PickByRectCommand}"/>
                     <Separator Height="3"></Separator>
+                    
                 </MenuItem>
                 <MenuItem Header="视图" Background="#00000000">
                     <MenuItem Header="网格可见性" Command="{Binding ShowGridCommand}">

@@ -220,6 +220,11 @@ namespace AnyCAD.WPF
             }
         }
 
+        [RelayCommand]
+        void OnPickEdge()
+        {
+            Viewer.GetContext().SetPickFilter((uint)EnumShapeFilter.Edge);
+        }
 
         ConfirmInputView? _ConfirmInputView = null;
         private void ViewModel_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)

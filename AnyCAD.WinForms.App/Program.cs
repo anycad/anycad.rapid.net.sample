@@ -12,6 +12,7 @@ namespace AnyCAD.Demo
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             AnyCAD.Foundation.GlobalInstance.Initialize();
+            AnyCAD.Foundation.DocumentIO.Initialize();
             Application.Run(new MainForm());
             AnyCAD.Foundation.GlobalInstance.Destroy();
         }

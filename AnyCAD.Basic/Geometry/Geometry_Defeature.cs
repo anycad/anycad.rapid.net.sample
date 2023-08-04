@@ -3,7 +3,7 @@
 
 namespace AnyCAD.Demo.Geometry
 {
-    class Geometry_Defeature : TestCase
+    class Geometry_PosAxis : TestCase
     {
         public override void Run(IRenderView render)
         {
@@ -18,7 +18,7 @@ namespace AnyCAD.Demo.Geometry
             foreach( var face in faces )
             {
                 var newShape = FixShapeTool.RemoveInternalWires(face, 100000);
-                render.ShowShape(newShape, ColorTable.LightBLue);
+                render.ShowShape(newShape, ColorTable.LightBlue);
             }
 
         }

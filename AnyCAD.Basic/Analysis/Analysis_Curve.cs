@@ -11,7 +11,7 @@ namespace AnyCAD.Demo.Geometry
             renderer.ShowShape(ellipse, ColorTable.Blue);
 
             ParametricCurve pc = new ParametricCurve(ellipse);
- 
+
             var paramsList = pc.SplitByUniformLength(1, 0.01);
 
             uint itemCount = (uint)paramsList.Count;
@@ -19,7 +19,7 @@ namespace AnyCAD.Demo.Geometry
             var lines = new SegmentsSceneNode(itemCount, ColorTable.Red, 2);
 
             Random random = new Random();
-            for (int ii=0; ii< paramsList.Count; ++ii)
+            for (int ii = 0; ii < paramsList.Count; ++ii)
             {
                 var value = pc.D1(paramsList[ii]);
                 var pos = value.GetPoint();
@@ -36,4 +36,5 @@ namespace AnyCAD.Demo.Geometry
             renderer.ShowSceneNode(lines);
         }
     }
+ 
 }

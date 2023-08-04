@@ -25,7 +25,7 @@ namespace AnyCAD.Demo
         {
 
             // Selection changed
-            mRenderView.SetSelectCallback((ViewerListener.AfterSelectHandler)((PickedResult result) =>
+            mRenderView.SetSelectCallback((PickedResult result) =>
             {
                 mSelectedItm = 0;
                 this.listBox1.Items.Clear();
@@ -75,7 +75,7 @@ namespace AnyCAD.Demo
                     }
                     
                 }
-            }));
+            });
 
             mRenderView.SetAnimationCallback((ViewerListener.AnimationHandler)((float timer) =>
             {

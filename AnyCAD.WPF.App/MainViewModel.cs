@@ -29,7 +29,7 @@ namespace AnyCAD.WPF
         { 
             _BasicSamples = TestCaseLoader.LoadBasic();
             _AdvSamples = TestCaseLoader.LoadAdv();
-            PropertyChanged += ViewModel_PropertyChanged;            
+            PropertyChanged += ViewModel_PropertyChanged;
         }
 
         public void ViewReady()
@@ -71,6 +71,7 @@ namespace AnyCAD.WPF
                 {
                     var item = itr.Current();
                     msg += $"\nNodeId: {item.GetNodeId()}";
+                    msg += $"\nObjectId: {item.GetObjectId().Value}";
                     msg += $"\nUserId: {item.GetUserId()}";
                     msg += $"\nShapeId: {item.GetShapeIndex()}";
                     msg += $"\nPrimitiveId: {item.GetPrimitiveIndex()}";
@@ -161,14 +162,14 @@ namespace AnyCAD.WPF
                 return;
 
             SceneNode? node = null;
-            ProgressView pv = new ProgressView(() =>
+            var pv = new ProgressView();
+            pv.Run(() =>
             {
                 var shape = ShapeIO.Open(dlg.FileName);
                 if (shape == null)
                     return;
                 node = BrepSceneNode.Create(shape, null, null, 0, false);
             });
-            pv.ShowDialog();
 
             if (node == null)
                 return;
@@ -189,11 +190,11 @@ namespace AnyCAD.WPF
                 return;
 
             SceneNode? node = null;
-            ProgressView pv = new ProgressView(() =>
+            var pv = new ProgressView();
+            pv.Run(() =>
             {
                 node = SceneIO.Load(dlg.FileName);
             });
-            pv.ShowDialog();
 
             if (node == null)
                 return;

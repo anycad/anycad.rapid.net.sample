@@ -50,6 +50,13 @@ namespace AnyCAD.Demo.Graphics
                 var tag = TagNode2D.Create(text, new Vector3(10, 10, 0), new Vector3(0));
                 render.ShowSceneNode(tag);
             }
+
+            //{
+            //    var text = TextSceneNode.Create("固定大小的文字", ColorTable.Red, 14, true);
+            //    TagNode2D tag = TagNode2D.Create(text, new Vector3(10));
+            //    render.ShowSceneNode(tag);
+            //}
+
         }
     }
 }

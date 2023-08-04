@@ -14,7 +14,7 @@ namespace AnyCAD.Demo.Geometry
 
             var face = BooleanTool.Fuse(face1, face2);
 
-            render.ShowShape(face, ColorTable.LightBLue);
+            render.ShowShape(face, ColorTable.LightBlue);
         }
     }
 }

@@ -55,7 +55,7 @@ namespace AnyCAD.WPF
             UpdateSelectionInfo(result);
         }
 
-        protected override ICommandView OnCreateCommandView(CommandContext ctx, string title)
+        protected override ICommandView OnCreateCommandView(UICommandContext ctx, string title)
         {
             return new AuCommandView(ctx, title);
         }

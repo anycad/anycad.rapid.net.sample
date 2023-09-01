@@ -23,7 +23,7 @@ namespace AnyCAD.Demo.Graphics
                 fontMaterial.SetBackground(new Vector3(0, 0, 1));
                 fontMaterial.SetBillboard(true);
 
-                var dim = fontMaterial.SetText("Hello 世界!", 128, "LS");
+                var dim = fontMaterial.SetText(" Hello 世界! ", 128, "LS");
                 var shape = GeometryBuilder.CreatePlane(dim.x * 0.1f, dim.y * 0.1f);
 
                 var node = new PrimitiveSceneNode(shape, fontMaterial);

@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AnyCAD.Foundation.NET" Version="2023.7.28.918" />
+    <PackageReference Include="AnyCAD.Foundation.NET" Version="2023.9.1.903" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 

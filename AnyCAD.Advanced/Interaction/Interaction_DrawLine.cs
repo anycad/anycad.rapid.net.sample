@@ -53,13 +53,8 @@ namespace AnyCAD.Demo.Graphics
         {            
             if(mStartPt == null)
             {
-                var ray = ctx.WindowPointToRay((uint)evt.GetX(), (uint)evt.GetY());
-                var hit = ray.intersects(new Plane(new Vector3(0, 0, 1), new Vector3(0)));
-                if(hit.first)
-                {
-                    mStartPt = ray.getPoint(hit.second);
-                }
-                
+                var pick = ctx.SnapPoint(evt.GetX(), evt.GetY());
+                mStartPt = pick.GetPosition();
             }
             else
             {
@@ -83,14 +78,10 @@ namespace AnyCAD.Demo.Graphics
         {
             if (mStartPt != null)
             {
-                var ray = ctx.WindowPointToRay((uint)evt.GetX(), (uint)evt.GetY());
-                var hit = ray.intersects(new Plane(new Vector3(0, 0, 1), new Vector3(0)));
-                if (hit.first)
-                {
-                    var pt = ray.getPoint(hit.second);
-                    Update(mStartPt.ToPnt(), pt.ToPnt());
-                    ctx.RequestUpdate(EnumUpdateFlags.Scene);
-                }
+                var pick = ctx.SnapPoint(evt.GetX(), evt.GetY());
+                var pt = pick.GetPosition();
+                Update(mStartPt.ToPnt(), pt.ToPnt());
+                ctx.RequestUpdate(EnumUpdateFlags.Scene);
             }
             return base.OnMouseMove(ctx, evt);
         }

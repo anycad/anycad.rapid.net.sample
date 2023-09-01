@@ -46,6 +46,17 @@ namespace AnyCAD.Demo.Geometry
 
             return midProf;
         }
+
+        public void OffsetArc(IRenderView render)
+        {
+            var arc = SketchBuilder.MakeArcOfCircle(new GCirc(GP.XOY(), 10), System.Math.PI * 0.25, System.Math.PI*0.75);
+
+            var arc2 = FeatureTool.OffsetWire(arc, 1, 0, EnumGeomJoinType.Arc, true);
+
+            render.ShowShape(arc, ColorTable.AliceBlue);
+            render.ShowShape(arc2, ColorTable.DarkRed);
+        }
+
         public override void Run(IRenderView render)
         {
             //var sketch = SketchBuilder.MakeRectangle(GP.XOY(), 100, 50, 5, false);
@@ -63,6 +74,8 @@ namespace AnyCAD.Demo.Geometry
             var topShp2 = Test(15.6);
             render.ShowShape(topShp, ColorTable.Red);
             render.ShowShape(topShp2, ColorTable.Green);
+
+            OffsetArc(render);
         }
     }
 }

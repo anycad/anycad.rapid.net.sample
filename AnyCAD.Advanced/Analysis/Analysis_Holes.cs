@@ -5,11 +5,7 @@ namespace AnyCAD.Demo.Geometry
     {
         public override void Run(IRenderView renderer)
         {
-            var fullPath = DialogUtil.OpenFileDialog("选择模型文件", new StringList(new string[] { "CAD Files (.igs .iges .stp .step .brep)", "*.igs *.iges *.stp *.step *.brep" }));
-            if (fullPath.IsEmpty())
-                return;
-
-            var shape = ShapeIO.Open(fullPath);
+            var shape = ShapeIO.Open(OpenModelFile());
             if (shape == null)
                 return;
 

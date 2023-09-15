@@ -57,6 +57,17 @@ namespace AnyCAD.Demo.Geometry
             tra = FeatureTool.Extrude(tra, 100, GP.DY());
             render.ShowShape(tra, Vector3.ColorFromHex(shapeColor));
 
+            var offset = FeatureTool.OffsetShape(tra, 5, EnumGeomJoinType.Intersection);
+
+            if(offset != null)
+            {
+                var material = MeshPhongMaterial.Create("transparent");
+                material.SetOpacity(0.5f);
+                material.SetTransparent(true);
+
+                var node = BrepSceneNode.Create(offset, material, null);
+                render.ShowSceneNode(node);
+            }
         }
 
         private uint shapeColor = 0x1d953f;

@@ -16,7 +16,7 @@ namespace AnyCAD.Demo.Graphics
 			varying vec2 vUv;
 			void main()	{
 				vUv = uv;
-				gl_Position = vec4( position, 1.0 );
+				gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
 			}                    
             ",
             @"
@@ -72,7 +72,7 @@ namespace AnyCAD.Demo.Graphics
 				mMaterial = MaterialManager.Instance().Create("blackHole_instance", template);
 			}
 
-			var plane = GeometryBuilder.CreatePlane(2, 2);
+			var plane = GeometryBuilder.CreatePlane(1000, 1000);
 			var node = new PrimitiveSceneNode(plane, mMaterial);
 
 			node.SetPickable(false);

@@ -6,10 +6,12 @@ namespace AnyCAD.Demo.Geometry
     {
         public override void Run(IRenderView render)
         {
-            var solid = ShapeBuilder.MakeCylinder(new GAx2(), 10, 10, System.Math.PI/4 * 5);
+            //var solid = ShapeBuilder.MakeCylinder(new GAx2(), 10, 10, System.Math.PI/4 * 5);
+            var solid = ShapeIO.Open(OpenModelFile());            
 
+            render.ShowShape(solid, ColorTable.Red);
             {
-                var ss = FeatureTool.OffsetShape(solid, 3, EnumGeomJoinType.Intersection);
+                var ss = FeatureTool.OffsetShape(solid, 0.1, EnumGeomJoinType.Intersection);
                 if (ss == null)
                     return;
 
@@ -22,7 +24,7 @@ namespace AnyCAD.Demo.Geometry
                 var node = BrepSceneNode.Create(ss, material, null);
                 render.ShowSceneNode(node);
             }
-            render.ShowShape(solid, ColorTable.Red);
+            
         }
     }
 }

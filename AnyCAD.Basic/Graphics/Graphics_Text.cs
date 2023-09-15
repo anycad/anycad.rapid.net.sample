@@ -24,11 +24,11 @@ namespace AnyCAD.Demo.Graphics
                 fontMaterial.SetBillboard(true);
 
                 var dim = fontMaterial.SetText(" Hello 世界! ", 128, "LS");
-                var shape = GeometryBuilder.CreatePlane(dim.x * 0.1f, dim.y * 0.1f);
+                var shape = GeometryBuilder.CreatePlane(dim.x * 0.05f, dim.y * 0.05f);
 
                 var node = new PrimitiveSceneNode(shape, fontMaterial);
                 node.SetPickable(false);
-
+                node.SetTransform(Matrix4.makeTranslation(new Vector3(100, -100, 100)));
                 render.ShowSceneNode(node);
             }
             {
@@ -38,11 +38,12 @@ namespace AnyCAD.Demo.Graphics
 
                 var mesh = FontManager.Instance().CreateMesh("为中华之崛起而代码！");
                 var node = new PrimitiveSceneNode(mesh, fixedSizeMaterial);
-                var scale = 1 / 22.0f;
-                node.SetTransform(Matrix4.makeTranslation(0, 10, 10) * Matrix4.makeScale(scale, scale, scale));
+                var scale = 1 / 44.0f;
+                node.SetTransform(Matrix4.makeTranslation(10, 10, 10) * Matrix4.makeScale(scale, scale, scale));
                 node.SetPickable(false);
 
                 render.ShowSceneNode(node);
+                
             }
 
             {
@@ -51,6 +52,15 @@ namespace AnyCAD.Demo.Graphics
                 render.ShowSceneNode(tag);
             }
 
+            {
+                var text = TextSceneNode.Create("不缩放大小", ColorTable.Green, 24, true);
+                var tag = TagNode2D.Create(text, new Vector3(-10, -10, -10));               
+                render.ShowSceneNode(tag);
+
+                var pt = GeometryBuilder.CreatePoint(new Vector3(-10, -10, -10));
+                var node = PrimitiveSceneNode.Create(pt, null);
+                render.ShowSceneNode(node); 
+            }
             //{
             //    var text = TextSceneNode.Create("固定大小的文字", ColorTable.Red, 14, true);
             //    TagNode2D tag = TagNode2D.Create(text, new Vector3(10));

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnyCAD.WinForms.App", "AnyCAD.WinForms.App\AnyCAD.WinForms.App.csproj", "{4C3282A1-0B59-4662-BE27-812721B29C9E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnyCAD.Basic", "AnyCAD.Basic\AnyCAD.Basic.csproj", "{D09227E0-376D-4447-BA56-1BF23C881560}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnyCAD.Advanced", "AnyCAD.Advanced\AnyCAD.Advanced.csproj", "{26A2B2C6-7F2A-4AEC-A30C-2127F744CDD8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exe", "Exe", "{E7BD2F7C-A826-4279-9DBB-4B759743B462}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{D5525FDA-F8A6-4E28-BBFE-3EEA850F27C5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileDlgExtenders", "ThirdParty\FileDlgExtenders\FileDlgExtenders.csproj", "{1B35DA1B-E41C-4C37-9AC1-25B3C4B86949}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThirdParty", "ThirdParty", "{A327B286-99C8-4A86-99A6-36B8B5E049B2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C3282A1-0B59-4662-BE27-812721B29C9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C3282A1-0B59-4662-BE27-812721B29C9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C3282A1-0B59-4662-BE27-812721B29C9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C3282A1-0B59-4662-BE27-812721B29C9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D09227E0-376D-4447-BA56-1BF23C881560}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D09227E0-376D-4447-BA56-1BF23C881560}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D09227E0-376D-4447-BA56-1BF23C881560}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D09227E0-376D-4447-BA56-1BF23C881560}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26A2B2C6-7F2A-4AEC-A30C-2127F744CDD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26A2B2C6-7F2A-4AEC-A30C-2127F744CDD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26A2B2C6-7F2A-4AEC-A30C-2127F744CDD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26A2B2C6-7F2A-4AEC-A30C-2127F744CDD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B35DA1B-E41C-4C37-9AC1-25B3C4B86949}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B35DA1B-E41C-4C37-9AC1-25B3C4B86949}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B35DA1B-E41C-4C37-9AC1-25B3C4B86949}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B35DA1B-E41C-4C37-9AC1-25B3C4B86949}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4C3282A1-0B59-4662-BE27-812721B29C9E} = {E7BD2F7C-A826-4279-9DBB-4B759743B462}
+		{D09227E0-376D-4447-BA56-1BF23C881560} = {D5525FDA-F8A6-4E28-BBFE-3EEA850F27C5}
+		{26A2B2C6-7F2A-4AEC-A30C-2127F744CDD8} = {D5525FDA-F8A6-4E28-BBFE-3EEA850F27C5}
+		{1B35DA1B-E41C-4C37-9AC1-25B3C4B86949} = {A327B286-99C8-4A86-99A6-36B8B5E049B2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E7B41709-A273-4FB1-A228-F92061A2833D}
+	EndGlobalSection
+EndGlobal

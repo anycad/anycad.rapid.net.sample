@@ -20,7 +20,7 @@ namespace AnyCAD.AvaloniaApp
                 groupDict[groupName] = group;
 
                 var node = new TreeViewItem();
-                node.Items = group;
+                node.ItemsSource = group;
                 node.Header = TestCaseLoaderBase.GetUIName(groupName);
                 node.IsExpanded = true;
 

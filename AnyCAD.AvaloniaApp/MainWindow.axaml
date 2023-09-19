@@ -10,7 +10,7 @@
 		<TabControl>
 			<TabItem Header="基础功能">
 				<ScrollViewer Grid.Column="0" >
-					<TreeView Items="{Binding BasicItems}" SelectionChanged ="TreeView_SelectedItemChanged">
+					<TreeView ItemsSource="{Binding BasicItems}" SelectionChanged ="TreeView_SelectedItemChanged">
 						<TreeView.ItemTemplate>
 							<TreeDataTemplate ItemsSource="{Binding Items}">
 								<TextBlock Text="{Binding Header}"/>
@@ -21,7 +21,7 @@
 			</TabItem>
 			<TabItem Header="高级功能">
 				<ScrollViewer Grid.Column="0" >
-					<TreeView Items="{Binding AdvItems}" SelectionChanged ="TreeView_SelectedItemChanged">
+					<TreeView ItemsSource="{Binding AdvItems}" SelectionChanged ="TreeView_SelectedItemChanged">
 						<TreeView.ItemTemplate>
 							<TreeDataTemplate ItemsSource="{Binding Items}">
 								<TextBlock Text="{Binding Header}"/>

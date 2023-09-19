@@ -12,11 +12,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AnyCAD.Rapid.Avalonia" Version="2023.7.1.1004" />
-    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.18" />
+	  <PackageReference Include="AnyCAD.Foundation.Win64" Version="2023.9.19.920" />
+	  <PackageReference Include="AnyCAD.Rapid.Avalonia" Version="2023.9.19.920" />
+	  <PackageReference Include="Avalonia" Version="11.0.4" />
+	  <PackageReference Include="Avalonia.Desktop" Version="11.0.4" />
+	  <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.4" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
-    <PackageReference Include="XamlNameReferenceGenerator" Version="1.6.1" />
   </ItemGroup>
 
   <ItemGroup>

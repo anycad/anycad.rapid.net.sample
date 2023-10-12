@@ -50,19 +50,19 @@ namespace AnyCAD.Demo
 
                 // 获取圆弧信息的例子
                 var node = BrepSceneNode.Cast(item.GetNode());
-                if(node != null)
+                if (node != null)
                 {
                     var shape = node.GetTopoShape();
 
-                    if(item.GetShapeType() == EnumShapeFilter.Edge)
+                    if (item.GetShapeType() == EnumShapeFilter.Edge)
                     {
                         var subShape = shape.FindChild(EnumTopoShapeType.Topo_EDGE, (int)item.GetTopoShapeId());
-                        if(subShape != null)
+                        if (subShape != null)
                         {
                             var curve = new ParametricCurve(subShape);
-                            if(curve.IsValidGeometry())
+                            if (curve.IsValidGeometry())
                             {
-                                if(curve.GetCurveType() == EnumCurveType.CurveType_Circle)
+                                if (curve.GetCurveType() == EnumCurveType.CurveType_Circle)
                                 {
                                     var circle = curve.TryCircle();
                                     var axis = circle.Axis();
@@ -73,17 +73,17 @@ namespace AnyCAD.Demo
                             }
                         }
                     }
-                    
+
                 }
             });
 
             mRenderView.SetAnimationCallback((ViewerListener.AnimationHandler)((float timer) =>
             {
-                if(mEnableAnimation)
+                if (mEnableAnimation)
                     Demo.TestCase.RunAnimation(mRenderView, timer);
             }));
 
-            
+
             //mRenderView.GetContext().GetSelection().SelectSubShape(mRenderView.GetScene(), nodeId, type, shapeIndex);
 
             //var itr = mRenderView.GetContext().GetSelection().GetSelection().CreateIterator();
@@ -136,7 +136,7 @@ namespace AnyCAD.Demo
             var node = SceneIO.Load(dlg.FileName);
             if (node == null)
                 return;
-            
+
             mRenderView.ShowSceneNode(node);
             mRenderView.ZoomAll();
         }
@@ -322,7 +322,7 @@ namespace AnyCAD.Demo
             CADReader doc = new CADReader();
             doc.Open(dialog.FileName, (XdeNode xn, TopoShape shape, GTrsf trf, Vector3 color) =>
             {
-                mRenderView.ShowShape( TransformTool.Transform(shape, trf), color);
+                mRenderView.ShowShape(TransformTool.Transform(shape, trf), color);
             });
 
             mRenderView.ZoomAll();
@@ -340,9 +340,9 @@ namespace AnyCAD.Demo
                 return;
 
             var solidList = shape.GetChildren(EnumTopoShapeType.Topo_SOLID);
-            if(solidList.Count > 0)
+            if (solidList.Count > 0)
             {
-                foreach(var solid in solidList)
+                foreach (var solid in solidList)
                 {
                     mRenderView.ShowShape(solid, new Vector3(0.8f));
                 }
@@ -414,8 +414,19 @@ namespace AnyCAD.Demo
 
         private void openAdvToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ModelFileDialogControl dialogControl= new ModelFileDialogControl();
+            ModelFileDialogControl dialogControl = new ModelFileDialogControl();
             dialogControl.ShowDialog();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var filePath = DialogUtil.SaveFileDialog("Save", "scene.gltf", new StringList { "glTF Files (.gltf)", "*.gltf" });
+            if (filePath.IsEmpty())
+            {
+                return;
+            }
+
+            SceneIO.Save(mRenderView.Scene, filePath.GetString());
         }
     }
 }

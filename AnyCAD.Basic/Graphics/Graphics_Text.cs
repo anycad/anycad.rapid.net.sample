@@ -61,11 +61,6 @@ namespace AnyCAD.Demo.Graphics
                 var node = PrimitiveSceneNode.Create(pt, null);
                 render.ShowSceneNode(node); 
             }
-            //{
-            //    var text = TextSceneNode.Create("固定大小的文字", ColorTable.Red, 14, true);
-            //    TagNode2D tag = TagNode2D.Create(text, new Vector3(10));
-            //    render.ShowSceneNode(tag);
-            //}
 
         }
     }

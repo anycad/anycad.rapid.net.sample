@@ -163,9 +163,6 @@ namespace AnyCAD.Demo.Graphics
     {
         public override void Run(IRenderView render)
         {
-            // 启用Shape捕捉功能。在程序启动的时候设置一次即可。
-            ModelingEngine.EnableSnapShape();
-
             // 设置自定义的编辑器
             var mEditor = new DrawCurveOnSurfaceEditor();
             render.SetEditor(mEditor);

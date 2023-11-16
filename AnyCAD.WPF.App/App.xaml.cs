@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿
+using System.Windows;
 
 namespace AnyCAD.WPF
 {
@@ -10,6 +11,8 @@ namespace AnyCAD.WPF
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             AnyCAD.Foundation.GlobalInstance.Initialize();
+            // 启用Shape捕捉功能。
+            AnyCAD.Foundation.ModelingEngine.EnableSnapShape();
         }
 
         private void Application_Exit(object sender, ExitEventArgs e)

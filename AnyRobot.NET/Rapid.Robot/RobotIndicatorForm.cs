@@ -118,7 +118,7 @@ namespace RapidRobot
                 return;
 
             var arm = mRobot.Robot.GetArm(0);
-            var solver = new IkSolverLMA();
+            var solver = IkSolverFactory.Instance().Create("LMA");
             if (!solver.Initialize(arm))
                 return;
 

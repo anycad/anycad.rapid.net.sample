@@ -5,7 +5,7 @@ namespace Rapid.Robot
 {
     internal class RobotTargetEditor : NodeFrameEidtor
     {
-        IkSolverLMA mSolver;
+        IkSolver mSolver;
         RobotArm mRobotArm;
         public RobotTargetEditor(AxWidget target, RobotArm arm)
             : base(target, TransformWidget.Create(20), "Robot.MoveTarget")
@@ -13,7 +13,7 @@ namespace Rapid.Robot
 
             mRobotArm = arm;
 
-            mSolver = new IkSolverLMA();
+            mSolver = IkSolverFactory.Instance().Create("LMA");
             mSolver.Initialize(mRobotArm);
         }
 

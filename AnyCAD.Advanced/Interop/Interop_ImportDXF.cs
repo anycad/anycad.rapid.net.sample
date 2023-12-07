@@ -11,9 +11,23 @@ namespace AnyCAD.Demo.Geometry
                 return;
 
            var shapes = DxfIO.Load(fileName.GetString());
-           foreach (var shape in shapes)
+           var wires = CurveBuilder.ConnectEdgesToWires(shapes, 0.01, false);
+
+            WireTreeBuilder wtb = new WireTreeBuilder();
+
+            for(int i = 0; i<4 && i< wires.Count;  i++) 
             {
-                render.ShowShape(shape, ColorTable.Red);
+ 
+                wtb.AddWire(wires[i]);
+            }
+            wtb.Build();
+            wtb.Normalize();
+
+            var count = wtb.GetCount();
+            for(uint ii=0; ii<count; ii++)
+            {
+               var wouter =  wtb.GetItem(ii);
+                render.ShowShape(wouter, ColorTable.Red);
             }
         }
     }

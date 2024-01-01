@@ -25,10 +25,12 @@ namespace AnyCAD.Demo.Graphics
 
                     var trf = Matrix4.makeTranslation(pt) * Matrix4.makeRotation(Vector3.UNIT_Z, n);
 
-                    var instance = widget.Clone();
-                    instance.SetTransform(trf);
+                    var ax = AxisWidget.Cast(widget.Clone());
+                    ax.ShowArrow('z', false);
+                    ax.ShowText('z', false);
+                    ax.SetTransform(trf);
 
-                    render.ShowSceneNode(instance);
+                    render.ShowSceneNode(ax);
 
                 }
         }

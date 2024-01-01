@@ -12,8 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <PackageReference Include="AnyCAD.Foundation.Win64" Version="2023.12.1.1706" />
-	  <PackageReference Include="AnyCAD.Rapid.Avalonia" Version="2023.12.1.1706" />
+	  <PackageReference Include="AnyCAD.Foundation.Win64" Version="2024.1.1.1124" />
+	  <PackageReference Include="AnyCAD.Rapid.Avalonia" Version="2024.1.1.1124" />
 	  <PackageReference Include="Avalonia" Version="11.0.6" />
 	  <PackageReference Include="Avalonia.Desktop" Version="11.0.6" />
 	  <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.6" />

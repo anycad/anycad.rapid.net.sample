@@ -7,6 +7,7 @@ namespace AnyCAD.Demo
     {
         public static void ForEachCase(AnyCAD.Demo.TestCase.TestCaseHandler handler)
         {
+            ModelingEngine.EnableSnapShape();
             TestCase.ForEachCase(handler, Assembly.GetExecutingAssembly());
         }
     }

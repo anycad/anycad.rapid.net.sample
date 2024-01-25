@@ -1,6 +1,4 @@
-﻿using AnyCAD.Demo.Geometry;
-using AnyCAD.Foundation;
-using System;
+﻿using AnyCAD.Foundation;
 
 namespace AnyCAD.Demo.Graphics
 {
@@ -8,20 +6,25 @@ namespace AnyCAD.Demo.Graphics
     {
         public MyDistanceMeasureEditor()
         {
-            //SetRepeat(true);
         }
         public override void Apply(ViewContext ctx)
         {
             var node = GetNode();
+
+            // 获取测量结果
+
             base.Apply(ctx);
         }
     }
 
-    class Interaction_Measure : Analysis_Holes
+    class Interaction_Measure : TestCase
     {
         public override void Run(IRenderView render)
         {
-            base.Run(render);
+            var shape = ShapeIO.Open(OpenModelFile());
+            if (shape == null)
+                return;
+            render.ShowShape(shape, ColorTable.AliceBlue);
 
             render.SetEditor(new MyDistanceMeasureEditor());
         }

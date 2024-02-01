@@ -7,9 +7,9 @@
 界面可以选用WinForms、WPF、AvaloniaUI，分别对应不同的App程序。
 
 ## 0 分支说明:
- - R2021: 2021 branch
  - R2022: 2022 branch
- - R2023: master
+ - R2023: 2023 branch
+ - R2024: master
 
 ## 1 环境准备
 

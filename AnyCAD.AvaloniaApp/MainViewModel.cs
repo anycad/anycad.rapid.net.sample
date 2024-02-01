@@ -1,8 +1,5 @@
-﻿using AnyCAD.Demo;
-using Avalonia.Controls;
+﻿using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace AnyCAD.AvaloniaApp

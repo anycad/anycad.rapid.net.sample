@@ -29,7 +29,7 @@ namespace AnyCAD.Demo.Graphics
             }
 
             var primitive = GeometryBuilder.CreateLines(new Float32Array(buffer), null, new Float32Array(colors));
-            GeometryBuilder.ComputeLineDistances(primitive);
+
             // prepare dashed line material
             var material = LineDashedMaterial.Create("dashed-line");
             // enable vertex color

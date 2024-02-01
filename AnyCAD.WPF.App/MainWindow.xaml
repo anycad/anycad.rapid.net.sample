@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         SaveWindowPosition="True"
         d:DataContext="{d:DesignInstance Type=local:MainViewModel}"
-        Title="AnyCAD三维图形平台: 功能展示" Height="600" Width="1024" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" StateChanged="Window_StateChanged">
+        Title="AnyCAD Rapid .NET三维图形控件: 功能展示" Height="600" Width="1024" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" StateChanged="Window_StateChanged">
     <Metro:MetroWindow.RightWindowCommands>
         <Metro:WindowCommands ShowSeparators="False">
             <Menu Margin="50,2,0,0" Background="#00000000">

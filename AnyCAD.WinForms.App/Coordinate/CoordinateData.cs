@@ -110,7 +110,7 @@ namespace AnyCAD.Demo.Coordinate
             // 计算世界坐标系变换到绝对坐标系下的变换
             var trf = new GTrsf();
             trf.SetTransformation(new GAx3(WorldCoordinate), new GAx3());
-            var mat = Matrix4.makeTransform(trf);
+            var mat = Matrix4.From(trf);
 
             // 更新坐标轴位置
             VisualAxis.SetTransform(mat);

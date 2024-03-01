@@ -55,7 +55,7 @@ namespace AnyCAD.Demo.Geometry
            
             tra = TransformTool.Translate(tra, new GVec(0, (-100) / 2.0, 0));
             tra = FeatureTool.Extrude(tra, 100, GP.DY());
-            render.ShowShape(tra, Vector3.ColorFromHex(shapeColor));
+            render.ShowShape(tra, ColorTable.Hex(shapeColor));
 
             var offset = FeatureTool.OffsetShape(tra, 5, EnumGeomJoinType.Intersection);
 

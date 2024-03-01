@@ -148,7 +148,7 @@ namespace AnyCAD.WPF.AdjustFrame
             GTrsf trf = new GTrsf();
             trf.SetDisplacement(ax1, ax2);
 
-            _SourceObject.AddTransform(Matrix4.makeTransform(trf));
+            _SourceObject.AddTransform(Matrix4.From(trf));
             _SourceObject.RequestUpdate();
 
             ViewContext.RequestUpdate(EnumUpdateFlags.Scene);

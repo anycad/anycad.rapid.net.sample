@@ -71,7 +71,7 @@ namespace AnyCAD.WPF
                 {
                     var item = itr.Current();
                     msg += $"\nNodeId: {item.GetNodeId()}";
-                    msg += $"\nObjectId: {item.GetObjectId().Value}";
+                    msg += $"\nObjectId: {item.GetId().GetId().Value}";
                     msg += $"\nUserId: {item.GetUserId()}";
                     msg += $"\nShapeId: {item.GetShapeIndex()}";
                     msg += $"\nPrimitiveId: {item.GetPrimitiveIndex()}";

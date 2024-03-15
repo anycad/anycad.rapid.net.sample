@@ -136,7 +136,7 @@ namespace AnyCAD.Demo.Graphics
 
             var dir = Vector3.UNIT_Z * rotateX;
 
-            var plane = new Plane(dir.normalized(), new Vector3(0, 0, 0));
+            var plane = new PlaneF(dir.normalized(), new Vector3(0, 0, 0));
 
             foreach (var device in mDevices)
             {

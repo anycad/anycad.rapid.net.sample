@@ -20,14 +20,14 @@ namespace AnyCAD.Demo.Graphics
 
             mTargetNode = new PrimitiveSceneNode(geometry, null);
 
-            var camera = new Camera(100, 100, new Vector3(0, 100, 0), new Vector3(0), Vector3.UNIT_Z);
+            var camera = new Camera(100, 100, new Vector3d(0, 100, 0), new Vector3d(0), Vector3d.UNIT_Z);
             //Camera.CreateOrthographic(100, 100, 1, 0.1f, 1000);
             camera.SetNear(0.1f);
             camera.SetFar(1000);
             camera.SetProjectionType(EnumProjectionType.Orthographic);
             camera.UpdateProjectionMatrix();
 
-            var ray = new Ray(new Vector3(0, 100, 0), -Vector3.UNIT_Y);
+            var ray = new Ray(new Vector3d(0, 100, 0), -Vector3d.UNIT_Y);
             mCaster = new Raycaster(camera, (uint)EnumShapeFilter.Face, ray, 50,50);
 
             mLine = new SegmentsSceneNode(1, ColorTable.Red, 1);
@@ -57,17 +57,17 @@ namespace AnyCAD.Demo.Graphics
                 
             _Angle += 0.5f;
 
-            Vector3 dir = new Vector3(0, -1, 0);
-            dir = dir * Matrix4.makeRotationAxis(Vector3.UNIT_Z, (float)(_Angle /180 * Math.PI));
+            Vector3d dir = new Vector3d(0, -1, 0);
+            dir = dir * Matrix4d.makeRotationAxis(Vector3d.UNIT_Z,  _Angle /180 * Math.PI);
             dir.normalize();
 
-            Vector3 start = new Vector3(0, 15, 0);
+            Vector3d start = new Vector3d(0, 15, 0);
             
             var ray = new Ray(start, dir);
 
             mCaster.Clear();
             mCaster.SetRay(ray);
-            Vector3 end = start + dir * 50;
+            Vector3 end = Vector3.From(start + dir * 50);
             if (mCaster.HitTest(mTargetNode) > 0)
             {
                 end = mCaster.GetTopItem().GetPosition();

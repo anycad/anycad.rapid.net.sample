@@ -449,7 +449,7 @@
             Assert.AreEqual(0.0, reversedDirection.Z(), 1e-6); // 反转后应沿相反的X轴方向
         }
 
-        // GDir 类 - Mirror 方法 - 关于一个轴的镜像变换
+        // Mirror 方法 - 关于一个轴的镜像变换
         // 目的: 验证 Mirror 方法是否能够正确地对单位向量进行关于指定轴的镜像变换。
         [TestMethod]
         public void GDir_Mirror_ReflectsAboutAnAxis()
@@ -485,7 +485,7 @@
             Assert.AreEqual(-1.0, originalDirection.Z(), 1e-6); // 镜像变换后应沿Z轴的反方向
         }
 
-        // GDir 类 - Rotated 方法 - 绕指定轴的旋转变换
+        // Rotated 方法 - 绕指定轴的旋转变换
         // 目的: 验证 Rotated 方法是否能够正确地返回绕指定轴旋转后的新单位向量。
         [TestMethod]
         public void GDir_Rotated_ReturnsRotatedUnitVectorAboutAnAxis()
@@ -509,7 +509,7 @@
             Assert.AreEqual(expectedZ, rotatedDirection.Z(), 1e-6);
         }
 
-        // GDir 类 - Transformed 方法 - 应用几何变换到单位向量
+        // Transformed 方法 - 应用几何变换到单位向量
         // 目的: 验证 Transformed 方法是否能够正确地应用指定的几何变换到单位向量上，并返回变换后的单位向量。
         [TestMethod]
         public void Transformed_AppliesTransformationToUnitVector()

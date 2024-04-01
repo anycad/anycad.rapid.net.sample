@@ -1,12 +1,23 @@
 # AnyCAD Rapid .NET Sample
 
 本代码仓库包含包含基础功能和高级功能的演示。其中，
+
+## 0 整体说明
+
+### 0.1 程序入口
+界面可以选用WinForms、WPF、AvaloniaUI，分别对应不同的App程序。
+
+- WinForms简单应用：AnyCAD.WinForms.App
+- WPF简单应用： AnyCAD.WPF.App
+- Avalonia简单应用：AnyCAD.AvaloniaApp
+- WPF复杂应用：AnyCAD.Framework.App
+
+### 0.2 功能实现
 - 基础功能：位于AnyCAD.Basic工程中
 - 高级功能：位于AnyCAD.Advanced工程中。
 
-界面可以选用WinForms、WPF、AvaloniaUI，分别对应不同的App程序。
 
-## 0 分支说明:
+### 0.3 分支说明:
  - R2022: 2022 branch
  - R2023: 2023 branch
  - R2024: master
@@ -21,9 +32,9 @@
 - [vc_redist.x86](https://aka.ms/vs/17/release/vc_redist.x86.exe)
 
 #### 1.2.2 .NET Framework
-支持 .Net Framework 4.5.2、4.8
-#### 1.3.2 .NET 6.0
-推荐使用.NET 6.0
+支持 .Net Framework 4.5.2、4.7.2、4.8
+#### 1.3.2 .NET 6.0、8.0
+推荐使用.NET 6.0/8.0
 
 ### 1.2 Linux
 ### 1.2.1 .NET 6.0

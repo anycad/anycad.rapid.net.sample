@@ -1,4 +1,6 @@
 ﻿using AnyCAD.Foundation;
+using System.IO;
+using System.Numerics;
 
 namespace AnyCAD.Demo.Geometry
 {
@@ -15,10 +17,23 @@ namespace AnyCAD.Demo.Geometry
             //render.ShowShape(topshp3, ColorTable.Red);
         }
 
-        public override void Run(IRenderView render)
+        public void SweepWire(IRenderView render)
         {
-            Sweep(render);
-            return;
+            var file = OpenModelFile();
+            if (file.IsEmpty())
+                return;
+
+            var wire = ShapeIO.Open(file);
+
+            var line = CurveBuilder.MakeLine(new GPnt(), new GPnt(0, 100, 0));
+            var shape = FeatureTool.SweepByFrenet(wire, line, EnumSweepTransitionMode.Transformed, true);
+
+            render.ShowShape(shape, ColorTable.Azure);
+
+        }
+
+        public  void Sweep2(IRenderView render)
+        {
             var path = ShapeIO.Open(GetResourcePath("sweep/path.igs"));
             var spline = ShapeIO.Open(GetResourcePath("sweep/spline.igs"));
 
@@ -29,6 +44,10 @@ namespace AnyCAD.Demo.Geometry
             var cylinder = ShapeIO.Open(GetResourcePath("sweep/Cylinder.igs"));
 
             render.ShowShape(cylinder, ColorTable.Blue);
+        }
+        public override void Run(IRenderView render)
+        {
+            Sweep(render);
         }
     }
 }

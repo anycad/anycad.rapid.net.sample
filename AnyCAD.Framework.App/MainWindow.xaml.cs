@@ -1,4 +1,5 @@
 ﻿using AnyCAD.Foundation;
+using AnyCAD.NX.Command;
 using MahApps.Metro.Controls;
 using System;
 using System.Diagnostics;
@@ -23,7 +24,7 @@ namespace AnyCAD.WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-           
+            UICommandManager.Instance.Register(Assembly.GetExecutingAssembly());
         }
 
         private void Window_StateChanged(object sender, EventArgs e)

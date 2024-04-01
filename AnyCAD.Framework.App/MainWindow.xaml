@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         SaveWindowPosition="True"
         d:DataContext="{d:DesignInstance Type=local:MainViewModel}"
-        Title="AnyCAD Rapid .NET三维图形控件: 功能展示" Height="600" Width="1024" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" StateChanged="Window_StateChanged">
+        Title="AnyCAD Rapid .NET 应用框架: 功能展示" Height="600" Width="1024" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" StateChanged="Window_StateChanged">
     <Metro:MetroWindow.RightWindowCommands>
         <Metro:WindowCommands ShowSeparators="False">
             <Menu Margin="50,2,0,0" Background="#00000000">
@@ -18,6 +18,14 @@
                     <MenuItem  Header="导入实体..." Command="{Binding OpenModelCommand}"/>
                     <MenuItem  Header="导入网格..." Command="{Binding OpenMeshCommand}"/>
                     <MenuItem  Header="导入JSON..." Command="{Binding OpenDrawingCommand}"/>
+                </MenuItem>
+                <MenuItem  Header="编辑" Background="#00000000">
+                    <MenuItem Header="移动" Command="{Binding ExecuteSystemCommand}" CommandParameter="Move"></MenuItem>
+                    <MenuItem Header="旋转" Command="{Binding ExecuteSystemCommand}" CommandParameter="Rotate"></MenuItem>
+                    <MenuItem Header="移动+旋转" Command="{Binding ExecuteSystemCommand}" CommandParameter="Transform"></MenuItem>
+                    <Separator></Separator>
+                    <MenuItem Header="位置调整" Command="{Binding CreateObjectCommand}" CommandParameter="My.AdjustLocation"></MenuItem>
+                    <MenuItem Header="姿态调整" Command="{Binding CreateObjectCommand}" CommandParameter="My.AdjustFrame"></MenuItem>                    
                 </MenuItem>
                 <MenuItem  Header="过滤器" Background="#00000000">
                     <MenuItem  Header="选对象" Command="{Binding PickByObjectCommand}"/>
@@ -33,6 +41,7 @@
                     <MenuItem Header="投影：正交/透视" Command="{Binding CameraProjectionCommand}">
                     </MenuItem>
                 </MenuItem>
+                <MenuItem Header="设置" Background="#00000000" Command="{Binding ViewSettingCommand}"/>
                 <MenuItem Header="帮助" Background="#00000000" Click="VisitHelpWebsite"/>
             </Menu>
         </Metro:WindowCommands>

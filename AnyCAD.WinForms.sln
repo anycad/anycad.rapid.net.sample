@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileDlgExtenders", "ThirdPa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThirdParty", "ThirdParty", "{A327B286-99C8-4A86-99A6-36B8B5E049B2}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnyCAD.Math.Test", "AnyCAD.Math.Test\AnyCAD.Math.Test.csproj", "{5F7510E8-FA8A-46AA-968D-3D54285C5B12}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{1B35DA1B-E41C-4C37-9AC1-25B3C4B86949}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B35DA1B-E41C-4C37-9AC1-25B3C4B86949}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B35DA1B-E41C-4C37-9AC1-25B3C4B86949}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F7510E8-FA8A-46AA-968D-3D54285C5B12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F7510E8-FA8A-46AA-968D-3D54285C5B12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F7510E8-FA8A-46AA-968D-3D54285C5B12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F7510E8-FA8A-46AA-968D-3D54285C5B12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

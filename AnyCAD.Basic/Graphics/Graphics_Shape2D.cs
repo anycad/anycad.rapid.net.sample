@@ -11,7 +11,7 @@ namespace AnyCAD.Demo.Graphics
             var cir = GeometryBuilder.CreateArc(new Vector3(0), new Vector3(100, 0, 0), new Vector3(0, 100, 0), 0);
             var node = PrimitiveSceneNode.Create(cir, null);
 
-            var text = TextSceneNode.Create("圆弧", ColorTable.绿宝石, 50, true);
+            var text = TextSceneNode.Create("弧", ColorTable.绿宝石, 50, true);
 
             var group = new GroupSceneNode();
             group.AddNode(node);

@@ -1,5 +1,10 @@
 ﻿using AnyCAD.Drawing;
 using AnyCAD.Foundation;
+using AnyCAD.NX.Command;
+using AnyCAD.NX.Controls;
+using AnyCAD.NX.Settings;
+using AnyCAD.NX.View;
+using AnyCAD.NX.ViewModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
@@ -7,9 +12,8 @@ using System.Windows.Controls;
 
 namespace AnyCAD.WPF
 {
-    internal partial class MainViewModel : ObservableObject
+    internal partial class MainViewModel : RenderViewModel
     {
-        IRenderView mRenderView;
         [ObservableProperty]
         ObservableCollection<TreeViewItem> _BasicSamples;
 
@@ -21,11 +25,11 @@ namespace AnyCAD.WPF
 
         [ObservableProperty]
         string _SelectionInfo = string.Empty;
-        public MainViewModel(IRenderView view)
-        {
-            mRenderView = view;
+        public MainViewModel(IRenderView view):base(view)
+        { 
             _BasicSamples = TestCaseLoader.LoadBasic();
             _AdvSamples = TestCaseLoader.LoadAdv();
+            PropertyChanged += ViewModel_PropertyChanged;
         }
 
         public void ViewReady()
@@ -42,8 +46,19 @@ namespace AnyCAD.WPF
                 Demo.TestCase.RunAnimation(mRenderView, timer);
             }));
 
+            DoInitialize();
         }
 
+        protected override void OnViewSelectionChanged(PickedResult result)
+        {
+            Demo.TestCase.SelectionChanged(mRenderView, result);
+            UpdateSelectionInfo(result);
+        }
+
+        protected override ICommandView OnCreateCommandView(UICommandContext ctx, string title)
+        {
+            return new AuCommandView(ctx, title);
+        }
 
         public void UpdateSelectionInfo(PickedResult pr)
         {
@@ -117,11 +132,22 @@ namespace AnyCAD.WPF
             SelectionInfo= msg ;
         }
 
+        [RelayCommand]
+        void OnViewSetting()
+        {
+            ViewSettings settings = new();
+            settings.Initialize(RenderView);
+
+            //settings.Save("d:/ViewSetting.json");
+
+            ViewSettingsView settingView = new(settings, RenderView);
+            settingView.ShowDialog();
+        }
 
         [RelayCommand]
         void OnNewScene()
         {
-            mRenderView.ClearAll();
+            RenderView.ClearAll();
         }
 
         [RelayCommand]
@@ -136,10 +162,15 @@ namespace AnyCAD.WPF
                 return;
 
             SceneNode? node = null;
-            var shape = ShapeIO.Open(dlg.FileName);
-            if (shape == null)
-                return;
-            node = BrepSceneNode.Create(shape, null, null, 0, false);
+            var pv = new ProgressView();
+            pv.Run(() =>
+            {
+                var shape = ShapeIO.Open(dlg.FileName);
+                if (shape == null)
+                    return;
+                node = BrepSceneNode.Create(shape, null, null, 0, false);
+            });
+
             if (node == null)
                 return;
 
@@ -159,7 +190,11 @@ namespace AnyCAD.WPF
                 return;
 
             SceneNode? node = null;
-            node = SceneIO.Load(dlg.FileName);
+            var pv = new ProgressView();
+            pv.Run(() =>
+            {
+                node = SceneIO.Load(dlg.FileName);
+            });
 
             if (node == null)
                 return;
@@ -182,14 +217,40 @@ namespace AnyCAD.WPF
             var drawing = DrawingDb.Load(dlg.FileName);
             if(drawing != null)
             {
-                drawing.Show(mRenderView);
+                drawing.Show(RenderView);
             }
         }
 
         [RelayCommand]
         void OnPickEdge()
         {
-            mRenderView.ViewContext.SetPickFilter((uint)EnumShapeFilter.Edge);
+            Viewer.GetContext().SetPickFilter((uint)EnumShapeFilter.Edge);
+        }
+
+        ConfirmInputView? _ConfirmInputView = null;
+        private void ViewModel_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(MainViewModel.ConfirmInputVisible))
+            {
+                if (ConfirmInputVisible)
+                {
+                    if (_ConfirmInputView != null)
+                    {
+                        _ConfirmInputView.Close();
+                    }
+                    _ConfirmInputView = new ConfirmInputView(this);
+                    _ConfirmInputView.Show();
+                }
+                else
+                {
+                    if (_ConfirmInputView != null)
+                    {
+                        _ConfirmInputView.Close();
+                        _ConfirmInputView = null;
+                    }
+
+                }
+            }
         }
     }
 }

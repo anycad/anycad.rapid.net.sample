@@ -1,6 +1,10 @@
 ﻿
 namespace AnyCAD.Math.Test
 {
+    /// <summary>
+    /// GVec(三维向量)相关接口的单元测试集
+    /// API参考文档：http://anycad.cn/api/2024/class_g_vec.html
+    /// </summary>
     [TestClass]
     public class GVecTest
     {
@@ -285,6 +289,32 @@ namespace AnyCAD.Math.Test
 
             // Act & Assert
             Assert.IsFalse(vec1.IsEqual(vec2, 0.0, 0.0));
+        }
+
+        [TestMethod]
+        public void IsEqual_ReturnsTrueForVectorsWithinTolerance()
+        {
+            // Arrange
+            GVec vec1 = new GVec(1.0, 2.0, 3.0);
+            GVec vec2 = new GVec(1.0 + 1e-5, 2.0 - 1e-5, 3.0 + 2e-5);
+            double linearTolerance = 1e-4;
+            double angularTolerance = 1e-4;
+
+            // Act & Assert
+            Assert.IsTrue(vec1.IsEqual(vec2, linearTolerance, angularTolerance));
+        }
+
+        [TestMethod]
+        public void IsEqual_ReturnsFalseForVectorsOutsideTolerance()
+        {
+            // Arrange
+            GVec vec1 = new GVec(1.0, 2.0, 3.0);
+            GVec vec2 = new GVec(1.5, 2.5, 3.5);
+            double linearTolerance = 1e-4;
+            double angularTolerance = 1e-4;
+
+            // Act & Assert
+            Assert.IsFalse(vec1.IsEqual(vec2, linearTolerance, angularTolerance));
         }
 
         [TestMethod]
@@ -703,6 +733,128 @@ namespace AnyCAD.Math.Test
             Assert.AreEqual(1.0, normalized.X(), 1e-6);
             Assert.AreEqual(0.0, normalized.Y(), 1e-6);
             Assert.AreEqual(0.0, normalized.Z(), 1e-6);
+        }
+
+        [TestMethod]
+        public void SetLinearForm_WithTwoVectors()
+        {
+            // Arrange
+            GVec vec1 = new GVec(1.0, 2.0, 3.0);
+            GVec vec2 = new GVec(4.0, 5.0, 6.0);
+            GVec result = new GVec(0.0, 0.0, 0.0); // 初始化为零向量
+
+            // Act
+            result.SetLinearForm(vec1, vec2);
+
+            // Assert
+            Assert.AreEqual(vec1.X() + vec2.X(), result.X(), 1e-6);
+            Assert.AreEqual(vec1.Y() + vec2.Y(), result.Y(), 1e-6);
+            Assert.AreEqual(vec1.Z() + vec2.Z(), result.Z(), 1e-6);
+        }
+
+        [TestMethod]
+        public void SetLinearForm_WithScalarAndTwoVectors()
+        {
+            // Arrange
+            GVec v1 = new GVec(1.0, 2.0, 3.0); // 第一个向量
+            GVec v2 = new GVec(4.0, 5.0, 6.0); // 第二个向量
+            double a1 = 2.0; // 标量
+            GVec result = new GVec(); // 结果向量，初始化为零向量
+
+            // Act
+            result.SetLinearForm(a1, v1, v2);
+
+            // Assert
+            // 验证结果向量的每个分量是否等于标量乘以第一个向量的对应分量加上第二个向量的对应分量
+            Assert.AreEqual(a1 * v1.X() + v2.X(), result.X(), 1e-6);
+            Assert.AreEqual(a1 * v1.Y() + v2.Y(), result.Y(), 1e-6);
+            Assert.AreEqual(a1 * v1.Z() + v2.Z(), result.Z(), 1e-6);
+        }
+
+        [TestMethod]
+        public void SetLinearForm_WithTwoScalarsAndTwoVectors()
+        {
+            // Arrange
+            GVec v1 = new GVec(1.0, 2.0, 3.0); // 第一个向量
+            GVec v2 = new GVec(4.0, 5.0, 6.0); // 第二个向量
+            double a1 = 2.0; // 第一个标量
+            double a2 = 3.0; // 第二个标量
+            GVec result = new GVec(); // 结果向量，初始化为零向量
+
+            // Act
+            result.SetLinearForm(a1, v1, a2, v2);
+
+            // Assert
+            // 验证结果向量的每个分量是否等于标量乘以对应向量的分量之和
+            Assert.AreEqual(a1 * v1.X() + a2 * v2.X(), result.X(), 1e-6);
+            Assert.AreEqual(a1 * v1.Y() + a2 * v2.Y(), result.Y(), 1e-6);
+            Assert.AreEqual(a1 * v1.Z() + a2 * v2.Z(), result.Z(), 1e-6);
+        }
+
+        [TestMethod]
+        public void SetLinearForm_WithTwoScalarsAndThreeVectors()
+        {
+            // Arrange
+            GVec v1 = new GVec(1.0, 2.0, 3.0); // 第一个向量
+            GVec v2 = new GVec(4.0, 5.0, 6.0); // 第二个向量
+            GVec v3 = new GVec(7.0, 8.0, 9.0); // 第三个向量
+            double a1 = 2.0; // 第一个标量
+            double a2 = 3.0; // 第二个标量
+            GVec result = new GVec(); // 结果向量，初始化为零向量
+
+            // Act
+            result.SetLinearForm(a1, v1, a2, v2, v3);
+
+            // Assert
+            // 验证结果向量的每个分量是否等于标量乘以对应向量的分量之和
+            Assert.AreEqual(a1 * v1.X() + a2 * v2.X() + v3.X(), result.X(), 1e-6);
+            Assert.AreEqual(a1 * v1.Y() + a2 * v2.Y() + v3.Y(), result.Y(), 1e-6);
+            Assert.AreEqual(a1 * v1.Z() + a2 * v2.Z() + v3.Z(), result.Z(), 1e-6);
+        }
+
+        [TestMethod]
+        public void SetLinearForm_WithThreeScalarsAndThreeVectors()
+        {
+            // Arrange
+            GVec v1 = new GVec(1.0, 2.0, 3.0); // 第一个向量
+            GVec v2 = new GVec(4.0, 5.0, 6.0); // 第二个向量
+            GVec v3 = new GVec(7.0, 8.0, 9.0); // 第三个向量
+            double a1 = 2.0; // 第一个标量
+            double a2 = 3.0; // 第二个标量
+            double a3 = 4.0; // 第三个标量
+            GVec result = new GVec(); // 结果向量，初始化为零向量
+
+            // Act
+            result.SetLinearForm(a1, v1, a2, v2, a3, v3);
+
+            // Assert
+            // 验证结果向量的每个分量是否等于所有标量乘以对应向量的分量之和
+            Assert.AreEqual(a1 * v1.X() + a2 * v2.X() + a3 * v3.X(), result.X(), 1e-6);
+            Assert.AreEqual(a1 * v1.Y() + a2 * v2.Y() + a3 * v3.Y(), result.Y(), 1e-6);
+            Assert.AreEqual(a1 * v1.Z() + a2 * v2.Z() + a3 * v3.Z(), result.Z(), 1e-6);
+        }
+
+        [TestMethod]
+        public void SetLinearForm_WithThreeScalarsAndFourVectors()
+        {
+            // Arrange
+            GVec v1 = new GVec(1.0, 2.0, 3.0); // 第一个向量
+            GVec v2 = new GVec(4.0, 5.0, 6.0); // 第二个向量
+            GVec v3 = new GVec(7.0, 8.0, 9.0); // 第三个向量
+            GVec v4 = new GVec(10.0, 11.0, 12.0); // 第四个向量
+            double a1 = 2.0; // 第一个标量
+            double a2 = 3.0; // 第二个标量
+            double a3 = 4.0; // 第三个标量
+            GVec result = new GVec(); // 结果向量，初始化为零向量
+
+            // Act
+            result.SetLinearForm(a1, v1, a2, v2, a3, v3, v4);
+
+            // Assert
+            // 验证结果向量的每个分量是否等于所有标量乘以对应向量的分量之和
+            Assert.AreEqual(a1 * v1.X() + a2 * v2.X() + a3 * v3.X() + v4.X(), result.X(), 1e-6);
+            Assert.AreEqual(a1 * v1.Y() + a2 * v2.Y() + a3 * v3.Y() + v4.Y(), result.Y(), 1e-6);
+            Assert.AreEqual(a1 * v1.Z() + a2 * v2.Z() + a3 * v3.Z() + v4.Z(), result.Z(), 1e-6);
         }
     }
 }

@@ -7,13 +7,13 @@ namespace AnyCAD.Demo.Graphics
         public MyDistanceMeasureEditor()
         {
         }
-        public override void Apply(ViewContext ctx)
+        public override bool Apply(ViewContext ctx)
         {
             var node = GetNode();
 
             // 获取测量结果
 
-            base.Apply(ctx);
+            return base.Apply(ctx);
         }
     }
 

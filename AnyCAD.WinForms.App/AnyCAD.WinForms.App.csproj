@@ -14,8 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AnyCAD.Platform.NET" Version="2024.4.1.828" />
-    <PackageReference Include="AnyCAD.Rapid.NET" Version="2024.4.1.828" />
+    <PackageReference Include="AnyCAD.Platform.NET" Version="2024.4.15.1505" />
+    <PackageReference Include="AnyCAD.Rapid.NET" Version="2024.4.15.1505" />
   </ItemGroup>
 
   <ItemGroup>

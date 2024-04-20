@@ -69,7 +69,7 @@ namespace AnyCAD.Demo.Graphics
             if(curve == null)
                 return;
 
-            var bs = new BufferShape(curve, null, mLineMaterial, 0);
+            var bs = GRepShape.Create(curve, null, mLineMaterial, 0, true);
             bs.Build();
 
             mNode.SetShape(bs);

@@ -63,7 +63,6 @@ namespace AnyCAD.Demo.Geometry
                     var colorBuffer = clt.ComputeColors(sc.GetValues(), scale);
                     bs.SetVertexColors(ii, colorBuffer);
                 }
-
             }
 
             // 3. Show it!

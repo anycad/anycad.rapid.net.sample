@@ -16,7 +16,7 @@ namespace AnyCAD.Demo.Graphics
 
         }
 
-        public void Create(BufferShape shape, Vector3 position, List<Vector3> points)
+        public void Create(GRepShape shape, Vector3 position, List<Vector3> points)
         {
             mPosition = position;
             mBasePoints = points;
@@ -77,7 +77,7 @@ namespace AnyCAD.Demo.Graphics
             material.SetFaceSide(EnumFaceSide.DoubleSide);
             material.SetUniform("diffuse", new Vector3(1, 0, 1));
 
-            var bs = new BufferShape(shape, material, null, 0.1);
+            var bs = GRepShape.Create(shape, material, null, 0.1, false);
             bs.Build();
 
             int nCount = 20;

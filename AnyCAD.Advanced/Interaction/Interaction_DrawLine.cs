@@ -33,7 +33,7 @@ namespace AnyCAD.Demo.Graphics
                 return;
 
             var shape = SketchBuilder.MakeLine(start, end);
-            var bs = new BufferShape(shape, null, mLineMaterial, 0);
+            var bs = GRepShape.Create(shape, null, mLineMaterial, 0, false);
             bs.Build();
 
             mNode.SetShape(bs);

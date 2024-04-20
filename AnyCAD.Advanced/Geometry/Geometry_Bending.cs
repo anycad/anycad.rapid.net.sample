@@ -12,7 +12,7 @@ namespace AnyCAD.Demo.Geometry
         /// <summary>
         /// 保存折弯形变B
         /// </summary>
-        public BufferShape BendingShape; 
+        public GRepShape BendingShape; 
         /// <summary>
         /// 折弯左半边的矩阵变换D
         /// </summary>
@@ -66,8 +66,8 @@ namespace AnyCAD.Demo.Geometry
             var solid = FeatureTool.Extrude(face, mHeight, GP.DZ());
 
 
-            // BufferShape即缓存几何对象，又缓存显示对象
-            info.BendingShape = new BufferShape(solid, null, null, 0.1);
+            // GRepShape即缓存几何对象，又缓存显示对象
+            info.BendingShape = GRepShape.Create(solid, null, null, 0.1, false);
             info.BendingShape.Build();
 
             mCache[mAngleOffset] = info;

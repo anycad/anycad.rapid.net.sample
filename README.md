@@ -83,10 +83,6 @@ dotnet msbuild AnyCAD.Rapid.Avalonia.sln
 ![linux.loft](showcase/linux.sweep.png)
 
 
-### 2.4 Featured App
-[Robot.NET](https://gitee.com/anycad/anycad.rapid.net.sample/AnyRobot.NET)
-[![pCY0WZT.md.png](https://s1.ax1x.com/2023/06/23/pCY0WZT.md.png)](https://imgse.com/i/pCY0WZT)
-
 ## 3 Documentation
 
 - [入门说明](http://www.anycad.cn/guide/)
@@ -97,7 +93,14 @@ dotnet msbuild AnyCAD.Rapid.Avalonia.sln
 https://gitee.com/anycad/rapid.net.starter
 ### 高级示例：
 https://gitee.com/anycad/RapidCAX
+### 机器人
+[AnyRobot.NET](https://gitee.com/anycad/anyrobot)
 
+![pCY0WZT.md.png](https://s1.ax1x.com/2023/06/23/pCY0WZT.md.png)
+### 二维绘图
+[AnyDraw.NET](https://gitee.com/anycad/anydraw)
+
+![](https://z1.ax1x.com/2023/10/17/piPQCOP.png)
 ## 5 关于
 http://www.anycad.cn
 

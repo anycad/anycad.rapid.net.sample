@@ -37,8 +37,7 @@ namespace AnyCAD.Demo.Graphics
 
 
             var cone = ShapeBuilder.MakeCone(GP.YOZ(), 5, 0, 10, 0);
-            var bs = new BufferShape(cone, RedMaterial, null, 0.1);
-            bs.Build();
+            var bs = GRepShape.Create(cone, RedMaterial, null, 0.1, false);
             ConeNode1 = new BrepSceneNode(bs);
             ConeNode2 = new BrepSceneNode(bs);
 

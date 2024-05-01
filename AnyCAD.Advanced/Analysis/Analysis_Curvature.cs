@@ -44,7 +44,7 @@ namespace AnyCAD.Demo.Geometry
             material.SetVertexColors(true);
             material.SetFaceSide(EnumFaceSide.DoubleSide);
 
-            var bs = new BufferShape(shape, material, null, 0.01f);
+            var bs = GRepShape.Create(shape, material, null, 0.01f, false);
             bs.Build();
 
             ColorLookupTable clt = new ColorLookupTable();
@@ -61,7 +61,7 @@ namespace AnyCAD.Demo.Geometry
                 {
                     Console.WriteLine("{0}, {1}", sc.GetMinValue(), sc.GetMaxValue());                   
                     var colorBuffer = clt.ComputeColors(sc.GetValues(), scale);
-                    bs.SetVertexColors(ii, colorBuffer);
+                    sc.SetVertexColors(ii, colorBuffer);
                 }
             }
 

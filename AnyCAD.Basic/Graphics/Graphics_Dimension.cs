@@ -15,7 +15,7 @@ namespace AnyCAD.Demo.Graphics
             render.ShowShape(shape, ColorTable.Red);
 
             var dim1 = new AlignedDimensionNode(new Vector3(-100,0,0), new Vector3(0,100,0), 20, "长度");
-            dim1.GetMaterial().SetColor(ColorTable.Green);
+            dim1.SetColor(ColorTable.Green);
             dim1.Update();
             render.ShowSceneNode(dim1);
 

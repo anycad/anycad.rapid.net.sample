@@ -5,9 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-	  <PackageReference Include="AnyCAD.Foundation.NET" Version="2026.1.1.1401" />
-	  <PackageReference Include="AnyCAD.Simulate.NET" Version="2026.1.1.1401" />
-	  <PackageReference Include="AnyCAD.QuickSolid.NET" Version="2026.1.1.1401" />
+	  <PackageReference Include="AnyCAD.Foundation.NET" Version="2026.3.1.951" />
+	  <PackageReference Include="AnyCAD.Simulate.NET" Version="2026.3.1.951" />
+	  <PackageReference Include="AnyCAD.QuickSolid.NET" Version="2026.3.1.951" />
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
   </ItemGroup>
 

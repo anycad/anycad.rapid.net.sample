@@ -346,7 +346,7 @@ namespace AnyCAD.Demo
         private void openFastToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "Models (*.igs;*.iges;*.stp;*.step;*.brep;*.stl)|*.igs;*.iges;*.stp;*.step;*.brep;*.stl";
+            dialog.Filter = "Models (*.igs;*.iges;*.stp;*.step;*.brep;*.stl;*.ifc)|*.igs;*.iges;*.stp;*.step;*.brep;*.stl;*.ifc" ;
             if (dialog.ShowDialog() != DialogResult.OK)
                 return;
 

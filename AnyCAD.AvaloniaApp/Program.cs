@@ -12,7 +12,6 @@ namespace AnyCAD.AvaloniaApp
         public static void Main(string[] args)
         {
             AnyCAD.Foundation.GlobalInstance.Initialize();
-
             BuildAvaloniaApp()
         .StartWithClassicDesktopLifetime(args);
 
